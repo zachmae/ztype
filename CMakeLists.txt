@@ -7,6 +7,7 @@ set(CMAKE_CXX_STANDARD 20)
 set(GRAPHICS GRAPHICS_API_OPENGL_43)
 set(OpenGL_GL_PREFERENCE GLVND)
 
+include(cmake/FindAsioLib.cmake)
 
 if(CMAKE_COMPILER_IS_GNUCXX)
   add_compile_options(-Wall -Wextra -g3)
@@ -25,4 +26,4 @@ add_executable(${PROJECT_NAME}
 
 include_directories(includes)
 
-target_link_libraries(${PROJECT_NAME})
+target_link_libraries(${PROJECT_NAME} asio)
