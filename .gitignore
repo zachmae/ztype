@@ -1,0 +1,10 @@
+## Folders ##
+build/
+
+## Executables ##
+*.exe
+
+## Files ##
+*.o
+*.so
+*.a
