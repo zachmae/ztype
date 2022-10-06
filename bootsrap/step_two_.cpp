@@ -11,17 +11,12 @@
 //Step 0:
 struct entity_t {
     size_t _idx;
-    
-    entity_t()
-    {
-        _idx = 0;
-    };
+    ~entity_t() = default;
+
     explicit entity_t(size_t idx)
     {
         _idx = idx;
     };
-    ~entity_t() = default;
-
 };
 
 // # TEST ENTITY
@@ -227,9 +222,15 @@ class registry {
             // ~ add a sparse_array<Component> to our registry.
             _components_arrays[std::type_index(typeid(Component))] = std::make_any<sparse_array<Component>>();
 
+            // ~ add a remove function by entities to our registry. [don't remember?] (args of the lambda) { what the lambda does }
+            _components_removes.push_back(
+                [] (registry &r, entity_t const &e) { r.get_components<Component>().erase(e._idx); } );
+
+            // ~ return the sparse_array<Component> that we just added to our registry.
             return std::any_cast<sparse_array<Component> &>(_components_arrays[std::type_index(typeid(Component))]);
         };
         
+        // ~ return the sparse_array<Component> that we just added to our registry.
         template <class Component>
         sparse_array<Component> &get_components()
         {
@@ -242,22 +243,124 @@ class registry {
             return std::any_cast<sparse_array<Component> &>(_components_arrays.at(std::type_index(typeid(Component))));
         };
 
+// ~ Step 2.3: MANAGING ENTITIES
+    // ~ 
+        //<> class manager {
+        /** 
+         * // @brief class manager
+         * // template <typename Component>
+         */
+
+        /**
+         * @brief 
+         * 
+         * @return entity_t
+         */
+        // ~ return entity_array.size + 1
+        entity_t spawn_entity() // ~ create an entity
+        {
+            if (_killed_entities.size() != 0) {
+                entity_t tmp = _killed_entities.back();
+                _killed_entities.pop_back();
+                return tmp;
+            } else {
+                ++_entitys_count;
+                return entity_t(_entitys_count - 1);
+            }
+        };
+
+        /**
+         * @brief 
+         * 
+         * @param idx 
+         * @return entity_t 
+         */
+        // ~ 
+        entity_t entity_from_index(std::size_t idx) // ~ create an entity
+        {
+            return entity_t(idx);
+        };
+
+        /**
+         * @brief 
+         * 
+         * @param e 
+         * 
+         */
+        void kill_entity(entity_t const &e)
+        {
+            // * edit register_component();
+            _killed_entities.push_back(e);
+            for (auto f: _components_removes)
+                f(*this, e);
+        };
+        template <typename Component>
+        typename sparse_array<Component>::reference_type add_component(entity_t const &to, Component &&c)
+        {
+            get_components<Component>().emplace_at(to._idx, c);
+            return get_components<Component>()[to._idx];
+        };
+
+        template <typename Component, typename ... Params>
+        typename sparse_array <Component>::reference_type emplace_component(entity_t const &to, Params &&... p)
+        {
+            get_components<Component>().emplace_at(to._idx, p...);
+            return get_components<Component>()[to._idx];
+        };
+
+        template <typename Component>
+        void remove_component(entity_t const &from)
+        {
+            get_components<Component>().erase(from._idx);
+        };
+        // <> };
+
     private :
+        size_t _entitys_count = 0;
+        std::vector<entity_t> _killed_entities;
         std::unordered_map<std::type_index, std::any> _components_arrays;
+        std::vector<std::function<void(registry &, entity_t const &)>> _components_removes;
 };
 
-// # TEST REGISTERY 2.2
+// # TEST ENTITIES 2.3
 int main(int argc, char const *argv[])
 {
     registry reg;
+    std::cout << std::endl << "2.2 - Register_component" << std::endl;
     reg.register_component<float>();
     reg.register_component<int>();
-    reg.register_component<std::string>();
+    reg.get_components<int>().display();
+    reg.get_components<float>().display();
+    std::cout << std::endl << "2.2 - Get_components" << std::endl;
     reg.get_components<float>().emplace_at(1, 1.0f, 2.0f);
+    reg.get_components<int>().emplace_at(1, 1, 2);
+    reg.get_components<int>().display();
+    reg.get_components<float>().display();
+    // ! spawn & entity from index
+    std::cout << std::endl << "2.3.0 - Spawn entity" << std::endl;
+    std::cout << reg.spawn_entity()._idx << std::endl;
+    std::cout << reg.spawn_entity()._idx << std::endl;
+    std::cout << reg.spawn_entity()._idx << std::endl;
+
+    std::cout << std::endl << "2.3.0 - Entity From Index entity" << std::endl;
+    std::cout << reg.entity_from_index(1)._idx << std::endl;
+    std::cout << std::endl << "2.3.0 - Kill entity" << std::endl;
+    reg.kill_entity(entity_t(2));
+    reg.get_components<int>().display();
+    reg.get_components<float>().display();
+    std::cout << std::endl << "2.3.5 - Add_component" << std::endl;
+    reg.add_component<int>(entity_t(2), 3);
+    reg.get_components<float>().display();
+    reg.get_components<int>().display();
+    std::cout << std::endl << "2.3.5 - Emplace_component" << std::endl;
+    reg.emplace_component<float>(entity_t(2), -1.f, -2.f);
+    reg.get_components<float>().display();
+    reg.get_components<int>().display();
+    std::cout << std::endl << "2.3.5 - Remove_component" << std::endl;
+    reg.remove_component<float>(entity_t(2));
     reg.get_components<float>().display();
     reg.get_components<int>().display();
 }
-
 
 //Step 3.0: USING THE ECS 
 
