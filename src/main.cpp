@@ -6,14 +6,26 @@
 ** main
 */
 
-#include <iostream>
-#include <asio.hpp>
+#include <SFML/Window.hpp>
 
-int main()
+int main(int ac, char **av)
 {
-    asio::io_context io;
-    asio::steady_timer t(io, asio::chrono::seconds(5));
-    t.wait();
-    std::cout << "Hello, world!" << std::endl;
+    if (ac == 0 || av == nullptr)
+        return 84;
+    sf::Window window(sf::VideoMode(800, 600), "My window");
+
+    // run the program as long as the window is open
+    while (window.isOpen())
+    {
+        // check all the window's events that were triggered since the last iteration of the loop
+        sf::Event event;
+        while (window.pollEvent(event))
+        {
+            // "close requested" event: we close the window
+            if (event.type == sf::Event::Closed)
+                window.close();
+        }
+    }
+
     return 0;
 }

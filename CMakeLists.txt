@@ -8,6 +8,7 @@ set(GRAPHICS GRAPHICS_API_OPENGL_43)
 set(OpenGL_GL_PREFERENCE GLVND)
 
 include(cmake/FindAsioLib.cmake)
+include(cmake/FindSfmlLib.cmake)
 
 if(CMAKE_COMPILER_IS_GNUCXX)
   add_compile_options(-Wall -Wextra -g3)
@@ -26,4 +27,7 @@ add_executable(${PROJECT_NAME}
 
 include_directories(includes)
 
-target_link_libraries(${PROJECT_NAME} asio)
+target_link_libraries(${PROJECT_NAME}
+    asio
+    sfml-window
+)
