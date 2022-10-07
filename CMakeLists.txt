@@ -30,4 +30,5 @@ include_directories(includes)
 target_link_libraries(${PROJECT_NAME}
     asio
     sfml-window
-)
+    sfml-graphics
+) 
