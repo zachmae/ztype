@@ -139,12 +139,15 @@ namespace GameStd
         {
             //                _ecs.add_component<>
             // run the program as long as the window is open
+            _window.setFramerateLimit(60);
             Image img = _storageManager.Get("background");
             Image img2 = _storageManager.Get("ship");
-            img2.sprite.setPosition(100, 100);
-            img2.sprite.setScale(2, 2);
             int x = 166 * 0.4;
             sf::IntRect rectsprite(x, 0, 32, 17);
+            std::vector<Image> bullets;
+
+            img2.sprite.setPosition(100, 100);
+            img2.sprite.setScale(2, 2);
             while (_window.isOpen())
             {
                 // check all the window's events that were triggered since the last iteration of the loop
@@ -182,6 +185,15 @@ namespace GameStd
                             img2.sprite.move(2, 0);
                             x = 166 * 0.4;
                         }
+                        if (_event.key.code == sf::Keyboard::Space)
+                        {
+                            Image bullet;
+                            bullet.texture.loadFromFile("../assets/img/fx_01.gif");
+                            bullet.sprite.setTexture(bullet.texture);
+                            bullet.sprite.setScale(0.2, 0.2);
+                            bullet.sprite.setPosition(img2.sprite.getPosition().x + 32, img2.sprite.getPosition().y + 8);
+                            bullets.push_back(bullet);
+                        }
                     }
                 }
                 rectsprite.left = x;
@@ -189,6 +201,14 @@ namespace GameStd
                 _window.clear();
                 _window.draw(img.sprite);
                 _window.draw(img2.sprite);
+                for (int i = 0; i < bullets.size(); i++) {
+                    if (bullets[i].sprite.getPosition().x > 800) {
+                       bullets.erase(bullets.begin() + i);
+                        continue;
+                    }
+                    bullets[i].sprite.move(2, 0);
+                    _window.draw(bullets[i].sprite);
+                }
                 _window.display();
             }
         };
