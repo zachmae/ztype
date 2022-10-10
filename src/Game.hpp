@@ -12,175 +12,198 @@
 #include "ecs.hpp"
 #include <map>
 
-
-namespace GameStd {
+namespace GameStd
+{
     // ~
     using position = std::pair<float, float>;
     using speed = float;
     using size = std::pair<float, float>;
     using direction = char;
-//    using clickable = bool;
+    //    using clickable = bool;
     using life = float;
 
-    struct Image {
+    struct Image
+    {
         sf::Texture texture;
         sf::Sprite sprite;
     };
 
-
     /**
      * @brief StorageManager
-     * 
+     *
      * @tparam T
      * @tparam Value
      */
-    template<typename Key/*, typename Value*/>
-    class StorageManager {
-        public:
-            using TStorage = std::map<Key, Image>;
+    template <typename Key /*, typename Value*/>
+    class StorageManager
+    {
+    public:
+        using TStorage = std::map<Key, Image>;
 
-            /**
-             * @brief Add
-             * 
-             * @param t 
-             * @param v 
-             */
-            void Add(Key k, Image &v)
-            {
-                _storage.insert(std::pair<Key, Image>(k, v));
-            };
+        /**
+         * @brief Add
+         *
+         * @param t
+         * @param v
+         */
+        void Add(Key k, Image &v)
+        {
+            _storage.insert(std::pair<Key, Image>(k, v));
+        };
 
-            /**
-             * @brief Add
-             * 
-             * @param t
-             * @param texture
-             * @param f
-             */
-            void Add(Key k, std::string path)
-            {
-                _storage[k].texture.loadFromFile(path);
-                _storage[k].sprite.setTexture(_storage[k].texture);
-            };
+        /**
+         * @brief Add
+         *
+         * @param t
+         * @param texture
+         * @param f
+         */
+        void Add(Key k, std::string path)
+        {
+            _storage[k].texture.loadFromFile(path);
+            _storage[k].sprite.setTexture(_storage[k].texture);
+        };
 
-            /**
-             * @brief Get
-             * 
-             * @param t 
-             * @return Value 
-             */
-            Image &Get(Key k)
-            {
-                return _storage[k];
-            };
+        /**
+         * @brief Get
+         *
+         * @param t
+         * @return Value
+         */
+        Image &Get(Key k)
+        {
+            return _storage[k];
+        };
 
-        private:
-            TStorage _storage;
+    private:
+        TStorage _storage;
     };
 
     /**
      * @brief GameManager
-     * 
+     *
      */
-    class GameManager {
-        public:
-            using Window_ref = sf::RenderWindow &;
-            using Event_ref = sf::Event &;
-            using Audio_ref = sf::Window &;
+    class GameManager
+    {
+    public:
+        using Window_ref = sf::RenderWindow &;
+        using Event_ref = sf::Event &;
+        using Audio_ref = sf::Window &;
 
-            /**
-             * @brief GameManager copy constructor deleted
-             * 
-             */
-            GameManager(GameManager &) = delete;
+        /**
+         * @brief GameManager copy constructor deleted
+         *
+         */
+        GameManager(GameManager &) = delete;
 
-            /**
-             * @brief GameManager move constructor deleted
-             * 
-             */
-            GameManager(GameManager const &&) = delete;
-            ~GameManager() = default;
+        /**
+         * @brief GameManager move constructor deleted
+         *
+         */
+        GameManager(GameManager const &&) = delete;
+        ~GameManager() = default;
 
-            /**
-             * @brief Construct a new Game Manager object
-             * 
-             * @param window 
-             * @param event
-             */
+        /**
+         * @brief Construct a new Game Manager object
+         *
+         * @param window
+         * @param event
+         */
 
-            GameManager(Window_ref window, Event_ref event)
+        GameManager(Window_ref window, Event_ref event)
             : _window(window), _event(event)
-            {
-                _storageManager.Add("pacman", "../assets/___fav___r-typesheet21.gif");
-                _ecs.register_component<position>();
-                _ecs.register_component<speed>();
-                _ecs.register_component<size>();
-                _ecs.register_component<direction>();
-                entity_t e = _ecs.spawn_entity();
-                _ecs.add_component<position>(e, std::make_pair(100, 100));
-            };
+        {
+            _storageManager.Add("ship", "../assets/img/spaceship.gif");
+            _storageManager.Add("background", "../assets/img/space_background.jpeg");
+            _ecs.register_component<position>();
+            _ecs.register_component<speed>();
+            _ecs.register_component<size>();
+            _ecs.register_component<direction>();
+            entity_t e = _ecs.spawn_entity();
+            _ecs.add_component<position>(e, std::make_pair(100, 100));
+        };
 
-            //! not working
-            /**
-             * @brief 
-             * 
-             * @param sf::Vector2f &
-             * @return position 
-             */
-/*            GameStd::position operator=(sf::Vector2f &pos)
-            {
-                return std::pair<float, float>({pos.x, pos.y});
-            }*/
+        //! not working
+        /**
+         * @brief
+         *
+         * @param sf::Vector2f &
+         * @return position
+         */
+        /*            GameStd::position operator=(sf::Vector2f &pos)
+                    {
+                        return std::pair<float, float>({pos.x, pos.y});
+                    }*/
 
-            int run()
+        int run()
+        {
+            //                _ecs.add_component<>
+            // run the program as long as the window is open
+            Image img = _storageManager.Get("background");
+            Image img2 = _storageManager.Get("ship");
+            img2.sprite.setPosition(100, 100);
+            img2.sprite.setScale(2, 2);
+            int x = 166 * 0.4;
+            sf::IntRect rectsprite(x, 0, 32, 17);
+            while (_window.isOpen())
             {
-//                _ecs.add_component<>
-                    // run the program as long as the window is open
-                Image img = _storageManager.Get("pacman");
-                Image img2 = _storageManager.Get("pacman");
-                while (_window.isOpen()) {
-                    // check all the window's events that were triggered since the last iteration of the loop
-                    while (_window.pollEvent(_event)) {
-                        // "close requested" event: we close the window
-                        if (_event.type == sf::Event::Closed) {
-                            _window.close();
-                            return 0;
+                // check all the window's events that were triggered since the last iteration of the loop
+                while (_window.pollEvent(_event))
+                {
+                    // "close requested" event: we close the window
+                    if (_event.type == sf::Event::Closed)
+                    {
+                        _window.close();
+                        return 0;
+                    }
+                    if (_event.type == sf::Event::KeyPressed)
+                    {
+                        if (_event.key.code == sf::Keyboard::Z)
+                        {
+                            img2.sprite.move(0, -2);
+                            x += 166 * 0.2;
+                            if (x > 166 * 0.8)
+                                x = 166 * 0.8;
                         }
-                        if (_event.type == sf::Event::KeyPressed) {
-                            if (_event.key.code == sf::Keyboard::Z) {
-                                img.sprite.move(0, -10);
-                            }
-                            if (_event.key.code == sf::Keyboard::S) {
-                                img.sprite.move(0, 10);
-                            }
-                            if (_event.key.code == sf::Keyboard::Q) {
-                                img.sprite.move(-10, 0);
-                            }
-                            if (_event.key.code == sf::Keyboard::D) {
-                                img.sprite.move(10, 0);
-                            }
+                        if (_event.key.code == sf::Keyboard::S)
+                        {
+                            img2.sprite.move(0, 2);
+                            x -= 166 * 0.2;
+                            if (x < 0)
+                                x = 0;
+                        }
+                        if (_event.key.code == sf::Keyboard::Q)
+                        {
+                            img2.sprite.move(-2, 0);
+                            x = 166 * 0.4;
+                        }
+                        if (_event.key.code == sf::Keyboard::D)
+                        {
+                            img2.sprite.move(2, 0);
+                            x = 166 * 0.4;
                         }
                     }
-
-                    _window.clear();
-                    _window.draw(img.sprite);
-                    _window.draw(img2.sprite);
-                    _window.display();
                 }
-            };
+                rectsprite.left = x;
+                img2.sprite.setTextureRect(rectsprite);
+                _window.clear();
+                _window.draw(img.sprite);
+                _window.draw(img2.sprite);
+                _window.display();
+            }
+        };
 
-        private:
-            Window_ref _window;
-            Event_ref _event;
-            registry _ecs;
-            StorageManager<std::string> _storageManager;
-/*            std::function<Image &(std::string)>_imageLoader = [] (std::string texture) {
-                Image image;
-                image.texture.loadFromFile(texture);
-                image.sprite.setTexture(image.texture);
-                return image;
-            };*/
-
+    private:
+        Window_ref _window;
+        Event_ref _event;
+        registry _ecs;
+        StorageManager<std::string> _storageManager;
+        /*            std::function<Image &(std::string)>_imageLoader = [] (std::string texture) {
+                        Image image;
+                        image.texture.loadFromFile(texture);
+                        image.sprite.setTexture(image.texture);
+                        return image;
+                    };*/
     };
 
 };
