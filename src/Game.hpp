@@ -115,6 +115,7 @@ namespace GameStd
         {
             _storageManager.Add("ship", "../assets/img/spaceship.gif");
             _storageManager.Add("background", "../assets/img/space_background.jpeg");
+            _storageManager.Add("bullet", "../assets/img/fx_02.gif");
             _ecs.register_component<position>();
             _ecs.register_component<speed>();
             _ecs.register_component<size>();
@@ -143,6 +144,8 @@ namespace GameStd
             Image img = _storageManager.Get("background");
             Image img2 = _storageManager.Get("ship");
             int x = 166 * 0.4;
+            int bullet_anim = 0;
+            sf::IntRect bullet_rect(0, 34, 50, 17);
             sf::IntRect rectsprite(x, 0, 32, 17);
             std::vector<Image> bullets;
 
@@ -187,10 +190,8 @@ namespace GameStd
                         }
                         if (_event.key.code == sf::Keyboard::Space)
                         {
-                            Image bullet;
-                            bullet.texture.loadFromFile("../assets/img/fx_01.gif");
-                            bullet.sprite.setTexture(bullet.texture);
-                            bullet.sprite.setScale(0.2, 0.2);
+                            Image bullet = _storageManager.Get("bullet");
+                            //bullet.sprite.setScale(0.2, 0.2);
                             bullet.sprite.setPosition(img2.sprite.getPosition().x + 32, img2.sprite.getPosition().y + 8);
                             bullets.push_back(bullet);
                         }
@@ -201,16 +202,20 @@ namespace GameStd
                 _window.clear();
                 _window.draw(img.sprite);
                 _window.draw(img2.sprite);
-                for (int i = 0; i < bullets.size(); i++) {
+                bullet_anim = (bullet_anim + 50) % 400;
+                bullet_rect.left = bullet_anim;
+                for (long unsigned int i = 0; i < bullets.size(); ++i) {
                     if (bullets[i].sprite.getPosition().x > 800) {
-                       bullets.erase(bullets.begin() + i);
+                        bullets.erase(bullets.begin() + i);
                         continue;
                     }
+                    bullets[i].sprite.setTextureRect(bullet_rect);
                     bullets[i].sprite.move(2, 0);
                     _window.draw(bullets[i].sprite);
                 }
                 _window.display();
             }
+            return 0;
         };
 
     private:
