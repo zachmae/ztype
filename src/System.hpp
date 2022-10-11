@@ -26,6 +26,7 @@ namespace GameStd {
     {
         auto &controllables = r.get_components<contralable>();
         auto &velocities = r.get_components<velocity>();
+
         for (size_t i = 0; i < controllables.size() && i < velocities.size(); ++i) {
             if (velocities[i] && controllables[i] && e.type == sf::Event::KeyPressed) {
                 if (e.key.code == sf::Keyboard::Z) {

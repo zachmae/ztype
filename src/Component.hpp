@@ -33,6 +33,7 @@ namespace GameStd {
     };
 
     struct contralable {
+
     };
 
 }

@@ -59,8 +59,8 @@ namespace GameStd {
                 _ecs.register_component<contralable>();
                 entity_t e = _ecs.spawn_entity();
                 _ecs.add_component<drawable>(e, {sprite:_spriteManager.Get("spaceship")});
-                _ecs.add_component<position>(e, {x:0, y:0});
-                _ecs.add_component<velocity>(e, {x:0, y:0});
+                _ecs.add_component<position>(e, {.x = 0, .y = 0});
+                _ecs.add_component<velocity>(e, {.x = 0, .y = 0});
                 _ecs.add_component<contralable>(e, {});
             };
 

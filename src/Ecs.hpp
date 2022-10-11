@@ -12,6 +12,7 @@ class registry;
 
 struct entity_t {
     size_t _idx;
+    entity_t() = delete;
     ~entity_t() = default;
 
     friend registry;
@@ -259,7 +260,7 @@ class sparse_array {
          * @param pos
          */
         void erase ( size_type pos ) {
-            if (pos < _data.size())
+            if (pos >= 0 && pos < _data.size())
                 _data[pos] = std::nullopt;
         };
 
@@ -320,7 +321,7 @@ class registry {
             // ~ add a sparse_array<Component> to our registry.
             _components_arrays[std::type_index(typeid(Component))] = std::make_any<sparse_array<Component>>();
 
-            // ~ add a remove function by entities to our registry. [don't remember?] (args of the lambda) { what the lambda does }
+            // ~ add a remove function by entities to our registry. [don't remember?] (args of the lambda) -> return { what the lambda does }
             _components_removes.push_back(
                 [] (registry &r, entity_t const &e) { r.get_components<Component>().erase(e._idx); } );
 
@@ -443,7 +444,9 @@ class registry {
     private :
         size_t _entitys_count = 0;
         std::vector<entity_t> _killed_entities;
+
         std::unordered_map<std::type_index, std::any> _components_arrays;
+
         std::vector<std::function<void(registry &, entity_t const &)>> _components_removes;
 };
 
