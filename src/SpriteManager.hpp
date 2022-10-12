@@ -12,8 +12,8 @@
 #include "SFML/Network.hpp"
 #include <map>
 
-#ifndef SPRITEMANAGER_HPP_
-#define SPRITEMANAGER_HPP_
+//#ifndef SPRITEMANAGER_HPP_
+//#define SPRITEMANAGER_HPP_
 
 namespace GameStd {
 
@@ -75,4 +75,4 @@ namespace GameStd {
 };
 
 
-#endif /* !SPRITEMANAGER_HPP_ */
+//#endif /* !SPRITEMANAGER_HPP_ */

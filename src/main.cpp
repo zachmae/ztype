@@ -7,13 +7,13 @@
 */
 
 #include <SFML/Window.hpp>
-#include "Game.hpp"
+#include "ProjectManager.hpp"
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(800, 600), "My window");
-    sf::Event event;
-    GameStd::GameManager manager(window, event);
-
-    return manager.run();
+    //! make the constructeur use a ardcoded json filepath
+    GameStd::ProjectManager pm("assets/conf/project-manager.json");
+//    GameStd::GameManager manager(window, event);
+    return pm.Start();
+//    return manager.run();
 }

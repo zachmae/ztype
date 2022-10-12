@@ -11,8 +11,8 @@
 #include "SFML/System.hpp"
 #include "SFML/Network.hpp"
 
-#ifndef COMPONENT_HPP_
-#define COMPONENT_HPP_
+//#ifndef COMPONENT_HPP_
+//#define COMPONENT_HPP_
 
 namespace GameStd {
     using Window_ref = sf::RenderWindow &;
@@ -37,4 +37,5 @@ namespace GameStd {
     };
 
 }
-#endif /* !COMPONENT_HPP_ */
+
+//#endif /* !COMPONENT_HPP_ */

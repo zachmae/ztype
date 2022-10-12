@@ -22,12 +22,17 @@ namespace GameStd {
      * @brief GameManager
      *
      */
-    class GameManager {
+    class GameManager /*: Scene*/ {
         public:
             using Window_ref = sf::RenderWindow &;
             using Event_ref = sf::Event &;
             using Music_ref = sf::Music &;
             using Sound_ref = sf::Sound &;
+            using Registry_ref = registry &;
+
+            template<typename Key>
+            using SpriteManager_ref = SpriteManager<Key> &;
+
 
             /**
              * @brief GameManager copy constructor deleted
@@ -48,9 +53,8 @@ namespace GameStd {
              * @param window
              * @param event
              */
-
-            GameManager(Window_ref window, Event_ref event)
-            : _window(window), _event(event)
+            GameManager(Window_ref window, Event_ref event, Registry_ref registry, SpriteManager_ref<std::string> sm)
+            : _window(window), _event(event), _ecs(registry), _spriteManager(sm)
             {
                 _spriteManager.Add("spaceship", "assets/___fav___r-typesheet21.gif");
                 _ecs.register_component<drawable>();
@@ -95,6 +99,7 @@ namespace GameStd {
                     position_system(_ecs);
                     draw_system(_ecs, _window);
                     _window.display();
+
                 }
                 return 0;
             };
@@ -102,7 +107,7 @@ namespace GameStd {
         private:
             Window_ref _window;
             Event_ref _event;
-            registry _ecs;
-            SpriteManager<std::string> _spriteManager;
+            Registry_ref _ecs;
+            SpriteManager_ref<std::string> _spriteManager;
     };
 };

@@ -1,6 +1,9 @@
 #include "Ecs.hpp"
 #include "Component.hpp"
 
+#ifndef SCENE_HPP_
+#define SCENE_HPP_
+
 namespace GameStd {
 
     inline void position_system(registry &r)
@@ -57,3 +60,5 @@ namespace GameStd {
         w.display();
     }
 }
+
+#endif /* !SCENE_HPP_ */

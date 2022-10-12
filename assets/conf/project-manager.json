@@ -1,0 +1,26 @@
+{
+    "window": {
+        "title": "My App",
+        "width": 800,
+        "height": 600,
+        "framerate-limit": 60 },
+    "sprite": "assets/conf/sprite.json",
+    "scene": [
+        {
+            "name": "settings",
+            "path": "assets/conf/scene/setting.json"
+        }, {
+                "name": "settings",
+                "path": "assets/conf/scene/setting.json"
+        },
+        "assets/conf/scene/pause.json",
+        "assets/conf/scene/menu.json",
+        "assets/conf/scene/tutorial.json",
+        "assets/conf/scene/settings.json",
+        "assets/conf/scene/game-level-1.json",
+        "assets/conf/scene/game-level-2.json",
+        "assets/conf/scene/game-level-3.json",
+        "assets/conf/scene/win.json",
+        "assets/conf/scene/lose.json"
+    ]
+}
