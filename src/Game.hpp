@@ -52,16 +52,34 @@ namespace GameStd {
             GameManager(Window_ref window, Event_ref event)
             : _window(window), _event(event)
             {
-                _spriteManager.Add("spaceship", "assets/___fav___r-typesheet21.gif");
+                _window.setFramerateLimit(60);
+
                 _ecs.register_component<drawable>();
                 _ecs.register_component<position>();
                 _ecs.register_component<velocity>();
-                _ecs.register_component<contralable>();
-                entity_t e = _ecs.spawn_entity();
-                _ecs.add_component<drawable>(e, {sprite:_spriteManager.Get("spaceship")});
-                _ecs.add_component<position>(e, {x:0, y:0});
-                _ecs.add_component<velocity>(e, {x:0, y:0});
-                _ecs.add_component<contralable>(e, {});
+                _ecs.register_component<controlable>();
+                _ecs.register_component<animation_adaptative>();
+                _ecs.register_component<animation_basic>();
+                _ecs.register_component<resizable>();
+                _ecs.register_component<is_Ship>();
+
+                entity_t background = _ecs.spawn_entity();
+                _spriteManager.Add("background_space", "../assets/img/space_background.jpeg");
+                _ecs.add_component<drawable>(background, {sprite:_spriteManager.Get("background_space")});
+                _ecs.add_component<position>(background, {x: 0, y: 0});
+
+                entity_t ship = _ecs.spawn_entity();
+                _spriteManager.Add("ship", "../assets/img/spaceship.gif");
+                _ecs.add_component<drawable>(ship, {sprite:_spriteManager.Get("ship")});
+                _ecs.add_component<position>(ship, {x: 100, y: 300});
+                _ecs.add_component<velocity>(ship, {x: 2, y: 2});
+                _ecs.add_component<controlable>(ship, {});
+                _ecs.add_component<animation_adaptative>(ship, {rect: sf::IntRect(166 * 0.4, 0, 32, 17), frame_current_x: 0, frame_current_y: 0, frame_time: 0.1});
+                _ecs.add_component<resizable>(ship, {x: 2, y: 2});
+                _ecs.add_component<is_Ship>(ship, {});
+
+
+                _spriteManager.Add("bullet", "../assets/img/fx_02.gif");
             };
 
             //! not working
@@ -90,11 +108,12 @@ namespace GameStd {
                             _window.close();
                             return 0;
                         }
-                        control_system(_ecs, _event);
+                        control_system(_ecs, _event, _spriteManager);
                     }
-                    position_system(_ecs);
+                    position_system(_ecs, _window);
                     draw_system(_ecs, _window);
                     _window.display();
+                    remove_out_of_screen_system(_ecs, _window);
                 }
                 return 0;
             };

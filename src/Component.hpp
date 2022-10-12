@@ -32,8 +32,30 @@ namespace GameStd {
         sf::Sprite sprite;
     };
 
-    struct contralable {
+    struct controlable {
     };
 
+    struct animation_basic {
+        sf::IntRect rect;
+        int frame_current;
+        int frame_max;
+        int frame_size;
+        float frame_time;
+    };
+
+    struct animation_adaptative {
+        sf::IntRect rect;
+        int frame_current_x;
+        int frame_current_y;
+        float frame_time;
+    };
+
+    struct resizable {
+        float x;
+        float y;
+    };
+
+    struct is_Ship {
+    };
 }
 #endif /* !COMPONENT_HPP_ */
