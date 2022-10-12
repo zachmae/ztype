@@ -1,3 +1,5 @@
+#ifndef _ECS_HPP_
+    #define _ECS_HPP_
 #include <iostream>
 #include <vector>
 #include <optional>
@@ -509,3 +511,5 @@ private:
     reg.get_components<float>().display();
     reg.get_components<int>().display();
 }*/
+
+#endif /* _ECS_HPP_ */
