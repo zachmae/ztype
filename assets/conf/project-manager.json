@@ -1,26 +1,38 @@
 {
     "window": {
         "title": "My App",
-        "width": 800,
-        "height": 600,
+        "width": 1920,
+        "height": 1080,
         "framerate-limit": 60 },
     "sprite": "assets/conf/sprite.json",
     "scene": [
         {
+            "name": "pause",
+            "path": "assets/conf/scene/pause.json"
+        }, {
+            "name": "menu",
+            "path": "assets/conf/scene/menu.json"
+        }, {
             "name": "settings",
             "path": "assets/conf/scene/setting.json"
         }, {
-                "name": "settings",
-                "path": "assets/conf/scene/setting.json"
-        },
-        "assets/conf/scene/pause.json",
-        "assets/conf/scene/menu.json",
-        "assets/conf/scene/tutorial.json",
-        "assets/conf/scene/settings.json",
-        "assets/conf/scene/game-level-1.json",
-        "assets/conf/scene/game-level-2.json",
-        "assets/conf/scene/game-level-3.json",
-        "assets/conf/scene/win.json",
-        "assets/conf/scene/lose.json"
+            "name": "tutorial",
+            "path": "assets/conf/scene/tutorial.json"
+        }, {
+            "name": "game-level-1",
+            "path": "assets/conf/scene/game-level-1.json"
+        }, {
+            "name": "game-level-2",
+            "path": "assets/conf/scene/game-level-2.json"
+        }, {
+            "name": "game-level-3",
+            "path": "assets/conf/scene/game-level-3.json"
+        }, {
+            "name": "win",
+            "path": "assets/conf/scene/win.json"
+        }, {
+            "name": "lose",
+            "path": "assets/conf/scene/lose.json"
+        }
     ]
 }

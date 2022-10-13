@@ -11,31 +11,27 @@
 #include "SFML/System.hpp"
 #include "SFML/Network.hpp"
 
-//#ifndef COMPONENT_HPP_
-//#define COMPONENT_HPP_
+#ifndef COMPONENT_HPP_
+    #define COMPONENT_HPP_
 
-namespace GameStd {
-    using Window_ref = sf::RenderWindow &;
-    using Event_ref = sf::Event &;
+using Window_ref = sf::RenderWindow &;
+using Event_ref = sf::Event &;
 
-    struct position {
-        float x;
-        float y;
-    };
+struct position {
+    float x;
+    float y;
+};
 
-    struct velocity {
-        float x;
-        float y;
-    };
+struct velocity {
+    float x;
+    float y;
+};
 
-    struct drawable {
-        sf::Sprite sprite;
-    };
+struct drawable {
+    sf::Sprite sprite;
+};
 
-    struct contralable {
+struct contralable {
+};
 
-    };
-
-}
-
-//#endif /* !COMPONENT_HPP_ */
+#endif /* !COMPONENT_HPP_ */

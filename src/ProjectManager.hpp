@@ -22,6 +22,12 @@
 
 #include "nlohmann/json.hpp"
 
+//declare all components
+#include "ComponentManager.hpp"
+#include <tuple>
+#include <type_traits> //std::is_same_v
+#include <iostream>
+
 
 namespace GameStd {
 
@@ -35,19 +41,31 @@ namespace GameStd {
 
     //
     class ProjectManager {
+        private:
+            //dark cpp
+            template <class T>
+            struct config_extractor { // ne devrait jamais être instancié sauf erreur => gestion d'erreur
+                static_assert(std::is_same_v<T, std::tuple<>>, "component_list in ComponentManager.hpp should be a tuple of Components"); // empeche la compilation si T n'est pas std::tuple<int> (ce qui ne peux jamais arriver)
+                static void function(registry &r) {}
+            };
+
+            //précision
+            template <class ... Components>
+            struct config_extractor<std::tuple<Components...>> { // overload si T est un tuple de choses. Ne clash pas avec la def précédentes
+                static void function(registry &r) {
+                    (r.register_component<Components>(), ...);
+                }
+            };
+
         public:
             ProjectManager(std::string jsonfile)
             : _window(CreateWindow(jsonfile)), _sm()
             {
+                config_extractor<config::components_list>::function(_ecs);
+                _ecs.add_component<position>(_ecs.entity_from_index(1) , {0.f, 0.f});
                 InitWindow(jsonfile);
-                InitComponent(jsonfile);
                 InitScene(jsonfile);
                 InitSprite(jsonfile);
-//                for (auto &it : jsonfile["sprites"]) {
-//                    _sm.Add(it["name"], it["path"]);
-//                }
-
-//                file["window"]["width"];
             };
 
             ~ProjectManager() = default;
@@ -91,13 +109,13 @@ namespace GameStd {
             sf::RenderWindow CreateWindow(std::string jsonfile)
             {
                 std::ifstream ifs(jsonfile.c_str());
+
                 if (ifs.good()) {
                     json file = json::parse(ifs);
-                    //json file = json::parse(jsonfile.c_str());
+
                     return sf::RenderWindow(sf::VideoMode(file["window"]["width"], file["window"]["height"]),
                             std::string(file["window"]["title"]) );
                 }
-                //! warning
                 exit(84);
             }
 
@@ -107,14 +125,6 @@ namespace GameStd {
                 json file = json::parse(ifs);
 
                 _window.setFramerateLimit(file["window"]["framerate-limit"]);
-            }
-
-            void InitComponent(std::string jsonfile)
-            {
-                std::ifstream ifs(jsonfile.c_str());
-                json file = json::parse(ifs);
-
-                ;
             }
 
             void InitScene(std::string jsonfile)

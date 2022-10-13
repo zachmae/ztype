@@ -1,2 +1,36 @@
 {
+    "entities" : [
+        {
+            "name": "enemy",
+            "component": [
+                {"position": {"x": 0, "y": 0}},
+                {"scale": "1,1"},
+                {"sprite": "enemy"},
+                {"enemy": "true"},
+                {"velocity": {"x": 0, "y": 0}}
+            ]
+        }, {
+            "name": "bullet",
+            "component": [
+                {"position": {"x": 0, "y": 0}},
+                {"velocity": {"x": 0, "y": 0}}
+            ]
+        }, {
+            "name": "shield",
+            "component": [
+                {"position": {"x": 0, "y": 0}},
+                {"velocity": {"x": 0, "y": 0}},
+                {"drawable": {}}
+            ]
+        }
+    ],
+    "gameplay": [
+        "enemy",
+        "enemy",
+        "enemy",
+        "shield",
+        "enemy",
+        "enemy",
+        "enemy"
+    ]
 }
