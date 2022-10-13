@@ -40,12 +40,13 @@ namespace GameStd {
                 positions[i]->y += velocities[i]->y;
             }
         }
-        for (size_t i = 0; i < velocities.size(); ++i) {
+        for (size_t i = 0; i < velocities.size() && i < controlables.size(); ++i) {
             if (velocities[i] && controlables[i]) {
                 velocities[i]->y = 0;
                 velocities[i]->x = 0;
             }
         }
+        
     }
 
     inline void animation_basic_system(registry &r)
@@ -54,7 +55,6 @@ namespace GameStd {
         auto &drawables = r.get_components<struct drawable>();
 
         for (size_t i = 0; i < animations.size() && i < drawables.size(); ++i) {
-            //std::cout << "entity: " << i << ", draw" << (drawables[i]? "yes": "no")  << ", animate"<< (animations[i] ? "yes" : "no") << std::endl;
             if (animations[i] && drawables[i]) {
                 animations[i]->frame_current = (animations[i]->frame_current + 1) % animations[i]->frame_max;
                 animations[i]->rect.left = animations[i]->frame_current * animations[i]->frame_size;
@@ -66,11 +66,10 @@ namespace GameStd {
     inline void bullet_creation_system(registry &r, float src_x, float src_y, SpriteManager<std::string> _spriteManager)
     {
         entity_t bullet = r.spawn_entity();
-        std::cout << "bullet created: "<< bullet._idx << " ["  << src_x << ", " << src_y << "]" << std::endl;
-        r.add_component<drawable>(bullet, {sprite: _spriteManager.Get("bullet")});
-        r.add_component<position>(bullet, {x: src_x + 32, y: src_y + 8});
-        r.add_component<velocity>(bullet, {x: 10, y: 0});
-        r.add_component<animation_basic>(bullet, {rect: sf::IntRect(0, 34, 50, 17), frame_current: 0, frame_max: 8, frame_size: 50, frame_time: 0.1});
+        r.add_component<drawable>(bullet, {_spriteManager.Get("bullet")});
+        r.add_component<position>(bullet, {src_x + 32, src_y + 8});
+        r.add_component<velocity>(bullet, {10, 0});
+        r.add_component<animation_basic>(bullet, {sf::IntRect(0, 34, 50, 17), 0, 8, 50, 0.1});
     }
 
     inline void animate_ship_system(registry &r, int entity_index, int key_code)
@@ -126,7 +125,6 @@ namespace GameStd {
             if (positions[i] && drawables[i]) {
                 if (positions[i]->x > w.getSize().x || positions[i]->x < 0 || positions[i]->y > w.getSize().y || positions[i]->y < 0) {
                     r.kill_entity(r.entity_from_index(i));
-                    std::cout << "entity: " << i << " removed, yes im an evil ECS" << std::endl;
                 }
             }
         }
@@ -143,11 +141,11 @@ namespace GameStd {
         w.clear(sf::Color::Black);
         for (size_t i = 0; i < drawables.size(); ++i) {
             if (drawables[i]) {
-                if (positions[i])
+                if (i < positions.size() && positions[i])
                     drawables[i]->sprite.setPosition(positions[i]->x, positions[i]->y);
-                if (animation_adaptatives[i])
+                if (i < animation_adaptatives.size() && animation_adaptatives[i])
                     drawables[i]->sprite.setTextureRect(animation_adaptatives[i]->rect);
-                if (resizables[i])
+                if (i < resizables.size() && resizables[i])
                     drawables[i]->sprite.setScale(resizables[i]->x, resizables[i]->y);
                 w.draw(drawables[i]->sprite);
             }

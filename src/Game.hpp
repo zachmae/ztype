@@ -65,17 +65,17 @@ namespace GameStd {
 
                 entity_t background = _ecs.spawn_entity();
                 _spriteManager.Add("background_space", "../assets/img/space_background.jpeg");
-                _ecs.add_component<drawable>(background, {sprite:_spriteManager.Get("background_space")});
-                _ecs.add_component<position>(background, {x: 0, y: 0});
+                _ecs.add_component<drawable>(background, {_spriteManager.Get("background_space")});
+                _ecs.add_component<position>(background, {0, 0});
 
                 entity_t ship = _ecs.spawn_entity();
                 _spriteManager.Add("ship", "../assets/img/spaceship.gif");
-                _ecs.add_component<drawable>(ship, {sprite:_spriteManager.Get("ship")});
-                _ecs.add_component<position>(ship, {x: 100, y: 300});
-                _ecs.add_component<velocity>(ship, {x: 2, y: 2});
+                _ecs.add_component<drawable>(ship, {_spriteManager.Get("ship")});
+                _ecs.add_component<position>(ship, {100, 300});
+                _ecs.add_component<velocity>(ship, {2, 2});
                 _ecs.add_component<controlable>(ship, {});
-                _ecs.add_component<animation_adaptative>(ship, {rect: sf::IntRect(166 * 0.4, 0, 32, 17), frame_current_x: 0, frame_current_y: 0, frame_time: 0.1});
-                _ecs.add_component<resizable>(ship, {x: 2, y: 2});
+                _ecs.add_component<animation_adaptative>(ship, {sf::IntRect(166 * 0.4, 0, 32, 17), 0, 0, 0.1});
+                _ecs.add_component<resizable>(ship, {2, 2});
                 _ecs.add_component<is_Ship>(ship, {});
 
 
