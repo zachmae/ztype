@@ -16,11 +16,11 @@ namespace GameStd {
     {
         if (pos->x + vel->x  < 0)
             return true;
-        if (pos->x + vel->x > w.getSize().x - 32)
+        if (pos->x + vel->x > w.getSize().x - 48)
             return true;
         if (pos->y + vel->y < 0)
             return true;
-        if (pos->y + vel->y > w.getSize().y - 166)
+        if (pos->y + vel->y > w.getSize().y - 32)
             return true;
         return false;
     }
@@ -46,7 +46,6 @@ namespace GameStd {
                 velocities[i]->x = 0;
             }
         }
-        
     }
 
     inline void animation_basic_system(registry &r)
@@ -80,15 +79,13 @@ namespace GameStd {
             animations[entity_index]->rect.left += 166 * 0.2;
             if (animations[entity_index]->rect.left >= 166 * 0.8)
                 animations[entity_index]->rect.left = 166 * 0.8;
-        }
-        if (key_code == sf::Keyboard::S) {
+        } else if (key_code == sf::Keyboard::S) {
             animations[entity_index]->rect.left -= 166 * 0.2;
             if (animations[entity_index]->rect.left < 0)
                 animations[entity_index]->rect.left = 0;
-        }
-        if (key_code == sf::Keyboard::Q || key_code == sf::Keyboard::D) {
+        } else if (key_code == sf::Keyboard::Q || key_code == sf::Keyboard::D) {
             animations[entity_index]->rect.left = 166 * 0.4;
-    }
+        }
     }
 
     inline void control_system(registry &r, Event_ref e, SpriteManager<std::string> _spriteManager)
@@ -100,16 +97,17 @@ namespace GameStd {
 
         for (size_t i = 0; i < controllables.size() && i < velocities.size(); ++i) {
             if (velocities[i] && controllables[i] && e.type == sf::Event::KeyPressed) {
-                if (e.key.code == sf::Keyboard::Z) {
+                if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z)) {
                     velocities[i]->y = -10;
-                } if (e.key.code == sf::Keyboard::S) {
+                } if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
                     velocities[i]->y = 10;
-                } if (e.key.code == sf::Keyboard::Q) {
+                } if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)) {
                     velocities[i]->x = -10;
-                } if (e.key.code == sf::Keyboard::D) {
+                } if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
                     velocities[i]->x = 10;
-                } if (e.key.code == sf::Keyboard::Space)
+                } if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
                     bullet_creation_system(r, positions[i]->x, positions[i]->y, _spriteManager);
+                }
                 if (i < is_ship.size() && is_ship[i])
                     animate_ship_system(r, i, e.key.code);
             }
