@@ -74,7 +74,7 @@ namespace GameStd {
                 _ecs.add_component<position>(ship, {100, 300});
                 _ecs.add_component<velocity>(ship, {2, 2});
                 _ecs.add_component<controlable>(ship, {});
-                _ecs.add_component<animation_adaptative>(ship, {sf::IntRect(166 * 0.4, 0, 32, 17), 0, 0, 0.1});
+                _ecs.add_component<animation_adaptative>(ship, {sf::IntRect(static_cast<int>(166.0 * 0.4), 0, 32, 17), 0, 0, 0.1f});
                 _ecs.add_component<resizable>(ship, {2, 2});
                 _ecs.add_component<is_Ship>(ship, {});
 

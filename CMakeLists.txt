@@ -11,12 +11,12 @@ include(cmake/FindJsonLib.cmake)
 include(cmake/FindSfmlLib.cmake)
 
 if(CMAKE_COMPILER_IS_GNUCXX)
-  add_compile_options(-Wall -Wextra -g3)
+    add_compile_options(-Wall -Wextra -Wconversion)
 endif(CMAKE_COMPILER_IS_GNUCXX)
 
 if (WIN32)
     add_compile_options(-Wall)
-    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG "./build/")
+    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG "./")
     #set_target_properties (indie_studio.exe PROPERTIES PREFIX "./build/")
 endif(WIN32)
 

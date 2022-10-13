@@ -242,7 +242,7 @@ class sparse_array {
         {
             container_t vecArgs = {args...};
 
-            int i = vecArgs.size();
+            size_type i = vecArgs.size();
             if ( _data.size() <= pos + i)
                 _data.resize(pos + i);
             i = 0;

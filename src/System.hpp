@@ -16,11 +16,11 @@ namespace GameStd {
     {
         if (pos->x + vel->x  < 0)
             return true;
-        if (pos->x + vel->x > w.getSize().x - 48)
+        if (pos->x + vel->x > w.getSize().x - 48.0)
             return true;
         if (pos->y + vel->y < 0)
             return true;
-        if (pos->y + vel->y > w.getSize().y - 32)
+        if (pos->y + vel->y > w.getSize().y - 32.0)
             return true;
         return false;
     }
@@ -68,27 +68,27 @@ namespace GameStd {
         r.add_component<drawable>(bullet, {_spriteManager.Get("bullet")});
         r.add_component<position>(bullet, {src_x + 32, src_y + 8});
         r.add_component<velocity>(bullet, {10, 0});
-        r.add_component<animation_basic>(bullet, {sf::IntRect(0, 34, 50, 17), 0, 8, 50, 0.1});
+        r.add_component<animation_basic>(bullet, {sf::IntRect(0, 34, 50, 17), 0, 8, 50, 0.1f});
     }
 
-    inline void animate_ship_system(registry &r, int entity_index, int key_code)
+    inline void animate_ship_system(registry &r, size_t entity_index, int key_code)
     {
         auto &animations = r.get_components<struct animation_adaptative>();
 
         if (key_code == sf::Keyboard::Z) {
-            animations[entity_index]->rect.left += 166 * 0.2;
+            animations[entity_index]->rect.left += static_cast<int>(166.0 * 0.2);
             if (animations[entity_index]->rect.left >= 166 * 0.8)
-                animations[entity_index]->rect.left = 166 * 0.8;
+                animations[entity_index]->rect.left = static_cast<int>(166.0 * 0.8);
         } else if (key_code == sf::Keyboard::S) {
-            animations[entity_index]->rect.left -= 166 * 0.2;
+            animations[entity_index]->rect.left -= static_cast<int>(166.0 * 0.2);
             if (animations[entity_index]->rect.left < 0)
                 animations[entity_index]->rect.left = 0;
         } else if (key_code == sf::Keyboard::Q || key_code == sf::Keyboard::D) {
-            animations[entity_index]->rect.left = 166 * 0.4;
+            animations[entity_index]->rect.left = static_cast<int>(166.0 * 0.4);
         }
     }
 
-    inline void control_system(registry &r, Event_ref e, SpriteManager<std::string> _spriteManager)
+    inline void control_system(registry &r, Event_ref e, const SpriteManager<std::string>& _spriteManager)
     {
         auto &controllables = r.get_components<controlable>();
         auto &velocities = r.get_components<velocity>();
@@ -121,7 +121,8 @@ namespace GameStd {
 
         for (size_t i = 0; i < positions.size() && i < drawables.size(); ++i) {
             if (positions[i] && drawables[i]) {
-                if (positions[i]->x > w.getSize().x || positions[i]->x < 0 || positions[i]->y > w.getSize().y || positions[i]->y < 0) {
+                if (positions[i]->x > static_cast<float>(w.getSize().x) || positions[i]->x < 0 || positions[i]->y >
+                                                                                                  static_cast<float>(w.getSize().y) || positions[i]->y < 0) {
                     r.kill_entity(r.entity_from_index(i));
                 }
             }
