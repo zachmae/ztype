@@ -18,7 +18,7 @@
 
 #include "System.hpp"
 #include "SpriteManager.hpp"
-#include "Scene.hpp"
+#include "SceneManager.hpp"
 
 #include "nlohmann/json.hpp"
 
@@ -41,31 +41,17 @@ namespace GameStd {
 
     //
     class ProjectManager {
-        private:
-            //dark cpp
-            template <class T>
-            struct config_extractor { // ne devrait jamais être instancié sauf erreur => gestion d'erreur
-                static_assert(std::is_same_v<T, std::tuple<>>, "component_list in ComponentManager.hpp should be a tuple of Components"); // empeche la compilation si T n'est pas std::tuple<int> (ce qui ne peux jamais arriver)
-                static void function(registry &r) {}
-            };
-
-            //précision
-            template <class ... Components>
-            struct config_extractor<std::tuple<Components...>> { // overload si T est un tuple de choses. Ne clash pas avec la def précédentes
-                static void function(registry &r) {
-                    (r.register_component<Components>(), ...);
-                }
-            };
-
         public:
             ProjectManager(std::string jsonfile)
             : _window(CreateWindow(jsonfile)), _sm()
             {
                 config_extractor<config::components_list>::function(_ecs);
                 _ecs.add_component<position>(_ecs.entity_from_index(1) , {0.f, 0.f});
-                InitWindow(jsonfile);
-                InitScene(jsonfile);
-                InitSprite(jsonfile);
+                json file = json::parse(std::ifstream(jsonfile.c_str()));
+
+                InitWindow(file);
+                InitSprite(file);
+                InitScene(file);
             };
 
             ~ProjectManager() = default;
@@ -105,7 +91,33 @@ namespace GameStd {
                 return 0;
             }
 
+            /*void PushScene(std::string str)
+            {
+                _scenes_selected.push_back(str);
+            }
+
+            void PopScene()
+            {
+                _scenes_selected.pop_back();
+            }*/
+
         private:
+            //Auto Implement Component
+            template <class T>
+            struct config_extractor { // ne devrait jamais être instancié sauf erreur => gestion d'erreur
+                static_assert(std::is_same_v<T, std::tuple<>>, "component_list in ComponentManager.hpp should be a tuple of Components"); // empeche la compilation si T n'est pas std::tuple<int> (ce qui ne peux jamais arriver)
+                static void function(registry &r) {}
+            };
+
+            //précision
+            template <class ... Components>
+            struct config_extractor<std::tuple<Components...>> { // overload si T est un tuple de choses. Ne clash pas avec la def précédentes
+                static void function(registry &r) {
+                    (r.register_component<Components>(), ...);
+                }
+            };
+
+            //
             sf::RenderWindow CreateWindow(std::string jsonfile)
             {
                 std::ifstream ifs(jsonfile.c_str());
@@ -119,56 +131,58 @@ namespace GameStd {
                 exit(84);
             }
 
-            void InitWindow(std::string jsonfile)
+            void InitWindow(json file)
             {
-                std::ifstream ifs(jsonfile.c_str());
-                json file = json::parse(ifs);
-
                 _window.setFramerateLimit(file["window"]["framerate-limit"]);
             }
 
-            void InitScene(std::string jsonfile)
+            void InitSprite(json file)
             {
-                std::ifstream ifs(jsonfile.c_str());
-                json file = json::parse(ifs);
+                std::cout << file["sprite-path"] << std::endl;
+                std::ifstream ifs(file["sprite-path"]);
+                json fileSprite;
 
-                ;
+                if (ifs.good()) { //check if file exist
+                    fileSprite = json::parse(ifs);
+                    for (auto &it : fileSprite["sprites"]) { //get each sprite
+                        std::cout << "load: " << it["name"] << it["path"] << std::endl; //debug
+                        _sm.Add(it["name"], it["path"]); // add sprite to sprite manager
+                    }
+                } else {
+                    std::cout << "sprite-path missing" << std::endl;
+                    exit(84);
+                }
             }
 
-            void InitSprite(std::string jsonfile)
+            void InitScene(json file)
             {
-                std::ifstream ifs(jsonfile.c_str());
-                json file = json::parse(ifs);
+                std::cout << file["scene-path"] << std::endl;
+                std::ifstream ifs(file["scene-path"]);
+                json fileScene;
 
-                ;
+                if (ifs.good()) {
+                    fileScene = json::parse(ifs);
+                    for (auto &it : fileScene["scenes"]) {
+                        std::cout << it["name"] << it["path"] << std::endl;
+                        _scenes.Add(it["name"], Scene(_ecs, it["path"])); // =
+                    }
+                } else {
+                    std::cout << "scene-path missing" << std::endl;
+                    exit(84);
+                }
             }
-
-            void PushScene(std::string str)
-            {
-                _scenes_selected.push_back(str);
-            }
-
-            void PopScene()
-            {
-                _scenes_selected.pop_back();
-            }
-
-            //void ControlScene(void)
-            //{
-            //    :
-            //}
 
             //sfml manager
             sf::RenderWindow _window;
             sf::Event _event;
 
-            //system manager
-            std::map<std::string, Scene> _scenes;
+            //object manager
+            //std::map<std::string, Scene> _scenes;
+            SceneManager<std::string> _scenes;
             std::vector<std::string> _scenes_selected;
 
-
-            //object manager
             SpriteManager<std::string> _sm;
+
             registry _ecs;
     };
 

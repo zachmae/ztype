@@ -1,0 +1,11 @@
+{
+    "scenes": [
+        {"name": "tutorial", "path": "assets/conf/scene/tutorial.json"},
+        {"name": "game", "path": "assets/conf/scene/game.json"},
+        {"name": "menu", "path": "assets/conf/scene/menu.json"},
+        {"name": "loading", "path": "assets/conf/scene/loading.json"},
+        {"name": "start", "path": "assets/conf/scene/start.json"},
+        {"name": "gameover", "path": "assets/conf/scene/lose.json"},
+        {"name": "win", "path": "assets/conf/scene/win.json"}
+    ]
+}

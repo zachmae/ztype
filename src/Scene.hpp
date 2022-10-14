@@ -7,31 +7,45 @@
 
 #include <map>
 #include <vector>
+#include "Ecs.hpp"
+#include "nlohmann/json.hpp"
 
-//#include "Component.hpp"
-//#include "System.hpp"
-//#include "SpriteManager.hpp"
+using json = nlohmann::json;
+using Registry_ref = registry &;
 
-class Scene;
-
-using Scene_ref = Scene &;
-using Scenes = std::vector<Scene>;
-using Scenes_ref = Scenes &;
+//using Scene_ref = Scene &;
+////using Scenes = std::vector<Scene>;
+////using Scenes_ref = Scenes &;
 
 class Scene {
-    using Registry_ref = registry &;
-
     public:
-        Scene() = delete;
-        ~Scene() = default;
-        //Scene(Window_ref window, Event_ref event, Registry_ref registry, SpriteManager_ref<std::string> sm);
-/*        Scene(Registry_ref reg, GameStd::SpriteManager<std::string> &sm, std::string jsonfile)
-        : _reg(reg), _sm(sm)
+//        Scene &operator=(const Scene &other)
+//        {
+//            this->_ecs = other._ecs;
+//            return *this;
+//        }
+//
+//        Scene(const Scene &) = default;
+//        ~Scene() = default;
+        Scene(Registry_ref reg, std::string path)
+        : _ecs(reg)
         {
-            ;
-        }*/
+            std::ifstream ifs(path);
+            json scenefile;
+            if (ifs.good()) {
+                scenefile = json::parse(ifs);
+                std::cout << scenefile << std::endl;
+                for (auto &entity : scenefile["entities"]) {
+                    _entities.push_back(_ecs.spawn_entity());
+                }
+                std::cout << "Scene loaded" << std::endl;
+            } else {
+                std::cout << "Scene not loaded" << std::endl;
+            }
+            std::cout << "Scene created" << std::endl;
+            //load entity from json
+        }
 
-    private:
-        registry &_reg;
-        GameStd::SpriteManager<std::string> &_sm;
+        Registry_ref _ecs;
+        std::vector<entity_t> _entities;
 };

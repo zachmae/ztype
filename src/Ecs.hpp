@@ -7,6 +7,9 @@
 #include <functional>
 //#include <map>
 
+#ifndef ECS_HPP_
+    #define ECS_HPP_
+
 //Step 0:
 class registry;
 
@@ -292,7 +295,6 @@ class sparse_array {
                     std::cout << ", " << v;
                 else
                     std::cout << v;
-
                 b = true;
             }
             std::cout << "}" << std::endl;
@@ -320,11 +322,9 @@ class registry {
         {
             // ~ add a sparse_array<Component> to our registry.
             _components_arrays[std::type_index(typeid(Component))] = std::make_any<sparse_array<Component>>();
-
             // ~ add a remove function by entities to our registry. [don't remember?] (args of the lambda) -> return { what the lambda does }
             _components_removes.push_back(
                 [] (registry &r, entity_t const &e) { r.get_components<Component>().erase(e._idx); } );
-
             // ~ return the sparse_array<Component> that we just added to our registry.
             return std::any_cast<sparse_array<Component> &>(_components_arrays[std::type_index(typeid(Component))]);
         };
@@ -450,53 +450,4 @@ class registry {
         std::vector<std::function<void(registry &, entity_t const &)>> _components_removes;
 };
 
-// # TEST ENTITIES 2.3
-/*int main(int argc, char const *argv[])
-{
-    registry reg;
-    // ! spawn & entity from index
-    std::cout << "2.2 - Register_component" << std::endl;
-    reg.register_component<float>();
-    reg.register_component<int>();
-    reg.get_components<int>().display();
-    reg.get_components<float>().display();
-    std::cout << std::endl << "2.3 - Spawn_entity" << std::endl;
-    std::cout << reg.spawn_entity()._idx << std::endl;
-    std::cout << reg.spawn_entity()._idx << std::endl;
-    std::cout << reg.spawn_entity()._idx << std::endl;
-    std::cout << reg.spawn_entity()._idx << std::endl;
-    std::cout << reg.spawn_entity()._idx << std::endl;
-    entity_t e = reg.spawn_entity();
-    std::cout << e._idx << std::endl;
-    reg.get_components<float>().display();
-    reg.get_components<int>().display();
-    std::cout << std::endl << "2.3.5 - Add_component" << std::endl;
-    reg.add_component<float>(e, 3);
-    reg.add_component<int>(e, 3);
-    reg.get_components<float>().display();
-    reg.get_components<int>().display();
-    std::cout << std::endl << "2.3.5 - Entity_from_index" << std::endl;
-    reg.add_component<float>(reg.entity_from_index(0), 1);
-    reg.add_component<int>(reg.entity_from_index(0), 3);
-    reg.get_components<float>().display();
-    reg.get_components<int>().display();
-    std::cout << std::endl << "2.3 - Kill_entity" << std::endl;
-    reg.kill_entity(reg.entity_from_index(0));
-    reg.kill_entity(reg.entity_from_index(4));
-    reg.kill_entity(reg.entity_from_index(2));
-    reg.get_components<float>().display();
-    reg.get_components<int>().display();
-    std::cout << std::endl << "2.3 - Spawn_entity" << std::endl;
-    std::cout << reg.spawn_entity()._idx << std::endl;
-    std::cout << reg.spawn_entity()._idx << std::endl;
-    std::cout << reg.spawn_entity()._idx << std::endl;
-    std::cout << reg.spawn_entity()._idx << std::endl;
-    std::cout << std::endl << "2.3.5 - Emplace_component" << std::endl;
-    reg.emplace_component<float>(e, -1.f, -2.f); // ?? pourquoi l'emplace ecris sur un autre entity_t ?
-    reg.get_components<float>().display();
-    reg.get_components<int>().display();
-    std::cout << std::endl << "2.3.5 - Remove_component" << std::endl;
-    reg.remove_component<float>(e);
-    reg.get_components<float>().display();
-    reg.get_components<int>().display();
-}*/
+#endif // REGISTRY_HPP

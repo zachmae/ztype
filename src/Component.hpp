@@ -17,6 +17,8 @@
 using Window_ref = sf::RenderWindow &;
 using Event_ref = sf::Event &;
 
+//utilisateur
+
 struct position {
     float x;
     float y;

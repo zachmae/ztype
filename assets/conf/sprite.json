@@ -1,5 +1,8 @@
 {
-    "sprite": [
-
+    "sprites": [
+        {"name": "background", "path": "assets/___fav___background.jpeg"},
+        {"name": "ship", "path": "assets/___fav___r-typesheet1.gif"},
+        {"name": "enemy", "path": "assets/___fav___r-typesheet21.gif"},
+        {"name": "bullet", "path": "assets/___fav___r-typesheet42.gif"}
     ]
 }

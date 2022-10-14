@@ -14,6 +14,6 @@ int main()
     //! make the constructeur use a ardcoded json filepath
     GameStd::ProjectManager pm("assets/conf/project-manager.json");
 //    GameStd::GameManager manager(window, event);
-//    return pm.Start();
+    return pm.Start();
 //    return manager.run();
 }
