@@ -1,7 +1,7 @@
 #include "Component.hpp"
 #include <tuple>
 
-struct config {
+struct user_config {
     using components_list = std::tuple<position,
                                         velocity,
                                         drawable,

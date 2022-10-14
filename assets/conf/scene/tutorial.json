@@ -1,2 +1,8 @@
 {
+    "entities" : [
+        {"component" : ["John Doe"]},
+        {"component" : ["Jane Doe"]},
+        {"component" : ["John Smith"]},
+        {"component" : ["Jane Smith"]}
+    ]
 }

@@ -28,6 +28,8 @@
 #include <type_traits> //std::is_same_v
 #include <iostream>
 
+//User
+#include "User.hpp"
 
 namespace GameStd {
 
@@ -45,7 +47,9 @@ namespace GameStd {
             ProjectManager(std::string jsonfile)
             : _window(CreateWindow(jsonfile)), _sm()
             {
-                config_extractor<config::components_list>::function(_ecs);
+                _ecs.register_component<visible>(); //default use for scenes
+                config_extractor<sys_config::components_list>::function(_ecs); //sys
+                config_extractor<user_config::components_list>::function(_ecs); //user
                 _ecs.add_component<position>(_ecs.entity_from_index(1) , {0.f, 0.f});
                 json file = json::parse(std::ifstream(jsonfile.c_str()));
 
@@ -74,6 +78,7 @@ namespace GameStd {
             int Start()
             {
                 while (_window.isOpen()) {
+                    User::UpdateScene(_scenes);
                     _window.clear();
                     // check all the window's events that were triggered since the last iteration of the loop
                     while (_window.pollEvent(_event)) {
@@ -82,8 +87,10 @@ namespace GameStd {
                             _window.close();
                             return 0;
                         }
+                        User::UpdateEventSystem(_ecs, _event);
                         control_system(_ecs, _event);
                     }
+                    User::UpdateWindowSystem(_ecs, _window);
                     position_system(_ecs);
                     draw_system(_ecs, _window);
                     _window.display();
@@ -91,7 +98,12 @@ namespace GameStd {
                 return 0;
             }
 
-            /*void PushScene(std::string str)
+            Scene &GetScene(std::string name)
+            {
+                return _scenes.Get(name);
+            }
+
+            void PushScene(std::string str)
             {
                 _scenes_selected.push_back(str);
             }
@@ -99,9 +111,10 @@ namespace GameStd {
             void PopScene()
             {
                 _scenes_selected.pop_back();
-            }*/
+            }
 
         private:
+//dark c++ ;D
             //Auto Implement Component
             template <class T>
             struct config_extractor { // ne devrait jamais être instancié sauf erreur => gestion d'erreur
@@ -164,10 +177,10 @@ namespace GameStd {
                     fileScene = json::parse(ifs);
                     for (auto &it : fileScene["scenes"]) {
                         std::cout << it["name"] << it["path"] << std::endl;
-                        _scenes.Add(it["name"], Scene(_ecs, it["path"])); // =
+                        _scenes.Add(it["name"], Scene(_ecs, it["path"]));
                     }
                 } else {
-                    std::cout << "scene-path missing" << std::endl;
+                    std::cout << file["scene-path"] << " is missing" << std::endl;
                     exit(84);
                 }
             }
@@ -178,12 +191,12 @@ namespace GameStd {
 
             //object manager
             //std::map<std::string, Scene> _scenes;
+            SpriteManager<std::string> _sm;
+            registry _ecs;
+
+        public:
             SceneManager<std::string> _scenes;
             std::vector<std::string> _scenes_selected;
-
-            SpriteManager<std::string> _sm;
-
-            registry _ecs;
     };
 
 };

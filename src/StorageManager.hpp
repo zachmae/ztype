@@ -22,15 +22,13 @@
  * @tparam T
  * @tparam Value
  */
-template<typename Key, typename Value>
-class SceneManager {
+template<typename Key, typename Value, typename Build>
+class StorageManager {
     public:
         using TStorage = std::map<Key, Value>;
 
-        SceneManager(std::function<Value(<std::string)> f)
-        : _f(f)
-        {
-        }
+        StorageManager(std::function<Value(Build)> f)
+        : _f(f) {}
 
         /**
          * @brief Add
@@ -41,7 +39,7 @@ class SceneManager {
         void Add(Key k, Value &v)
         {
             _storage.insert(std::pair<Key, Value>(k, v));
-        };
+        }
 
         /**
          * @brief Add
@@ -51,10 +49,10 @@ class SceneManager {
          * @param f
          *
          */
-        void Add(Key k, std::string path)
+        void Add(Key k, Build vc)
         {
-            _storage.insert(std::pair<Key, Value>(k, _f(path)));
-        };
+            _storage.insert(std::pair<Key, Value>(k, _f(vc)));
+        }
 
         /**
          * @brief Get
@@ -62,15 +60,14 @@ class SceneManager {
          * @param t
          * @return sf::Sprite
          */
-        sf::Sprite &Get(Key k)
+        Value &Get(Key k)
         {
-//              return _storage[k].;
-            return std::nullopt;
-        };
+              return _storage[k];
+        }
 
     private:
         TStorage _storage;
-        std::function<Value(<std::string)> _f;
+        std::function<Value(Build)> _f;
 };
 
 //#endif /* !SPRITEMANAGER_HPP_ */

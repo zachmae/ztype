@@ -1,8 +1,8 @@
 #include "Ecs.hpp"
 #include "Component.hpp"
 
-#ifndef SCENE_HPP_
-#define SCENE_HPP_
+#ifndef SYSTEM_HPP_
+    #define SYSTEM_HPP_
 
 namespace GameStd {
 
@@ -61,4 +61,4 @@ namespace GameStd {
     }
 }
 
-#endif /* !SCENE_HPP_ */
+#endif /* !SYSTEM_HPP_ */

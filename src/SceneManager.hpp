@@ -36,6 +36,7 @@ class SceneManager {
          */
         void Add(Key k, const Scene &v)
         {
+            _keys.push_back(k);
             _storage.insert(std::pair<Key, Scene>(k, v));
         };
 
@@ -57,13 +58,26 @@ class SceneManager {
          * @param t
          * @return Scene
          */
-        sf::Sprite &Get(Key k)
+        Scene &Get(Key k)
         {
-            return _storage[k];
+            return _storage.at(k);
         };
+
+        std::vector<Key> GetKeys()
+        {
+            return _keys;
+        }
+
+        std::vector<Key> GetKeysUsed()
+        {
+            return _keysUsed;
+        }
 
     private:
         TStorage _storage;
+        std::vector<Key> _keys;
+        std::vector<Key> _keysUsed;
+
 };
 
 #endif /* !SCENEMANAGER_HPP_ */
