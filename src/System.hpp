@@ -6,6 +6,7 @@
 */
 
 #include <optional>
+#include <chrono>
 #include "Ecs.hpp"
 #include "Component.hpp"
 #include "SpriteManager.hpp"
@@ -64,11 +65,19 @@ namespace GameStd {
 
     inline void bullet_creation_system(registry &r, float src_x, float src_y, SpriteManager<std::string> _spriteManager)
     {
+        static clock_t last_time = clock();
+        clock_t current_time = clock();
+        float elapsed_time = ((float)(current_time - last_time) / CLOCKS_PER_SEC) * 60;
+
+        if (elapsed_time < 1)
+            return;
         entity_t bullet = r.spawn_entity();
         r.add_component<drawable>(bullet, {_spriteManager.Get("bullet")});
-        r.add_component<position>(bullet, {src_x + 32, src_y + 8});
+        r.add_component<position>(bullet, {src_x + 64, src_y + 8});
         r.add_component<velocity>(bullet, {10, 0});
         r.add_component<animation_basic>(bullet, {sf::IntRect(0, 34, 50, 17), 0, 8, 50, 0.1f});
+        r.add_component<collidable>(bullet, {});
+        last_time = current_time;
     }
 
     inline void animate_ship_system(registry &r, size_t entity_index, int key_code)
@@ -85,6 +94,40 @@ namespace GameStd {
                 animations[entity_index]->rect.left = 0;
         } else if (key_code == sf::Keyboard::Q || key_code == sf::Keyboard::D) {
             animations[entity_index]->rect.left = static_cast<int>(166.0 * 0.4);
+        }
+    }
+
+    inline void ennemy_system(registry &r, SpriteManager<std::string>& _spriteManager, Window_ref w)
+    {
+        static clock_t last_time = clock();
+        clock_t current_time = clock();
+        float elapsed_time = (static_cast<float>(current_time - last_time) / CLOCKS_PER_SEC) * 60;
+
+        if (elapsed_time < 2)
+            return;
+        entity_t ennemy = r.spawn_entity();
+        r.add_component<drawable>(ennemy, {_spriteManager.Get("ennemy")});
+        r.add_component<position>(ennemy, {static_cast<float>(w.getSize().x) * 0.9f, static_cast<float>(rand() % (w.getSize().y - 64))});
+        r.add_component<velocity>(ennemy, {-3, 0});
+        r.add_component<animation_adaptative>(ennemy, {sf::IntRect(0, 0, 64, 64), 0, 0, 0.5f});
+        r.add_component<collidable>(ennemy, {});
+        last_time = current_time;
+    }
+
+    inline void collision_system(registry &r)
+    {
+        auto &collidables = r.get_components<struct collidable>();
+        auto &drawables = r.get_components<struct drawable>();
+
+        for (unsigned int idx_1 = 0; idx_1 < collidables.size() && idx_1 < drawables.size(); ++idx_1) {
+            for (unsigned int idx_2 = idx_1 + 1; idx_2 < collidables.size(); ++idx_2) {
+                if (collidables[idx_1] && collidables[idx_2] && drawables[idx_1] && drawables[idx_2]) {
+                    if (drawables[idx_1]->sprite.getGlobalBounds().intersects(drawables[idx_2]->sprite.getGlobalBounds())) {
+                        r.kill_entity(r.entity_from_index(idx_1));
+                        r.kill_entity(r.entity_from_index(idx_2));
+                    }
+                }
+            }
         }
     }
 

@@ -57,5 +57,8 @@ namespace GameStd {
 
     struct is_Ship {
     };
+
+    struct collidable {
+    };
 }
 #endif /* !COMPONENT_HPP_ */
