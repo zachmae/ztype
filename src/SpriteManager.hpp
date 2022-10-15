@@ -12,67 +12,68 @@
 #include "SFML/Network.hpp"
 #include <map>
 
-//#ifndef SPRITEMANAGER_HPP_
-//#define SPRITEMANAGER_HPP_
+#ifndef SPRITEMANAGER_HPP_
+    #define SPRITEMANAGER_HPP_
 
-namespace GameStd {
+template <typename Key>
+class SpriteManager;
 
-    struct Image {
-        sf::Texture texture;
-        sf::Sprite sprite;
+template<typename Key/*, typename Value*/>
+using SpriteManager_ref = SpriteManager<Key> &;
+
+struct Image {
+    sf::Texture texture;
+    sf::Sprite sprite;
+};
+
+/**
+ * @brief SpriteManager
+ *
+ * @tparam T
+ * @tparam Value
+ */
+template<typename Key/*, typename Value*/>
+class SpriteManager {
+    public:
+        using TStorage = std::map<Key, Image>;
+
+    /**
+     * @brief Add
+     *
+     * @param t
+     * @param v
+     */
+    void Add(Key k, Image &v)
+    {
+        _storage.insert(std::pair<Key, Image>(k, v));
     };
 
     /**
-     * @brief SpriteManager
+     * @brief Add
      *
-     * @tparam T
-     * @tparam Value
+     * @param t
+     * @param texture
+     * @param f
      */
-    template<typename Key/*, typename Value*/>
-    class SpriteManager {
-        public:
-            using TStorage = std::map<Key, Image>;
-
-            /**
-             * @brief Add
-             *
-             * @param t
-             * @param v
-             */
-            void Add(Key k, Image &v)
-            {
-                _storage.insert(std::pair<Key, Image>(k, v));
-            };
-
-            /**
-             * @brief Add
-             *
-             * @param t
-             * @param texture
-             * @param f
-             */
-            void Add(Key k, std::string path)
-            {
-                _storage[k].texture.loadFromFile(path);
-                _storage[k].sprite.setTexture(_storage[k].texture);
-            };
-
-            /**
-             * @brief Get
-             *
-             * @param t
-             * @return sf::Sprite
-             */
-            sf::Sprite &Get(Key k)
-            {
-                return _storage[k].sprite;
-            };
-
-        private:
-            TStorage _storage;
+    void Add(Key k, std::string path)
+    {
+        _storage[k].texture.loadFromFile(path);
+        _storage[k].sprite.setTexture(_storage[k].texture);
     };
 
+        /**
+         * @brief Get
+         *
+         * @param t
+         * @return sf::Sprite
+         */
+        sf::Sprite &Get(Key k)
+        {
+            return _storage[k].sprite;
+        };
+
+    private:
+        TStorage _storage;
 };
 
-
-//#endif /* !SPRITEMANAGER_HPP_ */
+#endif /* !SPRITEMANAGER_HPP_ */
