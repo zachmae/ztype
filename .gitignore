@@ -1,5 +1,8 @@
 ## Folders ##
 build/
+.idea/
+cmake-build-debug/
+.gitignore
 
 ## Executables ##
 *.exe
