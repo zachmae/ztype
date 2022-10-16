@@ -55,7 +55,7 @@ namespace GameStd {
         float y;
     };
 
-    struct is_Ship {
+    struct is_ship {
     };
 
     struct collidable {

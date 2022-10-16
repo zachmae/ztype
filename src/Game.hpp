@@ -61,7 +61,7 @@ namespace GameStd {
                 _ecs.register_component<animation_adaptative>();
                 _ecs.register_component<animation_basic>();
                 _ecs.register_component<resizable>();
-                _ecs.register_component<is_Ship>();
+                _ecs.register_component<is_ship>();
                 _ecs.register_component<collidable>();
 
                 entity_t background = _ecs.spawn_entity();
@@ -77,7 +77,7 @@ namespace GameStd {
                 _ecs.add_component<controlable>(ship, {});
                 _ecs.add_component<animation_adaptative>(ship, {sf::IntRect(static_cast<int>(166.0 * 0.4), 0, 32, 17), 0, 0, 0.1f});
                 _ecs.add_component<resizable>(ship, {2, 2});
-                _ecs.add_component<is_Ship>(ship, {});
+                _ecs.add_component<is_ship>(ship, {});
                 _ecs.add_component<collidable>(ship, {});
 
                 _spriteManager.Add("bullet", "../assets/img/fx_02.gif");

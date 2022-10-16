@@ -31,10 +31,10 @@ namespace GameStd {
         auto &positions = r.get_components<struct position>();
         auto &controlables = r.get_components<struct controlable>();
         auto &velocities = r.get_components<struct velocity>();
-        auto &is_ship = r.get_components<struct is_Ship>();
+        auto &are_ships = r.get_components<struct is_ship>();
 
         for (size_t i = 0; i < positions.size() && i < velocities.size(); ++i) {
-            if (i < is_ship.size() && is_ship[i] && is_ship_out_system(positions[i], velocities[i], w))
+            if (i < are_ships.size() && are_ships[i] && is_ship_out_system(positions[i], velocities[i], w))
                 continue;
             if (positions[i] && velocities[i]) {
                 positions[i]->x += velocities[i]->x;
@@ -136,7 +136,7 @@ namespace GameStd {
         auto &controllables = r.get_components<controlable>();
         auto &velocities = r.get_components<velocity>();
         auto &positions = r.get_components<position>();
-        auto &is_ship = r.get_components<is_Ship>();
+        auto &are_ships = r.get_components<is_ship>();
 
         for (size_t i = 0; i < controllables.size() && i < velocities.size(); ++i) {
             if (velocities[i] && controllables[i] && e.type == sf::Event::KeyPressed) {
@@ -151,7 +151,7 @@ namespace GameStd {
                 } if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
                     bullet_creation_system(r, positions[i]->x, positions[i]->y, _spriteManager);
                 }
-                if (i < is_ship.size() && is_ship[i])
+                if (i < are_ships.size() && are_ships[i])
                     animate_ship_system(r, i, e.key.code);
             }
         }
