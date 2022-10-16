@@ -5,13 +5,14 @@
 ** game
 */
 
-#include <SFML/Window.hpp>
+#include "SFML/Window.hpp"
 #include "SFML/Graphics.hpp"
 #include "SFML/Audio.hpp"
 #include "SFML/System.hpp"
 #include "SFML/Network.hpp"
 #include "System.hpp"
 #include "SpriteManager.hpp"
+#include "Client.hpp"
 #include <map>
 
 //#include "System.hpp"
@@ -96,17 +97,17 @@ namespace GameStd {
                 return std::pair<float, float>({pos.x, pos.y});
             }*/
 
-            int run()
+            int run(std::string const &ip, unsigned short port)
             {
 //                _ecs.add_component<>
-                    // run the program as long as the window is open
-
-                while (_window.isOpen()) {
+                Client client(ip, port);
+                while (_window.isOpen()) { // run the program as long as the window is open
                     _window.clear();
                     // check all the window's events that were triggered since the last iteration of the loop
                     while (_window.pollEvent(_event)) {
                         // "close requested" event: we close the window
                         if (_event.type == sf::Event::Closed) {
+                            client.disconnect();
                             _window.close();
                             return 0;
                         }
@@ -121,6 +122,31 @@ namespace GameStd {
                 }
                 return 0;
             };
+        int run(unsigned short port)
+        {
+//                _ecs.add_component<>
+            // run the program as long as the window is open
+
+            while (_window.isOpen()) {
+                _window.clear();
+                // check all the window's events that were triggered since the last iteration of the loop
+                while (_window.pollEvent(_event)) {
+                    // "close requested" event: we close the window
+                    if (_event.type == sf::Event::Closed) {
+                        _window.close();
+                        return 0;
+                    }
+                    control_system(_ecs, _event, _spriteManager);
+                }
+                ennemy_system(_ecs, _spriteManager, _window);
+                position_system(_ecs, _window);
+                draw_system(_ecs, _window);
+                _window.display();
+                collision_system(_ecs);
+                remove_out_of_screen_system(_ecs, _window);
+            }
+            return 0;
+        };
 
         private:
             Window_ref _window;
