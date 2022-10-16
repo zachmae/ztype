@@ -81,7 +81,12 @@ class Client {
          * @brief disconnect the client from the server
          */
         inline void disconnect() {
-            send("Disconnect");
+            sf::Packet packet;
+            packet << -1;
+            if (_socket.send(packet) != sf::Socket::Status::Done) {
+                std::cerr << "Error : Sending failed (maybe server down)" << std::endl;
+                exit(84);
+            }
             _socket.disconnect();
         }
 

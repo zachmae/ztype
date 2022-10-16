@@ -23,6 +23,7 @@ endif(WIN32)
 #ADD_LIBRARY(MyStaticLib STATIC
 add_executable(${PROJECT_NAME}
         src/main.cpp
+        src/Server.cpp
         )
 
 include_directories(includes)

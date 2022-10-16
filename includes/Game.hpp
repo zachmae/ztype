@@ -13,6 +13,7 @@
 #include "System.hpp"
 #include "SpriteManager.hpp"
 #include "Client.hpp"
+#include "Server.hpp"
 #include <map>
 
 //#include "System.hpp"
@@ -114,7 +115,7 @@ namespace GameStd {
                         control_system(_ecs, _event, _spriteManager);
                     }
                     ennemy_system(_ecs, _spriteManager, _window);
-                    position_system(_ecs, _window);
+                    position_system(_ecs, _window, client);
                     draw_system(_ecs, _window);
                     _window.display();
                     collision_system(_ecs);
@@ -125,10 +126,20 @@ namespace GameStd {
         int run(unsigned short port)
         {
 //                _ecs.add_component<>
-            // run the program as long as the window is open
+            Server server(port);
+            sf::TcpSocket *socket;
 
-            while (_window.isOpen()) {
+            while (_window.isOpen()) { // run the program as long as the window is open
                 _window.clear();
+                if (server.selectorWait()) {
+                    if (server.isNewConnection()) {
+                        std::cout << "New Client" << std::endl;
+                        server.accept();
+                    }
+                    socket = server.isNewMessage();
+                    if (socket != nullptr)
+                        server.receive(socket);
+                }
                 // check all the window's events that were triggered since the last iteration of the loop
                 while (_window.pollEvent(_event)) {
                     // "close requested" event: we close the window
@@ -139,7 +150,7 @@ namespace GameStd {
                     control_system(_ecs, _event, _spriteManager);
                 }
                 ennemy_system(_ecs, _spriteManager, _window);
-                position_system(_ecs, _window);
+                position_system(_ecs, _window, server);
                 draw_system(_ecs, _window);
                 _window.display();
                 collision_system(_ecs);
