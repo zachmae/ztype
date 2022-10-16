@@ -3,8 +3,13 @@ build/
 
 ## Executables ##
 *.exe
+rtype
 
 ## Files ##
 *.o
 *.so
 *.a
+
+## extra ##
+.vscode
+.idea

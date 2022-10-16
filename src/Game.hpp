@@ -5,295 +5,127 @@
 ** game
 */
 
-#ifndef _GAME_HPP_
-#define _GAME_HPP_
 #include <SFML/Window.hpp>
 #include "SFML/Graphics.hpp"
 #include "SFML/Audio.hpp"
 #include "SFML/System.hpp"
-#include "Ecs.hpp"
+#include "SFML/Network.hpp"
+#include "System.hpp"
+#include "SpriteManager.hpp"
 #include <map>
+
 //#include "System.hpp"
 
-namespace GameStd
-{
-    // ~
-    using Window_ref = sf::RenderWindow &;
-    using Event_ref = sf::Event &;
-
-    struct position
-    {
-        float x;
-        float y;
-    };
-
-    struct velocity
-    {
-        float x;
-        float y;
-    };
-
-    struct drawable
-    {
-        sf::Sprite sprite;
-    };
-
-    struct contralable
-    {
-    };
-
-    struct Image
-    {
-        sf::Texture texture;
-        sf::Sprite sprite;
-    };
-
-    inline void position_system(registry &r)
-    {
-        auto &positions = r.get_components<struct position>();
-        auto &velocities = r.get_components<struct velocity>();
-
-        for (size_t i = 0; i < positions.size() && i < velocities.size(); ++i)
-        {
-            if (positions[i] && velocities[i])
-            {
-                positions[i]->x += velocities[i]->x;
-                positions[i]->y += velocities[i]->y;
-            }
-        }
-        for (size_t i = 0; i < velocities.size(); ++i)
-        {
-            if (velocities[i])
-            {
-                velocities[i]->y = 0;
-                velocities[i]->x = 0;
-            }
-        }
-    }
-
-    inline void control_system(registry &r, Event_ref e)
-    {
-        auto &controllables = r.get_components<contralable>();
-        auto &velocities = r.get_components<velocity>();
-        for (size_t i = 0; i < controllables.size() && i < velocities.size(); ++i)
-        {
-            if (velocities[i] && controllables[i] && e.type == sf::Event::KeyPressed)
-            {
-                velocities[i] = {0, 0};
-                if (e.key.code == sf::Keyboard::Z)
-                {
-                    velocities[i]->y = -10;
-                }
-                if (e.key.code == sf::Keyboard::S)
-                {
-                    velocities[i]->y = 10;
-                }
-                if (e.key.code == sf::Keyboard::Q)
-                {
-                    velocities[i]->x = -10;
-                }
-                if (e.key.code == sf::Keyboard::D)
-                {
-                    velocities[i]->x = 10;
-                }
-                sf::Sprite sprite;
-                if (e.key.code == sf::Keyboard::Space) {
-                    entity_t bullet = r.spawn_entity();
-                    //r.add_component<drawable>(bullet, {sprite : ?});
-                    r.add_component<position>(bullet, {x : 0, y : 0});
-                    r.add_component<velocity>(bullet, {x : 4, y : 0});
-                }
-
-            }
-        }
-    }
-
-    inline void draw_system(registry &r, Window_ref w)
-    {
-        auto &drawables = r.get_components<drawable>();
-        auto &positions = r.get_components<position>();
-
-        w.clear(sf::Color::Black);
-        for (size_t i = 0; i < drawables.size() && i < positions.size(); ++i)
-        {
-            if (drawables[i] && positions[i])
-            {
-                drawables[i]->sprite.setPosition({positions[i]->x, positions[i]->y});
-                w.draw(drawables[i]->sprite);
-            }
-        }
-        w.display();
-    }
-
-    /**
-     * @brief StorageManager
-     *
-     * @tparam T
-     * @tparam Value
-     */
-    template <typename Key /*, typename Value*/>
-    class StorageManager
-    {
-    public:
-        using TStorage = std::map<Key, Image>;
-
-        /**
-         * @brief Add
-         *
-         * @param t
-         * @param v
-         */
-        void Add(Key k, Image &v)
-        {
-            _storage.insert(std::pair<Key, Image>(k, v));
-        };
-
-        /**
-         * @brief Add
-         *
-         * @param t
-         * @param texture
-         * @param f
-         */
-        void Add(Key k, std::string path)
-        {
-            _storage[k].texture.loadFromFile(path);
-            _storage[k].sprite.setTexture(_storage[k].texture);
-        };
-
-        /**
-         * @brief Get
-         *
-         * @param t
-         * @return sf::Sprite
-         */
-        sf::Sprite &Get(Key k)
-        {
-            return _storage[k].sprite;
-        };
-
-    private:
-        TStorage _storage;
-    };
+namespace GameStd {
 
     /**
      * @brief GameManager
      *
      */
-    class GameManager
-    {
-    public:
-        using Window_ref = sf::RenderWindow &;
-        using Event_ref = sf::Event &;
-        using Music_ref = sf::Music &;
-        using Sound_ref = sf::Sound &;
+    class GameManager {
+        public:
+            using Window_ref = sf::RenderWindow &;
+            using Event_ref = sf::Event &;
+            using Music_ref = sf::Music &;
+            using Sound_ref = sf::Sound &;
 
-        /**
-         * @brief GameManager copy constructor deleted
-         *
-         */
-        GameManager(GameManager &) = delete;
+            /**
+             * @brief GameManager copy constructor deleted
+             *
+             */
+            GameManager(GameManager &) = delete;
 
-        /**
-         * @brief GameManager move constructor deleted
-         *
-         */
-        GameManager(GameManager const &&) = delete;
-        ~GameManager() = default;
+            /**
+             * @brief GameManager move constructor deleted
+             *
+             */
+            GameManager(GameManager const &&) = delete;
+            ~GameManager() = default;
 
-        /**
-         * @brief Construct a new Game Manager object
-         *
-         * @param window
-         * @param event
-         */
+            /**
+             * @brief Construct a new Game Manager object
+             *
+             * @param window
+             * @param event
+             */
 
-        GameManager(Window_ref window, Event_ref event)
+            GameManager(Window_ref window, Event_ref event)
             : _window(window), _event(event)
-        {
-            _window.setFramerateLimit(60);
-            _ecs.register_component<drawable>();
-            _ecs.register_component<position>();
-            _ecs.register_component<velocity>();
-            _ecs.register_component<contralable>();
-
-            entity_t background = _ecs.spawn_entity();
-            _storageManager.Add("background", "../assets/img/space_background.jpeg");
-            _ecs.add_component<drawable>(background, {sprite : _storageManager.Get("background")});
-            _ecs.add_component<position>(background, {x : 0, y : 0});
-
-            entity_t ship = _ecs.spawn_entity();
-            _storageManager.Add("spaceship", "../assets/img/spaceship.gif");
-            sf::Sprite shipSprite = _storageManager.Get("spaceship");
-            shipSprite.setScale(2, 2);
-            shipSprite.setTextureRect(sf::IntRect(166 * 0.4, 0, 32, 17));
-            _ecs.add_component<drawable>(ship, {sprite : shipSprite});
-            _ecs.add_component<position>(ship, {x : 100, y : 300});
-            _ecs.add_component<velocity>(ship, {x : 2, y : 2});
-            _ecs.add_component<contralable>(ship, {});
-
-            _storageManager.Add("bullet", "../assets/img/fx_02.gif");
-
-            // THIS WHEN I PRESS SPACE
-            //entity_t bullet = _ecs.spawn_entity();
-            //_ecs.add_component<drawable>(bullet, {sprite : _storageManager.Get("bullet")});
-            //_ecs.add_component<position>(bullet, {x : 0, y : 0});
-            //_ecs.add_component<velocity>(bullet, {x : 4, y : 0});
-
-            //                _ecs.add_component<position>(e, {0, 0});
-        };
-
-        //! not working
-        /**
-         * @brief
-         *
-         * @param sf::Vector2f &
-         * @return position
-         */
-        /*            GameStd::position operator=(sf::Vector2f &pos)
-                    {
-                        return std::pair<float, float>({pos.x, pos.y});
-                    }*/
-
-        int run()
-        {
-            //                _ecs.add_component<>
-            // run the program as long as the window is open
-
-            while (_window.isOpen())
             {
-                _window.clear();
-                // check all the window's events that were triggered since the last iteration of the loop
-                while (_window.pollEvent(_event))
-                {
-                    // "close requested" event: we close the window
-                    if (_event.type == sf::Event::Closed)
-                    {
-                        _window.close();
-                        return 0;
+                _window.setFramerateLimit(60);
+
+                _ecs.register_component<drawable>();
+                _ecs.register_component<position>();
+                _ecs.register_component<velocity>();
+                _ecs.register_component<controlable>();
+                _ecs.register_component<animation_adaptative>();
+                _ecs.register_component<animation_basic>();
+                _ecs.register_component<resizable>();
+                _ecs.register_component<is_ship>();
+                _ecs.register_component<collidable>();
+
+                entity_t background = _ecs.spawn_entity();
+                _spriteManager.Add("background_space", "../assets/img/space_background.jpeg");
+                _ecs.add_component<drawable>(background, {_spriteManager.Get("background_space")});
+                _ecs.add_component<position>(background, {0, 0});
+
+                entity_t ship = _ecs.spawn_entity();
+                _spriteManager.Add("ship", "../assets/img/spaceship.gif");
+                _ecs.add_component<drawable>(ship, {_spriteManager.Get("ship")});
+                _ecs.add_component<position>(ship, {100, 300});
+                _ecs.add_component<velocity>(ship, {2, 2});
+                _ecs.add_component<controlable>(ship, {});
+                _ecs.add_component<animation_adaptative>(ship, {sf::IntRect(static_cast<int>(166.0 * 0.4), 0, 32, 17), 0, 0, 0.1f});
+                _ecs.add_component<resizable>(ship, {2, 2});
+                _ecs.add_component<is_ship>(ship, {});
+                _ecs.add_component<collidable>(ship, {});
+
+                _spriteManager.Add("bullet", "../assets/img/fx_02.gif");
+                _spriteManager.Add("ennemy", "../assets/img/enemy_01.gif");
+            };
+
+            //! not working
+            /**
+             * @brief
+             *
+             * @param sf::Vector2f &
+             * @return position
+             */
+/*            GameStd::position operator=(sf::Vector2f &pos)
+            {
+                return std::pair<float, float>({pos.x, pos.y});
+            }*/
+
+            int run()
+            {
+//                _ecs.add_component<>
+                    // run the program as long as the window is open
+
+                while (_window.isOpen()) {
+                    _window.clear();
+                    // check all the window's events that were triggered since the last iteration of the loop
+                    while (_window.pollEvent(_event)) {
+                        // "close requested" event: we close the window
+                        if (_event.type == sf::Event::Closed) {
+                            _window.close();
+                            return 0;
+                        }
+                        control_system(_ecs, _event, _spriteManager);
                     }
-                    control_system(_ecs, _event);
+                    ennemy_system(_ecs, _spriteManager, _window);
+                    position_system(_ecs, _window);
+                    draw_system(_ecs, _window);
+                    _window.display();
+                    collision_system(_ecs);
+                    remove_out_of_screen_system(_ecs, _window);
                 }
-                position_system(_ecs);
-                draw_system(_ecs, _window);
-                _window.display();
-            }
-            return 0;
-        };
+                return 0;
+            };
 
-    private:
-        Window_ref _window;
-        Event_ref _event;
-        registry _ecs;
-        StorageManager<std::string> _storageManager;
-        /*            std::function<Image &(std::string)>_imageLoader = [] (std::string texture) {
-                        Image image;
-                        image.texture.loadFromFile(texture);
-                        image.sprite.setTexture(image.texture);
-                        return image;
-                    };*/
+        private:
+            Window_ref _window;
+            Event_ref _event;
+            registry _ecs;
+            SpriteManager<std::string> _spriteManager;
     };
-
 };
-
-#endif /* _GAME_HPP_ */

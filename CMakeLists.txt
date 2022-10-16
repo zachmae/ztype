@@ -7,16 +7,16 @@ set(CMAKE_CXX_STANDARD 20)
 set(GRAPHICS GRAPHICS_API_OPENGL_43)
 set(OpenGL_GL_PREFERENCE GLVND)
 
-include(cmake/FindAsioLib.cmake)
+include(cmake/FindJsonLib.cmake)
 include(cmake/FindSfmlLib.cmake)
 
 if(CMAKE_COMPILER_IS_GNUCXX)
-  add_compile_options(-Wall -Wextra -g3)
+    add_compile_options(-Wall -Wextra -Wconversion)
 endif(CMAKE_COMPILER_IS_GNUCXX)
 
 if (WIN32)
     add_compile_options(-Wall)
-    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG "./build/")
+    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG "./")
     #set_target_properties (indie_studio.exe PROPERTIES PREFIX "./build/")
 endif(WIN32)
 
@@ -28,7 +28,7 @@ add_executable(${PROJECT_NAME}
 include_directories(includes)
 
 target_link_libraries(${PROJECT_NAME}
-    asio
     sfml-window
     sfml-graphics
-) 
+    nlohmann_json::nlohmann_json
+)

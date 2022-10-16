@@ -11,7 +11,7 @@
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Z-type");
+    sf::RenderWindow window(sf::VideoMode(800, 600), "My window");
     sf::Event event;
     GameStd::GameManager manager(window, event);
 
