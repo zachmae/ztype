@@ -5,6 +5,8 @@
 ** game
 */
 
+#ifndef _GAME_HPP_
+#define _GAME_HPP_
 #include <SFML/Window.hpp>
 #include "SFML/Graphics.hpp"
 #include "SFML/Audio.hpp"
@@ -14,7 +16,6 @@
 #include "SpriteManager.hpp"
 #include <map>
 
-//#include "System.hpp"
 
 namespace GameStd {
 
@@ -96,7 +97,27 @@ namespace GameStd {
                 return std::pair<float, float>({pos.x, pos.y});
             }*/
 
-            int run()
+            //                _ecs.add_component<position>(e, {0, 0});
+        };
+
+        //! not working
+        /**
+         * @brief
+         *
+         * @param sf::Vector2f &
+         * @return position
+         */
+        /*            GameStd::position operator=(sf::Vector2f &pos)
+                    {
+                        return std::pair<float, float>({pos.x, pos.y});
+                    }*/
+
+        int run()
+        {
+            //                _ecs.add_component<>
+            // run the program as long as the window is open
+
+            while (_window.isOpen())
             {
 //                _ecs.add_component<>
                     // run the program as long as the window is open
@@ -129,3 +150,5 @@ namespace GameStd {
             SpriteManager<std::string> _spriteManager;
     };
 };
+
+#endif /* _GAME_HPP_ */

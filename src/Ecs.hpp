@@ -1,7 +1,10 @@
+#ifndef _ECS_HPP_
+    #define _ECS_HPP_
 #include <iostream>
 #include <vector>
 #include <optional>
 #include <any>
+#include <string>
 #include <unordered_map>
 #include <typeindex>
 #include <functional>
