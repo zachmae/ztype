@@ -52,6 +52,7 @@ namespace GameStd {
             }
         }
     }
+
     inline void position_system(registry &r, Window_ref w, Server &server)
     {
         auto &positions = r.get_components<struct position>();

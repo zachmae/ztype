@@ -16,11 +16,37 @@ void Server::accept()
         _selector.add(*client);
         _clients.push_back(client);
     }
-    sendPacket << _id;
-    ++_id;
+
+    // Send id to NewClient
+    sendPacket <<  _id;
+    std::cout << "ID : " << _id << std::endl;
     if (client->send(sendPacket) != sf::Socket::Status::Done) {
         std::cerr << "Error : Sending ID" << std::endl;
     }
+
+    // Send id NewClient to OldClient
+    sendPacket.clear();
+    sendPacket << "new_client" << _id;
+
+    for (auto &oldClient : _clients) {
+        if (oldClient != client) {
+            if (oldClient->send(sendPacket) != sf::Socket::Status::Done) {
+                std::cerr << "Error : Sending ID" << std::endl;
+            }
+        }
+    }
+
+    // Send OldClient to NewClient
+    sendPacket.clear();
+    sendPacket << "old_client" << _id;
+    for (int i = 0; i < _id; ++i) {
+        sendPacket << i;
+    }
+    if (client->send(sendPacket) != sf::Socket::Status::Done) {
+        std::cerr << "Error : Sending ID" << std::endl;
+    }
+
+    ++_id;
 }
 
 void Server::send(std::string const &message)
@@ -57,6 +83,7 @@ sf::Packet Server::receive(sf::TcpSocket *client)
     if (client->receive(packet) != sf::Socket::Status::Done) {
         std::cerr << "Error : Receiving failed" << std::endl;
     }
+//            packet << _id << 0 << x << y;
     packet >> type;
     if (type == -1) {
         pos = std::find(_clients.begin(), _clients.end(), client);
@@ -64,6 +91,21 @@ sf::Packet Server::receive(sf::TcpSocket *client)
         delete _clients[static_cast<unsigned long>(std::distance(_clients.begin(), pos))];
         _clients.erase(pos);
         std::cout << "Client disconnected" << std::endl;
+    } else if (type == 1) {
+        int id;
+        float x;
+        float y;
+
+        packet >> id >> x >> y;
+        sf::Packet atEveryone;
+        atEveryone << 1 << id << x << y;
+        for (auto a_client : _clients) {
+            if (client != a_client && a_client->send(atEveryone) != sf::Socket::Status::Done) {
+                std::cerr << "Error : Sending failed" << std::endl;
+            }
+        }
     }
+      //  packet >> _x >> _y;
+
     return packet;
 }

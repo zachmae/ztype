@@ -33,6 +33,7 @@ namespace GameStd {
     };
 
     struct controlable {
+        int id;
     };
 
     struct animation_basic {
