@@ -60,5 +60,8 @@ namespace GameStd {
 
     struct collidable {
     };
+
+    struct is_background {
+    };
 }
 #endif /* !COMPONENT_HPP_ */
