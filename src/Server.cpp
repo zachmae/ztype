@@ -77,7 +77,7 @@ void Server::sendPos(float x, float y)
 sf::Packet Server::receive(sf::TcpSocket *client)
 {
     sf::Packet packet;
-    int type = 0;
+    std::string type;
     std::vector<sf::TcpSocket *>::iterator pos;
 
     if (client->receive(packet) != sf::Socket::Status::Done) {
@@ -85,22 +85,37 @@ sf::Packet Server::receive(sf::TcpSocket *client)
     }
 //            packet << _id << 0 << x << y;
     packet >> type;
-    if (type == -1) {
+    if (type == "disconnect") {
+        /**
+        * @brief DISCONNECTED CLIENT
+        *
+        *
+        *
+        */
         pos = std::find(_clients.begin(), _clients.end(), client);
         _selector.remove(*client);
         delete _clients[static_cast<unsigned long>(std::distance(_clients.begin(), pos))];
         _clients.erase(pos);
         std::cout << "Client disconnected" << std::endl;
-    } else if (type == 1) {
+    } else if (type == "pos_client") {
+        /**
+        * @brief GET POS CLIENT AND SEND TO OTHER CLIENT
+        *
+        *
+        */
         int id;
         float x;
         float y;
+        sf::Packet atEveryone;
 
         packet >> id >> x >> y;
-        sf::Packet atEveryone;
-        atEveryone << 1 << id << x << y;
+
+        atEveryone << "client_pos" << id << x << y;
+        std::cout << "server_get ID : " << id << " X : " << x << " Y : " << y << std::endl;
         for (auto a_client : _clients) {
-            if (client != a_client && a_client->send(atEveryone) != sf::Socket::Status::Done) {
+            if (client != a_client && a_client->send(atEveryone) == sf::Socket::Status::Done) {
+                std::cout << "server_send ID : " << id << " X : " << x << " Y : " << y << std::endl;
+            } else {
                 std::cerr << "Error : Sending failed" << std::endl;
             }
         }

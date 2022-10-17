@@ -53,7 +53,7 @@ namespace GameStd {
         }
     }
 
-    inline void position_system(registry &r, Window_ref w, Server &server)
+    [[deprecated]] inline void position_system(registry &r, Window_ref w, Server &server)
     {
         auto &positions = r.get_components<struct position>();
         auto &controlables = r.get_components<struct controlable>();
@@ -147,10 +147,13 @@ namespace GameStd {
     {
         auto &collidables = r.get_components<struct collidable>();
         auto &drawables = r.get_components<struct drawable>();
+        auto &integer = r.get_components<int>();
 
-        for (unsigned int idx_1 = 0; idx_1 < collidables.size() && idx_1 < drawables.size(); ++idx_1) {
+        for (unsigned int idx_1 = 0; idx_1 < collidables.size() && idx_1 < drawables.size() && idx_1 < integer.size(); ++idx_1) {
             for (unsigned int idx_2 = idx_1 + 1; idx_2 < collidables.size(); ++idx_2) {
                 if (collidables[idx_1] && collidables[idx_2] && drawables[idx_1] && drawables[idx_2]) {
+                    if (integer[idx_1] && integer[idx_2])
+                        continue;
                     if (drawables[idx_1]->sprite.getGlobalBounds().intersects(drawables[idx_2]->sprite.getGlobalBounds())) {
                         r.kill_entity(r.entity_from_index(idx_1));
                         r.kill_entity(r.entity_from_index(idx_2));

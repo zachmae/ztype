@@ -55,7 +55,7 @@ class Client {
         */
         inline void sendPos(float x, float y) {
             sf::Packet packet;
-            packet << 1 << _id << x << y;
+            packet << "pos" << _id << x << y;
             if (_socket.send(packet) != sf::Socket::Status::Done) {
                 std::cerr << "Error : Sending failed (maybe server down)" << std::endl;
                 exit(84);
@@ -108,7 +108,7 @@ class Client {
          */
         inline void disconnect() {
             sf::Packet packet;
-            packet << -1;
+            packet << "disconnect";
             if (_socket.send(packet) != sf::Socket::Status::Done) {
                 std::cerr << "Error : Sending failed (maybe server down)" << std::endl;
                 exit(84);

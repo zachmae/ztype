@@ -1,8 +1,8 @@
 # Client
 
--1 = disconect
-0 = ??
-1 = pos client
+- to Server
+    - "disconect"
+    - "pos_client" >> _id >> x >> y
 
 # Server
 - to NewClient
@@ -16,3 +16,7 @@
 
 - to EveryClientexceptTheSender
     - "client_pos" >> id >> x >> y;
+
+# ...
+
+ships shouldn't be able to kill themselves..

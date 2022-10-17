@@ -89,7 +89,10 @@ public:
         return nullptr;
     };
 
+
     bool selectorWait() { return _selector.wait(sf::microseconds(1)); };
+
+    std::vector<sf::TcpSocket *>  getClients() { return _clients; };
 
 private:
     sf::TcpSocket _socket;                                   // Create a socket

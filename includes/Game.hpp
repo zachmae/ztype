@@ -133,6 +133,12 @@ namespace GameStd {
                         sfp >> comparator;
                         std::cout << comparator << std::endl;
                         if (comparator == "new_client") {
+                            /**
+                            * @brief OLD CLIENT GET NEW SHIP
+                            *
+                            *
+                            *
+                            */
                             int newCliId = 0;
                             sfp >> newCliId;
                             std::cout << newCliId << std::endl;
@@ -149,6 +155,13 @@ namespace GameStd {
                             _ecs.add_component<int>(newCliEntity, static_cast<int>(newCliId));
 
                         } else if (comparator == "old_client") {
+                            /**
+                            * @brief NEW CLIENT GET OLD SHIP
+                            *
+                            *
+                            *
+                            */
+
                             int amount = 0;
                             int newCliId = 0;
                             sfp >> amount;
@@ -167,11 +180,50 @@ namespace GameStd {
                                     _ecs.add_component<int>(newCliEntity, static_cast<int>(newCliId));
                                 }
                             }
+                        } else if (comparator == "client_pos") {
+                            /**
+                             * @brief GET SHIP POSITION
+                             *
+                             *
+                             *
+                             */
+
+                            int id = 0;
+                            float x = 0;
+                            float y = 0;
+                            sfp >> id << x << y;
+                            std::cout << "client_get ID : " << id << " X : " << x << " Y : " << y << std::endl;
+                            auto &controlables = _ecs.get_components<controlable>();
+                            auto &positions = _ecs.get_components<position>();
+                            int i = 0;
+                            for(auto &control : controlables) {
+                                if (control != std::nullopt && control.value().id == id) {
+                                    if (positions[i] != std::nullopt)
+                                    _ecs.add_component<position>(_ecs.entity_from_index(i), {x, y});
+                                }
+                                ++i;
+                            }
                         } else {
                             std::cout << "unknow type" << std::endl;
                         }
-                    } else {
-                        std::cout << ">" << std::endl;
+                    }
+                    /**
+                     * @brief SEND SHIP POSITION
+                     *
+                     *
+                     *
+                     */
+                    sf::Packet packet;
+                    auto &positions = _ecs.get_components<position>();
+
+                    if (positions[1] != std::nullopt) {
+                        packet << "pos_client" << client.GetId() << positions[1].value().x << positions[1].value().y;
+                        if (client.getSocket().send(packet) == sf::Socket::Status::Done) {
+                            std::cout << "client_get ID : " << client.GetId() << " X : " << positions[1].value().x << " Y : " << positions[1].value().y << std::endl;
+                        } else {
+                            std::cerr << "Error : Sending failed (maybe server down)" << std::endl;
+                            exit(84);
+                        }
                     }
 
                     position_system(_ecs, _window, client);
@@ -195,6 +247,8 @@ namespace GameStd {
 //                _ecs.add_component<>
             Server server(port);
             sf::TcpSocket *socket;
+            sf::Packet sfp;
+            std::string compare;
 
             while (_window.isOpen()) { // run the program as long as the window is open
                 _window.clear();
@@ -204,8 +258,30 @@ namespace GameStd {
                         server.accept();
                     }
                     socket = server.isNewMessage();
-                    if (socket != nullptr)
-                        server.receive(socket);
+                    if (socket != nullptr) {
+                        sfp = server.receive(socket);
+
+                        if (sfp.getData() != NULL) {
+                            sfp >> compare;
+                            if (compare == "pos_client") {
+                                int id = 0;
+                                float x = 0;
+                                float y = 0;
+
+                                sfp >> id >> x >> y;
+                                int i = 0;
+                                for (auto &client : server.getClients()) {
+                                    if (i != id) {
+                                        sf::Packet newSfp;
+
+                                        newSfp << "client_pos" << id << x << y;
+                                        client->send(newSfp);
+                                    }
+                                    ++i;
+                                }
+                            }
+                        }
+                    }
                 }
                 // check all the window's events that were triggered since the last iteration of the loop
                 while (_window.pollEvent(_event)) {
