@@ -191,7 +191,7 @@ namespace GameStd {
                             int id = 0;
                             float x = 0;
                             float y = 0;
-                            sfp >> id << x << y;
+                            sfp >> id >> x >> y;
                             std::cout << "client_get ID : " << id << " X : " << x << " Y : " << y << std::endl;
                             auto &controlables = _ecs.get_components<controlable>();
                             auto &positions = _ecs.get_components<position>();

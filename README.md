@@ -1,8 +1,37 @@
 # R-Type #
 
 ## Prerequies ##
+*you will have to install dependencies:*
+
+**DISTRIBUTION LINUX**
+
+you can use this list:
+- SFML(-devel)
+- libX11(-devel, -xcb)
+- libXrandr(-devel)
+- libgl1-mesa(-devel)
+- libgudev
+- glx-utils
+
+example for ubuntu:
+```
+    sudo apt install SFML
+```
+example for fedora:
+```
+    sudo dnf install SFML
+```
+
+**DISTRIBUTION WINDOWS**
+
+example for window:
+```
+    ???
+```
 
 ## Installation ##
+
+
 
 ## Documentation ##
 

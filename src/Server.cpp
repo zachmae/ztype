@@ -6,6 +6,7 @@
 */
 
 #include "Server.hpp"
+#include <optional>
 
 void Server::accept()
 {
@@ -113,10 +114,11 @@ sf::Packet Server::receive(sf::TcpSocket *client)
         atEveryone << "client_pos" << id << x << y;
         std::cout << "server_get ID : " << id << " X : " << x << " Y : " << y << std::endl;
         for (auto a_client : _clients) {
-            if (client != a_client && a_client->send(atEveryone) == sf::Socket::Status::Done) {
+            std::optional<sf::Socket::Status> status = std::nullopt;
+            if (client != a_client && (status = a_client->send(atEveryone)) == sf::Socket::Status::Done) {
                 std::cout << "server_send ID : " << id << " X : " << x << " Y : " << y << std::endl;
             } else {
-                std::cerr << "Error : Sending failed" << std::endl;
+                std::cerr << "Error : Sending failed " << (status ? *status : -50) << std::endl;
             }
         }
     }
