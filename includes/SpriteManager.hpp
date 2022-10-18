@@ -15,8 +15,18 @@
 #ifndef SPRITEMANAGER_HPP_
 #define SPRITEMANAGER_HPP_
 
+/*!
+ *  \addtogroup GameStd
+ *  @{
+ */
+
+//! Namespace for all game related content like the components
 namespace GameStd {
 
+    /**
+     * @brief Image structure that can associate a Texture and a Sprite
+     *
+     */
     struct Image {
         sf::Texture texture;
         sf::Sprite sprite;

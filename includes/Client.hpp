@@ -11,13 +11,19 @@
 #include <iostream>
 #include <SFML/Network.hpp>
 
+/*!
+ *  \addtogroup Network
+ *  @{
+ */
+
+//! Class for the client of the network
 class Client {
     public:
         /**
          * @brief Construct a new Client and connect to the server
          *
-         * @param ip
-         * @param port
+         * @param ip : the ip of the server you want to connect to
+         * @param port : the port of the server you want to connect to
          */
         inline Client(std::string const &ip, unsigned short port) {
             sf::Packet packet;
@@ -73,28 +79,14 @@ class Client {
                 std::cerr << "Error : Receiving failed (maybe server down)" << std::endl;
                 exit(84);
             }
-
-            //int type = 0;
-            //receivePacket >> type;
-
-            /*if (type == 1) {
-                int id;
-                float x;
-                float y;
-
-                receivePacket >> id >> x >> y;
-                sf::Packet atEveryone;
-                atEveryone << 1 << id << x << y;
-                for (auto a_client : _clients) {
-                    if (client != a_client && a_client->send(atEveryone) != sf::Socket::Status::Done) {
-                        std::cerr << "Error : Sending failed" << std::endl;
-                    }
-                }
-            }*/
-
             return receivePacket;
         }
 
+        /**
+         * @brief Receive a packet from the server
+         *
+         * @return sf::Packet : the packet that was received
+         */
         sf::Packet WaitReceive() {
             sf::Packet receivePacket;
             _socket.setBlocking(false);
@@ -116,6 +108,11 @@ class Client {
             _socket.disconnect();
         }
 
+        /**
+         * @brief Get the Id object
+         *
+         * @return int : the id of the client
+         */
         int GetId()
         {
             return _id;
