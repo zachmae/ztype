@@ -17,12 +17,13 @@ endif(CMAKE_COMPILER_IS_GNUCXX)
 if (WIN32)
     add_compile_options(-Wall)
     set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG "./")
-    #set_target_properties (indie_studio.exe PROPERTIES PREFIX "./build/")
+    #set_target_properties (rtype.exe PROPERTIES PREFIX "./build/")
 endif(WIN32)
 
 #ADD_LIBRARY(MyStaticLib STATIC
 add_executable(${PROJECT_NAME}
         src/main.cpp
+        src/Server.cpp
         )
 
 include_directories(includes)
@@ -30,5 +31,6 @@ include_directories(includes)
 target_link_libraries(${PROJECT_NAME}
     sfml-window
     sfml-graphics
+    sfml-network
     nlohmann_json::nlohmann_json
 )

@@ -269,15 +269,15 @@ class sparse_array {
          */
         void display() const
         {
-            bool b = false;
+            bool first = true;
             std::cout << "{ ";
             for (auto const &v : _data) {
-                if (b == true)
+                if (!first) {
                     std::cout << ", " << v;
-                else
+                } else {
                     std::cout << v;
-
-                b = true;
+                    first = false;
+                }
             }
             std::cout << "}" << std::endl;
         };
@@ -345,7 +345,7 @@ class registry {
         // ~ return entity_array.size + 1
         entity_t spawn_entity() // ~ create an entity
         {
-            if (_killed_entities.size() != 0) {
+            if (!_killed_entities.empty()) {
                 entity_t tmp = _killed_entities.back();
                 _killed_entities.pop_back();
                 return tmp;
@@ -362,7 +362,7 @@ class registry {
          * @return entity_t
          */
         // ~
-        entity_t entity_from_index(std::size_t idx) // ~ create an entity
+        static entity_t entity_from_index(std::size_t idx) // ~ create an entity
         {
             return entity_t(idx);
         };
