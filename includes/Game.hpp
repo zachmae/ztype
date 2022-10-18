@@ -96,7 +96,7 @@ namespace GameStd {
                 _ecs.add_component<velocity>(background_planets_front, {-0.8f, 0});
                 _ecs.add_component<is_background>(background_planets_front, {});
 
-                entity_t ship = _ecs.spawn_entity();
+                ship = _ecs.spawn_entity();
                 _spriteManager.Add("ship", "../assets/img/spaceship.gif");
                 _ecs.add_component<drawable>(ship, {_spriteManager.Get("ship")});
                 _ecs.add_component<position>(ship, {100, 300});
@@ -134,8 +134,9 @@ namespace GameStd {
             {
 //                _ecs.add_component<>
                 Client client(ip, port);
-                _ecs.add_component<int>(_ecs.entity_from_index(4), client.GetId()); // GET THE ID OF THE SHIP new client id
-                _ecs.add_component<controlable>(_ecs.entity_from_index(4), {client.GetId()});
+                _ecs.add_component<int>(ship, client.GetId()); // GET THE ID OF THE SHIP new client id
+                _ecs.add_component<controlable>(ship, {client.GetId()});
+
 
                 while (_window.isOpen()) { // run the program as long as the window is open
                     _window.clear();
@@ -150,12 +151,10 @@ namespace GameStd {
                         control_system(_ecs, _event, _spriteManager);
                     }
                     ennemy_system(_ecs, _spriteManager, _window);
-                    //client.receive();
                     sf::Packet sfp = client.WaitReceive();
                     if (sfp.getData() != NULL) { //cond doesn't work
                         std::string comparator;
                         sfp >> comparator;
-                        std::cout << comparator << std::endl;
                         if (comparator == "new_client") {
                             /**
                             * @brief OLD CLIENT GET NEW SHIP
@@ -165,7 +164,6 @@ namespace GameStd {
                             */
                             int newCliId = 0;
                             sfp >> newCliId;
-                            std::cout << newCliId << std::endl;
                             // comment on stock les id des autres
                             entity_t newCliEntity = _ecs.spawn_entity();
                             _ecs.add_component<drawable>(newCliEntity, {_spriteManager.Get("ship")});
@@ -176,6 +174,7 @@ namespace GameStd {
                             _ecs.add_component<resizable>(newCliEntity, {2, 2});
                             _ecs.add_component<is_ship>(newCliEntity, {});
                             _ecs.add_component<collidable>(newCliEntity, {});
+                            _ecs.add_component<controlable>(newCliEntity, {newCliId});
                             _ecs.add_component<int>(newCliEntity, static_cast<int>(newCliId));
 
                         } else if (comparator == "old_client") {
@@ -191,7 +190,6 @@ namespace GameStd {
                             sfp >> amount;
                             for (sfp >> newCliId; amount != 0; sfp >> newCliId, amount--) {
                                 if (client.GetId() != newCliId) {
-                                    std::cout << newCliId << std::endl;
                                     entity_t newCliEntity = _ecs.spawn_entity();
                                     _ecs.add_component<drawable>(newCliEntity, {_spriteManager.Get("ship")});
                                     _ecs.add_component<position>(newCliEntity, {100, 200});
@@ -201,6 +199,7 @@ namespace GameStd {
                                     _ecs.add_component<resizable>(newCliEntity, {2, 2});
                                     _ecs.add_component<is_ship>(newCliEntity, {});
                                     _ecs.add_component<collidable>(newCliEntity, {});
+                                    _ecs.add_component<controlable>(newCliEntity, {newCliId});
                                     _ecs.add_component<int>(newCliEntity, static_cast<int>(newCliId));
                                 }
                             }
@@ -211,19 +210,17 @@ namespace GameStd {
                              *
                              *
                              */
-
                             int id = 0;
                             float x = 0;
                             float y = 0;
                             sfp >> id >> x >> y;
-                            std::cout << "client_get ID : " << id << " X : " << x << " Y : " << y << std::endl;
                             auto &controlables = _ecs.get_components<controlable>();
                             auto &positions = _ecs.get_components<position>();
                             int i = 0;
                             for(auto &control : controlables) {
                                 if (control != std::nullopt && control.value().id == id) {
                                     if (positions[i] != std::nullopt)
-                                    _ecs.add_component<position>(_ecs.entity_from_index(i), {x, y});
+                                        _ecs.add_component<position>(_ecs.entity_from_index(i), {x, y});
                                 }
                                 ++i;
                             }
@@ -242,9 +239,7 @@ namespace GameStd {
 
                     if (positions[4] != std::nullopt) {
                         packet << "pos_client" << client.GetId() << positions[4].value().x << positions[4].value().y;
-                        if (client.getSocket().send(packet) == sf::Socket::Status::Done) {
-                            std::cout << "client_get ID : " << client.GetId() << " X : " << positions[4].value().x << " Y : " << positions[4].value().y << std::endl;
-                        } else {
+                        if (client.getSocket().send(packet) != sf::Socket::Status::Done) {
                             std::cerr << "Error : Sending failed (maybe server down)" << std::endl;
                             exit(84);
                         }
@@ -324,5 +319,6 @@ namespace GameStd {
             Event_ref _event;
             registry _ecs;
             SpriteManager<std::string> _spriteManager;
+            entity_t ship = _ecs.entity_from_index(0);
     };
 };

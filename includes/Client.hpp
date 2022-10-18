@@ -33,7 +33,6 @@ class Client {
                 exit(84);
             }
             receive() >> _id;
-            std::cout << "ID : " << _id << std::endl;
         }
         inline ~Client() = default;
 
