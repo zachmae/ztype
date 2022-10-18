@@ -240,10 +240,10 @@ namespace GameStd {
                     sf::Packet packet;
                     auto &positions = _ecs.get_components<position>();
 
-                    if (positions[1] != std::nullopt) {
-                        packet << "pos_client" << client.GetId() << positions[1].value().x << positions[1].value().y;
+                    if (positions[4] != std::nullopt) {
+                        packet << "pos_client" << client.GetId() << positions[4].value().x << positions[4].value().y;
                         if (client.getSocket().send(packet) == sf::Socket::Status::Done) {
-                            std::cout << "client_get ID : " << client.GetId() << " X : " << positions[1].value().x << " Y : " << positions[1].value().y << std::endl;
+                            std::cout << "client_get ID : " << client.GetId() << " X : " << positions[4].value().x << " Y : " << positions[4].value().y << std::endl;
                         } else {
                             std::cerr << "Error : Sending failed (maybe server down)" << std::endl;
                             exit(84);
