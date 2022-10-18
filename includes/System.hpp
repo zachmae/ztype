@@ -13,8 +13,23 @@
 #include "Client.hpp"
 #include "Server.hpp"
 
+/*!
+ *  \addtogroup System
+ *  @{
+ */
+
+//! Namespace for all game related content, here systems
 namespace GameStd {
 
+    /**
+     * @brief System that replace the ship if he goes out of screen
+     *
+     * @param pos : position of the ship
+     * @param vel : velocity of the ship (position after the next move)
+     * @param w : window reference
+     * @return true : if the ship is out of screen
+     * @return false : if the ship is not out of screen
+     */
     inline bool is_ship_out_system(std::optional<position> pos, std::optional<velocity> vel, Window_ref w)
     {
         if (pos->x + vel->x  < 0)
@@ -28,6 +43,13 @@ namespace GameStd {
         return false;
     }
 
+    /**
+     * @brief : handle position of all of the entities
+     *
+     * @param r : registry, contain all of the entities and the related components
+     * @param w : window reference
+     * @param client : client reference
+     */
     inline void position_system(registry &r, Window_ref w, Client &client)
     {
         auto &positions = r.get_components<struct position>();
@@ -53,6 +75,13 @@ namespace GameStd {
         }
     }
 
+    /**
+     * @brief : handle position of all of the entities but is deprecated
+     *
+     * @param r : registry, contain all of the entities and the related components
+     * @param w : window reference
+     * @param server : server reference
+     */
     [[deprecated]] inline void position_system(registry &r, Window_ref w, Server &server)
     {
         auto &positions = r.get_components<struct position>();
@@ -78,6 +107,11 @@ namespace GameStd {
         }
     }
 
+    /**
+     * @brief handle basic animations in a sprite sheet
+     *
+     * @param r : registry, contain all of the entities and the related components
+     */
     inline void animation_basic_system(registry &r)
     {
         auto &animations = r.get_components<struct animation_basic>();
@@ -92,6 +126,14 @@ namespace GameStd {
         }
     }
 
+    /**
+     * @brief system that can create a bullet from the position of the ship
+     *
+     * @param r : registry, contain all of the entities and the related components
+     * @param src_x : x position of the ship
+     * @param src_y : y position of the ship
+     * @param _spriteManager : sprite manager reference of all sprites
+     */
     inline void bullet_creation_system(registry &r, float src_x, float src_y, SpriteManager<std::string> _spriteManager)
     {
         static clock_t last_time = clock();
@@ -109,6 +151,13 @@ namespace GameStd {
         last_time = current_time;
     }
 
+    /**
+     * @brief system that can animate ships
+     *
+     * @param r : registry, contain all of the entities and the related components
+     * @param entity_index : index of the entity i want to animate
+     * @param key_code : key code of the key pressed
+     */
     inline void animate_ship_system(registry &r, size_t entity_index, int key_code)
     {
         auto &animations = r.get_components<struct animation_adaptative>();
@@ -126,6 +175,13 @@ namespace GameStd {
         }
     }
 
+    /**
+     * @brief system that can create ennemy when i need to
+     *
+     * @param r : registry, contain all of the entities and the related components
+     * @param _spriteManager : sprite manager reference of all sprites
+     * @param w : window reference
+     */
     inline void ennemy_system(registry &r, SpriteManager<std::string>& _spriteManager, Window_ref w)
     {
         static clock_t last_time = clock();
@@ -143,6 +199,11 @@ namespace GameStd {
         last_time = current_time;
     }
 
+    /**
+     * @brief system that handle collision between entities
+     *
+     * @param r : registry, contain all of the entities and the related components
+     */
     inline void collision_system(registry &r)
     {
         auto &collidables = r.get_components<struct collidable>();
@@ -163,6 +224,13 @@ namespace GameStd {
         }
     }
 
+    /**
+     * @brief system that can handle controls of the entities that i am able to move
+     *
+     * @param r : registry, contain all of the entities and the related components
+     * @param e : event that i want to handle
+     * @param _spriteManager : sprite manager reference of all sprites
+     */
     inline void control_system(registry &r, Event_ref e, const SpriteManager<std::string>& _spriteManager)
     {
         auto &controllables = r.get_components<controlable>();
@@ -189,6 +257,12 @@ namespace GameStd {
         }
     }
 
+    /**
+     * @brief system that can remove every entities that are out of the window in order to free memory
+     *
+     * @param r : registry, contain all of the entities and the related components
+     * @param w : window reference
+     */
     inline void remove_out_of_screen_system(registry &r, Window_ref w)
     {
         auto &positions = r.get_components<position>();
@@ -202,13 +276,19 @@ namespace GameStd {
                     r.kill_entity(r.entity_from_index(i));
                 }
             }
-            if (positions[i] && drawables[i] && are_backgrounds[i]) {
+            if (positions[i] && drawables[i] && i < are_backgrounds.size() && are_backgrounds[i]) {
                 if (positions[i]->x < -static_cast<float>(w.getSize().x))
                     positions[i]->x = 0;
             }
         }
     }
 
+    /**
+     * @brief system that draw every drawable entity
+     *
+     * @param r : registry, contain all of the entities and the related components
+     * @param w : window reference
+     */
     inline void draw_system(registry &r, Window_ref w)
     {
         auto &drawables = r.get_components<drawable>();
