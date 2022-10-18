@@ -1,8 +1,5 @@
 ## Folders ##
 build/
-.idea/
-cmake-build-debug/
-.gitignore
 
 ## Executables ##
 *.exe
@@ -16,3 +13,7 @@ rtype
 ## extra ##
 .vscode
 .idea
+
+## documentation ##
+documentation/doxygen/html/
+documentation/doxygen/latex/

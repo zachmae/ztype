@@ -66,11 +66,35 @@ namespace GameStd {
                 _ecs.register_component<is_ship>();
                 _ecs.register_component<collidable>();
                 _ecs.register_component<int>();
+                _ecs.register_component<is_background>();
 
                 entity_t background = _ecs.spawn_entity();
-                _spriteManager.Add("background_space", "../assets/img/space_background.jpeg");
-                _ecs.add_component<drawable>(background, {_spriteManager.Get("background_space")});
+                _spriteManager.Add("background_back", "../assets/img/background/parallax_back.png");
+                _ecs.add_component<drawable>(background, {_spriteManager.Get("background_back")});
                 _ecs.add_component<position>(background, {0, 0});
+                _ecs.add_component<velocity>(background, {-0.1f, 0});
+                _ecs.add_component<is_background>(background, {});
+
+                entity_t background_stars = _ecs.spawn_entity();
+                _spriteManager.Add("background_stars", "../assets/img/background/parallax_stars.png");
+                _ecs.add_component<drawable>(background_stars, {_spriteManager.Get("background_stars")});
+                _ecs.add_component<position>(background_stars, {0, 0});
+                _ecs.add_component<velocity>(background_stars, {-0.2f, 0});
+                _ecs.add_component<is_background>(background_stars, {});
+
+                entity_t background_planets_back = _ecs.spawn_entity();
+                _spriteManager.Add("background_planets_back", "../assets/img/background/parallax_planets_back.png");
+                _ecs.add_component<drawable>(background_planets_back, {_spriteManager.Get("background_planets_back")});
+                _ecs.add_component<position>(background_planets_back, {0, 0});
+                _ecs.add_component<velocity>(background_planets_back, {-0.5f, 0});
+                _ecs.add_component<is_background>(background_planets_back, {});
+
+                entity_t background_planets_front = _ecs.spawn_entity();
+                _spriteManager.Add("background_planets_front", "../assets/img/background/parallax_planets_front.png");
+                _ecs.add_component<drawable>(background_planets_front, {_spriteManager.Get("background_planets_front")});
+                _ecs.add_component<position>(background_planets_front, {0, 0});
+                _ecs.add_component<velocity>(background_planets_front, {-0.8f, 0});
+                _ecs.add_component<is_background>(background_planets_front, {});
 
                 entity_t ship = _ecs.spawn_entity();
                 _spriteManager.Add("ship", "../assets/img/spaceship.gif");
@@ -110,8 +134,8 @@ namespace GameStd {
             {
 //                _ecs.add_component<>
                 Client client(ip, port);
-                _ecs.add_component<int>(_ecs.entity_from_index(1), client.GetId()); // GET THE ID OF THE SHIP new client id
-                _ecs.add_component<controlable>(_ecs.entity_from_index(1), {client.GetId()});
+                _ecs.add_component<int>(_ecs.entity_from_index(4), client.GetId()); // GET THE ID OF THE SHIP new client id
+                _ecs.add_component<controlable>(_ecs.entity_from_index(4), {client.GetId()});
 
                 while (_window.isOpen()) { // run the program as long as the window is open
                     _window.clear();

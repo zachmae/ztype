@@ -5,7 +5,6 @@
 #include <unordered_map>
 #include <typeindex>
 #include <functional>
-//#include <map>
 
 //Step 0:
 class registry;
@@ -23,21 +22,11 @@ struct entity_t {
         };
 };
 
-// # TEST ENTITY
-/*int main()
-{
-    entity e;
-    //entity e2(10);
-    return 0;
-}*/
-
 // ~ Step 1:
 template <typename Component> // You can also mirror the definition of std :: vector , that takes an additional allocator .
 
 std::ostream& operator<<(std::ostream& os, std::optional<Component> const &c)
 {
-//    std::string a("a");
-//    os << a.str();
     if (c)
         os << c.value(); //any need to try type int str or float or else
     else
@@ -206,11 +195,7 @@ class sparse_array {
         {
             if (_data.size() <= pos)
                 _data.resize(pos + 1);
-
             _data[pos] = std::make_optional (c);
-
-//            std::cout << _data[pos] << std::endl;
-
             return _data[pos];
         };
 
@@ -438,7 +423,6 @@ class registry {
         {
             get_components<Component>().erase(from._idx);
         };
-        // <> };
 
     private :
         size_t _entitys_count = 0;

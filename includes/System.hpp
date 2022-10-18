@@ -193,13 +193,18 @@ namespace GameStd {
     {
         auto &positions = r.get_components<position>();
         auto &drawables = r.get_components<drawable>();
+        auto &are_backgrounds = r.get_components<is_background>();
 
         for (size_t i = 0; i < positions.size() && i < drawables.size(); ++i) {
-            if (positions[i] && drawables[i]) {
-                if (positions[i]->x > static_cast<float>(w.getSize().x) || positions[i]->x < 0 || positions[i]->y >
-                                                                                                  static_cast<float>(w.getSize().y) || positions[i]->y < 0) {
+            if (positions[i] && drawables[i] && !are_backgrounds[i]) {
+                if (positions[i]->x > static_cast<float>(w.getSize().x) || positions[i]->x < 0
+                    || positions[i]->y > static_cast<float>(w.getSize().y) || positions[i]->y < 0) {
                     r.kill_entity(r.entity_from_index(i));
                 }
+            }
+            if (positions[i] && drawables[i] && are_backgrounds[i]) {
+                if (positions[i]->x < -static_cast<float>(w.getSize().x))
+                    positions[i]->x = 0;
             }
         }
     }
