@@ -6,6 +6,12 @@
 #include <typeindex>
 #include <functional>
 
+/*!
+ *  \addtogroup ECS
+ *  @{
+ */
+
+//! All of the ECS related stuff
 //Step 0:
 class registry;
 

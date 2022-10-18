@@ -10,6 +10,12 @@
 #include <cctype>
 #include "Game.hpp"
 
+/**
+ * @brief Display Usage if the user has question on how to launch the executable
+ *
+ * @param ret_value : Return value of the program
+ * @return int : Return value of the program that has been passed in parameter
+ */
 static int displayUsage(int ret_value)
 {
     std::cout << "USAGE: ./rtype [ip] port\n\n" \

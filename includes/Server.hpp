@@ -5,14 +5,18 @@
 ** client
 */
 
-
-
 #ifndef SERVER_HPP_
 #define SERVER_HPP_
 
 #include <iostream>
 #include <SFML/Network.hpp>
 
+/*!
+ *  \addtogroup Network
+ *  @{
+ */
+
+//! struct for the client in order to stock it in the server
 typedef struct client_s {
     sf::TcpSocket socket;
     int id{};
@@ -20,6 +24,10 @@ typedef struct client_s {
     int y{};
 } client_t;
 
+/**
+ * @brief Class for the server of the network
+ *
+ */
 class Server {
 public:
     /**
@@ -90,8 +98,19 @@ public:
     };
 
 
+    /**
+     * @brief : the selector wait 1 microsecond to check if there is a new message
+     *
+     * @return true : the selector succesfully wait for a new message
+     * @return false : the selector failed to wait for a new message
+     */
     bool selectorWait() { return _selector.wait(sf::microseconds(1)); };
 
+    /**
+     * @brief Get the Clients object
+     *
+     * @return std::vector<sf::TcpSocket *> : return the vector of clients
+     */
     std::vector<sf::TcpSocket *>  getClients() { return _clients; };
 
 private:
