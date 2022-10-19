@@ -34,3 +34,6 @@ target_link_libraries(${PROJECT_NAME}
     sfml-network
     nlohmann_json::nlohmann_json
 )
+
+install(TARGETS rtype RUNTIME DESTINATION bin)
+include(CPack)
