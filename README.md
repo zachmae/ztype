@@ -29,11 +29,33 @@ example for window:
     ???
 ```
 
-## Installation ##
+## Installation and Usage ##
 
+Execute CMake
+```
+    cd build
+    cmake ..
+    cmake --build .
+```
 
+Server
+```
+    ./rtype [port]
+```
+
+Client
+```
+    ./rtype [ip] [port]
+```
 
 ## Documentation ##
+
+Use convensional commit to add upgrades
+
+We use Doxygen to document this project, you can generate it by write those commands
+```
+    doxygen ./documentation/doxygen/rtype_doxygen.conf
+```
 
 ## Contributors ##
 
