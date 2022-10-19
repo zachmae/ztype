@@ -211,7 +211,7 @@ namespace GameStd {
         auto &integer = r.get_components<int>();
 
         for (unsigned int idx_1 = 0; idx_1 < collidables.size() && idx_1 < drawables.size() && idx_1 < integer.size(); ++idx_1) {
-            for (unsigned int idx_2 = idx_1 + 1; idx_2 < collidables.size(); ++idx_2) {
+            for (unsigned int idx_2 = idx_1 + 1; idx_2 < collidables.size() && idx_2 < drawables.size() && idx_2 < integer.size(); ++idx_2) {
                 if (collidables[idx_1] && collidables[idx_2] && drawables[idx_1] && drawables[idx_2]) {
                     if (integer[idx_1] && integer[idx_2])
                         continue;
@@ -270,7 +270,7 @@ namespace GameStd {
         auto &are_backgrounds = r.get_components<is_background>();
 
         for (size_t i = 0; i < positions.size() && i < drawables.size(); ++i) {
-            if (positions[i] && drawables[i] && !are_backgrounds[i]) {
+            if (positions[i] && drawables[i] && i < are_backgrounds.size() && !are_backgrounds[i]) {
                 if (positions[i]->x > static_cast<float>(w.getSize().x) || positions[i]->x < 0
                     || positions[i]->y > static_cast<float>(w.getSize().y) || positions[i]->y < 0) {
                     r.kill_entity(r.entity_from_index(i));
