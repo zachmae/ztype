@@ -49,7 +49,7 @@ int main(int ac, char const * const av[])
     sf::Event event{};
     GameStd::GameManager manager(window, event);
     if (ac == 2)
-        return manager.run(static_cast<unsigned short>(std::atoi(av[1])));
+        return manager.run_server(static_cast<unsigned short>(std::atoi(av[1])));
     else
-        return manager.run(av[1], static_cast<unsigned short>(std::atoi(av[2])));
+        return manager.run_client(av[1], static_cast<unsigned short>(std::atoi(av[2])));
 }

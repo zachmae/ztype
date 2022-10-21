@@ -10,10 +10,10 @@
 #include "SFML/Audio.hpp"
 #include "SFML/System.hpp"
 #include "SFML/Network.hpp"
-#include "System.hpp"
 #include "SpriteManager.hpp"
-#include "Client.hpp"
-#include "Server.hpp"
+#include "../src/ECS/Systems/System.hpp"
+#include "../src/Network/Client.hpp"
+#include "../src/Network/Server.hpp"
 #include <map>
 
 //#include "System.hpp"
@@ -130,7 +130,7 @@ namespace GameStd {
              * @param port
              * @return int
              */
-            int run(std::string const &ip, unsigned short port)
+            int run_client(std::string const &ip, unsigned short port)
             {
 //                _ecs.add_component<>
                 Client client(ip, port);
@@ -261,7 +261,7 @@ namespace GameStd {
          * @param port
          * @return int
          */
-        int run(unsigned short port)
+        int run_server(unsigned short port)
         {
 //                _ecs.add_component<>
             Server server(port);

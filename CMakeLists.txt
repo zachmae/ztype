@@ -23,7 +23,12 @@ endif(WIN32)
 #ADD_LIBRARY(MyStaticLib STATIC
 add_executable(${PROJECT_NAME}
         src/main.cpp
-        src/Server.cpp
+        src/Network/Server.cpp
+        src/Network/Client.cpp
+        src/ECS/Systems/AnimationSystem.cpp
+        src/ECS/Systems/PositionSystem.cpp
+        src/ECS/Systems/DisplaySystem.cpp
+        src/ECS/Systems/EventSystem.cpp
         )
 
 include_directories(includes)
