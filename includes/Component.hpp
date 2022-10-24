@@ -134,5 +134,12 @@ namespace GameStd {
     struct health {
         int hp;
     };
+
+    /**
+     * @brief Component is_boss in order to handle the boss of the game
+     *
+     */
+    struct is_boss {
+    };
 }
 #endif /* !COMPONENT_HPP_ */

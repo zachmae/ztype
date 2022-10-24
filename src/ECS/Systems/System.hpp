@@ -109,6 +109,16 @@ namespace GameStd {
     void ennemy_system(registry &r, SpriteManager<std::string>& _spriteManager, Window_ref w);
 
     /**
+     * @brief system that allow the generation of magic attack if the boss is alive
+     *
+     * @param r : registry, contain all of the entities and the related components
+     * @param _spriteManager : sprite manager reference of all sprites
+     * @param w : window reference
+     */
+    void boss_magic_system(registry &r, SpriteManager<std::string>& _spriteManager, Window_ref w);
+
+
+    /**
      * @brief system that handle collision between entities
      *
      * @param r : registry, contain all of the entities and the related components

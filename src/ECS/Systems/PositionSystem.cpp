@@ -88,8 +88,6 @@ void GameStd::collision_system(registry &r)
                             if (healths[idx_1]->hp <= 0)
                                 r.kill_entity(r.entity_from_index(idx_1));
                         }
-                        //r.kill_entity(r.entity_from_index(idx_1));
-                        //r.kill_entity(r.entity_from_index(idx_2));
                     }
                 }
             }
