@@ -10,10 +10,12 @@
 #include "Ecs.hpp"
 #include "nlohmann/json.hpp"
 #include "SceneComponent.hpp"
+#include "SpriteManager.hpp"
 
 using json = nlohmann::json;
 using Registry_ref = registry &;
-
+using Event_ref = sf::Event &;
+using Window_ref = sf::RenderWindow &;
 //using Scene_ref = Scene &;
 ////using Scenes = std::vector<Scene>;
 ////using Scenes_ref = Scenes &;
@@ -24,7 +26,7 @@ using Registry_ref = registry &;
 class Scene {
     public:
         Scene(Registry_ref reg, std::string path)
-        : _ecs(reg)
+        : _ecs(reg), _zIndex(0)
         {
             std::ifstream ifs(path);
             json scenefile;
@@ -42,21 +44,17 @@ class Scene {
                 std::cout << "Scene not loaded" << std::endl;
             }
             std::cout << "Scene created" << std::endl;
-
-            //load entity from json
-            SceneVisibility(false);
         }
 
-        void SceneVisibility(bool b)
+        void SpawnEntity(entity_t e)
         {
-            for (auto &entity : _entities)
-                _ecs.add_component<visible>(entity, {b});
-            std::cout << "Scene set to " << ((b) ? "visible" : "invisible") << std::endl;
+            entity_t ent = _ecs.spawn_entity();
+            _ecs.add_component<zIndex>(ent, {_zIndex});
         }
 
     private:
         Registry_ref _ecs;
-        std::vector<entity_t> _entities;
+        int _zIndex = 0;
 };
 
 #endif /* !SCENE_HPP_ */

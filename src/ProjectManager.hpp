@@ -10,26 +10,30 @@
 
 #include <fstream>
 
+//sfml
 #include <SFML/Window.hpp>
 #include "SFML/Graphics.hpp"
 #include "SFML/Audio.hpp"
 #include "SFML/System.hpp"
 #include "SFML/Network.hpp"
-
-#include "System.hpp"
-#include "SpriteManager.hpp"
-#include "SceneManager.hpp"
-
+//json
 #include "nlohmann/json.hpp"
 
-//declare all components
+//User
+#include "User.hpp"
+#include "System.hpp"
+
+//UsefullLib
+#include "SpriteManager.hpp"
+#include "SceneManager.hpp"
+#include "ProjectComponent.hpp"
 #include "ComponentManager.hpp"
+
+//Std
 #include <tuple>
 #include <type_traits> //std::is_same_v
 #include <iostream>
 
-//User
-#include "User.hpp"
 
 namespace GameStd {
 
@@ -47,8 +51,9 @@ namespace GameStd {
             ProjectManager(std::string jsonfile)
             : _window(CreateWindow(jsonfile)), _sm()
             {
-                _ecs.register_component<visible>(); //default use for scenes
-                config_extractor<sys_config::components_list>::function(_ecs); //sys
+                _ecs.register_component<zIndex>(); //default use for scenes
+                config_extractor<project_config::components_list>::function(_ecs); //sys
+                config_extractor<scene_config::components_list>::function(_ecs); //sys
                 config_extractor<user_config::components_list>::function(_ecs); //user
                 _ecs.add_component<position>(_ecs.entity_from_index(1) , {0.f, 0.f});
                 json file = json::parse(std::ifstream(jsonfile.c_str()));
@@ -79,8 +84,7 @@ namespace GameStd {
             {
                 User::InitScene(_ecs, _sm, _window, _event);
                 while (_window.isOpen()) {
-                    User::UpdateScene(_scenes);
-                    _window.clear();
+                    User::UpdateScene(_ecs, _scenes);
                     // check all the window's events that were triggered since the last iteration of the loop
                     while (_window.pollEvent(_event)) {
                         // "close requested" event: we close the window
@@ -89,30 +93,21 @@ namespace GameStd {
                             return 0;
                         }
                         User::UpdateEventSystem(_ecs, _event);
-                        control_system(_ecs, _event);
                     }
                     User::UpdateWindowSystem(_ecs, _window);
-                    position_system(_ecs);
-                    draw_system(_ecs, _window);
-                    _window.display();
                 }
                 return 0;
             }
 
-            Scene &GetScene(std::string name)
+            SceneManager<std::string> &GetSceneManager()
             {
-                return _scenes.Get(name);
+                return _scenes;
             }
 
-            void PushScene(std::string str)
-            {
-                _scenes_selected.push_back(str);
-            }
-
-            void PopScene()
-            {
-                _scenes_selected.pop_back();
-            }
+//            void SetScene(std::string name, bool b)
+//            {
+//                _scenes.Get(name).SetVisibility(b);
+//            }
 
         private:
 //dark c++ ;D
@@ -142,6 +137,7 @@ namespace GameStd {
                     return sf::RenderWindow(sf::VideoMode(file["window"]["width"], file["window"]["height"]),
                             std::string(file["window"]["title"]) );
                 }
+                std::cout << "Error: " << jsonfile << " not found" << std::endl;
                 exit(84);
             }
 
@@ -194,10 +190,9 @@ namespace GameStd {
             //std::map<std::string, Scene> _scenes;
             SpriteManager<std::string> _sm;
             registry _ecs;
+            SceneManager<std::string> _scenes;
 
         public:
-            SceneManager<std::string> _scenes;
-            std::vector<std::string> _scenes_selected;
     };
 
 };

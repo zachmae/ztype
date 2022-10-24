@@ -63,14 +63,24 @@ class SceneManager {
             return _storage.at(k);
         };
 
-        std::vector<Key> GetKeys()
+        std::vector<Key> GetScenes()
         {
             return _keys;
         }
 
-        std::vector<Key> GetKeysUsed()
+        std::vector<Key> GetSceneUsed()
         {
             return _keysUsed;
+        }
+
+        void PushSceneUsed(Key k)
+        {
+            _keysUsed.push_back(k);
+        }
+
+        void PopKeyUsed(Key k)
+        {
+            _keysUsed.pop_back(k);
         }
 
     private:

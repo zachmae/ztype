@@ -4,7 +4,7 @@
 #ifndef SYSTEM_HPP_
     #define SYSTEM_HPP_
 
-namespace GameStd {
+namespace User {
 
     inline void position_system(registry &r)
     {
@@ -50,7 +50,7 @@ namespace GameStd {
         auto &drawables = r.get_components<drawable>();
         auto &positions = r.get_components<position>();
 
-        w.clear(sf::Color::Black);
+        w.clear();
         for (size_t i = 0; i < drawables.size() && i < positions.size(); ++i) {
             if (drawables[i] && positions[i]) {
                 drawables[i]->sprite.setPosition({positions[i]->x, positions[i]->y});

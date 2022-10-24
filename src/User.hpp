@@ -7,48 +7,39 @@
 
 #include "SceneManager.hpp"
 #include "SpriteManager.hpp" // add init scene deprecated cause shouldn't be used
+#include "ProjectComponent.hpp"
+#include "Component.hpp"
+#include "System.hpp"
 
 // edit function
 namespace User {
 
     [[deprecated]]
-    void InitScene(Registry_ref ecs, SpriteManager_ref<std::string> sm, Window_ref window, Event_ref event)
+    void InitScene(Registry_ref r, SpriteManager_ref<std::string> sm, Window_ref window, Event_ref event)
     {
-        Registry_ref _ecs = ecs;
-        SpriteManager_ref<std::string> _sm = sm;
-        Event_ref _event = event;
-        ecs = _ecs;
-        sm = _sm;
-        window.isOpen();
-        event = _event;
+        entity_t e = r.spawn_entity();
+        r.add_component<drawable>(e, {sm.Get("ship")});
+        r.add_component<position>(e, {0, 0});
+        r.add_component<velocity>(e, {0, 0});
+        r.add_component<contralable>(e, {});
+        r.add_component<visible>(e, {false});
 
         //init what you want but it's deprecated cause you can do it using Component & ComponentManager & editing assets/conf/...
     }
 
-    void UpdateScene(SceneManager<std::string> &scene)
+    void UpdateScene(Registry_ref reg, SceneManager<std::string> &scene)
     {
-        //all scene update
-        for (auto &s : scene.GetKeysUsed()) {
-            scene.Get(s).SceneVisibility(true); //error
-        }
     }
 
     void UpdateEventSystem(Registry_ref reg, Event_ref event)
     {
-        //all event system
-        Registry_ref _reg = reg;
-        Event_ref _event = event;
-
-        reg = _reg;
-        event = _event;
+        control_system(reg, event);
     }
 
     void UpdateWindowSystem(Registry_ref reg, Window_ref window)
     {
         //all system
-        Registry_ref _reg = reg;
-
-        reg = _reg;
-        window.isOpen();
+        position_system(reg);
+        draw_system(reg, window);
     }
 }

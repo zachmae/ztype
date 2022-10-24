@@ -8,12 +8,12 @@
 #ifndef SCENECOMPONENT_HPP_
 #define SCENECOMPONENT_HPP_
 
-struct visible {
-    bool _visible;
+struct zIndex {
+    bool _zIndex;
 };
 
-struct sys_config {
-    using components_list = std::tuple<visible>;
+struct scene_config {
+    using components_list = std::tuple<zIndex>;
 };
 
 #endif /* !SCENECOMPONENT_HPP_ */
