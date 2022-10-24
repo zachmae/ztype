@@ -45,6 +45,7 @@ int main(int ac, char const * const av[])
     if (((ac == 2 && !isNumber(av[1])) || (ac == 3 && !isNumber(av[2]))))
         return std::cerr << "Error : Port must be a number" << std::endl, 84;
 
+    srand(static_cast<unsigned int>(time(nullptr)));
     sf::RenderWindow window(sf::VideoMode(800, 600), "My window");
     sf::Event event{};
     GameStd::GameManager manager(window, event);

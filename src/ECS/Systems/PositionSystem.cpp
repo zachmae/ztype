@@ -68,16 +68,28 @@ void GameStd::collision_system(registry &r)
     {
         auto &collidables = r.get_components<struct collidable>();
         auto &drawables = r.get_components<struct drawable>();
-        auto &integer = r.get_components<int>();
+        auto &are_allies = r.get_components<is_ally>();
+        auto &attack = r.get_components<struct attack>();
+        auto &healths = r.get_components<struct health>();
 
-        for (unsigned int idx_1 = 0; idx_1 < collidables.size() && idx_1 < drawables.size() && idx_1 < integer.size(); ++idx_1) {
-            for (unsigned int idx_2 = idx_1 + 1; idx_2 < collidables.size() && idx_2 < drawables.size() && idx_2 < integer.size(); ++idx_2) {
-                if (collidables[idx_1] && collidables[idx_2] && drawables[idx_1] && drawables[idx_2]) {
-                    if (integer[idx_1] && integer[idx_2])
-                        continue;
+        for (unsigned int idx_1 = 0; idx_1 < collidables.size() && idx_1 < drawables.size() && idx_1 < are_allies.size(); ++idx_1) {
+            for (unsigned int idx_2 = idx_1 + 1; idx_2 < collidables.size() && idx_2 < drawables.size() && idx_2 < are_allies.size(); ++idx_2) {
+                if (collidables[idx_1] && collidables[idx_2] &&
+                    drawables[idx_1] && drawables[idx_2] &&
+                    are_allies[idx_1]->status != are_allies[idx_2]->status) {
                     if (drawables[idx_1]->sprite.getGlobalBounds().intersects(drawables[idx_2]->sprite.getGlobalBounds())) {
-                        r.kill_entity(r.entity_from_index(idx_1));
-                        r.kill_entity(r.entity_from_index(idx_2));
+                        if (idx_1 < attack.size() && idx_1 < healths.size() &&
+                            idx_2 < attack.size() && idx_2 < healths.size() &&
+                            attack[idx_1] && healths[idx_1] && attack[idx_2] && healths[idx_2]) {
+                            healths[idx_2]->hp -= attack[idx_1]->damage;
+                            healths[idx_1]->hp -= attack[idx_2]->damage;
+                            if (healths[idx_2]->hp <= 0)
+                                r.kill_entity(r.entity_from_index(idx_2));
+                            if (healths[idx_1]->hp <= 0)
+                                r.kill_entity(r.entity_from_index(idx_1));
+                        }
+                        //r.kill_entity(r.entity_from_index(idx_1));
+                        //r.kill_entity(r.entity_from_index(idx_2));
                     }
                 }
             }

@@ -110,5 +110,29 @@ namespace GameStd {
      */
     struct is_background {
     };
+
+    /**
+     * @brief Component is_ally in order to indentify if the entity is or ally or an ennemy
+     *
+     */
+    struct is_ally {
+        bool status;
+    };
+
+    /**
+     * @brief Component attack in order to handle the attack of the entity
+     *
+     */
+    struct attack {
+        int damage;
+    };
+
+    /**
+     * @brief Component health in order to handle the health of the entity
+     *
+     */
+    struct health {
+        int hp;
+    };
 }
 #endif /* !COMPONENT_HPP_ */

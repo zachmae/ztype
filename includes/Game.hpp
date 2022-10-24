@@ -67,6 +67,9 @@ namespace GameStd {
                 _ecs.register_component<collidable>();
                 _ecs.register_component<int>();
                 _ecs.register_component<is_background>();
+                _ecs.register_component<is_ally>();
+                _ecs.register_component<attack>();
+                _ecs.register_component<health>();
 
                 entity_t background = _ecs.spawn_entity();
                 _spriteManager.Add("background_back", "../assets/img/background/parallax_back.png");
@@ -106,9 +109,12 @@ namespace GameStd {
                 _ecs.add_component<resizable>(ship, {2, 2});
                 _ecs.add_component<is_ship>(ship, {});
                 _ecs.add_component<collidable>(ship, {});
+                _ecs.add_component<health>(ship, {1});
 
                 _spriteManager.Add("bullet", "../assets/img/fx_02.gif");
                 _spriteManager.Add("ennemy", "../assets/img/enemy_01.gif");
+                _spriteManager.Add("ennemy_02", "../assets/img/enemy_02.png");
+                _spriteManager.Add("ennemy_03", "../assets/img/enemy_03.png");
             };
 
             //! not working
@@ -135,7 +141,8 @@ namespace GameStd {
 //                _ecs.add_component<>
                 Client client(ip, port);
                 _ecs.add_component<int>(ship, client.GetId()); // GET THE ID OF THE SHIP new client id
-                _ecs.add_component<controlable>(ship, {client.GetId()});
+                _ecs.add_component<controlable>(ship, {});
+                _ecs.add_component<is_ally>(ship, {true});
 
 
                 while (_window.isOpen()) { // run the program as long as the window is open
@@ -174,8 +181,8 @@ namespace GameStd {
                             _ecs.add_component<resizable>(newCliEntity, {2, 2});
                             _ecs.add_component<is_ship>(newCliEntity, {});
                             _ecs.add_component<collidable>(newCliEntity, {});
-                            _ecs.add_component<controlable>(newCliEntity, {newCliId});
                             _ecs.add_component<int>(newCliEntity, static_cast<int>(newCliId));
+                            _ecs.add_component<is_ally>(newCliEntity, {true});
 
                         } else if (comparator == "old_client") {
                             /**
@@ -199,7 +206,6 @@ namespace GameStd {
                                     _ecs.add_component<resizable>(newCliEntity, {2, 2});
                                     _ecs.add_component<is_ship>(newCliEntity, {});
                                     _ecs.add_component<collidable>(newCliEntity, {});
-                                    _ecs.add_component<controlable>(newCliEntity, {newCliId});
                                     _ecs.add_component<int>(newCliEntity, static_cast<int>(newCliId));
                                 }
                             }
