@@ -132,7 +132,7 @@ void GameStd::boss_magic_system(registry &r, SpriteManager<std::string>& _sprite
     float random_x_vel = static_cast<float>(rand() % 100) / 10;
     float random_y_vel = (static_cast<float>(rand() % 100) - 50) / 10;
     r.add_component<velocity>(magic, {-1 * random_x_vel, random_y_vel});
-    r.add_component<animation_basic>(magic, {sf::IntRect(0, 0, 100, 100), 0, 10, 100, 0.2f});
+    r.add_component<animation_basic>(magic, {sf::IntRect(0, 0, 70, 100), 0, 10, 70, 0.2f});
     r.add_component<is_ally>(magic, {false});
     r.add_component<collidable>(magic, {});
     r.add_component<attack>(magic, {10});
