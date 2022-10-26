@@ -25,9 +25,14 @@
 
 //UsefullLib
 #include "SpriteManager.hpp"
+
 #include "SceneManager.hpp"
+
+
 #include "ProjectComponent.hpp"
 #include "ComponentManager.hpp"
+
+#include "SceneSystem.hpp"
 
 //Std
 #include <tuple>
@@ -80,9 +85,11 @@ namespace GameStd {
 
             int Start()
             {
-                User::InitScene(_ecs, _sm, _window, _event);
+                User::InitScene(_ecs, _sm, _scenes, _window, _event);
                 while (_window.isOpen()) {
+                    _window.clear();
                     User::UpdateScene(_ecs, _scenes);
+
                     // check all the window's events that were triggered since the last iteration of the loop
                     while (_window.pollEvent(_event)) {
                         // "close requested" event: we close the window
@@ -94,6 +101,9 @@ namespace GameStd {
                         User::UpdateEventSystem(_ecs, _event);
                     }
                     User::UpdateWindowSystem(_ecs, _window);
+                    SceneStd::display_system(_ecs, _scenes, _window);
+                    _window.display();
+
                 }
                 return 0;
             }

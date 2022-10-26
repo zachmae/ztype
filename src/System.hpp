@@ -50,14 +50,12 @@ namespace User {
         auto &drawables = r.get_components<drawable>();
         auto &positions = r.get_components<position>();
 
-        w.clear();
         for (size_t i = 0; i < drawables.size() && i < positions.size(); ++i) {
             if (drawables[i] && positions[i]) {
                 drawables[i]->sprite.setPosition({positions[i]->x, positions[i]->y});
                 w.draw(drawables[i]->sprite);
             }
         }
-        w.display();
     }
 }
 

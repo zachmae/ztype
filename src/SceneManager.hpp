@@ -10,11 +10,20 @@
 #include "SFML/Audio.hpp"
 #include "SFML/System.hpp"
 #include "SFML/Network.hpp"
-#include <map>
+
 #include "Scene.hpp"
+
+#include <map>
+#include <unordered_set>
 
 #ifndef SCENEMANAGER_HPP_
     #define SCENEMANAGER_HPP_
+
+template<typename Key>
+class SceneManager;
+
+template<typename Key>
+using SceneManager_ref = SceneManager<Key> &;
 
 /**
  * @brief SpriteManager
@@ -65,6 +74,22 @@ class SceneManager {
         {
             return _storage;
         }
+
+        std::vector<int> GetOrderedZtypePositiveOnly() {
+            std::vector<int> vi;
+
+            for (auto &scene: _storage)
+                if (!(scene.second.GetZIndex() < 0))
+                    vi.push_back(scene.second.GetZIndex());
+            std::sort(vi.begin(), vi.end());
+            std::unordered_set<int> s;
+            for (int i: vi)
+                s.insert(i);
+            vi.assign(s.begin(), s.end());
+            sort(vi.begin(), vi.end());
+
+            return vi;
+        };
 
     private:
         TStorage _storage;

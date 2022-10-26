@@ -48,16 +48,17 @@ class Scene {
             std::cout << "Scene created" << std::endl;
         }
 
-        entity_t SpawnEntity(entity_t e)
+        entity_t SpawnEntity()
         {
             entity_t ent = _ecs.spawn_entity();
             _ecs.add_component<SceneId>(ent, {_id});
             return ent;
         }
 
-        void SetZIndex(int zIndex)
+        int SetZIndex(int zIndex)
         {
             _zIndex = zIndex;
+            return _zIndex;
         }
 
         int GetZIndex() const
