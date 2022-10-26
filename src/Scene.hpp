@@ -5,6 +5,8 @@
 ** Scene
 */
 
+#include <fstream>
+
 #include <map>
 #include <vector>
 #include "Ecs.hpp"
@@ -25,15 +27,15 @@ using Window_ref = sf::RenderWindow &;
 
 class Scene {
     public:
-        Scene(Registry_ref reg, std::string path)
-        : _ecs(reg), _zIndex(0)
+        Scene(Registry_ref reg, int sceneId, std::string path)
+        : _ecs(reg), _id(sceneId), _zIndex(0)
         {
             std::ifstream ifs(path);
-            json scenefile;
+            json file;
             if (ifs.good()) {
-                scenefile = json::parse(ifs);
-                std::cout << scenefile << std::endl;
-                //for (auto &entity : scenefile["entities"]) {
+                file = json::parse(ifs);
+                std::cout << file << std::endl;
+                //for (auto &entity : file["entities"]) {
                 //    entity_t e = _ecs.spawn_entity();
                 //    _entities.push_back(e);
                 //    std::cout << "not-used"<< entity << std::endl;
@@ -46,15 +48,32 @@ class Scene {
             std::cout << "Scene created" << std::endl;
         }
 
-        void SpawnEntity(entity_t e)
+        entity_t SpawnEntity(entity_t e)
         {
             entity_t ent = _ecs.spawn_entity();
-            _ecs.add_component<zIndex>(ent, {_zIndex});
+            _ecs.add_component<SceneId>(ent, {_id});
+            return ent;
+        }
+
+        void SetZIndex(int zIndex)
+        {
+            _zIndex = zIndex;
+        }
+
+        int GetZIndex() const
+        {
+            return _zIndex;
+        }
+
+        int GetId() const
+        {
+            return _id;
         }
 
     private:
         Registry_ref _ecs;
-        int _zIndex = 0;
+        int _zIndex;
+        int _id;
 };
 
 #endif /* !SCENE_HPP_ */

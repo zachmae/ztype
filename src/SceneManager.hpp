@@ -16,7 +16,6 @@
 #ifndef SCENEMANAGER_HPP_
     #define SCENEMANAGER_HPP_
 
-
 /**
  * @brief SpriteManager
  *
@@ -36,7 +35,6 @@ class SceneManager {
          */
         void Add(Key k, const Scene &v)
         {
-            _keys.push_back(k);
             _storage.insert(std::pair<Key, Scene>(k, v));
         };
 
@@ -63,31 +61,13 @@ class SceneManager {
             return _storage.at(k);
         };
 
-        std::vector<Key> GetScenes()
+         std::map<Key, Scene> GetScenes()
         {
-            return _keys;
-        }
-
-        std::vector<Key> GetSceneUsed()
-        {
-            return _keysUsed;
-        }
-
-        void PushSceneUsed(Key k)
-        {
-            _keysUsed.push_back(k);
-        }
-
-        void PopKeyUsed(Key k)
-        {
-            _keysUsed.pop_back(k);
+            return _storage;
         }
 
     private:
         TStorage _storage;
-        std::vector<Key> _keys;
-        std::vector<Key> _keysUsed;
-
 };
 
 #endif /* !SCENEMANAGER_HPP_ */

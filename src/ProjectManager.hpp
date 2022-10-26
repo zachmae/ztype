@@ -51,11 +51,9 @@ namespace GameStd {
             ProjectManager(std::string jsonfile)
             : _window(CreateWindow(jsonfile)), _sm()
             {
-                _ecs.register_component<zIndex>(); //default use for scenes
                 config_extractor<project_config::components_list>::function(_ecs); //sys
                 config_extractor<scene_config::components_list>::function(_ecs); //sys
                 config_extractor<user_config::components_list>::function(_ecs); //user
-                _ecs.add_component<position>(_ecs.entity_from_index(1) , {0.f, 0.f});
                 json file = json::parse(std::ifstream(jsonfile.c_str()));
 
                 InitWindow(file);
@@ -92,6 +90,7 @@ namespace GameStd {
                             _window.close();
                             return 0;
                         }
+                        User::CloseEvent(_event, _window);
                         User::UpdateEventSystem(_ecs, _event);
                     }
                     User::UpdateWindowSystem(_ecs, _window);
@@ -169,12 +168,14 @@ namespace GameStd {
                 std::cout << file["scene-path"] << std::endl;
                 std::ifstream ifs(file["scene-path"]);
                 json fileScene;
+                int sceneIds = 0;
 
                 if (ifs.good()) {
                     fileScene = json::parse(ifs);
                     for (auto &it : fileScene["scenes"]) {
                         std::cout << it["name"] << it["path"] << std::endl;
-                        _scenes.Add(it["name"], Scene(_ecs, it["path"]));
+                        _scenes.Add(it["name"], Scene(_ecs, sceneIds, it["path"]));
+                        ++sceneIds;
                     }
                 } else {
                     std::cout << file["scene-path"] << " is missing" << std::endl;

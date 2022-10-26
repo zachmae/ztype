@@ -8,12 +8,12 @@
 #ifndef SCENECOMPONENT_HPP_
 #define SCENECOMPONENT_HPP_
 
-struct zIndex {
-    bool _zIndex;
+struct SceneId {
+    int _sceneId;
 };
 
 struct scene_config {
-    using components_list = std::tuple<zIndex>;
+    using components_list = std::tuple<SceneId>;
 };
 
 #endif /* !SCENECOMPONENT_HPP_ */

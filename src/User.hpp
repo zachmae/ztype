@@ -31,6 +31,15 @@ namespace User {
     {
     }
 
+    bool CloseEvent(Event_ref event, Window_ref window)
+    {
+        if (event.key.code == sf::Keyboard::Escape) {
+            window.close();
+            return true;
+        }
+        return false;
+    }
+
     void UpdateEventSystem(Registry_ref reg, Event_ref event)
     {
         control_system(reg, event);
@@ -42,4 +51,5 @@ namespace User {
         position_system(reg);
         draw_system(reg, window);
     }
+
 }
