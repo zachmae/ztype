@@ -28,10 +28,13 @@ using Window_ref = sf::RenderWindow &;
 class Scene {
     public:
         Scene(Registry_ref reg, int sceneId, std::string path)
-        : _ecs(reg), _id(sceneId), _zIndex(0)
+        : _ecs(reg)
         {
             std::ifstream ifs(path);
             json file;
+
+            _id = sceneId;
+            _zIndex = 0;
             if (ifs.good()) {
                 file = json::parse(ifs);
                 std::cout << file << std::endl;

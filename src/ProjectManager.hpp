@@ -85,7 +85,7 @@ namespace GameStd {
 
             int Start()
             {
-                User::InitScene(_ecs, _sm, _scenes, _window, _event);
+                User::InitScene(_ecs, _sm, _scenes);
                 while (_window.isOpen()) {
                     _window.clear();
                     User::UpdateScene(_ecs, _scenes);
