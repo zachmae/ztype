@@ -5,15 +5,14 @@
 ** SceneComponent
 */
 
-#ifndef SCENECOMPONENT_HPP_
-#define SCENECOMPONENT_HPP_
+#include "SceneComponent.hpp"
+#include <tuple>
 
-struct SceneId {
-    int _sceneId;
-};
+#ifndef SCENECOMPONENTMANAGER_HPP_
+#define SCENECOMPONENTMANAGER_HPP_
 
 struct scene_config {
     using components_list = std::tuple<SceneId>;
 };
 
-#endif /* !SCENECOMPONENT_HPP_ */
+#endif /* !SCENECOMPONENTMANAGER_HPP_ */

@@ -5,15 +5,16 @@
 ** ProjectComponent
 */
 
-#ifndef PROJECTCOMPONENT_HPP_
-#define PROJECTCOMPONENT_HPP_
+#include <tuple>
 
-struct visible {
-    bool _visible;
-};
+#include "ProjectComponent.hpp"
+
+#ifndef PROJECTCOMPONENTMANAGER_HPP_
+#define PROJECTCOMPONENTMANAGER_HPP_
 
 struct project_config {
     using components_list = std::tuple<visible>;
 };
+
 
 #endif /* !PROJECTCOMPONENT_HPP_ */

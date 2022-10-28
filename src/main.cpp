@@ -7,7 +7,7 @@
 */
 
 #include <SFML/Window.hpp>
-#include "ProjectManager.hpp"
+#include "ProjectManager/ProjectManager.hpp"
 
 int main()
 {

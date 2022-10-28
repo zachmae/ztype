@@ -1,4 +1,4 @@
-#include "Component.hpp"
+#include "UserComponent.hpp"
 #include <tuple>
 
 struct user_config {

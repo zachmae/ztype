@@ -6,10 +6,10 @@
 */
 
 #include <SFML/Window.hpp>
-#include "SFML/Graphics.hpp"
-#include "SFML/Audio.hpp"
-#include "SFML/System.hpp"
-#include "SFML/Network.hpp"
+#include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
+#include <SFML/System.hpp>
+#include <SFML/Network.hpp>
 
 #include "Scene.hpp"
 
@@ -89,6 +89,20 @@ class SceneManager {
             sort(vi.begin(), vi.end());
 
             return vi;
+        };
+
+        std::vector<int> GetDisplayOrderOfSceneID() {
+            std::vector<int> vi = GetOrderedZtypePositiveOnly();
+            std::vector<int> res;
+
+            for (auto &zIndex: vi) {
+                for (auto &scene: _storage) {
+                    if (scene.second.GetZIndex() == zIndex)
+                        res.push_back(scene.second.GetId());
+                }
+            }
+
+            return res;
         };
 
     private:

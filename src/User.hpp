@@ -5,11 +5,18 @@
 ** User
 */
 
-#include "SceneManager.hpp"
+#include "SceneManager/SceneManager.hpp"
 #include "SpriteManager.hpp" // add init scene deprecated cause shouldn't be used
-#include "ProjectComponent.hpp"
-#include "Component.hpp"
-#include "System.hpp"
+
+#include "ProjectManager/ProjectComponent.hpp"
+#include "UserComponent.hpp"
+#include "SceneManager/SceneComponent.hpp"
+#include "SceneManager/SceneManager.hpp"
+
+#include "UserSystem.hpp"
+
+using Event_ref = sf::Event &;
+using Window_ref = sf::RenderWindow &;
 
 // edit function
 namespace User {
@@ -26,15 +33,14 @@ namespace User {
         scene.Get("win").SetZIndex(-1);
 
         entity_t e1 = scene.Get("tutorial").SpawnEntity();
-        scene.Get("tutorial").SetZIndex(0);
+        scene.Get("tutorial").SetZIndex(1);
         r.add_component<drawable>(e1, {sm.Get("background")});
         r.add_component<position>(e1, {0, 0});
         r.add_component<velocity>(e1, {0, 0});
-        r.add_component<contralable>(e1, {});
         r.add_component<visible>(e1, {true});
 
         entity_t e2 = scene.Get("loading").SpawnEntity();
-        scene.Get("loading").SetZIndex(1);
+        scene.Get("loading").SetZIndex(3);
         r.add_component<drawable>(e2, {sm.Get("ship")});
         r.add_component<position>(e2, {0, 0});
         r.add_component<velocity>(e2, {0, 0});
@@ -46,7 +52,6 @@ namespace User {
         r.add_component<drawable>(e3, {sm.Get("enemy")});
         r.add_component<position>(e3, {0, 0});
         r.add_component<velocity>(e3, {0, 0});
-        r.add_component<contralable>(e3, {});
         r.add_component<visible>(e3, {true});
 
     }
@@ -69,10 +74,13 @@ namespace User {
         control_system(reg, event);
     }
 
-    void UpdateWindowSystem(Registry_ref reg, Window_ref window)
+    template<typename Key>
+    void UpdateWindowSystem(Registry_ref reg, SceneManager_ref<Key> scene, Window_ref window)
     {
         //all system
+        displayscene_system(reg, scene, window);
         position_system(reg);
+
 //        draw_system(reg, window);
 
     }

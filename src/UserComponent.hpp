@@ -11,11 +11,8 @@
 #include "SFML/System.hpp"
 #include "SFML/Network.hpp"
 
-#ifndef COMPONENT_HPP_
-    #define COMPONENT_HPP_
-
-using Window_ref = sf::RenderWindow &;
-using Event_ref = sf::Event &;
+#ifndef USERCOMPONENT_HPP_
+    #define USERCOMPONENT_HPP_
 
 //utilisateur
 
@@ -36,4 +33,4 @@ struct drawable {
 struct contralable {
 };
 
-#endif /* !COMPONENT_HPP_ */
+#endif /* !USERCOMPONENT_HPP_ */

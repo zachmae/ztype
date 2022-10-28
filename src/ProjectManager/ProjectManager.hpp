@@ -17,28 +17,25 @@
 #include "SFML/System.hpp"
 #include "SFML/Network.hpp"
 //json
-#include "nlohmann/json.hpp"
+#include "../nlohmann/json.hpp"
 
 //User
-#include "User.hpp"
-#include "System.hpp"
+#include "../User.hpp"
 
 //UsefullLib
-#include "SpriteManager.hpp"
-
-#include "SceneManager.hpp"
+#include "../SpriteManager.hpp"
 
 
-#include "ProjectComponent.hpp"
-#include "ComponentManager.hpp"
+#include "../SceneManager/SceneManager.hpp"
 
-#include "SceneSystem.hpp"
+#include "ProjectComponentManager.hpp"
+#include "../SceneManager/SceneComponentManager.hpp"
+#include "../UserComponentManager.hpp"
 
 //Std
 #include <tuple>
 #include <type_traits> //std::is_same_v
 #include <iostream>
-
 
 namespace GameStd {
 
@@ -100,8 +97,7 @@ namespace GameStd {
                         User::CloseEvent(_event, _window);
                         User::UpdateEventSystem(_ecs, _event);
                     }
-                    User::UpdateWindowSystem(_ecs, _window);
-                    SceneStd::display_system(_ecs, _scenes, _window);
+                    User::UpdateWindowSystem(_ecs, _scenes, _window);
                     _window.display();
 
                 }

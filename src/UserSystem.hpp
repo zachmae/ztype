@@ -1,8 +1,18 @@
-#include "Ecs.hpp"
-#include "Component.hpp"
+//ProjectManager
+#include "ProjectManager/Ecs.hpp"
 
-#ifndef SYSTEM_HPP_
-    #define SYSTEM_HPP_
+//SceneManager
+#include "SceneManager/SceneManager.hpp"
+#include "SceneManager/Scene.hpp"
+#include "SceneManager/SceneComponent.hpp"
+
+#include "UserComponent.hpp"
+
+
+
+
+#ifndef USERSYSTEM_HPP_
+    #define USERSYSTEM_HPP_
 
 namespace User {
 
@@ -45,6 +55,28 @@ namespace User {
         }
     }
 
+    template<typename Key>
+    using SceneManager_ref = SceneManager<Key> &;
+
+    inline void displayscene_system(Registry_ref _ecs, SceneManager_ref<std::string> sm, Window_ref window)
+    {
+        std::vector<int> vi = sm.GetDisplayOrderOfSceneID();
+
+        auto &drawables = _ecs.get_components<drawable>();
+        auto &positions = _ecs.get_components<position>();
+        auto &SceneIds = _ecs.get_components<SceneId>();
+
+
+        for (const auto& sceneId: vi) {
+            for (size_t i = 0; i < drawables.size() && i < positions.size() && i < SceneIds.size(); ++i) {
+                if (drawables[i] && positions[i] && SceneIds[i] && SceneIds[i]->_sceneId == sceneId) {
+                    drawables[i]->sprite.setPosition({positions[i]->x, positions[i]->y});
+                    window.draw(drawables[i]->sprite);
+               }
+            }
+        }
+    }
+
     inline void draw_system(registry &r, Window_ref w)
     {
         auto &drawables = r.get_components<drawable>();
@@ -59,4 +91,4 @@ namespace User {
     }
 }
 
-#endif /* !SYSTEM_HPP_ */
+#endif /* !USERSYSTEM_HPP_ */

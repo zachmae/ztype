@@ -10,8 +10,10 @@
 #ifndef ECS_HPP_
     #define ECS_HPP_
 
-//Step 0:
 class registry;
+using Registry_ref = registry &;
+
+//Step 0:
 
 struct entity_t {
     size_t _idx;

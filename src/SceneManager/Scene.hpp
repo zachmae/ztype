@@ -9,10 +9,10 @@
 
 #include <map>
 #include <vector>
-#include "Ecs.hpp"
-#include "nlohmann/json.hpp"
+#include "../ProjectManager/Ecs.hpp"
+#include "../nlohmann/json.hpp"
+//#include "../SpriteManager.hpp"
 #include "SceneComponent.hpp"
-#include "SpriteManager.hpp"
 
 using json = nlohmann::json;
 using Registry_ref = registry &;
