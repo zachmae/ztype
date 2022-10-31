@@ -13,9 +13,9 @@ class IAnimal {
 class Lion : public IAnimal {
     public:
         Lion() = default;
-        [[deprecated]]
         Lion(int age) { _age = age; };
         ~Lion() = default;
+        [[deprecated("you\'r dumb")]]
         void sound(std::string sound) {
             std::cout << "roar: " << sound << std::endl;
         }
