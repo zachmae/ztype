@@ -119,27 +119,6 @@ namespace GameStd {
             };
 
             /**
-             * @brief Loop the sound at the given buffer
-             *
-             * @param key
-             * @param path
-             */
-            void setLoop(Key k)
-            {
-                _storage[k]._sound.setLoop(true);
-            };
-
-            /**
-             * @brief Stop the audio loop at the given key
-             *
-             * @param key
-             */
-            void stopLoop(Key k)
-            {
-                _storage[k]._sound.setLoop(false);
-            };
-
-            /**
              * @brief set volume
              *
              */
@@ -165,18 +144,6 @@ namespace GameStd {
                 for (auto &it : _storage)
                     it.second._sound.setVolume(_volume);
             }
-
-            /**
-             * @brief get loop of the sound at the given key
-             *
-             * @param key
-             *
-             * @return bool
-             */
-            bool getLoop(Key k)
-            {
-                return _storage[k]._sound.getLoop();
-            };
 
             /**
              * @brief Get the Status object

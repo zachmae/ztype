@@ -10,6 +10,7 @@
 #include "Ecs.hpp"
 #include "Component.hpp"
 #include "SpriteManager.hpp"
+#include "AudioManager.hpp"
 #include "../../Network/Client.hpp"
 #include "../../Network/Server.hpp"
 
@@ -97,10 +98,10 @@ namespace GameStd {
      * @param src_y : y position of the ship
      * @param _spriteManager : sprite manager reference of all sprites
      */
-    void bullet_creation_system(registry &r, float src_x, float src_y, SpriteManager<std::string> _spriteManager);
+    void bullet_creation_system(registry &r, float src_x, float src_y, SpriteManager<std::string> _spriteManager, AudioManager<std::string>& _audioManager);
 
     /**
-     * @brief system that can create ennemy when i need to
+     * @brief system that can create random ennemy when i need to
      *
      * @param r : registry, contain all of the entities and the related components
      * @param _spriteManager : sprite manager reference of all sprites
@@ -132,7 +133,7 @@ namespace GameStd {
      * @param e : event that i want to handle
      * @param _spriteManager : sprite manager reference of all sprites
      */
-    void control_system(registry &r, Event_ref e, const SpriteManager<std::string>& _spriteManager);
+    void control_system(registry &r, Event_ref e, const SpriteManager<std::string>& _spriteManager, AudioManager<std::string>& _audioManager);
 
     /**
      * @brief system that can remove every entities that are out of the window in order to free memory

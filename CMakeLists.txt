@@ -37,6 +37,7 @@ target_link_libraries(${PROJECT_NAME}
     sfml-window
     sfml-graphics
     sfml-network
+    sfml-audio
     nlohmann_json::nlohmann_json
 )
 

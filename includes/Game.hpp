@@ -11,6 +11,8 @@
 #include "SFML/System.hpp"
 #include "SFML/Network.hpp"
 #include "SpriteManager.hpp"
+#include "AudioManager.hpp"
+#include "MusicManager.hpp"
 #include "../src/ECS/Systems/System.hpp"
 #include "../src/Network/Client.hpp"
 #include "../src/Network/Server.hpp"
@@ -119,6 +121,8 @@ namespace GameStd {
                 _spriteManager.Add("ennemy_03", "../assets/img/enemy_03.png");
                 _spriteManager.Add("boss", "../assets/img/boss.png");
                 _spriteManager.Add("black_magic", "../assets/img/black_magic.png");
+                _audioManager.Add("blaster", "../assets/sounds/blaster.ogg");
+                _musicManager.Add("epitomize", "../assets/sounds/epitomize.mp3");
             };
 
             //! not working
@@ -147,7 +151,7 @@ namespace GameStd {
                 _ecs.add_component<int>(ship, client.GetId()); // GET THE ID OF THE SHIP new client id
                 _ecs.add_component<controlable>(ship, {});
                 _ecs.add_component<is_ally>(ship, {true});
-
+                _musicManager.play("epitomize");
                 while (_window.isOpen()) { // run the program as long as the window is open
                     _window.clear();
                     // check all the window's events that were triggered since the last iteration of the loop
@@ -158,7 +162,7 @@ namespace GameStd {
                             _window.close();
                             return 0;
                         }
-                        control_system(_ecs, _event, _spriteManager);
+                        control_system(_ecs, _event, _spriteManager, _audioManager);
                     }
                     sf::Packet sfp = client.WaitReceive();
                     if (sfp.getData() != NULL) { //cond doesn't work
@@ -328,6 +332,9 @@ namespace GameStd {
             Event_ref _event;
             registry _ecs;
             SpriteManager<std::string> _spriteManager;
+            AudioManager<std::string> _audioManager;
+            MusicManager<std::string> _musicManager;
+
             entity_t ship = _ecs.entity_from_index(0);
     };
 };

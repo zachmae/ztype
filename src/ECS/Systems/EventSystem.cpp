@@ -7,7 +7,7 @@
 
 #include "System.hpp"
 
-void GameStd::control_system(registry &r, Event_ref e, const SpriteManager<std::string>& _spriteManager)
+void GameStd::control_system(registry &r, Event_ref e, const SpriteManager<std::string>& _spriteManager, AudioManager<std::string>& _audioManager)
 {
     auto &controllables = r.get_components<controlable>();
     auto &velocities = r.get_components<velocity>();
@@ -25,7 +25,7 @@ void GameStd::control_system(registry &r, Event_ref e, const SpriteManager<std::
             } if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
                 velocities[i]->x = 10;
             } if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
-                bullet_creation_system(r, positions[i]->x, positions[i]->y, _spriteManager);
+                bullet_creation_system(r, positions[i]->x, positions[i]->y, _spriteManager, _audioManager);
             }
             if (i < are_ships.size() && are_ships[i])
                 animate_ship_system(r, i, e.key.code);
@@ -91,7 +91,7 @@ void GameStd::ennemy_system(registry &r, SpriteManager<std::string>& _spriteMana
     last_time = current_time;
 }
 
-void GameStd::bullet_creation_system(registry &r, float src_x, float src_y, SpriteManager<std::string> _spriteManager)
+void GameStd::bullet_creation_system(registry &r, float src_x, float src_y, SpriteManager<std::string> _spriteManager, AudioManager<std::string>& _audioManager)
 {
     static std::chrono::steady_clock::time_point last_time = std::chrono::steady_clock::now();
     std::chrono::steady_clock::time_point current_time = std::chrono::steady_clock::now();
@@ -108,6 +108,7 @@ void GameStd::bullet_creation_system(registry &r, float src_x, float src_y, Spri
     r.add_component<is_ally>(bullet, {true});
     r.add_component<attack>(bullet, {10});
     r.add_component<health>(bullet, {1});
+    _audioManager.play("blaster");
     last_time = current_time;
 }
 
