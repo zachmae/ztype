@@ -13,6 +13,7 @@ class IAnimal {
 class Lion : public IAnimal {
     public:
         Lion() = default;
+        [[deprecated]]
         Lion(int age) { _age = age; };
         ~Lion() = default;
         void sound(std::string sound) {

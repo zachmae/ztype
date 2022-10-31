@@ -95,7 +95,7 @@ namespace GameStd {
                             return 0;
                         }
                         User::CloseEvent(_event, _window);
-                        User::UpdateEventSystem(_ecs, _event);
+                        User::UpdateEventSystem(_ecs, _event, _window);
                     }
                     User::UpdateWindowSystem(_ecs, _scenes, _window);
                     _window.display();

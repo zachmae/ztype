@@ -69,7 +69,7 @@ namespace User {
         return false;
     }
 
-    void UpdateEventSystem(Registry_ref reg, Event_ref event)
+    void UpdateEventSystem(Registry_ref reg, Event_ref event, Window_ref window)
     {
         control_system(reg, event);
     }
