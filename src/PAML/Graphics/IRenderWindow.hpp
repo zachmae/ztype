@@ -8,6 +8,8 @@
 #ifndef PAML_IRENDERWINDOW_HPP_
 #define PAML_IRENDERWINDOW_HPP_
 
+#include "../Graphics.hpp"
+
 namespace paml {
 
     class IRenderWindow {

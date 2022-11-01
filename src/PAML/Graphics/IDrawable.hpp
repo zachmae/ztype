@@ -8,6 +8,8 @@
 #ifndef PAML_IDRAWABLE_HPP
 #define PAML_IDRAWABLE_HPP
 
+#include "../Graphics.hpp"
+
 namespace paml {
 
     class IDrawable {

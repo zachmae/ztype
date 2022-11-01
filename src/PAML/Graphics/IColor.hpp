@@ -8,6 +8,8 @@
 #ifndef PAML_ICOLOR_HPP_
 #define PAML_ICOLOR_HPP_
 
+#include "../Graphics.hpp"
+
 namespace paml {
 
     class IColor {

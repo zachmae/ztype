@@ -8,12 +8,17 @@
 #ifndef _IGRAPHICS_HPP_
 #define _PAML_IGRAPHICS_HPP_
 
-namespace paml {
+#include <utility>
 
-    class IGraphics {
-
-
-    };
-}
+#include "Graphics/IColor.hpp"
+#include "Graphics/IDrawable.hpp"
+#include "Graphics/IFont.hpp"
+#include "Graphics/IImage.hpp"
+#include "Graphics/IRenderWindow.hpp"
+#include "Graphics/IShape.hpp"
+#include "Graphics/ISprite.hpp"
+#include "Graphics/IText.hpp"
+#include "Graphics/ITexture.hpp"
+#include "Graphics/ITransformable.hpp"
 
 #endif //_IGRAPHICS_HPP_

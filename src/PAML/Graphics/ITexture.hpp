@@ -8,6 +8,8 @@
 #ifndef PAML_ITEXTURE_HPP
 #define PAML_ITEXTURE_HPP
 
+#include "../Graphics.hpp"
+
 namespace paml {
 
 }

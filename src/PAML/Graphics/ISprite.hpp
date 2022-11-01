@@ -8,6 +8,8 @@
 #ifndef PAML_ISPRITE_HPP
 #define PAML_ISPRITE_HPP
 
+#include "../Graphics.hpp"
+
 namespace paml {
 
     class ISprite : public IDrawable, public ITransformable {
@@ -18,16 +20,8 @@ namespace paml {
         virtual void setColor() = 0;
         virtual void getColor() = 0;
 
-        virtual void setPosition() = 0;
-        virtual void getPosition() = 0;
-        virtual void setRotation() = 0;
-        virtual void getRotation() = 0;
-        virtual void setScale() = 0;
-        virtual void getScale() = 0;
 
-        virtual void move() = 0;
-        virtual void rotate() = 0;
-        virtual void scale() = 0;
+
     };
 }
 

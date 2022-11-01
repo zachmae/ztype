@@ -8,6 +8,8 @@
 #ifndef PAML_IIMAGE_HPP_
 #define PAML_IIMAGE_HPP_
 
+#include "../Graphics.hpp"
+
 namespace paml {
 
     class IImage  {

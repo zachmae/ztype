@@ -8,9 +8,11 @@
 #ifndef PAML_ISHAPE_HPP
 #define PAML_ISHAPE_HPP
 
+#include "../Graphics.hpp"
+
 namespace paml {
 
-    class ISprite : public IDrawable, public ITransformable {
+    class IShape : public IDrawable, public ITransformable {
 
         // TODO - Change return types and entry parameters
         virtual void setTexture() = 0;

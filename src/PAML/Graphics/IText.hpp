@@ -8,6 +8,8 @@
 #ifndef PAML_ITEXT_HPP
 #define PAML_ITEXT_HPP
 
+#include "../Graphics.hpp"
+
 namespace paml {
 
     class IText : public IDrawable, public ITransformable {
