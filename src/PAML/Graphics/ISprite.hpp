@@ -14,13 +14,10 @@ namespace paml {
 
     class ISprite : public IDrawable, public ITransformable {
 
-        // TODO - Change return types and entry parameters
-        virtual void setTexture() = 0;
-        virtual void getTexture() = 0;
-        virtual void setColor() = 0;
-        virtual void getColor() = 0;
-
-
+        virtual void setTexture(const ITexture &texture) = 0;
+        virtual ITexture &getTexture() const = 0;
+        virtual void setColor(IColor &color) = 0;
+        virtual IColor &getColor() const = 0;
 
     };
 }

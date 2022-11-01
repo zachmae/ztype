@@ -5,8 +5,8 @@
 ** IText
 */
 
-#ifndef PAML_IDRAWABLE_HPP
-#define PAML_IDRAWABLE_HPP
+#ifndef PAML_ITRANSFORMABLE_HPP
+#define PAML_ITRANSFORMABLE_HPP
 
 #include "../Graphics.hpp"
 
@@ -15,21 +15,21 @@ namespace paml {
     class ITransformable {
 
         // Setters & Getters
-        virtual void setPosition() = 0;
-        virtual void getPosition() = 0;
-        virtual void setRotation() = 0;
-        virtual float getRotation() = 0;
-        virtual std::pair<float, float> setScale() = 0;
-        virtual void getScale() = 0;
+        virtual void setPosition(std::pair<float, float>) = 0;
+        virtual std::pair<float, float> getPosition() const = 0;
+        virtual void setRotation(float angle) = 0;
+        virtual float getRotation() const = 0;
+        virtual void setScale(std::pair<float, float>) = 0;
+        virtual std::pair<float, float> getScale() const = 0;
 
 
         // Actions
-        virtual void move() = 0;
-        virtual void rotate() = 0;
-        virtual void scale() = 0;
+        virtual void move(std::pair<float, float>) = 0;
+        virtual void rotate(float angle) = 0;
+        virtual void scale(std::pair<float, float>) = 0;
 
     };
 
 }
 
-#endif // !PAML_IDRAWABLE_HPP
+#endif // !PAML_ITRANSFORMABLE_HPP

@@ -14,6 +14,8 @@ namespace paml {
 
     class IRenderWindow {
 
+        // TODO - Make the Interface ineherite from IWindow (Window Module)
+
         virtual void clear() = 0;
         virtual void draw() = 0;
 

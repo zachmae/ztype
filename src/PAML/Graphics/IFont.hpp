@@ -5,13 +5,20 @@
 ** IText
 */
 
-#ifndef PAML_ITEXTURE_HPP
-#define PAML_ITEXTURE_HPP
+#ifndef PAML_IFONT_HPP
+#define PAML_IFONT_HPP
 
 #include "../Graphics.hpp"
 
 namespace paml {
 
+    class IFont {
+
+        virtual bool loadFromFile(const std::string &filename) = 0;
+        virtual bool saveToFile(const std::string &filename) const = 0;
+
+    };
+
 }
 
-#endif // !PAML_ITEXTURE_HPP
+#endif // !PAML_IFONT_HPP

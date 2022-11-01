@@ -9,6 +9,9 @@
 #define _PAML_IGRAPHICS_HPP_
 
 #include <utility>
+#include <string>
+
+// TODO - Replace all the std:pair<float, float> by IVector (once created)
 
 #include "Graphics/IColor.hpp"
 #include "Graphics/IDrawable.hpp"

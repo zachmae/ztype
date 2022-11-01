@@ -14,7 +14,8 @@ namespace paml {
 
     class IColor {
 
-        virtual int toInteger() = 0;
+        // TODO - Change types for draw method
+        virtual uint32_t toInteger() const = 0;
 
     };
 
