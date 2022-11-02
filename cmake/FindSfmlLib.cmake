@@ -1,5 +1,5 @@
 include(FetchContent)
-set(BUILD_SHARED_LIBS OFF)
+set(BUILD_SHARED_LIBS ON)
 
 FetchContent_Declare(SFML
  GIT_REPOSITORY https://github.com/SFML/SFML.git

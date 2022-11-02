@@ -15,7 +15,7 @@ if(CMAKE_COMPILER_IS_GNUCXX)
 endif(CMAKE_COMPILER_IS_GNUCXX)
 
 if (WIN32)
-    add_compile_options(-Wall)
+    add_compile_options(/W4)
     set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG "./")
     #set_target_properties (rtype.exe PROPERTIES PREFIX "./build/")
 endif(WIN32)
@@ -38,8 +38,37 @@ target_link_libraries(${PROJECT_NAME}
     sfml-graphics
     sfml-network
     sfml-audio
-    nlohmann_json::nlohmann_json
+    sfml-system
 )
+
+if (WIN32)
+  add_custom_command(TARGET rtype POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy ${FETCHCONTENT_BASE_DIR}/sfml-build/lib/Debug/sfml-window-d-2.dll ${CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG}
+    COMMAND_EXPAND_LISTS
+  )
+  add_custom_command(TARGET rtype POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy ${FETCHCONTENT_BASE_DIR}/sfml-build/lib/Debug/sfml-network-d-2.dll ${CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG}
+    COMMAND_EXPAND_LISTS
+  )
+  add_custom_command(TARGET rtype POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy ${FETCHCONTENT_BASE_DIR}/sfml-build/lib/Debug/sfml-system-d-2.dll ${CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG}
+    COMMAND_EXPAND_LISTS
+  )
+  add_custom_command(TARGET rtype POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy ${FETCHCONTENT_BASE_DIR}/sfml-build/lib/Debug/sfml-graphics-d-2.dll ${CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG}
+    COMMAND_EXPAND_LISTS
+  )
+  add_custom_command(TARGET rtype POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy ${FETCHCONTENT_BASE_DIR}/sfml-build/lib/Debug/sfml-audio-d-2.dll ${CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG}
+    COMMAND_EXPAND_LISTS
+  )
+  add_custom_command(TARGET rtype POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy ${FETCHCONTENT_BASE_DIR}/sfml-src/extlibs/bin/x64/openal32.dll ${CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG}
+    COMMAND_EXPAND_LISTS
+  )
+endif()
+
+
 
 install(TARGETS rtype RUNTIME DESTINATION bin)
 include(CPack)
