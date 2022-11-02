@@ -2,6 +2,7 @@
 
 class IAnimal {
     public:
+        virtual ~IAnimal() = default;
         virtual void sound(std::string) = 0;
         void getAge(void) {
             std::cout << "Animal??: Age is " << _age << std::endl;
