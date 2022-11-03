@@ -14,35 +14,38 @@
 
 namespace paml {
 
-class IMouse {
+    class IMouse {
 
-    public:
+        public:
 
-        enum Button {
-            Left,
-            Right,
-            Middle,
-            XButton1,
-            XButton2,
+            enum Button {
+                Left,
+                Right,
+                Middle,
+                XButton1,
+                XButton2,
 
-            ButtonCount
-        };
+                ButtonCount
+            };
 
-        enum Wheel {
-            VerticalWheel,
-            HorizontalWheel
-        };
+            enum Wheel {
+                VerticalWheel,
+                HorizontalWheel
+            };
 
-        virtual bool isButtonPressed(Button button);
+            virtual bool isButtonPressed(Button button);
 
-        virtual IVector2<int32_t> getPosition();
+            virtual float
 
-        virtual IVector2<int32_t> getPosition(const IWindow & relativeTo);
+            virtual IVector2<int32_t> getPosition();
 
-        virtual void setPosition(const IVector2<int32_t>& position);
+            virtual IVector2<int32_t> getPosition(const IWindow & relativeTo);
 
-        virtual void setPosition(const IVector2<int32_t>& position, const IWindow & relativeTo);
-};
+            virtual void setPosition(const IVector2<int32_t>& position);
+
+            virtual void setPosition(const IVector2<int32_t>& position, const IWindow & relativeTo);
+
+    };
 
 } // namespace paml
 

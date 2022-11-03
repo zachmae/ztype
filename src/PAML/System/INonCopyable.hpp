@@ -2,11 +2,11 @@
 ** EPITECH PROJECT, 2022
 ** B-CPP-500-PAR-5-1-rtype-zacharie.lawson
 ** File description:
-** INonCopiable
+** INonCopyable
 */
 
-#ifndef PAML_INONCOPIABLE_HPP
-#define PAML_INONCOPIABLE_HPP
+#ifndef PAML_INONCOPyABLE_HPP
+#define PAML_INONCOPyABLE_HPP
 
 namespace paml {
 

@@ -6,13 +6,13 @@
 */
 
 #ifndef PAML_IWINDOW_HPP
-#define PAML_IWINDOW_HPP
+    #define PAML_IWINDOW_HPP
 
-#include "../System/IVector2.hpp"
-#include "../System/Type.hpp"
-#include "../System/INonCopiable.hpp"
-#include "../Graphics/IDrawable.hpp" //sprite should inherit from there
-#include "IEvent.hpp"
+    #include "../System/IVector2.hpp"
+    #include "../System/Type.hpp"
+    #include "../System/INonCopiable.hpp"
+    #include "../Graphics/IDrawable.hpp" //sprite should inherit from there
+    #include "IEvent.hpp"
 
 namespace paml {
 

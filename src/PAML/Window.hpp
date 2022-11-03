@@ -9,8 +9,8 @@
     #define PAML_WINDOW_HPP
 
     #include "Window/IWindow.hpp"
+    #include "Window/IKeyBoard.hpp"
     #include "Window/IMouse.hpp"
-    #include "Window/IKeyboard.hpp"
-    #include "Window/I.hpp"
+    #include "Window/IEvent.hpp"
 
 #endif /* !PAML_WINDOW_HPP_ */

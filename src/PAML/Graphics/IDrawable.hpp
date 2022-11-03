@@ -1,19 +1,27 @@
 /*
 ** EPITECH PROJECT, 2022
-** B-CPP-500-PAR-5-1-rtype-zacharie.lawson
+** IText
 ** File description:
-** IDrawable
+** IText
 */
 
-#ifndef IDRAWABLE_HPP_
-#define IDRAWABLE_HPP_
+#ifndef PAML_IDRAWABLE_HPP
+    #define PAML_IDRAWABLE_HPP
 
-class IDrawable {
-    public:
-        virtual ~IDrawable() = default;
+namespace paml {
 
-    protected:
-    private:
-};
+    class IDrawable {
 
-#endif /* !IDRAWABLE_HPP_ */
+        public:
+
+            virtual ~IDrawable() = default;
+
+//        friend class IRenderTarget;
+//
+//        virtual void draw(IRenderTarget& target);
+
+    };
+
+}
+
+#endif // !PAML_IDRAWABLE_HPP

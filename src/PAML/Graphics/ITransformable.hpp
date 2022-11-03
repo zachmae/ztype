@@ -5,15 +5,36 @@
 ** ITransformable
 */
 
-#ifndef ITRANSFORMABLE_HPP_
-#define ITRANSFORMABLE_HPP_
+#ifndef PAML_ITRANSFORMABLE_HPP
+    #define PAML_ITRANSFORMABLE_HPP
 
-class ITransformable {
-    public:
-        virtual ~ITransformable() = default;
+    #include "../System/IVector2.hpp"
 
-    protected:
-    private:
-};
+namespace paml {
 
-#endif /* !ITRANSFORMABLE_HPP_ */
+    class ITransformable {
+
+        public:
+
+            virtual ~ITransformable() = default;
+
+            // Setters & Getters
+            virtual void setPosition(IVector2<float>) = 0;
+            virtual IVector2<float> getPosition() const = 0;
+
+            virtual void setRotation(float angle) = 0;
+            virtual float getRotation() const = 0;
+
+            virtual void setScale(IVector2<float>) = 0;
+            virtual IVector2<float> getScale() const = 0;
+
+            // Actions
+            virtual void move(IVector2<float>) = 0;
+            virtual void rotate(float angle) = 0;
+            virtual void scale(IVector2<float>) = 0;
+
+    };
+
+}
+
+#endif // !PAML_ITRANSFORMABLE_HPP

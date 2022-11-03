@@ -11,6 +11,7 @@
     #include "System/IClock.hpp"
     #include "System/ISystem.hpp"
     #include "System/ITime.hpp"
+    #include "System/INonCopyable.hpp"
     #include "System/IVector2.hpp"
     #include "System/IVector3.hpp"
     #include "System/Type.hpp"
