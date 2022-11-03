@@ -21,6 +21,7 @@ namespace paml {
         public:
 
             virtual ~IRenderTarget() = default;
+
             virtual IVector2<float> mapPixelToCoords (const IVector2<uint32_t> &point) const = 0;
     };
 

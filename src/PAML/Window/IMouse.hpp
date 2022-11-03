@@ -33,17 +33,15 @@ namespace paml {
                 HorizontalWheel
             };
 
-            virtual bool isButtonPressed(Button button);
+            virtual ~IMouse() = default;
 
-            virtual float
+            virtual bool isButtonPressed(Button button) = 0;
 
-            virtual IVector2<int32_t> getPosition();
+            virtual IVector2<int32_t> getPosition() = 0;
+            virtual void setPosition(const IVector2<int32_t>& position) = 0;
 
-            virtual IVector2<int32_t> getPosition(const IWindow & relativeTo);
-
-            virtual void setPosition(const IVector2<int32_t>& position);
-
-            virtual void setPosition(const IVector2<int32_t>& position, const IWindow & relativeTo);
+            virtual IVector2<int32_t> getPosition(const IWindow & relativeTo) = 0;
+            virtual void setPosition(const IVector2<int32_t>& position, const IWindow & relativeTo) = 0;
 
     };
 

@@ -10,7 +10,7 @@
 
     #include "../System/IVector2.hpp"
     #include "../System/Type.hpp"
-    #include "../System/INonCopiable.hpp"
+    #include "../System/INonCopyable.hpp"
     #include "../Graphics/IDrawable.hpp" //sprite should inherit from there
     #include "IEvent.hpp"
 
@@ -32,16 +32,24 @@ namespace paml {
             };
 
             virtual ~IWindow() = default;
+
             virtual bool close() = 0;
             virtual bool isOpen() const = 0;
+
             virtual void clear() = 0;
             virtual void display() = 0;
+
             virtual void setFrameLimit(uint32_t) = 0;
+
             virtual void setMouseCursorVisible(bool) = 0;
+
             virtual void setVisible(bool) = 0;
+
             virtual IVector2<uint32_t> getSize() const = 0;
             virtual void setSize(const IVector2<uint32_t> &) = 0;
+
             virtual void draw(IDrawable &) = 0;
+
             virtual void pollEvent(IEvent &) = 0;
     };
 

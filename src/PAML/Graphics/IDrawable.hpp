@@ -16,10 +16,6 @@ namespace paml {
 
             virtual ~IDrawable() = default;
 
-//        friend class IRenderTarget;
-//
-//        virtual void draw(IRenderTarget& target);
-
     };
 
 }

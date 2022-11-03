@@ -17,8 +17,9 @@ namespace paml {
 
         public:
 
+            virtual ~IRenderWindow() = default;
 
-
+            //Nothing cause everything is on parent
     };
 
 }

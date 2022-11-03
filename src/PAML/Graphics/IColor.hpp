@@ -16,7 +16,8 @@ namespace paml {
 
         public:
 
-        // TODO - Change types for draw method
+            virtual ~IColor() = default;
+
             virtual uint32_t toInteger() const = 0;
 
     };

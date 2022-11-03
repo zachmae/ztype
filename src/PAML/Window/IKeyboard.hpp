@@ -14,6 +14,7 @@ namespace paml {
 
         public:
 
+
             enum Key {
                 Unknown = -1,
                 A = 0,
@@ -127,6 +128,8 @@ namespace paml {
                 SemiColon = Semicolon,
                 Return    = Enter
             };
+
+            virtual ~IKeyboard() = default;
 
             virtual bool isKeyPressed(Key key) = 0;
 
