@@ -5,11 +5,7 @@
 ** SpriteManager
 */
 
-#include "SFML/Window.hpp"
-#include "SFML/Graphics.hpp"
-#include "SFML/Audio.hpp"
-#include "SFML/System.hpp"
-#include "SFML/Network.hpp"
+#include "SFMLAudioModule.hpp"
 #include <map>
 
 #ifndef AUDIOMANAGER_HPP_
@@ -24,15 +20,6 @@
 namespace GameStd {
 
     /**
-     * @brief Audio structure that can associate a Buffer and a Sound
-     *
-     */
-    struct Audio {
-        sf::SoundBuffer _buffer;
-        sf::Sound _sound;
-    };
-
-    /**
      * @brief AudioManager
      *
      * @tparam T
@@ -41,7 +28,7 @@ namespace GameStd {
     template<typename Key/*, typename Value*/>
     class AudioManager {
         public:
-            using AStorage = std::map<Key, Audio>;
+            using AStorage = std::map<Key, modules::SFMLAudioModule>;
 
             /**
              * @brief Add
@@ -49,9 +36,9 @@ namespace GameStd {
              * @param t
              * @param v
              */
-            void Add(Key k, Audio &v)
+            void Add(Key k, modules::SFMLAudioModule &v)
             {
-                _storage.insert(std::pair<Key, Audio>(k, v));
+                _storage.insert(std::pair<Key, modules::SFMLAudioModule>(k, v));
             };
 
             /**
@@ -63,8 +50,7 @@ namespace GameStd {
              */
             void Add(Key k, std::string path)
             {
-                _storage[k]._buffer.loadFromFile(path);
-                _storage[k]._sound.setBuffer(_storage[k]._buffer);
+                _storage[k].setSource(path);
             };
 
             /**
@@ -75,7 +61,7 @@ namespace GameStd {
              */
             sf::Sound &Get(Key k)
             {
-                return _storage[k]._sound;
+                return _storage[k];
             };
 
             /**
@@ -85,7 +71,7 @@ namespace GameStd {
              */
             void play(Key k)
             {
-                _storage[k]._sound.play();
+                _storage[k].play();
             };
 
             /**
@@ -95,7 +81,7 @@ namespace GameStd {
              */
             void stop(Key k)
             {
-                _storage[k]._sound.stop();
+                _storage[k].stop();
             };
 
             /**
@@ -105,7 +91,7 @@ namespace GameStd {
              */
             void pause(Key k)
             {
-                _storage[k]._sound.pause();
+                _storage[k].pause();
             };
 
             /**
@@ -115,7 +101,7 @@ namespace GameStd {
             void stopAll()
             {
                 for (auto &it : _storage)
-                    it.second._sound.stop();
+                    it.second.stop();
             };
 
             /**
@@ -124,8 +110,7 @@ namespace GameStd {
              */
             void setVolume(float volume) {
                 _volume = volume;
-                for (auto &it : _storage)
-                    it.second._sound.setVolume(_volume);
+                updateVolume();
             };
 
             /**
@@ -142,7 +127,7 @@ namespace GameStd {
              */
             void updateVolume() {
                 for (auto &it : _storage)
-                    it.second._sound.setVolume(_volume);
+                    it.second.setVolume(_volume);
             }
 
             /**
@@ -151,9 +136,9 @@ namespace GameStd {
              * @param key
              * @return sf::Sound::Status
              */
-            sf::Sound::Status getStatus(Key k)
+            modules::MusicStatus getStatus(Key k)
             {
-                return _storage[k]._sound.getStatus();
+                return _storage[k].getStatus();
             };
 
         private:

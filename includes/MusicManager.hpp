@@ -5,11 +5,7 @@
 ** SpriteManager
 */
 
-#include "SFML/Window.hpp"
-#include "SFML/Graphics.hpp"
-#include "SFML/Audio.hpp"
-#include "SFML/System.hpp"
-#include "SFML/Network.hpp"
+#include "SFMLAudioModule.hpp"
 #include <map>
 
 #ifndef MUSICMANAGER_HPP_
@@ -33,7 +29,7 @@ namespace GameStd {
     template<typename Key/*, typename Value*/>
     class MusicManager {
         public:
-            using AStorage = std::map<Key, sf::Music>;
+            using AStorage = std::map<Key, modules::SFMLMusicModule>;
 
             /**
              * @brief Add
@@ -41,9 +37,9 @@ namespace GameStd {
              * @param t
              * @param v
              */
-            void Add(Key k, sf::Music &v)
+            void Add(Key k, modules::SFMLMusicModule &v)
             {
-                _storage.insert(std::pair<Key, sf::Music>(k, v));
+                _storage.insert(std::pair<Key, modules::SFMLAudioModule>(k, v));
             };
 
             /**
@@ -55,7 +51,7 @@ namespace GameStd {
              */
             void Add(Key k, std::string path)
             {
-                _storage[k].openFromFile(path);
+                _storage[k].setSource(path);
             };
 
             /**
@@ -137,8 +133,7 @@ namespace GameStd {
              */
             void setVolume(float volume) {
                 _volume = volume;
-                for (auto &it : _storage)
-                    it.second.setVolume(_volume);
+                updateVolume();
             };
 
             /**
@@ -176,7 +171,7 @@ namespace GameStd {
              * @param key
              * @return sf::Sound::Status
              */
-            sf::Sound::Status getStatus(Key k)
+            modules::MusicStatus getStatus(Key k)
             {
                 return _storage[k].getStatus();
             };

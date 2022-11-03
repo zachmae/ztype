@@ -31,7 +31,8 @@ add_executable(${PROJECT_NAME}
         src/ECS/Systems/EventSystem.cpp
         )
 
-include_directories(includes)
+include_directories(includes
+                    modules)
 
 target_link_libraries(${PROJECT_NAME}
     sfml-window
