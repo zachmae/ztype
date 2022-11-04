@@ -20,19 +20,20 @@ if (WIN32)
     #set_target_properties (rtype.exe PROPERTIES PREFIX "./build/")
 endif(WIN32)
 
-#ADD_LIBRARY(MyStaticLib STATIC
+#Client executable generation
 add_executable(${PROJECT_NAME}
-        src/main.cpp
+
+        src/main_client.cpp
+        src/main_server.cpp
         src/Network/Server.cpp
         src/Network/Client.cpp
-        src/ECS/Systems/AnimationSystem.cpp
-        src/ECS/Systems/PositionSystem.cpp
-        src/ECS/Systems/DisplaySystem.cpp
-        src/ECS/Systems/EventSystem.cpp
-        )
 
-include_directories(includes
-                    modules)
+        src/User/Systems/AnimationSystem.cpp
+        src/User/Systems/DisplaySystem.cpp
+        src/User/Systems/EventSystem.cpp
+        src/User/Systems/PositionSystem.cpp
+
+        )
 
 target_link_libraries(${PROJECT_NAME}
     sfml-window
@@ -41,6 +42,21 @@ target_link_libraries(${PROJECT_NAME}
     sfml-audio
     sfml-system
 )
+
+#Server executable generation
+#add_executable(Server
+#    src/main_server.cpp
+#    src/Network/Server.cpp
+#)
+#
+#target_link_libraries(Server
+#    sfml-network
+#    sfml-system
+#)
+
+include_directories(includes
+                    modules)
+
 
 if (WIN32)
   add_custom_command(TARGET rtype POST_BUILD
@@ -68,8 +84,6 @@ if (WIN32)
     COMMAND_EXPAND_LISTS
   )
 endif()
-
-
 
 install(TARGETS rtype RUNTIME DESTINATION bin)
 include(CPack)

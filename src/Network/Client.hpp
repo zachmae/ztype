@@ -68,7 +68,7 @@ class Client {
          *
          * @return int : the id of the client
          */
-        inline int GetId() { return _id; }
+        int GetId() { return _id; }
         [[nodiscard]] inline sf::TcpSocket &getSocket() { return _socket; }
 
     private:

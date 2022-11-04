@@ -1,0 +1,10 @@
+{
+    "window": {
+        "title": "My App",
+        "width": 800,
+        "height": 600,
+        "framerate-limit": 60 },
+    "sprites-path": "assets/conf/sprites.json",
+    "sounds-path": "assets/conf/sounds.json",
+    "scenes-path": "assets/conf/scenes.json"
+}
