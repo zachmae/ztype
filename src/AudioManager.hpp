@@ -61,9 +61,9 @@ class AudioManager {
          * @brief Get
          *
          * @param t
-         * @return sf::Sound&
+         * @return modules::SFMLAudioModule&
          */
-        sf::Sound &Get(Key k)
+        modules::SFMLAudioModule &Get(Key k)
         {
             return _storage[k];
         };

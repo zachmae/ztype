@@ -55,7 +55,8 @@ target_link_libraries(${PROJECT_NAME}
 #)
 
 include_directories(includes
-                    modules)
+                    modules
+                    src)
 
 
 if (WIN32)

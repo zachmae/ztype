@@ -61,9 +61,9 @@ namespace GameStd {
                 json file = json::parse(std::ifstream(jsonfile.c_str()));
 
                 InitWindow(file);
-                InitSprite(file);
-                InitSound(file);
-                InitScene(file);
+                InitSprites(file);
+                InitSounds(file);
+                InitScenes(file);
             };
 
             ~ProjectManager() = default;
@@ -122,7 +122,7 @@ namespace GameStd {
                 Client client(ip, port);
                 _mm.play("epitomize");
                 std::cout << "hey" << std::endl;
-                User::InitScene(_ecs, _sm, _scenes, client);
+                User::InitScene(_ecs, _sm, _am, _scenes, client);
                 std::cout << "bonjour" << std::endl;
                 while (_window.isOpen()) { // run the program as long as the window is open
                     _window.clear();
@@ -287,7 +287,7 @@ namespace GameStd {
                 _window.setFramerateLimit(file["window"]["framerate-limit"]);
             }
 
-            void InitSprite(json file)
+            void InitSprites(json file)
             {
                 std::cout << file["sprites-path"] << std::endl;
                 std::ifstream ifs(file["sprites-path"]);
@@ -305,7 +305,7 @@ namespace GameStd {
                 }
             }
 
-            void InitSound(json file)
+            void InitSounds(json file)
             {
                 std::cout << file["sounds-path"] << std::endl;
                 std::ifstream ifs(file["sounds-path"]);
@@ -328,7 +328,7 @@ namespace GameStd {
             }
 
 
-            void InitScene(json file)
+            void InitScenes(json file)
             {
                 std::cout << file["scenes-path"] << std::endl;
                 std::ifstream ifs(file["scenes-path"]);

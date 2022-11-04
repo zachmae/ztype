@@ -15,6 +15,7 @@
 
 #include "UserSystem.hpp"
 #include "User/Systems/System.hpp"
+#include "User/Game/init.cpp" // WHAT THE FUCK
 
 #include "Network/Client.hpp"
 
@@ -23,46 +24,40 @@
 
 #include "sfml_ref.hpp"
 
-// edit function
+/**
+ * @brief namespace User
+ *
+ */
 namespace User {
 
+    /**
+     * @brief
+     *
+     * @param r
+     * @param sm
+     * @param scene
+     * @param client
+     */
     [[deprecated]]
-    void InitScene(Registry_ref r, SpriteManager_ref<std::string> sm, SceneManager_ref<std::string> scene, Client & client)
+    void InitScene(Registry_ref r, SpriteManager_ref<std::string> sm, AudioManager_ref<std::string> am, SceneManager_ref<std::string> scene, Client & client)
     {
         scene.Get("tutorial").SetZIndex(-1);
         scene.Get("game").SetZIndex(-1);
         scene.Get("menu").SetZIndex(-1);
         scene.Get("loading").SetZIndex(-1);
-        scene.Get("start").SetZIndex(-1);
-        scene.Get("gameover").SetZIndex(-1);
+        scene.Get("settings").SetZIndex(-1);
+        scene.Get("lose").SetZIndex(-1);
         scene.Get("win").SetZIndex(-1);
 
-        entity_t e1 = scene.Get("tutorial").SpawnEntity();
-        scene.Get("tutorial").SetZIndex(1);
-        r.add_component<drawable>(e1, {sm.Get("background")});
-        r.add_component<position>(e1, {0, 0});
-        r.add_component<velocity>(e1, {0, 0});
-        r.add_component<visible>(e1, {true});
+        std::cout << "InitScene" << std::endl;
+        background_generation(r, sm, scene, "background_back", -0.1f);
+        std::cout << "bg 1 done" << std::endl;
+        background_generation(r, sm, scene, "background_stars", -0.2f);
+        background_generation(r, sm, scene, "background_planets_back", -0.5f);
+        background_generation(r, sm, scene, "background_planets_front", -0.8f);
+        std::cout << "InitScene mid" << std::endl;
+        ship_generation(r, sm, scene, am, "ship", true);
 
-        entity_t e2 = scene.Get("loading").SpawnEntity();
-        scene.Get("loading").SetZIndex(3);
-        r.add_component<drawable>(e2, {sm.Get("ship")});
-        r.add_component<position>(e2, {0, 0});
-        r.add_component<velocity>(e2, {0, 0});
-        r.add_component<controlable>(e2, {});
-        r.add_component<visible>(e2, {true});
-        std::cout << "I'm there" << std::endl;
-        r.add_component<int>(e2, client.GetId()); // GET THE ID OF THE SHIP new client id
-        std::cout << "I'm not there" << std::endl;
-        r.add_component<controlable>(e2, {});
-        r.add_component<is_ally>(e2, {true});
-
-        entity_t e3 = scene.Get("game").SpawnEntity();
-        scene.Get("game").SetZIndex(2);
-        r.add_component<drawable>(e3, {sm.Get("enemy")});
-        r.add_component<position>(e3, {0, 0});
-        r.add_component<velocity>(e3, {0, 0});
-        r.add_component<visible>(e3, {true});
     }
 
     template <typename Key>

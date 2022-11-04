@@ -62,9 +62,9 @@ class MusicManager {
          * @brief Get
          *
          * @param t
-         * @return sf::Sound&
+         * @return modules::SFMLMusicModule&
          */
-        sf::Sound &Get(Key k)
+        modules::SFMLMusicModule &Get(Key k)
         {
             return _storage[k];
         };
