@@ -5,8 +5,8 @@
 ** IMouse
 */
 
-#ifndef IMOUSE_HPP
-    #define IMOUSE_HPP
+#ifndef PAML_IMOUSE_HPP
+    #define PAML_IMOUSE_HPP
 
     #include "../System/IVector2.hpp"
     #include "../System/Type.hpp"
@@ -47,4 +47,4 @@ namespace paml {
 
 } // namespace paml
 
-#endif /* !IMOUSE_HPP_ */
+#endif /* !PAML_IMOUSE_HPP_ */

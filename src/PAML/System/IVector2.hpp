@@ -8,18 +8,17 @@
 #ifndef PAML_IVECTOR2_HPP
     #define PAML_IVECTOR2_HPP
 
-namespace paml
-{
+namespace paml {
 
-template <typename T>
-class IVector2 {
+    template <typename T>
+    class IVector2 {
 
-    public:
-        T x;
-        T y;
+        public:
+            T x;
+            T y;
 
-};
+    };
 
 } // namespace paml
 
-#endif /* !IVECTOR2_HPP_ */
+#endif /* !PAML_IVECTOR2_HPP_ */

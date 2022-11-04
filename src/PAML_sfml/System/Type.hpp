@@ -5,12 +5,12 @@
 ** Type
 */
 
-#ifndef PAML_TYPE_HPP
-    #define PAML_TYPE_HPP
+#ifndef PAML_SFML_TYPE_HPP
+    #define PAML_SFML_TYPE_HPP
 
     #include <cstdint>
 
-namespace paml {
+namespace paml_sfml {
 
     using int8_t = ::int8_t;
     using int16_t = ::int16_t;
@@ -24,4 +24,4 @@ namespace paml {
 
 } // namespace paml
 
-#endif /* !PAML_TYPE_HPP */
+#endif /* !PAML_SFML_TYPE_HPP */

@@ -5,12 +5,14 @@
 ** IKeyboard
 */
 
-#ifndef PAML_IKEYBOARD_HPP
-    #define PAML_IKEYBOARD_HPP
+#ifndef PAML_SFML_KEYBOARD_HPP_
+    #define PAML_SFML_KEYBOARD_HPP_
 
-namespace paml {
+    #include "../../PAML/Window.hpp"
 
-    class IKeyboard {
+namespace paml_sfml {
+
+    class Keyboard : paml::IKeyboard {
 
         public:
 
@@ -129,7 +131,7 @@ namespace paml {
                 Return    = Enter
             };
 
-            virtual ~IKeyboard() = default;
+            virtual ~Keyboard() = default;
 
             virtual bool isKeyPressed(Key key) = 0;
 
@@ -139,4 +141,4 @@ namespace paml {
 
 } // namespace paml
 
-#endif /* !PAML_IKEYBOARD_HPP_ */
+#endif /* !IKEYBOARD_HPP_ */

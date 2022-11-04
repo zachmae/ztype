@@ -5,8 +5,8 @@
 ** IEvent
 */
 
-#ifndef PAML_IEVENT_HPP_
-    #define PAML_IEVENT_HPP_
+#ifndef PAML_IEVENT_HPP
+    #define PAML_IEVENT_HPP
 
     #include "../System/Type.hpp"
 
@@ -36,6 +36,7 @@ namespace paml {
 
             virtual bool isKeyPressed() = 0; //A key was pressed (data in event.key)
             virtual bool isKeyReleased() = 0; //A key was released (data in event.key)
+
             virtual IKeyboard::Key GetKey() = 0; //Code of the key that has been pressed//release.
 
             virtual bool isMouseWheelScrolled() = 0; //The mouse wheel was scrolled (data in event.mouseWheelScroll)

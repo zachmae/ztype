@@ -7,6 +7,6 @@
 */
 
 #ifndef PAML_AUDIO_HPP
-#define PAML_AUDIO_HPP
+    #define PAML_AUDIO_HPP
 
 #endif /* !PAML_AUDIO_HPP_ */

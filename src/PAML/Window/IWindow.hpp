@@ -36,10 +36,9 @@ namespace paml {
             virtual bool close() = 0;
             virtual bool isOpen() const = 0;
 
-            virtual void clear() = 0;
             virtual void display() = 0;
 
-            virtual void setFrameLimit(uint32_t) = 0;
+            virtual void setFramerateLimit(uint32_t) = 0;
 
             virtual void setMouseCursorVisible(bool) = 0;
 
@@ -55,4 +54,4 @@ namespace paml {
 
 } // namespace paml
 
-#endif /* !WINDOW_HPP_ */
+#endif /* !PAML_IWINDOW_HPP_ */

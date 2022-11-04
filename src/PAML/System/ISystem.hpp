@@ -10,17 +10,16 @@
 
     #include "ITime.hpp"
 
-namespace paml
-{
+namespace paml {
 
-class ISystem
-{
+    class ISystem {
 
-    public:
-        virtual void sleep(ITime time) = 0;
+        public:
 
-};
+            virtual void sleep(ITime time) = 0;
+
+    };
 
 } // namespace paml
 
-#endif /* !ISYSTEM_HPP_ */
+#endif /* !PAML_ISYSTEM_HPP_ */

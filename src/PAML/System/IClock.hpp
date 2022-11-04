@@ -5,23 +5,23 @@
 ** IClock
 */
 
-#ifndef ICLOCK_HPP
-    #define ICLOCK_HPP
+#ifndef PAML_ICLOCK_HPP
+    #define PAML_ICLOCK_HPP
 
     #include "ITime.hpp"
 
-namespace paml
-{
+namespace paml {
 
-class IClock {
+    class IClock {
 
-    public:
-        virtual ~IClock() = default;
-        virtual ITime getElapsedTime () = 0;
-        virtual ITime restart () = 0;
+        public:
+            virtual ~IClock() = default;
 
-};
+            virtual ITime getElapsedTime() = 0;
+            virtual ITime restart() = 0;
+
+    };
 
 } // namespace paml
 
-#endif /* !ICLOCK_HPP_ */
+#endif /* !PAML_ICLOCK_HPP_ */
