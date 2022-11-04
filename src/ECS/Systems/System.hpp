@@ -123,8 +123,9 @@ namespace GameStd {
      * @brief system that handle collision between entities
      *
      * @param r : registry, contain all of the entities and the related components
+     * @param _audioManager : audio manager reference of all sounds
      */
-    void collision_system(registry &r);
+    void collision_system(registry &r, AudioManager<std::string>& _audioManager);
 
     /**
      * @brief system that can handle controls of the entities that i am able to move

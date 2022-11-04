@@ -64,13 +64,14 @@ void GameStd::remove_out_of_screen_system(registry &r, Window_ref w)
     }
 }
 
-void GameStd::collision_system(registry &r)
+void GameStd::collision_system(registry &r, AudioManager<std::string>& _audioManager)
     {
         auto &collidables = r.get_components<struct collidable>();
         auto &drawables = r.get_components<struct drawable>();
         auto &are_allies = r.get_components<is_ally>();
         auto &attack = r.get_components<struct attack>();
         auto &healths = r.get_components<struct health>();
+        auto &death_sfxs = r.get_components<struct death_sfx>();
 
         for (unsigned int idx_1 = 0; idx_1 < collidables.size() && idx_1 < drawables.size() && idx_1 < are_allies.size(); ++idx_1) {
             for (unsigned int idx_2 = idx_1 + 1; idx_2 < collidables.size() && idx_2 < drawables.size() && idx_2 < are_allies.size(); ++idx_2) {
@@ -83,10 +84,16 @@ void GameStd::collision_system(registry &r)
                             attack[idx_1] && healths[idx_1] && attack[idx_2] && healths[idx_2]) {
                             healths[idx_2]->hp -= attack[idx_1]->damage;
                             healths[idx_1]->hp -= attack[idx_2]->damage;
-                            if (healths[idx_2]->hp <= 0)
+                            if (healths[idx_2]->hp <= 0) {
+                                if (idx_2 < death_sfxs.size() && death_sfxs[idx_2])
+                                    _audioManager.play(death_sfxs[idx_2]->key);
                                 r.kill_entity(r.entity_from_index(idx_2));
-                            if (healths[idx_1]->hp <= 0)
+                            }
+                            if (healths[idx_1]->hp <= 0) {
+                                if (idx_1 < death_sfxs.size() && death_sfxs[idx_1])
+                                    _audioManager.play(death_sfxs[idx_1]->key);
                                 r.kill_entity(r.entity_from_index(idx_1));
+                            }
                         }
                     }
                 }

@@ -141,5 +141,14 @@ namespace GameStd {
      */
     struct is_boss {
     };
+
+    /**
+     * @brief Component death_sfx in order to handle the death sound of the entity
+     *
+     */
+    struct death_sfx {
+        std::string key;
+    };
+
 }
 #endif /* !COMPONENT_HPP_ */

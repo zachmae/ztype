@@ -73,6 +73,7 @@ namespace GameStd {
                 _ecs.register_component<attack>();
                 _ecs.register_component<health>();
                 _ecs.register_component<is_boss>();
+                _ecs.register_component<death_sfx>();
 
                 entity_t background = _ecs.spawn_entity();
                 _spriteManager.Add("background_back", "../assets/img/background/parallax_back.png");
@@ -103,6 +104,7 @@ namespace GameStd {
                 _ecs.add_component<is_background>(background_planets_front, {});
 
                 ship = _ecs.spawn_entity();
+                _audioManager.Add("explosion", "../assets/sounds/explosion.ogg");
                 _spriteManager.Add("ship", "../assets/img/spaceship.gif");
                 _ecs.add_component<drawable>(ship, {_spriteManager.Get("ship")});
                 _ecs.add_component<position>(ship, {100, 300});
@@ -114,6 +116,7 @@ namespace GameStd {
                 _ecs.add_component<collidable>(ship, {});
                 _ecs.add_component<health>(ship, {1});
                 _ecs.add_component<attack>(ship, {0});
+                _ecs.add_component<death_sfx>(ship, {"explosion"});
 
                 _spriteManager.Add("bullet", "../assets/img/fx_02.gif");
                 _spriteManager.Add("ennemy", "../assets/img/enemy_01.gif");
@@ -261,7 +264,7 @@ namespace GameStd {
                     position_system(_ecs, _window, client);
                     draw_system(_ecs, _window);
                     _window.display();
-                    collision_system(_ecs);
+                    collision_system(_ecs, _audioManager);
                     remove_out_of_screen_system(_ecs, _window);
                 }
                 return 0;
