@@ -8,7 +8,7 @@
 #include <optional>
 #include <chrono>
 #include "../../ProjectManager/Ecs.hpp"
-#include "../../UserComponent.hpp"
+#include "../UserComponent.hpp"
 #include "../../SpriteManager.hpp"
 #include "../../AudioManager.hpp"
 #include "../../Network/Client.hpp"
@@ -43,7 +43,7 @@ namespace User {
      * @param w : window reference
      * @param client : client reference
      */
-    void position_system(registry &r, Window_ref w, Client &client);
+    void position_system(registry &r, Window_ref w/*, Client &client*/);
 
     /**
      * @brief handle basic animations in a sprite sheet

@@ -6,7 +6,7 @@
 #include "SceneManager/Scene.hpp"
 #include "SceneManager/SceneComponent.hpp"
 
-#include "UserComponent.hpp"
+#include "../UserComponent.hpp"
 
 #include "SpriteManager.hpp"
 #include "AudioManager.hpp"

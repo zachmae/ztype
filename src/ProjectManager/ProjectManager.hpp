@@ -25,18 +25,20 @@
 #include "../nlohmann/json.hpp"
 
 //User
-#include "../User.hpp"
+#include "../User/User.hpp"
+#include "../User/UserComponentManager.hpp"
 
-//UsefullLib
+//SceneManager
+#include "../SceneManager/SceneManager.hpp"
+#include "../SceneManager/SceneComponentManager.hpp"
+
+//ProjectManager
+#include "ProjectComponentManager.hpp"
+
+//Manager
 #include "../SpriteManager.hpp"
 #include "../MusicManager.hpp"
 #include "../AudioManager.hpp"
-#include "../SceneManager/SceneManager.hpp"
-
-#include "ProjectComponentManager.hpp"
-#include "../SceneManager/SceneComponentManager.hpp"
-#include "../UserComponentManager.hpp"
-
 
 namespace GameStd {
 
@@ -53,7 +55,7 @@ namespace GameStd {
         public:
 
             ProjectManager(std::string jsonfile)
-            : _window(CreateWindow(jsonfile)), _sm(), _am(), _mm()
+            : _window(CreateWindow(jsonfile)), _sm(), _am(), _mm(), _userManager(jsonfile)
             {
                 config_extractor<project_config::components_list>::function(_ecs); //sys
                 config_extractor<scene_config::components_list>::function(_ecs); //sys
@@ -118,122 +120,25 @@ namespace GameStd {
              */
             int Start(std::string const &ip, unsigned short port)
             {
-//                _ecs.add_component<>
-                Client client(ip, port);
                 _mm.play("epitomize");
-                std::cout << "hey" << std::endl;
-                User::InitScene(_ecs, _sm, _am, _scenes, client);
-                std::cout << "bonjour" << std::endl;
+                _userManager.InitScene(_ecs, _sm, _am, _scenes);
                 while (_window.isOpen()) { // run the program as long as the window is open
                     _window.clear();
-                    User::UpdateScene(_ecs, _scenes);
+                    _userManager.UpdateScene(_ecs, _scenes);
                     // check all the window's events that were triggered since the last iteration of the loop
-                    std::cout << "yooo" << std::endl;
                     while (_window.pollEvent(_event)) {
                         // "close requested" event: we close the window
                         if (_event.type == sf::Event::Closed) {
-                            client.disconnect();
+                            _userManager.Close();
                             _window.close();
                             return 0;
                         }
-                        User::CloseEvent(_event, _window);
-                        User::UpdateEventSystem(_ecs, _event, _window, _sm, _am);
+                        _userManager.UpdateEventSystem(_ecs, _event, _window, _sm, _am);
                     }
-                    std::cout << "yeaah" << std::endl;
-                    sf::Packet sfp = client.WaitReceive();
-                    if (sfp.getData() != NULL) { //cond doesn't work
-                        std::string comparator;
-                        sfp >> comparator;
-                        if (comparator == "new_client") {
-                            /**
-                            * @brief OLD CLIENT GET NEW SHIP
-                            *
-                            *
-                            *
-                            */
-                            int newCliId = 0;
-                            sfp >> newCliId;
-                            // comment on stock les id des autres
-                            entity_t newCliEntity = _ecs.spawn_entity();
-                            _ecs.add_component<drawable>(newCliEntity, {_sm.Get("ship")});
-                            _ecs.add_component<position>(newCliEntity, {100, 400});
-                            _ecs.add_component<velocity>(newCliEntity, {2, 2});
-                            _ecs.add_component<controlable>(newCliEntity, {});
-                            _ecs.add_component<animation_adaptative>(newCliEntity, {sf::IntRect(static_cast<int>(166.0 * 0.4), 0, 32, 17), 0, 0, 0.1f});
-                            _ecs.add_component<resizable>(newCliEntity, {2, 2});
-                            _ecs.add_component<is_ship>(newCliEntity, {});
-                            _ecs.add_component<collidable>(newCliEntity, {});
-                            _ecs.add_component<int>(newCliEntity, static_cast<int>(newCliId));
-                            _ecs.add_component<is_ally>(newCliEntity, {true});
-
-                        } else if (comparator == "old_client") {
-                            /**
-                            * @brief NEW CLIENT GET OLD SHIP
-                            *
-                            *
-                            *
-                            */
-
-                            int amount = 0;
-                            int newCliId = 0;
-                            sfp >> amount;
-                            for (sfp >> newCliId; amount != 0; sfp >> newCliId, amount--) {
-                                if (client.GetId() != newCliId) {
-                                    entity_t newCliEntity = _ecs.spawn_entity();
-                                    _ecs.add_component<drawable>(newCliEntity, {_sm.Get("ship")});
-                                    _ecs.add_component<position>(newCliEntity, {100, 200});
-                                    _ecs.add_component<velocity>(newCliEntity, {2, 2});
-                                    _ecs.add_component<animation_adaptative>(newCliEntity, {sf::IntRect(static_cast<int>(166.0 * 0.4), 0, 32, 17), 0, 0, 0.1f});
-                                    _ecs.add_component<resizable>(newCliEntity, {2, 2});
-                                    _ecs.add_component<is_ship>(newCliEntity, {});
-                                    _ecs.add_component<collidable>(newCliEntity, {});
-                                    _ecs.add_component<int>(newCliEntity, static_cast<int>(newCliId));
-                                }
-                            }
-                        } else if (comparator == "client_pos") {
-                            /**
-                             * @brief GET SHIP POSITION
-                             *
-                             *
-                             *
-                             */
-                            int id = 0;
-                            float x = 0;
-                            float y = 0;
-                            sfp >> id >> x >> y;
-                            auto &positions = _ecs.get_components<position>();
-                            auto &ids = _ecs.get_components<int>();
-                            int i = 0;
-                            for(auto &_id : ids) {
-                                if (_id != std::nullopt && _id == id) {
-                                    if (positions[i] != std::nullopt)
-                                        _ecs.add_component<position>(_ecs.entity_from_index(i), {x, y});
-                                }
-                                ++i;
-                            }
-                        } else {
-                            std::cout << "unknow type" << std::endl;
-                        }
-                    }
-                    /**
-                     * @brief SEND SHIP POSITION
-                     *
-                     *
-                     *
-                     */
-                    sf::Packet packet;
-                    auto &positions = _ecs.get_components<position>();
-
-                    if (positions[4] != std::nullopt) {
-                        packet << "pos_client" << client.GetId() << positions[4].value().x << positions[4].value().y;
-                        if (client.getSocket().send(packet) != sf::Socket::Status::Done) {
-                            std::cerr << "Error : Sending failed (maybe server down)" << std::endl;
-                            exit(84);
-                        }
-                    }
-                    User::UpdateWindowSystem(_ecs, _scenes, _window, _sm, client);
+                    _userManager.UpdateClient(_ecs, _scenes, _sm, _am);
+                    _userManager.UpdateWindowSystem(_ecs, _scenes, _window, _sm);
                     _window.display();
-                    User::UpdatePostWindowSystem(_ecs, _scenes, _window, _am);
+                    _userManager.UpdatePostWindowSystem(_ecs, _scenes, _window, _am);
                 }
                 return 0;
             };
@@ -356,13 +261,14 @@ namespace GameStd {
             //object manager
             //std::map<std::string, Scene> _scenes;
             registry _ecs;
-            SpriteManager<std::string> _sm;
-
-            MusicManager<std::string> _mm;
-            AudioManager<std::string> _am;
 
             SceneManager<std::string> _scenes;
 
+            User::UserManager _userManager;
+
+            SpriteManager<std::string> _sm;
+            MusicManager<std::string> _mm;
+            AudioManager<std::string> _am;
         public:
     };
 
