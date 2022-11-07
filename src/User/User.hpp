@@ -53,13 +53,13 @@ namespace User {
         scene.Get("win").SetZIndex(-1);
 
         std::cout << "InitScene" << std::endl;
-        User::background_generation(r, sm, scene, "background_back", -0.1f);
+        User::Game::background_generation(r, sm, scene, "background_back", -0.1f);
         std::cout << "bg 1 done" << std::endl;
-        User::background_generation(r, sm, scene, "background_stars", -0.2f);
-        User::background_generation(r, sm, scene, "background_planets_back", -0.5f);
-        User::background_generation(r, sm, scene, "background_planets_front", -0.8f);
+        User::Game::background_generation(r, sm, scene, "background_stars", -0.2f);
+        User::Game::background_generation(r, sm, scene, "background_planets_back", -0.5f);
+        User::Game::background_generation(r, sm, scene, "background_planets_front", -0.8f);
         std::cout << "InitScene mid" << std::endl;
-        User::ship_generation(r, sm, scene, am, "ship", true);
+        User::Game::ship_generation(r, sm, scene, am, "ship", true);
     }
 
     /**

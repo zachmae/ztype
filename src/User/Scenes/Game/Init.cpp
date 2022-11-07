@@ -8,6 +8,7 @@
 #include "Init.hpp"
 
 namespace User {
+    namespace Game {
 
     void background_generation(Registry_ref reg, SpriteManager_ref<std::string> sprite_manager, SceneManager_ref<std::string> scene, std::string name, float parallax_speed)
     {
@@ -34,4 +35,5 @@ namespace User {
         reg.add_component<death_sfx>(ship, {"explosion"});
     }
 
+    }
 }

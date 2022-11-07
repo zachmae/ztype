@@ -15,9 +15,11 @@
 #include "../../../AudioManager.hpp"
 
 namespace User {
+    namespace Menu {
 
     void background_generation(Registry_ref reg, SpriteManager_ref<std::string> sprite_manager, SceneManager_ref<std::string> scene, std::string name, float parallax_speed);
 
     void button_generation(Registry_ref reg, SpriteManager_ref<std::string> sprite_manager, SceneManager_ref<std::string> scene, AudioManager_ref<std::string> audioManager, std::string name);
 
+    }
 }
