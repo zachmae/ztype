@@ -1,9 +1,9 @@
 {
     "musics": [
-        {"name": "epitomize", "path": "assets/sounds/epitomize.mp3"}
+        {"name": "epitomize", "path": "../assets/sounds/epitomize.mp3"}
     ],
     "audios": [
-        {"name": "blaster", "path": "assets/sounds/blaster.ogg"},
-        {"name": "explosion", "path": "assets/sounds/blaster.ogg"}
+        {"name": "blaster", "path": "../assets/sounds/blaster.ogg"},
+        {"name": "explosion", "path": "../assets/sounds/explosion.ogg"}
     ]
 }

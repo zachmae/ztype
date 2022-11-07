@@ -18,25 +18,6 @@
 
 namespace User {
 
-    inline void position_system(registry &r)
-    {
-        auto &positions = r.get_components<struct position>();
-        auto &velocities = r.get_components<struct velocity>();
-
-        for (size_t i = 0; i < positions.size() && i < velocities.size(); ++i) {
-            if (positions[i] && velocities[i]) {
-                positions[i]->x += velocities[i]->x;
-                positions[i]->y += velocities[i]->y;
-            }
-        }
-        for (size_t i = 0; i < velocities.size(); ++i) {
-            if (velocities[i]) {
-                velocities[i]->y = 0;
-                velocities[i]->x = 0;
-            }
-        }
-    }
-
     void control_system(registry &r, Event_ref e, const SpriteManager<std::string>& _spriteManager, AudioManager<std::string>& _audioManager)
     {
         auto &controllables = r.get_components<controlable>();
@@ -81,19 +62,6 @@ namespace User {
                     drawables[i]->sprite.setPosition({positions[i]->x, positions[i]->y});
                     window.draw(drawables[i]->sprite);
                }
-            }
-        }
-    }
-
-    inline void draw_system(registry &r, Window_ref w)
-    {
-        auto &drawables = r.get_components<drawable>();
-        auto &positions = r.get_components<position>();
-
-        for (size_t i = 0; i < drawables.size() && i < positions.size(); ++i) {
-            if (drawables[i] && positions[i]) {
-                drawables[i]->sprite.setPosition({positions[i]->x, positions[i]->y});
-                w.draw(drawables[i]->sprite);
             }
         }
     }

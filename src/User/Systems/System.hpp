@@ -43,7 +43,7 @@ namespace User {
      * @param w : window reference
      * @param client : client reference
      */
-    void position_system(registry &r, Window_ref w/*, Client &client*/);
+    void position_system(registry &r, Window_ref w, Client &client);
 
     /**
      * @brief handle basic animations in a sprite sheet
@@ -72,13 +72,13 @@ namespace User {
     void bullet_creation_system(registry &r, float src_x, float src_y, SpriteManager<std::string> _spriteManager, AudioManager<std::string>& _audioManager);
 
     /**
-     * @brief system that can create random ennemy when i need to
+     * @brief system that can create random enemy when i need to
      *
      * @param r : registry, contain all of the entities and the related components
      * @param _spriteManager : sprite manager reference of all sprites
      * @param w : window reference
      */
-    void ennemy_system(registry &r, SpriteManager<std::string>& _spriteManager, Window_ref w);
+    void enemy_system(registry &r, SpriteManager<std::string>& _spriteManager, Window_ref w);
 
     /**
      * @brief system that allow the generation of magic attack if the boss is alive

@@ -39,6 +39,11 @@ class SceneManager {
         using TStorage = std::map<Key, Scene>;
 
         /**
+         * @brief Construct a new Sprite Manager object
+        */
+        SceneManager() {};
+
+        /**
          * @brief Add
          *
          * @param t

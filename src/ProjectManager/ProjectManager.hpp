@@ -22,7 +22,7 @@
 #include <SFML/Network.hpp>
 
 //json
-#include "../nlohmann/json.hpp"
+#include <nlohmann/json.hpp>
 
 //User
 #include "../User/User.hpp"
@@ -105,7 +105,6 @@ namespace Project {
                 _mm.play("epitomize");
                 _userManager.InitScene(_ecs, _sm, _am, _scenes);
                 while (_window.isOpen()) { // run the program as long as the window is open
-                    _window.clear();
                     // check all the window's events that were triggered since the last iteration of the loop
                     while (_window.pollEvent(_event)) {
                         // "close requested" event: we close the window
@@ -118,6 +117,7 @@ namespace Project {
                         _userManager.UpdateEventSystem(_ecs, _event, _window, _sm, _am);
                     }
                     _userManager.UpdateClient(_ecs, _scenes, _sm, _am);
+                    _window.clear();
                     _userManager.UpdateWindowSystem(_ecs, _scenes, _window, _sm);
                     _window.display();
                     _userManager.UpdatePostWindowSystem(_ecs, _scenes, _window, _am);
@@ -184,7 +184,7 @@ namespace Project {
                     return sf::RenderWindow(sf::VideoMode(file["window"]["width"], file["window"]["height"]),
                             std::string(file["window"]["title"]) );
                 }
-                std::cout << "Error: " << jsonfile << " not found" << std::endl;
+                std::cerr << "Error: " << jsonfile << " not found" << std::endl;
                 exit(84);
             }
 
@@ -201,7 +201,7 @@ namespace Project {
             void InitSprites(json file)
             {
                 std::cout << file["sprites-path"] << std::endl;
-                std::ifstream ifs(file["sprites-path"]);
+                std::ifstream ifs(static_cast<std::string>(file["sprites-path"]));
                 json fileSprite;
 
                 if (ifs.good()) { //check if file exist
@@ -224,7 +224,7 @@ namespace Project {
             void InitSounds(json file)
             {
                 std::cout << file["sounds-path"] << std::endl;
-                std::ifstream ifs(file["sounds-path"]);
+                std::ifstream ifs(static_cast<std::string>(file["sounds-path"]));
                 json fileSound;
 
                 if (ifs.good()) { //check if file exist
@@ -251,7 +251,7 @@ namespace Project {
             void InitScenes(json file)
             {
                 std::cout << file["scenes-path"] << std::endl;
-                std::ifstream ifs(file["scenes-path"]);
+                std::ifstream ifs(static_cast<std::string>(file["scenes-path"]));
                 json fileScene;
                 int sceneIds = 0;
 

@@ -1,19 +1,19 @@
 {
     "animation_path":"sprites_animation",
     "sprites": [
-        {"name": "background_back", "path": "assets/img/background/parallax_back.png"},
-        {"name": "background_stars", "path": "assets/img/background/parallax_stars.png"},
-        {"name": "background_planets_back", "path": "assets/img/background/parallax_planets_back.png"},
+        {"name": "background_back", "path": "../assets/img/background/parallax_back.png"},
+        {"name": "background_stars", "path": "../assets/img/background/parallax_stars.png"},
+        {"name": "background_planets_back", "path": "../assets/img/background/parallax_planets_back.png"},
         {"name": "background_planets_front_back", "path": "asimg/background/parallax_planets_front.pngllax_back.png"},
-        {"name": "background_stars", "path": "assets/img/background/parallax_stars.png"},
-        {"name": "background_planets_back", "path": "assets/img/background/parallax_planets_back.png"},
-        {"name": "background_planets_front", "path": "assets/img/background/parallax_planets_front.png"},
-        {"name": "ship", "path": "assets/img/spaceship.gif"},
-        {"name": "bullet", "path": "assets/img/fx_02.gif"},
-        {"name": "enemy", "path": "assets/img/enemy_01.gif"},
-        {"name": "enemy_02", "path": "assets/img/enemy_02.png"},
-        {"name": "enemy_03", "path": "assets/img/enemy_03.png"},
-        {"name": "boss", "path": "assets/img/boss.png"},
-        {"name": "black_magic", "path": "assets/img/black_magic.png"}
+        {"name": "background_stars", "path": "../assets/img/background/parallax_stars.png"},
+        {"name": "background_planets_back", "path": "../assets/img/background/parallax_planets_back.png"},
+        {"name": "background_planets_front", "path": "../assets/img/background/parallax_planets_front.png"},
+        {"name": "ship", "path": "../assets/img/spaceship.gif"},
+        {"name": "bullet", "path": "../assets/img/fx_02.gif"},
+        {"name": "enemy", "path": "../assets/img/enemy_01.gif"},
+        {"name": "enemy_02", "path": "../assets/img/enemy_02.png"},
+        {"name": "enemy_03", "path": "../assets/img/enemy_03.png"},
+        {"name": "boss", "path": "../assets/img/boss.png"},
+        {"name": "black_magic", "path": "../assets/img/black_magic.png"}
     ]
 }

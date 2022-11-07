@@ -52,13 +52,10 @@ namespace User {
         scene.Get("lose").SetZIndex(-1);
         scene.Get("win").SetZIndex(-1);
 
-        std::cout << "InitScene" << std::endl;
         User::Game::background_generation(r, sm, scene, "background_back", -0.1f);
-        std::cout << "bg 1 done" << std::endl;
         User::Game::background_generation(r, sm, scene, "background_stars", -0.2f);
         User::Game::background_generation(r, sm, scene, "background_planets_back", -0.5f);
         User::Game::background_generation(r, sm, scene, "background_planets_front", -0.8f);
-        std::cout << "InitScene mid" << std::endl;
         User::Game::ship_generation(r, sm, scene, am, "ship", true);
     }
 
@@ -210,12 +207,11 @@ namespace User {
     void UserManager::UpdateWindowSystem(Registry_ref reg, SceneManager_ref<Key> scene, Window_ref window, SpriteManager_ref<Key> sm)
     {
         //all system
-        User::ennemy_system(reg, sm, window);
+        User::enemy_system(reg, sm, window);
         User::boss_magic_system(reg, sm, window);
-        User::position_system(reg, window/*, _client*/);
+        User::position_system(reg, window, _client);
         User::draw_system(reg, window);
         User::displayscene_system(reg, scene, window);
-        User::position_system(reg);
 
     //    draw_system(reg, window);
 

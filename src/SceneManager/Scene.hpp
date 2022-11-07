@@ -9,7 +9,7 @@
 #include <map>
 #include <vector>
 
-#include "../nlohmann/json.hpp"
+#include <nlohmann/json.hpp>
 
 #include "../ProjectManager/Ecs.hpp"
 #include "SceneComponent.hpp"
@@ -32,6 +32,8 @@ class Scene {
     using Scene_ref = Scene &;
 
     public:
+
+        Scene() = delete;
         /**
          * @brief Construct a new Scene object
          *
