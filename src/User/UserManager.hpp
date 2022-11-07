@@ -42,7 +42,7 @@ namespace User {
      *
      * @author perry.chouteau@epitech.eu
      */
-    class UserManager {
+    class UserManager final {
         public:
             /**
              * @brief Construct a new User Manager object

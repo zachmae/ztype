@@ -6,9 +6,8 @@
 ** main_client
 */
 
-#include <SFML/Window.hpp>
 #include <cctype>
-#include "ProjectManager/ProjectManager.hpp"
+#include "User/UserProjectManager.hpp"
 #include "main_server.hpp"
 
 /**
@@ -64,7 +63,7 @@ int main(int ac, char const * const av[])
         return std::cerr << "Error : Port must be a number" << std::endl, 84;
 
     srand(static_cast<unsigned int>(time(nullptr)));
-    Project::ProjectManager pm("../assets/conf/project-manager.json");
-    return pm.Start(av[1], static_cast<unsigned short>(std::atoi(av[2])));
+    Project::UserProjectManager upm("../assets/conf/project-manager.json");
+    return upm.Start(av[1], static_cast<unsigned short>(std::atoi(av[2])));
 
 }

@@ -9,6 +9,6 @@
     "scenes-path": "../assets/conf/scenes.json",
     "network": {
         "port": 8080,
-        "ip": "10.68.246.139"
+        "ip": "192.168.1.25"
     }
 }
