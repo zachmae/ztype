@@ -125,7 +125,7 @@ struct is_background {
 
 /**
  * @struct is_ally
- * @brief Component is_ally in order to indentify if the entity is or ally or an ennemy
+ * @brief Component is_ally in order to indentify if the entity is or ally or an enemy
  *
  */
 struct is_ally {

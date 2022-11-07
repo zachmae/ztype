@@ -184,7 +184,7 @@ namespace Project {
                     return sf::RenderWindow(sf::VideoMode(file["window"]["width"], file["window"]["height"]),
                             std::string(file["window"]["title"]) );
                 }
-                std::cout << "Error: " << jsonfile << " not found" << std::endl;
+                std::cerr << "Error: " << jsonfile << " not found" << std::endl;
                 exit(84);
             }
 

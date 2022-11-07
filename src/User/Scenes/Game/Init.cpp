@@ -24,10 +24,12 @@ namespace User {
         reg.add_component<drawable>(ship, {sprite_manager.Get(name)});
         reg.add_component<position>(ship, {100, 300});
         reg.add_component<velocity>(ship, {2, 2});
+        reg.add_component<resizable>(ship, {2, 2});
         reg.add_component<animation_adaptative>(ship, {sf::IntRect(static_cast<int>(166.0 * 0.4), 0, 32, 17), 0, 0, 0.1f});
         if (mine)
             reg.add_component<controlable>(ship, {});
         reg.add_component<is_ship>(ship, {});
+        reg.add_component<is_ally>(ship, {true});
         reg.add_component<collidable>(ship, {});
         reg.add_component<health>(ship, {1});
         reg.add_component<attack>(ship, {0});
