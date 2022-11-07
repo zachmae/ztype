@@ -22,7 +22,7 @@
 #include <SFML/Network.hpp>
 
 //json
-#include "../nlohmann/json.hpp"
+#include <nlohmann/json.hpp>
 
 //User
 #include "../User/User.hpp"

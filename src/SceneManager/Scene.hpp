@@ -9,7 +9,7 @@
 #include <map>
 #include <vector>
 
-#include "../nlohmann/json.hpp"
+#include <nlohmann/json.hpp>
 
 #include "../ProjectManager/Ecs.hpp"
 #include "SceneComponent.hpp"

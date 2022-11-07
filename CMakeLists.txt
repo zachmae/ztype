@@ -43,6 +43,7 @@ target_link_libraries(${PROJECT_NAME}
     sfml-network
     sfml-audio
     sfml-system
+    nlohmann_json::nlohmann_json
 )
 
 #Server executable generation
