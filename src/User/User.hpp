@@ -42,7 +42,7 @@ namespace User {
      * @param scene
      */
     [[deprecated]]
-    void UserManager::InitScene(Registry_ref r, SpriteManager_ref<std::string> sm, AudioManager_ref<std::string> am, SceneManager_ref<std::string> scene)
+    void UserManager::InitScene(Registry_ref r, SpriteManager_ref<std::string> sm, AudioManager_ref<std::string> am, MusicManager_ref<std::string> mm, SceneManager_ref<std::string> scene)
     {
         scene.Get("tutorial").SetZIndex(-1);
         scene.Get("game").SetZIndex(-1);
@@ -57,6 +57,8 @@ namespace User {
         User::Game::background_generation(r, sm, scene, "background_planets_back", -0.5f);
         User::Game::background_generation(r, sm, scene, "background_planets_front", -0.8f);
         User::Game::ship_generation(r, sm, scene, am, "ship", true);
+
+        mm.play("epitomize");
     }
 
     /**

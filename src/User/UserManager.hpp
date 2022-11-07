@@ -24,6 +24,7 @@
 
     #include "AudioManager.hpp"
     #include "SpriteManager.hpp"
+    #include "MusicManager.hpp"
 
     #include "sfml_ref.hpp"
 
@@ -69,8 +70,8 @@ namespace User {
              * @param am
              * @param scene
              */
-            [[deprecated]]
-            void InitScene(Registry_ref r, SpriteManager_ref<std::string> sm, AudioManager_ref<std::string> am, SceneManager_ref<std::string> scene);
+//            [[deprecated]]
+            void InitScene(Registry_ref r, SpriteManager_ref<std::string> sm, AudioManager_ref<std::string> am, MusicManager_ref<std::string> mm, SceneManager_ref<std::string> scene);
 
             /**
              * @brief Update the User Manager object

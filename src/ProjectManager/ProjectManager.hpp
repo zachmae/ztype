@@ -39,6 +39,7 @@
 #include "../SpriteManager.hpp"
 #include "../MusicManager.hpp"
 #include "../AudioManager.hpp"
+#include "../MusicManager.hpp"
 
 /**
  * @namespace Project
@@ -52,7 +53,6 @@ namespace Project {
     using Event_ref = sf::Event &;
     using Music_ref = sf::Music &;
     using Sound_ref = sf::Sound &;
-    using SpriteManager_ref = SpriteManager<std::string> &;
 
     /**
      * @brief ProjectManager
@@ -88,7 +88,7 @@ namespace Project {
                 return _event;
             };
 
-            SpriteManager_ref GetSpriteManager()
+            SpriteManager_ref<std::string> GetSpriteManager()
             {
                 return _sm;
             };
@@ -102,8 +102,7 @@ namespace Project {
              */
             int Start(std::string const &ip, unsigned short port)
             {
-                _mm.play("epitomize");
-                _userManager.InitScene(_ecs, _sm, _am, _scenes);
+                _userManager.InitScene(_ecs, _sm, _am, _mm, _scenes);
                 while (_window.isOpen()) { // run the program as long as the window is open
                     // check all the window's events that were triggered since the last iteration of the loop
                     while (_window.pollEvent(_event)) {
@@ -273,14 +272,11 @@ namespace Project {
             sf::RenderWindow _window;
             sf::Event _event;
 
-            //object manager
-            //std::map<std::string, Scene> _scenes;
             registry _ecs;
-
-            SceneManager<std::string> _scenes;
 
             User::UserManager _userManager;
 
+            SceneManager<std::string> _scenes;
             SpriteManager<std::string> _sm;
             MusicManager<std::string> _mm;
             AudioManager<std::string> _am;
