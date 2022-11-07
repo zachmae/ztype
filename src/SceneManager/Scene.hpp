@@ -32,6 +32,8 @@ class Scene {
     using Scene_ref = Scene &;
 
     public:
+
+        Scene() = delete;
         /**
          * @brief Construct a new Scene object
          *

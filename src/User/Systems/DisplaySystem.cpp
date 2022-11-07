@@ -15,7 +15,6 @@ void User::draw_system(registry &r, Window_ref w)
     auto &resizables = r.get_components<struct resizable>();
 
     animation_basic_system(r);
-    w.clear(sf::Color::Black);
     for (size_t i = 0; i < drawables.size(); ++i) {
         if (drawables[i]) {
             if (i < positions.size() && positions[i])
@@ -27,5 +26,4 @@ void User::draw_system(registry &r, Window_ref w)
             w.draw(drawables[i]->sprite);
         }
     }
-    w.display();
 }
