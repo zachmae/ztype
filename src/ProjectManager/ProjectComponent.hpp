@@ -13,6 +13,8 @@
 /**
  * @brief component used to know if an entity is visible
  *
+ * @deprecated not used
+ *
  * @author perry.chouteau@epitech.eu
  */
 struct visible {

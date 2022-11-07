@@ -56,7 +56,7 @@ target_link_libraries(${PROJECT_NAME}
 #    sfml-system
 #)
 
-include_directories(includes
+include_directories(#includes
                     modules
                     src)
 

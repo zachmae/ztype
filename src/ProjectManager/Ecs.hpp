@@ -41,6 +41,14 @@ struct entity_t {
         };
 };
 
+/**
+ * @brief operator<<
+ *
+ * @tparam Component
+ * @param os
+ * @param c
+ * @return std::ostream&
+ */
 template <typename Component>
 std::ostream& operator<<(std::ostream& os, std::optional<Component> const &c)
 {

@@ -24,12 +24,14 @@
  *
  * @author perry.chouteau@epitech.eu
  */
-template<typename Key, typename Value, typename Build>
+//template<typename _Res, typename... _ArgTypes>
+//class function<_Res(_ArgTypes...)>
+template<typename Key, typename Value, typename... _ArgTypes>
 class StorageManager {
     public:
         using TStorage = std::map<Key, Value>;
 
-        StorageManager(std::function<Value(Build)> f)
+        StorageManager(std::function<Value(_ArgTypes...)> f)
         : _f(f) {}
 
         /**
@@ -51,7 +53,7 @@ class StorageManager {
          * @param f
          *
          */
-        void Add(Key k, Build vc)
+        void Add(Key k, _ArgTypes... vc)
         {
             _storage.insert(std::pair<Key, Value>(k, _f(vc)));
         }
@@ -69,7 +71,7 @@ class StorageManager {
 
     private:
         TStorage _storage;
-        std::function<Value(Build)> _f;
+        std::function<Value(_ArgTypes...)> _f;
 };
 
 //#endif /* !SPRITEMANAGER_HPP_ */

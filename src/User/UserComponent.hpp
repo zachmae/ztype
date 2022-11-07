@@ -5,11 +5,15 @@
 ** Component
 */
 
+#include <functional>
+
 #include <SFML/Window.hpp>
 #include "SFML/Graphics.hpp"
 #include "SFML/Audio.hpp"
 #include "SFML/System.hpp"
 #include "SFML/Network.hpp"
+
+#include "../SceneManager/SceneManager.hpp"
 
 #ifndef USERCOMPONENT_HPP_
     #define USERCOMPONENT_HPP_
@@ -164,6 +168,14 @@ struct is_boss {
  *
  */
 struct death_sfx {
+    std::string key;
+};
+
+struct clickable {
+    std::function<void(SceneManager_ref<std::string>)> callback;
+};
+
+struct clickable_sfx {
     std::string key;
 };
 

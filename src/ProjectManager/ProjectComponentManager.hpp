@@ -18,7 +18,7 @@
  * @author perry.chouteau@epitech.eu
  */
 struct project_config {
-    using components_list = std::tuple<visible>;
+    using components_list = std::tuple<>;
 };
 
 
