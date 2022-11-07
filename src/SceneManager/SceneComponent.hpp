@@ -8,6 +8,11 @@
 #ifndef SCENECOMPONENT_HPP_
 #define SCENECOMPONENT_HPP_
 
+/**
+ * @brief SceneId
+ *
+ * @author perry.chouteau@epitech.eu
+ */
 struct SceneId {
     int _sceneId;
 };

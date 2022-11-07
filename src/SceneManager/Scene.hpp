@@ -6,27 +6,39 @@
 */
 
 #include <fstream>
-
 #include <map>
 #include <vector>
-#include "../ProjectManager/Ecs.hpp"
-#include "../nlohmann/json.hpp"
-//#include "../SpriteManager.hpp"
-#include "SceneComponent.hpp"
 
-using json = nlohmann::json;
-using Registry_ref = registry &;
-using Event_ref = sf::Event &;
-using Window_ref = sf::RenderWindow &;
-//using Scene_ref = Scene &;
-////using Scenes = std::vector<Scene>;
-////using Scenes_ref = Scenes &;
+#include "../nlohmann/json.hpp"
+
+#include "../ProjectManager/Ecs.hpp"
+#include "SceneComponent.hpp"
 
 #ifndef SCENE_HPP_
     #define SCENE_HPP_
 
+using json = nlohmann::json;
+using Registry_ref = registry &;
+
+/**
+ * @class Scene
+ *
+ * @brief used in SceneManager
+ *
+ * @author perry.chouteau@epitech.eu
+ */
 class Scene {
+
+    using Scene_ref = Scene &;
+
     public:
+        /**
+         * @brief Construct a new Scene object
+         *
+         * @param reg
+         * @param sceneId
+         * @param path
+         */
         Scene(Registry_ref reg, int sceneId, std::string path)
         : _ecs(reg)
         {
@@ -51,6 +63,11 @@ class Scene {
             std::cout << "Scene created" << std::endl;
         }
 
+        /**
+         * @brief Spawn an entity like in Ecs but with a sceneId
+         *
+         * @return entity_t
+         */
         entity_t SpawnEntity()
         {
             entity_t ent = _ecs.spawn_entity();
@@ -58,17 +75,34 @@ class Scene {
             return ent;
         }
 
+        /**
+         * @brief Set the Z Index of the scene
+         *
+         * @param zIndex
+         * @return int
+         */
         int SetZIndex(int zIndex)
         {
             _zIndex = zIndex;
             return _zIndex;
         }
 
+        /**
+         * @brief Get the Z Index of the scene
+         *
+         * @param zIndex
+         * @return int
+         */
         int GetZIndex() const
         {
             return _zIndex;
         }
 
+        /**
+         * @brief Get the Id of the scene
+         *
+         * @return int
+         */
         int GetId() const
         {
             return _id;

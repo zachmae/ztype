@@ -1,6 +1,10 @@
 #include "UserComponent.hpp"
 #include <tuple>
 
+/**
+ * @brief user config listing all components used by user
+ *
+ */
 struct user_config {
     using components_list = std::tuple<position,
                                         velocity,

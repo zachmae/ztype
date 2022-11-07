@@ -12,6 +12,11 @@
 #ifndef PROJECTCOMPONENTMANAGER_HPP_
 #define PROJECTCOMPONENTMANAGER_HPP_
 
+/**
+ * @brief project config listing all components used by project
+ *
+ * @author perry.chouteau@epitech.eu
+ */
 struct project_config {
     using components_list = std::tuple<visible>;
 };

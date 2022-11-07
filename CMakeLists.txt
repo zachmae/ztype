@@ -23,8 +23,7 @@ endif(WIN32)
 #Client executable generation
 add_executable(${PROJECT_NAME}
 
-        src/User/Scenes/Game/init.cpp
-        #src/User/Network/init.cpp
+        src/User/Scenes/Game/Init.cpp
 
         src/main_client.cpp
         src/main_server.cpp

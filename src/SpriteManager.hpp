@@ -27,6 +27,7 @@ using SpriteManager_ref = SpriteManager<Key> &;
 /**
  * @brief Image structure that can associate a Texture and a Sprite
  *
+ * @author perry.chouteau@epitech.eu
  */
 struct Image {
     sf::Texture texture;

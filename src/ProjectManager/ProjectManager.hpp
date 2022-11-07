@@ -40,7 +40,12 @@
 #include "../MusicManager.hpp"
 #include "../AudioManager.hpp"
 
-namespace GameStd {
+/**
+ * @namespace Project
+ *
+ * @author perry.chouteau@epitech.eu
+ */
+namespace Project {
 
     using json = nlohmann::json;
     using Window_ref = sf::RenderWindow &;
@@ -48,9 +53,12 @@ namespace GameStd {
     using Music_ref = sf::Music &;
     using Sound_ref = sf::Sound &;
     using SpriteManager_ref = SpriteManager<std::string> &;
-    using json = nlohmann::json;
 
-    //
+    /**
+     * @brief ProjectManager
+     *
+     * @author perry.chouteau@epitech.eu
+     */
     class ProjectManager {
         public:
 
@@ -85,32 +93,6 @@ namespace GameStd {
                 return _sm;
             };
 
-/*            [[deprecated]]
-            int Start()
-            {
-                User::InitScene(_ecs, _sm, _scenes,);
-                while (_window.isOpen()) {
-                    _window.clear();
-                    User::UpdateScene(_ecs, _scenes);
-
-                    // check all the window's events that were triggered since the last iteration of the loop
-                    while (_window.pollEvent(_event)) {
-                        // "close requested" event: we close the window
-                        if (_event.type == sf::Event::Closed) {
-                            _window.close();
-                            return 0;
-                        }
-                        User::CloseEvent(_event, _window);
-                        User::UpdateEventSystem(_ecs, _event, _window);
-                    }
-                    User::UpdateWindowSystem(_ecs, _scenes, _window);
-                    _window.display();
-                }
-                return 0;
-            }
-*/
-////////////////////////////////////////////////////////////////////////////////////////////////
-
             /**
              * @brief Client
              *
@@ -124,7 +106,6 @@ namespace GameStd {
                 _userManager.InitScene(_ecs, _sm, _am, _scenes);
                 while (_window.isOpen()) { // run the program as long as the window is open
                     _window.clear();
-                    _userManager.UpdateScene(_ecs, _scenes);
                     // check all the window's events that were triggered since the last iteration of the loop
                     while (_window.pollEvent(_event)) {
                         // "close requested" event: we close the window
@@ -133,6 +114,7 @@ namespace GameStd {
                             _window.close();
                             return 0;
                         }
+                        _userManager.UpdateScene(_ecs, _scenes, _window, _event);
                         _userManager.UpdateEventSystem(_ecs, _event, _window, _sm, _am);
                     }
                     _userManager.UpdateClient(_ecs, _scenes, _sm, _am);
@@ -156,23 +138,42 @@ namespace GameStd {
 //            }
 
         private:
-//dark c++ ;D
-            //Auto Implement Component
+
+            /**
+             * @brief Config Extractor (default will make the compilation failed) [Dark C++]
+             * @def the config extractor is used to extract all component need at the start of the program
+             *
+             * @tparam T
+             */
             template <class T>
             struct config_extractor { // ne devrait jamais être instancié sauf erreur => gestion d'erreur
                 static_assert(std::is_same_v<T, std::tuple<>>, "component_list in ComponentManager.hpp should be a tuple of Components"); // empeche la compilation si T n'est pas std::tuple<int> (ce qui ne peux jamais arriver)
-                static void function(registry &r) {}
             };
 
-            //précision
+            /**
+             * @brief Config Extractor (specification won't make the compilation failed) [Dark C++]
+             * @def the config extractor is used to extract all component need at the start of the program
+             *
+             * @tparam Components
+             */
             template <class ... Components>
             struct config_extractor<std::tuple<Components...>> { // overload si T est un tuple de choses. Ne clash pas avec la def précédentes
+                /**
+                 * @brief this function will extract all component need at the start of the program and register them in the ECS
+                 *
+                 * @param r
+                 */
                 static void function(registry &r) {
                     (r.register_component<Components>(), ...);
                 }
             };
 
-            //
+            /**
+             * @brief Create Window from json file
+             *
+             * @param jsonfile
+             * @return sf::RenderWindow
+             */
             sf::RenderWindow CreateWindow(std::string jsonfile)
             {
                 std::ifstream ifs(jsonfile.c_str());
@@ -192,6 +193,11 @@ namespace GameStd {
                 _window.setFramerateLimit(file["window"]["framerate-limit"]);
             }
 
+            /**
+             * @brief Init Sprites from json file
+             *
+             * @param file
+             */
             void InitSprites(json file)
             {
                 std::cout << file["sprites-path"] << std::endl;
@@ -210,6 +216,11 @@ namespace GameStd {
                 }
             }
 
+            /**
+             * @brief Init Sounds from json file
+             *
+             * @param file
+             */
             void InitSounds(json file)
             {
                 std::cout << file["sounds-path"] << std::endl;
@@ -232,7 +243,11 @@ namespace GameStd {
                 }
             }
 
-
+            /**
+             * @brief Init Scenes from json file
+             *
+             * @param file
+             */
             void InitScenes(json file)
             {
                 std::cout << file["scenes-path"] << std::endl;

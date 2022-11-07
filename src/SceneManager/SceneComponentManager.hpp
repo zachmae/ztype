@@ -11,6 +11,11 @@
 #ifndef SCENECOMPONENTMANAGER_HPP_
 #define SCENECOMPONENTMANAGER_HPP_
 
+/**
+ * @brief scene config listing all components used by scenes
+ *
+ * @author perry.chouteau@epitech.eu
+ */
 struct scene_config {
     using components_list = std::tuple<SceneId>;
 };

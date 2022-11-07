@@ -9,6 +9,7 @@
 /*!
  *  \addtogroup ECS
  *  @{
+ *
  */
 
 //! All of the ECS related stuff
@@ -21,6 +22,11 @@ using Registry_ref = registry &;
 
 //Step 0:
 
+/**
+ * @brief the definition of an entity
+ *
+ * @author perry.chouteau@epitech.eu
+ */
 struct entity_t {
     size_t _idx;
     entity_t() = delete;
@@ -35,13 +41,11 @@ struct entity_t {
         };
 };
 
-// ~ Step 1:
-template <typename Component> // You can also mirror the definition of std :: vector , that takes an additional allocator .
-
+template <typename Component>
 std::ostream& operator<<(std::ostream& os, std::optional<Component> const &c)
 {
     if (c)
-        os << c.value(); //any need to try type int str or float or else
+        os << c.value();
     else
         os << "None";
     return os;
@@ -51,60 +55,64 @@ std::ostream& operator<<(std::ostream& os, std::optional<Component> const &c)
  * @brief class sparce_array
  *
  * @tparam Component
+ *
+ * @author perry.chouteau@epitech.eu
  */
-template <typename Component> // You can also mirror the definition of std :: vector , that takes an additional allocator .
+template <typename Component>
 class sparse_array {
 
     public :
-        using value_type = std::optional<Component>; // optional component type
+        using value_type = std::optional<Component>;
         using reference_type = value_type &;
         using const_reference_type = value_type const &;
-        using container_t = std::vector<value_type>; // optionally add your allocator template here .
+        using container_t = std::vector<value_type>;
         using size_type = typename container_t::size_type ;
         using iterator = typename container_t::iterator ;
         using const_iterator = typename container_t::const_iterator ;
 
     public :
-        /**
-         * @brief sparse_array
-         */
-        sparse_array() = default; // You can add more constructors .
 
         /**
-         * @brief sparse_array
+         * @brief sparse_array - default constructor
+         */
+        sparse_array() = default;
+
+        /**
+         * @brief sparse_array - copy constructor
          *
          * @params sparse_array const &
          */
-        sparse_array(sparse_array const &) = default; // copy constructor
+        sparse_array(sparse_array const &) = default; //
 
         /**
-         * @brief sparse_array
+         * @brief sparse_array - move constructor
          *
          * @param sparse_array &&
          * @
          */
-        sparse_array(sparse_array &&) noexcept = default; // move constructor
+        sparse_array(sparse_array &&) noexcept = default;
 
         /**
-         * @brief sparse_array
+         * @brief sparse_array - default destructor
+         *
          */
         ~sparse_array() = default;
 
         /**
-         * @brief operator =
+         * @brief operator = - copy assignment operator
          *
          * @param sparse_array const &
          * @return sparse_array&
          */
-        sparse_array &operator=(sparse_array const &) = default; // copy assignment operator
+        sparse_array &operator=(sparse_array const &) = default;
 
         /**
-         * @brief operator =
+         * @brief operator = - move assignment operator
 
          * @param sparse_array &&
          * @return sparse_array&
          */
-        sparse_array &operator=(sparse_array &&) noexcept = default; // move assignment operator
+        sparse_array &operator=(sparse_array &&) noexcept = default;
 
         /**
          * @brief operator
@@ -300,8 +308,9 @@ class sparse_array {
 };
 
 /**
- * @brief class registry
- * @param template <typename Component>
+ * @brief registry (ECS)
+ *
+ * @author perry.chouteau@epitech.eu
  */
 class registry {
     public :
@@ -315,12 +324,8 @@ class registry {
         template <class Component>
         sparse_array<Component> &register_component()
         {
-            // ~ add a sparse_array<Component> to our registry.
             _components_arrays[std::type_index(typeid(Component))] = std::make_any<sparse_array<Component>>();
-            // ~ add a remove function by entities to our registry. [don't remember?] (args of the lambda) -> return { what the lambda does }
-            _components_removes.push_back(
-                [] (registry &r, entity_t const &e) { r.get_components<Component>().erase(e._idx); } );
-            // ~ return the sparse_array<Component> that we just added to our registry.
+            _components_removes.push_back([] (registry &r, entity_t const &e) { r.get_components<Component>().erase(e._idx); } );
             return std::any_cast<sparse_array<Component> &>(_components_arrays[std::type_index(typeid(Component))]);
         };
 
@@ -343,18 +348,17 @@ class registry {
          * @return sparse_array<Component> const&
          */
         template <class Component>
-        sparse_array<Component> const &get_components () const //the last const means that the function can't modify variable(s) of the class
+        sparse_array<Component> const &get_components () const
         {
             return std::any_cast<sparse_array<Component> &>(_components_arrays.at(std::type_index(typeid(Component))));
         };
 
         /**
-         * @brief spawn_entity
+         * @brief spawn_entity - create an entity
          *
          * @return entity_t
          */
-        // ~ return entity_array.size + 1
-        entity_t spawn_entity() // ~ create an entity
+        entity_t spawn_entity() // ~
         {
             if (!_killed_entities.empty()) {
                 entity_t tmp = _killed_entities.back();
@@ -386,7 +390,6 @@ class registry {
          */
         void kill_entity(entity_t const &e)
         {
-            // * edit register_component();
             _killed_entities.push_back(e);
             for (auto f: _components_removes)
                 f(*this, e);

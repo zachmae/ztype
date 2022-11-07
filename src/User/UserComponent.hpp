@@ -17,7 +17,7 @@
 //utilisateur
 
 /**
- * @brief position
+ * @struct position
  *
  */
 struct position {
@@ -26,7 +26,9 @@ struct position {
 };
 
 /**
- * @brief velocity
+ * @struct velocity
+ *
+ * @brief velocity of the entity
  *
  */
 struct velocity {
@@ -35,22 +37,26 @@ struct velocity {
 };
 
 /**
- * @brief drawable
+ * @struct drawable
  *
+ * @brief drawable of the entity
  */
 struct drawable {
     sf::Sprite sprite;
 };
 
 /**
- * @brief controlable
+ * @struct controlable
  *
+ * @brief controlable of the entity
  */
 struct controlable {
 };
 
 
 /**
+ * @struct animation_basic
+ *
  * @brief Component basic animation contain the animation of the entity in order to animate it in a generic way
  *
  */
@@ -63,6 +69,8 @@ struct animation_basic {
 };
 
 /**
+ * @struct animation_adaptative
+ *
  * @brief Component animation adaptative contain the animation of the entity in order to animate it remotely
  *
  */
@@ -74,6 +82,8 @@ struct animation_adaptative {
 };
 
 /**
+ * @struct resizable
+ *
  * @brief Component resizable contain the scale of the entity
  *
  */
@@ -83,6 +93,8 @@ struct resizable {
 };
 
 /**
+ * @struct is_ship
+ *
  * @brief Component is_ship if the entity is a ship
  *
  */
@@ -90,6 +102,8 @@ struct is_ship {
 };
 
 /**
+ * @struct collidable
+ *
  * @brief Component collider in order to handle the collisions of the entity
  *
  */
@@ -97,6 +111,8 @@ struct collidable {
 };
 
 /**
+ * @struct is_background
+ *
  * @brief Component is_background in order to handle the parallax and all other background stuff
  *
  */
@@ -104,6 +120,7 @@ struct is_background {
 };
 
 /**
+ * @struct is_ally
  * @brief Component is_ally in order to indentify if the entity is or ally or an ennemy
  *
  */
@@ -112,6 +129,8 @@ struct is_ally {
 };
 
 /**
+ * @struct attack
+ *
  * @brief Component attack in order to handle the attack of the entity
  *
  */
@@ -120,6 +139,8 @@ struct attack {
 };
 
 /**
+ * @struct health
+ *
  * @brief Component health in order to handle the health of the entity
  *
  */
@@ -128,6 +149,8 @@ struct health {
 };
 
 /**
+ * @struct is_boss
+ *
  * @brief Component is_boss in order to handle the boss of the game
  *
  */
@@ -135,6 +158,8 @@ struct is_boss {
 };
 
 /**
+ * @struct death_sfx
+ *
  * @brief Component death_sfx in order to handle the death sound of the entity
  *
  */

@@ -27,6 +27,13 @@ static int displayUsage(int ret_value)
     return ret_value;
 }
 
+/**
+ * @brief Check if the string is a number
+ *
+ * @param str
+ * @return true
+ * @return false
+ */
 static bool isNumber(const std::string &str)
 {
     if (str.empty())
@@ -36,6 +43,13 @@ static bool isNumber(const std::string &str)
     return !str.empty() && i == str.end();
 }
 
+/**
+ * @brief Main function of the client
+ *
+ * @param ac
+ * @param av
+ * @return int
+ */
 int main(int ac, char const * const av[])
 {
     if (ac == 2)
@@ -51,7 +65,7 @@ int main(int ac, char const * const av[])
 
     srand(static_cast<unsigned int>(time(nullptr)));
     //! make the constructeur use a ardcoded json filepath
-    GameStd::ProjectManager pm("assets/conf/project-manager.json");
+    Project::ProjectManager pm("assets/conf/project-manager.json");
 //    GameStd::GameManager manager(window, event);
     return pm.Start(av[1], static_cast<unsigned short>(std::atoi(av[2])));
 

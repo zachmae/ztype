@@ -21,6 +21,8 @@
  *
  * @tparam T
  * @tparam Value
+ *
+ * @author perry.chouteau@epitech.eu
  */
 template<typename Key, typename Value, typename Build>
 class StorageManager {

@@ -30,6 +30,8 @@ using SceneManager_ref = SceneManager<Key> &;
  *
  * @tparam T
  * @tparam Value
+ *
+ * @author perry.chouteau@epitech.eu
  **/
 template<typename Key>
 class SceneManager {
@@ -41,6 +43,8 @@ class SceneManager {
          *
          * @param t
          * @param v
+         *
+         * @author perry.chouteau@epitech.eu
          */
         void Add(Key k, const Scene &v)
         {
@@ -60,7 +64,7 @@ class SceneManager {
         };
 
         /**
-         * @brief Get
+         * @brief Get a Scene by its key
          *
          * @param t
          * @return Scene
@@ -70,11 +74,21 @@ class SceneManager {
             return _storage.at(k);
         };
 
-         std::map<Key, Scene> GetScenes()
+        /**
+         * @brief Get all Scenes and their keys
+         *
+         * @return std::map<Key, Scene>
+         */
+        std::map<Key, Scene> GetScenes()
         {
             return _storage;
         }
 
+        /**
+         * @brief Get Ordered Ztype Positive Only
+         *
+         * @return std::vector<int>
+         */
         std::vector<int> GetOrderedZtypePositiveOnly() {
             std::vector<int> vi;
 
@@ -91,6 +105,11 @@ class SceneManager {
             return vi;
         };
 
+        /**
+         * @brief Get the Display Order Of Scene ID
+         *
+         * @return std::vector<int>
+         */
         std::vector<int> GetDisplayOrderOfSceneID() {
             std::vector<int> vi = GetOrderedZtypePositiveOnly();
             std::vector<int> res;

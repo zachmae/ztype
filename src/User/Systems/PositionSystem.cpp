@@ -20,16 +20,16 @@ bool User::is_ship_out_system(std::optional<position> pos, std::optional<velocit
     return false;
 }
 
-void User::position_system(registry &r, Window_ref w/*, Client &client*/)
+void User::position_system(registry &r, Window_ref w)
 {
     auto &positions = r.get_components<struct position>();
     auto &controlables = r.get_components<struct controlable>();
     auto &velocities = r.get_components<struct velocity>();
     auto &are_ships = r.get_components<struct is_ship>();
 
-    for (size_t i = 0; i < positions.size() && i < velocities.size(); ++i) {
-        //if (i < are_ships.size() && are_ships[i] && is_ship_out_system(positions[i], velocities[i], w)) {
-        //    client.sendPos(positions[i]->x, positions[i]->y);
+    for (size_t i = 0; i < positions.size() && i < velocities.size() && i < are_ships.size(); ++i) {
+        //if (are_ships[i] && is_ship_out_system(positions[i], velocities[i], w)) {
+        //    _client.sendPos(positions[i]->x, positions[i]->y);
         //    continue;
         //}
         if (positions[i] && velocities[i]) {

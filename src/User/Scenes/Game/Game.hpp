@@ -5,19 +5,18 @@
 ** Game
 */
 
-#include <string>
+#ifndef GAME_HPP_
+    #define GAME_HPP_
 
-#include "../../UserComponent.hpp"
-#include "../../../ProjectManager/Ecs.hpp"
-
-#include "../../../SceneManager/SceneManager.hpp"
-#include "../../../SpriteManager.hpp"
-#include "../../../AudioManager.hpp"
+    #include "../../../ProjectManager/ProjectManager.hpp"
 
 namespace User {
 
-    void background_generation(Registry_ref reg, SpriteManager_ref<std::string> sprite_manager, SceneManager_ref<std::string> scene, std::string name, float parallax_speed);
+    void init_game(Registry_ref r, SpriteManager_ref<std::string> sm, AudioManager_ref<std::string> am, SceneManager_ref<std::string> scene)
+    {
 
-    void ship_generation(Registry_ref reg, SpriteManager_ref<std::string> sprite_manager, SceneManager_ref<std::string> scene, AudioManager_ref<std::string> audioManager, std::string name, bool mine);
+    }
 
-}
+} // namespace User
+
+#endif /* !GAME_HPP_ */

@@ -1,0 +1,18 @@
+{
+    "animated":true,
+    "animation":{
+        "type":"basic",
+        "rect":{
+            "left":0,
+            "top":34,
+            "width":50,
+            "height":17
+        },
+        "frame":{
+            "current":0,
+            "max":8,
+            "size":50
+        },
+        "frame_time":0.1
+    }
+}

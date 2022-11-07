@@ -16,7 +16,7 @@
 #include "Systems/System.hpp"
 #include "Systems/UserSystem.hpp"
 
-#include "Scenes/Game/Game.hpp" // WHAT THE FUCK
+#include "Scenes/Game/Init.hpp" // WHAT THE FUCK
 
 #include "Network/Client.hpp"
 
@@ -27,11 +27,11 @@
 
 #include "UserManager.hpp"
 
-///**
-// * @brief namespace User
-// *
-// */
-
+/**
+ * @brief namespace User
+ *
+ * @author perry.chouteau@epitech.eu
+ */
 namespace User {
 
     /**
@@ -62,22 +62,55 @@ namespace User {
         User::ship_generation(r, sm, scene, am, "ship", true);
     }
 
+    /**
+     * @brief
+     *
+     * @tparam Key
+     * @param reg
+     * @param scenes
+     * @param window
+     * @param event
+     */
     template <typename Key>
-    void UserManager::UpdateScene(Registry_ref reg, SceneManager<Key> &scene)
+    void UserManager::UpdateScene(Registry_ref reg, SceneManager<Key> &scene, sf::RenderWindow &window, sf::Event &event)
     {
+        ;
     }
 
+    /**
+     * @brief Close the Client
+     *
+     */
     void UserManager::Close()
     {
         _client.disconnect();
     }
 
+    /**
+     * @brief Update Event System
+     *
+     * @tparam Key
+     * @param reg
+     * @param event
+     * @param window
+     * @param sm
+     * @param am
+     */
     template<typename Key>
     void UserManager::UpdateEventSystem(Registry_ref reg, Event_ref event, Window_ref window, SpriteManager_ref<Key> sm, AudioManager_ref<Key> am)
     {
         User::control_system(reg, event, sm, am);
     }
 
+    /**
+     * @brief Update Client
+     *
+     * @tparam Key
+     * @param reg
+     * @param window
+     * @param sm
+     * @param am
+     */
     template<typename Key>
     void UserManager::UpdateClient(Registry_ref reg, SceneManager_ref<std::string> scenes, SpriteManager_ref<Key> _sm, AudioManager_ref<Key> am)
     {
@@ -164,6 +197,15 @@ namespace User {
         }
     }
 
+    /**
+     * @brief Update Window System
+     *
+     * @tparam Key
+     * @param reg
+     * @param scenes
+     * @param _sm
+     * @param client
+     */
     template<typename Key>
     void UserManager::UpdateWindowSystem(Registry_ref reg, SceneManager_ref<Key> scene, Window_ref window, SpriteManager_ref<Key> sm)
     {
@@ -179,6 +221,16 @@ namespace User {
 
     }
 
+    /**
+     * @brief Update Post Window System
+     *
+     * @tparam Key
+     * @param reg
+     * @param event
+     * @param scene
+     * @param sm
+     * @param am
+     */
     template<typename Key>
     void UserManager::UpdatePostWindowSystem(Registry_ref reg, SceneManager_ref<Key> scene, Window_ref window, AudioManager_ref<std::string> am)
     {
