@@ -42,13 +42,3 @@ jobs:
       ## BUILD THE PROJECT
       - name: build_repo
         run: ./compile_linux
-
-  ## MIRRORRING THE REPOSITORY
-  mirrorring:
-    runs-on: ubuntu-latest
-    timeout-minutes: 2
-    needs: [ linux_testing_setup ]
-    if: |
-      always() &&
-      !contains(needs.*.result, ${{ 'failure' }} ) &&
-      ${GITHUB_REF##*/} == 'master'
