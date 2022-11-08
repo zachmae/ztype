@@ -9,6 +9,7 @@
 #include <cctype>
 #include "User/UserProjectManager.hpp"
 #include "main_server.hpp"
+#include "Languages.hpp"
 
 /**
  * @brief Display Usage if the user has question on how to launch the executable
@@ -18,11 +19,11 @@
  */
 static int displayUsage(int ret_value)
 {
-    std::cout << "USAGE: ./rtype [ip] port\n\n" \
+    std::cout << "USAGE: ./rtype [ip] port -l lang\n\n" \
         "\tIf ip is not provided, the server will be launched\n" \
         "\tip\tis the server ip adress on which to the server listens" \
-        "\tport\tis the port number on which the server socket listens\n"
-              << std::endl;
+        "\tport\tis the port number on which the server socket listens\n" \
+        "\t-l\tis the language in which the game will be displayed see assets/lang/load.json to check the languages" << std::endl;
     return ret_value;
 }
 
@@ -51,6 +52,8 @@ static bool isNumber(const std::string &str)
  */
 int main(int ac, char const * const av[])
 {
+    prepare_language(ac, av);
+    display_dict();
     if (ac == 2)
         server::StartServer(static_cast<unsigned short>(std::atoi(av[1])));
     if (ac < 2 || ac > 3)

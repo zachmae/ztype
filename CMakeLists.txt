@@ -27,6 +27,7 @@ add_executable(${PROJECT_NAME}
 
         src/main_client.cpp
         src/main_server.cpp
+        src/Languages.cpp
         src/Network/Server.cpp
         src/Network/Client.cpp
 
@@ -59,6 +60,7 @@ target_link_libraries(${PROJECT_NAME}
 
 include_directories(#includes
                     modules
+                    includes
                     src)
 
 
