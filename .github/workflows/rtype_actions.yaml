@@ -29,13 +29,6 @@ jobs:
         uses: actions/checkout@v3
 
       ## SETUP THE REPOSITORY
-      - name: informations
-        run: |
-          echo Welcome to Zachmae workflow \
-          echo Repository:\n\t'$GITHUB_REPOSITORY' \
-          echo Branch:\n\t${GITHUB_REF##*/} \
-          echo Size: \
-          du -skh --exclude=.git --exclude=.github --exclude=.gitignore \
       - name: clean_repository
         run: rm -rf build/*
 
