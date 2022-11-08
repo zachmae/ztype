@@ -62,10 +62,12 @@ Client
 
 Use convensional commit to add upgrades
 
-We use Doxygen to document this project, you can generate it by write those commands
+We use Doxygen to document this project, you can generate it by running this command from documentation/doxygen
 ```
-    doxygen ./documentation/doxygen/rtype_doxygen.conf
+    doxygen rtype_doxygen.conf
 ```
+
+or you can freely read it from this [link](https://zachmae.github.io/ztype/documentation/doxygen/html/)
 
 ## Contributors ##
 
