@@ -35,11 +35,13 @@
 namespace User {
 
     /**
-     * @brief
+     * @brief init the scenes
      *
-     * @param r
-     * @param sm
-     * @param scene
+     * @param r : the reference to the registry
+     * @param sm : the reference to the sprite manager
+     * @param am : the reference to the audio manager
+     * @param mm : the reference to the music manager
+     * @param scene : the reference to the scene manager
      */
     [[deprecated]]
     void UserManager::InitScene(Registry_ref r, SpriteManager_ref<std::string> sm, AudioManager_ref<std::string> am, MusicManager_ref<std::string> mm, SceneManager_ref<std::string> scene)
@@ -89,11 +91,11 @@ namespace User {
      * @brief Update Event System
      *
      * @tparam Key
-     * @param reg
-     * @param event
-     * @param window
-     * @param sm
-     * @param am
+     * @param reg : the reference to the registry
+     * @param event : the reference to the event
+     * @param window : the reference to the window
+     * @param sm : the reference to the sprite manager
+     * @param am : the reference to the audio manager
      */
     template<typename Key>
     void UserManager::UpdateEventSystem(Registry_ref reg, Event_ref event, Window_ref window, SpriteManager_ref<Key> sm, AudioManager_ref<Key> am)
@@ -105,10 +107,10 @@ namespace User {
      * @brief Update Client
      *
      * @tparam Key
-     * @param reg
-     * @param window
-     * @param sm
-     * @param am
+     * @param reg : the reference to the registry
+     * @param window : the reference to the window
+     * @param sm : the reference to the sprite manager
+     * @param am : the reference to the audio manager
      */
     template<typename Key>
     void UserManager::UpdateClient(Registry_ref reg, SceneManager_ref<std::string> scenes, SpriteManager_ref<Key> _sm, AudioManager_ref<Key> am)
@@ -200,10 +202,10 @@ namespace User {
      * @brief Update Window System
      *
      * @tparam Key
-     * @param reg
-     * @param scenes
-     * @param _sm
-     * @param client
+     * @param reg : the reference to the registry
+     * @param scenes : the reference to the scene manager
+     * @param window : the reference to the window
+     * @param _sm : the reference to the sprite manager
      */
     template<typename Key>
     void UserManager::UpdateWindowSystem(Registry_ref reg, SceneManager_ref<Key> scene, Window_ref window, SpriteManager_ref<Key> sm)
@@ -223,11 +225,10 @@ namespace User {
      * @brief Update Post Window System
      *
      * @tparam Key
-     * @param reg
-     * @param event
-     * @param scene
-     * @param sm
-     * @param am
+     * @param reg : the reference to the registry
+     * @param scene : the reference to the scene manager
+     * @param window : the reference to the window
+     * @param am : the reference to the audio manager
      */
     template<typename Key>
     void UserManager::UpdatePostWindowSystem(Registry_ref reg, SceneManager_ref<Key> scene, Window_ref window, AudioManager_ref<std::string> am)
