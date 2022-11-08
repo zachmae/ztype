@@ -127,17 +127,19 @@ namespace User {
                 int newCliId = 0;
                 sfp >> newCliId;
                 // comment on stock les id des autres
-                entity_t newCliEntity = scenes.Get("Game").SpawnEntity();
+                entity_t newCliEntity = scenes.Get("game").SpawnEntity();
                 reg.add_component<drawable>(newCliEntity, {_sm.Get("ship")});
-                reg.add_component<position>(newCliEntity, {100, 400});
+                reg.add_component<position>(newCliEntity, {100, 300});
                 reg.add_component<velocity>(newCliEntity, {2, 2});
-                reg.add_component<controlable>(newCliEntity, {});
-                reg.add_component<animation_adaptative>(newCliEntity, {sf::IntRect(static_cast<int>(166.0 * 0.4), 0, 32, 17), 0, 0, 0.1f});
                 reg.add_component<resizable>(newCliEntity, {2, 2});
-                reg.add_component<is_ship>(newCliEntity, {});
-                reg.add_component<collidable>(newCliEntity, {});
+                reg.add_component<animation_adaptative>(newCliEntity, {sf::IntRect(static_cast<int>(166.0 * 0.4), 0, 32, 17), 0, 0, 0.1f});
                 reg.add_component<int>(newCliEntity, static_cast<int>(newCliId));
+                reg.add_component<is_ship>(newCliEntity, {});
                 reg.add_component<is_ally>(newCliEntity, {true});
+                reg.add_component<collidable>(newCliEntity, {});
+                reg.add_component<health>(newCliEntity, {1});
+                reg.add_component<attack>(newCliEntity, {0});
+                reg.add_component<death_sfx>(newCliEntity, {"explosion"});
             } else if (comparator == "old_client") {
                 //createOldClient(Registry_ref reg, SceneManager_ref<Key> scenes, SpriteManager_ref<Key> _sm, Client &client);
 
@@ -196,6 +198,7 @@ namespace User {
                 exit(84);
             }
         }
+        std::cout << "Update Client end" << std::endl;
     }
 
     /**
