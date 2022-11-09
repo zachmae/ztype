@@ -10,6 +10,11 @@
     #include "SFML/Audio.hpp"
     #include "IAudioModule.hpp"
 
+/*!
+ *  \addtogroup Modules
+ *  @{
+ */
+
 namespace modules {
     class SFMLAudioModule : public IAudioModule {
         public:

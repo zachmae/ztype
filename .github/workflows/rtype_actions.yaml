@@ -1,0 +1,37 @@
+## NAME OF THE WORKFLOW
+name: Rtype Actions
+
+## CONDITIONS FOR THE WORKFLOW TO RUN:
+on:
+  push:
+    branches-ignore:
+      - 'ga-ignore*'
+  pull_request:
+    branches-ignore:
+      - 'ga-ignore*'
+
+  workflow_dispatch:
+
+## DEFAULTS FOR THE WORKFLOW:
+defaults:
+  run:
+    shell: bash
+
+
+jobs:
+  linux_testing_setup:
+    runs-on: ubuntu-latest
+    container: epitechcontent/epitest-docker
+    timeout-minutes: 5
+    steps:
+      ## GET THE REPOSITORY
+      - name: checkout
+        uses: actions/checkout@v3
+
+      ## SETUP THE REPOSITORY
+      - name: clean_repository
+        run: rm -rf build/*
+
+      ## BUILD THE PROJECT
+      - name: build_repo
+        run: ./compile_linux

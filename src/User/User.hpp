@@ -35,11 +35,13 @@
 namespace User {
 
     /**
-     * @brief
+     * @brief init the scenes
      *
-     * @param r
-     * @param sm
-     * @param scene
+     * @param r : the reference to the registry
+     * @param sm : the reference to the sprite manager
+     * @param am : the reference to the audio manager
+     * @param mm : the reference to the music manager
+     * @param scene : the reference to the scene manager
      */
     void UserManager::InitScene(Registry_ref r, SpriteManager_ref<std::string> sm, AudioManager_ref<std::string> am, MusicManager_ref<std::string> mm, SceneManager_ref<std::string> scene)
     {
@@ -88,11 +90,11 @@ namespace User {
      * @brief Update Event System
      *
      * @tparam Key
-     * @param reg
-     * @param event
-     * @param window
-     * @param sm
-     * @param am
+     * @param reg : the reference to the registry
+     * @param event : the reference to the event
+     * @param window : the reference to the window
+     * @param sm : the reference to the sprite manager
+     * @param am : the reference to the audio manager
      */
     template<typename Key>
     void UserManager::UpdateEventSystem(Registry_ref reg, Event_ref event, Window_ref window, SpriteManager_ref<Key> sm, AudioManager_ref<Key> am)
@@ -104,10 +106,10 @@ namespace User {
      * @brief Update Client
      *
      * @tparam Key
-     * @param reg
-     * @param window
-     * @param sm
-     * @param am
+     * @param reg : the reference to the registry
+     * @param window : the reference to the window
+     * @param sm : the reference to the sprite manager
+     * @param am : the reference to the audio manager
      */
     template<typename Key>
     void UserManager::UpdateClient(Registry_ref reg, SceneManager_ref<std::string> scenes, SpriteManager_ref<Key> _sm, AudioManager_ref<Key> am)
@@ -124,17 +126,19 @@ namespace User {
                 int newCliId = 0;
                 sfp >> newCliId;
                 // comment on stock les id des autres
-                entity_t newCliEntity = scenes.Get("Game").SpawnEntity();
+                entity_t newCliEntity = scenes.Get("game").SpawnEntity();
                 reg.add_component<drawable>(newCliEntity, {_sm.Get("ship")});
-                reg.add_component<position>(newCliEntity, {100, 400});
+                reg.add_component<position>(newCliEntity, {100, 300});
                 reg.add_component<velocity>(newCliEntity, {2, 2});
-                reg.add_component<controlable>(newCliEntity, {});
-                reg.add_component<animation_adaptative>(newCliEntity, {sf::IntRect(static_cast<int>(166.0 * 0.4), 0, 32, 17), 0, 0, 0.1f});
                 reg.add_component<resizable>(newCliEntity, {2, 2});
-                reg.add_component<is_ship>(newCliEntity, {});
-                reg.add_component<collidable>(newCliEntity, {});
+                reg.add_component<animation_adaptative>(newCliEntity, {sf::IntRect(static_cast<int>(166.0 * 0.4), 0, 32, 17), 0, 0, 0.1f});
                 reg.add_component<int>(newCliEntity, static_cast<int>(newCliId));
+                reg.add_component<is_ship>(newCliEntity, {});
                 reg.add_component<is_ally>(newCliEntity, {true});
+                reg.add_component<collidable>(newCliEntity, {});
+                reg.add_component<health>(newCliEntity, {1});
+                reg.add_component<attack>(newCliEntity, {0});
+                reg.add_component<death_sfx>(newCliEntity, {"explosion"});
             } else if (comparator == "old_client") {
                 //createOldClient(Registry_ref reg, SceneManager_ref<Key> scenes, SpriteManager_ref<Key> _sm, Client &client);
 
@@ -193,16 +197,17 @@ namespace User {
                 exit(84);
             }
         }
+        std::cout << "Update Client end" << std::endl;
     }
 
     /**
      * @brief Update Window System
      *
      * @tparam Key
-     * @param reg
-     * @param scenes
-     * @param _sm
-     * @param client
+     * @param reg : the reference to the registry
+     * @param scenes : the reference to the scene manager
+     * @param window : the reference to the window
+     * @param _sm : the reference to the sprite manager
      */
     template<typename Key>
     void UserManager::UpdateWindowSystem(Registry_ref reg, SceneManager_ref<Key> scene, Window_ref window, SpriteManager_ref<Key> sm)
@@ -222,11 +227,10 @@ namespace User {
      * @brief Update Post Window System
      *
      * @tparam Key
-     * @param reg
-     * @param event
-     * @param scene
-     * @param sm
-     * @param am
+     * @param reg : the reference to the registry
+     * @param scene : the reference to the scene manager
+     * @param window : the reference to the window
+     * @param am : the reference to the audio manager
      */
     template<typename Key>
     void UserManager::UpdatePostWindowSystem(Registry_ref reg, SceneManager_ref<Key> scene, Window_ref window, AudioManager_ref<std::string> am)

@@ -18,6 +18,14 @@
 
 namespace User {
 
+    /**
+     * @brief control the user input
+     *
+     * @param r : the reference to the registry
+     * @param e : the reference to the event manager
+     * @param _spriteManager : the reference to the sprite manager
+     * @param _audioManager : the reference to the audio manager
+     */
     void control_system(registry &r, Event_ref e, const SpriteManager<std::string>& _spriteManager, AudioManager<std::string>& _audioManager)
     {
         auto &controllables = r.get_components<controlable>();
@@ -47,6 +55,13 @@ namespace User {
     template<typename Key>
     using SceneManager_ref = SceneManager<Key> &;
 
+    /**
+     * @brief display the scene related to the sprite
+     *
+     * @param _ecs : the reference to the ecs
+     * @param sm : the reference to the scene manager
+     * @param window : the reference to the window
+     */
     inline void displayscene_system(Registry_ref _ecs, SceneManager_ref<std::string> sm, Window_ref window)
     {
         std::vector<int> vi = sm.GetDisplayOrderOfSceneID();

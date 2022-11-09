@@ -1,0 +1,11 @@
+#!/bin/bash
+
+cd ./build
+if [[ $? -eq 1 ]]
+then
+    mkdir build || return
+    cd ./build/
+fi
+cmake ../
+cd ../
+cmake --build build/

@@ -41,6 +41,7 @@
 #include "User.hpp"
 #include "UserComponentManager.hpp"
 
+#include "Globals.hpp"
 
 /**
  * @namespace Project
@@ -186,6 +187,7 @@ namespace Project {
 
                 if (ifs.good()) { //check if file exist
                     fileSprite = json::parse(ifs);
+                    Globals::debug_mode =  fileSprite["debug"];
                     for (auto &it : fileSprite["sprites"]) { //get each sprite
                         std::cout << "load: " << it["name"] << it["path"] << std::endl; //debug
                         _sm.Add(it["name"], it["path"]); // add sprite to sprite manager
