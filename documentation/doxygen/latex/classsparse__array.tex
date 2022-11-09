@@ -1,0 +1,93 @@
+\hypertarget{classsparse__array}{}\doxysection{sparse\+\_\+array\texorpdfstring{$<$}{<} Component \texorpdfstring{$>$}{>} Class Template Reference}
+\label{classsparse__array}\index{sparse\_array$<$ Component $>$@{sparse\_array$<$ Component $>$}}
+
+
+class sparce\+\_\+array  
+
+
+
+
+{\ttfamily \#include $<$Ecs.\+hpp$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using {\bfseries value\+\_\+type} = std\+::optional$<$ Component $>$
+\item 
+using {\bfseries reference\+\_\+type} = value\+\_\+type \&
+\item 
+using {\bfseries const\+\_\+reference\+\_\+type} = value\+\_\+type const \&
+\item 
+using {\bfseries container\+\_\+t} = std\+::vector$<$ value\+\_\+type $>$
+\item 
+using {\bfseries size\+\_\+type} = typename container\+\_\+t\+::size\+\_\+type
+\item 
+using {\bfseries iterator} = typename container\+\_\+t\+::iterator
+\item 
+using {\bfseries const\+\_\+iterator} = typename container\+\_\+t\+::const\+\_\+iterator
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries sparse\+\_\+array} ()=default
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}} -\/ default constructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__ECS_ga99d9756419717256dab5ce1aea62d8da}{sparse\+\_\+array}} (\mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}} const \&)=default
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}} -\/ copy constructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__ECS_gad93b07fae9a6a1e0029768fd8aa22703}{sparse\+\_\+array}} (\mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}} \&\&) noexcept=default
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}} -\/ move constructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__ECS_ga462f64cc46c81b54e7c7d1181f7b889f}{$\sim$sparse\+\_\+array}} ()=default
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}} -\/ default destructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}} \& \mbox{\hyperlink{group__ECS_ga6e1be23d99d0b140980c1f549c7bf41b}{operator=}} (\mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}} const \&)=default
+\begin{DoxyCompactList}\small\item\em operator = -\/ copy assignment operator \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}} \& \mbox{\hyperlink{group__ECS_ga1f8c213f7e998b54425fda09f2453077}{operator=}} (\mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}} \&\&) noexcept=default
+\begin{DoxyCompactList}\small\item\em operator = -\/ move assignment operator \end{DoxyCompactList}\item 
+reference\+\_\+type \mbox{\hyperlink{group__ECS_ga4aa1f2fae14ff1cecdc6e42ded260cad}{operator\mbox{[}$\,$\mbox{]}}} (size\+\_\+t idx)
+\begin{DoxyCompactList}\small\item\em operator \end{DoxyCompactList}\item 
+const\+\_\+reference\+\_\+type \mbox{\hyperlink{group__ECS_ga1d66e1a1e11a9bcef70425c3c09eb6b4}{operator\mbox{[}$\,$\mbox{]}}} (size\+\_\+t idx) const
+\begin{DoxyCompactList}\small\item\em operator \end{DoxyCompactList}\item 
+iterator \mbox{\hyperlink{group__ECS_ga1cdf824b5897fb3ffc857843b37453b2}{begin}} ()
+\begin{DoxyCompactList}\small\item\em begin \end{DoxyCompactList}\item 
+const\+\_\+iterator \mbox{\hyperlink{group__ECS_ga25c3a93f84f860ee55bb25f8da67e358}{begin}} () const
+\begin{DoxyCompactList}\small\item\em begin \end{DoxyCompactList}\item 
+const\+\_\+iterator \mbox{\hyperlink{group__ECS_ga8f6e23b67ea783baf53129f8907e297a}{cbegin}} () const
+\begin{DoxyCompactList}\small\item\em end \end{DoxyCompactList}\item 
+iterator \mbox{\hyperlink{group__ECS_gaf6749bdfbdc5200a77549f52594107eb}{end}} ()
+\begin{DoxyCompactList}\small\item\em end \end{DoxyCompactList}\item 
+const\+\_\+iterator \mbox{\hyperlink{group__ECS_ga094425cbf56a592e130b67ecda68cd3d}{end}} () const
+\begin{DoxyCompactList}\small\item\em end \end{DoxyCompactList}\item 
+const\+\_\+iterator \mbox{\hyperlink{group__ECS_gadb95eba3fb7e88207a4374c04950d167}{cend}} () const
+\begin{DoxyCompactList}\small\item\em cend \end{DoxyCompactList}\item 
+size\+\_\+type \mbox{\hyperlink{group__ECS_ga6679a2315be266da4c01ad97f00e51fd}{size}} () const
+\begin{DoxyCompactList}\small\item\em size \end{DoxyCompactList}\item 
+reference\+\_\+type \mbox{\hyperlink{group__ECS_ga5405e60b1686ddbae5715e9ff44efaa7}{insert\+\_\+at}} (size\+\_\+type pos, Component const \&c)
+\begin{DoxyCompactList}\small\item\em insert\+\_\+at \end{DoxyCompactList}\item 
+reference\+\_\+type \mbox{\hyperlink{group__ECS_gac63a5ffed5183dacc9d6df639f038b8d}{insert\+\_\+at}} (size\+\_\+type pos, Component \&\&c)
+\begin{DoxyCompactList}\small\item\em insert\+\_\+at \end{DoxyCompactList}\item 
+{\footnotesize template$<$class ... Params$>$ }\\reference\+\_\+type \mbox{\hyperlink{group__ECS_gae689ca7b4a055ff5ffec48a7336f7d44}{emplace\+\_\+at}} (size\+\_\+type pos, Params \&\&...args)
+\begin{DoxyCompactList}\small\item\em emplace\+\_\+at \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__ECS_gac0bea77704ce39c1a731dc69de8d9d2d}{erase}} (size\+\_\+type pos)
+\begin{DoxyCompactList}\small\item\em erase \end{DoxyCompactList}\item 
+size\+\_\+type \mbox{\hyperlink{group__ECS_gaaf28747955bbc6e4dfbb1d63fb27c18c}{get\+\_\+index}} (value\+\_\+type const \&v) const
+\begin{DoxyCompactList}\small\item\em get\+\_\+index \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__ECS_gab34e95bdc6b4c360a996fb63ba1a78d2}{display}} () const
+\begin{DoxyCompactList}\small\item\em display \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Component$>$\newline
+class sparse\+\_\+array$<$ Component $>$}
+class sparce\+\_\+array 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Component} & \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyAuthor}{Author}
+\href{mailto:perry.chouteau@epitech.eu}{\texttt{ perry.\+chouteau@epitech.\+eu}} 
+\end{DoxyAuthor}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/\+Teyi/\+Epitech/\+Semestre5/\+CPP/rtype/src/\+Project\+Manager/Ecs.\+hpp\end{DoxyCompactItemize}

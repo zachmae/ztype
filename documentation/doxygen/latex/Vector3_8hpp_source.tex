@@ -1,0 +1,50 @@
+\hypertarget{Vector3_8hpp_source}{}\doxysection{Vector3.\+hpp}
+\label{Vector3_8hpp_source}\index{/home/Teyi/Epitech/Semestre5/CPP/rtype/src/PAML\_sfml/System/Vector3.hpp@{/home/Teyi/Epitech/Semestre5/CPP/rtype/src/PAML\_sfml/System/Vector3.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{** EPITECH PROJECT, 2022}}
+\DoxyCodeLine{3 \textcolor{comment}{** B-\/CPP-\/500-\/PAR-\/5-\/1-\/rtype-\/zacharie.lawson}}
+\DoxyCodeLine{4 \textcolor{comment}{** File description:}}
+\DoxyCodeLine{5 \textcolor{comment}{** IVector3}}
+\DoxyCodeLine{6 \textcolor{comment}{*/}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef PAML\_SFML\_VECTOR3\_HPP}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{    \#define PAML\_SFML\_VECTOR3\_HPP}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{    \#include "{}../../PAML/System.hpp"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{    \#include <SFML/System/Vector3.hpp>}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{namespace }paml\_sfml \{}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{17     \textcolor{keyword}{class }\mbox{\hyperlink{classpaml__sfml_1_1Vector3}{Vector3}} : \textcolor{keyword}{public} IVector3 \{}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19         \textcolor{keyword}{public}:}
+\DoxyCodeLine{20             T x;}
+\DoxyCodeLine{21             T y;}
+\DoxyCodeLine{22             T z;}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24             \mbox{\hyperlink{classpaml__sfml_1_1Vector3}{Vector3<T>}}(\textcolor{keyword}{const} sf::Vector3<T> \&value) \{}
+\DoxyCodeLine{25                 \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{classpaml__sfml_1_1Vector3}{Vector3<T>}}\textcolor{keyword}{>}(value);}
+\DoxyCodeLine{26             \}}
+\DoxyCodeLine{27             \mbox{\hyperlink{classpaml__sfml_1_1Vector3}{Vector3<T>}} operator =(sf::Vector3<T> \&value) \{}
+\DoxyCodeLine{28                 \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{classpaml__sfml_1_1Vector3}{Vector3<T>}}\textcolor{keyword}{>}(value);}
+\DoxyCodeLine{29             \}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31             \textcolor{comment}{//sf to paml\_sfml}}
+\DoxyCodeLine{32             sf::Vector3(\textcolor{keyword}{const} \mbox{\hyperlink{classpaml__sfml_1_1Vector3}{Vector3<T>}} \&value) \{}
+\DoxyCodeLine{33                 \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}sf::Vector3<T>\textcolor{keyword}{>}(value);}
+\DoxyCodeLine{34             \}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36             sf::Vector3<T> operator=(\mbox{\hyperlink{classpaml__sfml_1_1Vector3}{Vector3<T>}} \&value) \{}
+\DoxyCodeLine{37                 \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}sf::Vector3<T>\textcolor{keyword}{>}(value);}
+\DoxyCodeLine{38             \}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \};}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \} \textcolor{comment}{// namespace paml}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* !PAML\_SFML\_VECTOR3\_HPP\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,58 @@
+\hypertarget{SpriteManager_8hpp_source}{}\doxysection{Sprite\+Manager.\+hpp}
+\label{SpriteManager_8hpp_source}\index{/home/Teyi/Epitech/Semestre5/CPP/rtype/src/SpriteManager.hpp@{/home/Teyi/Epitech/Semestre5/CPP/rtype/src/SpriteManager.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{** EPITECH PROJECT, 2022}}
+\DoxyCodeLine{3 \textcolor{comment}{** B-\/CPP-\/500-\/PAR-\/5-\/1-\/rtype-\/zacharie.lawson}}
+\DoxyCodeLine{4 \textcolor{comment}{** File description:}}
+\DoxyCodeLine{5 \textcolor{comment}{** SpriteManager}}
+\DoxyCodeLine{6 \textcolor{comment}{*/}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}SFML/Window.hpp"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}SFML/Graphics.hpp"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}SFML/System.hpp"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#ifndef SPRITEMANAGER\_HPP\_}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{    \#define SPRITEMANAGER\_HPP\_}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{21 \textcolor{keyword}{template} <\textcolor{keyword}{typename} Key>}
+\DoxyCodeLine{22 \textcolor{keyword}{class }\mbox{\hyperlink{classSpriteManager}{SpriteManager}};}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Key\textcolor{comment}{/*, typename Value*/}>}
+\DoxyCodeLine{25 \textcolor{keyword}{using }\mbox{\hyperlink{classSpriteManager}{SpriteManager\_ref}} = \mbox{\hyperlink{classSpriteManager}{SpriteManager<Key>}} \&;}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{32 \textcolor{keyword}{struct }\mbox{\hyperlink{structImage}{Image}} \{}
+\DoxyCodeLine{33     sf::Texture texture;}
+\DoxyCodeLine{34     sf::Sprite sprite;}
+\DoxyCodeLine{35 \};}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{43 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Key\textcolor{comment}{/*, typename Value*/}>}
+\DoxyCodeLine{44 \textcolor{keyword}{class }\mbox{\hyperlink{classSpriteManager}{SpriteManager}} \{}
+\DoxyCodeLine{45     \textcolor{keyword}{public}:}
+\DoxyCodeLine{46         \textcolor{keyword}{using }TStorage = std::map<Key, Image>;}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{54     \textcolor{keywordtype}{void} \mbox{\hyperlink{group__StorageManager_gaa0cdd9e7e602bef6f884c7b79a1d4749}{Add}}(Key k, \mbox{\hyperlink{structImage}{Image}} \&v)}
+\DoxyCodeLine{55     \{}
+\DoxyCodeLine{56         \_storage.insert(std::pair<Key, Image>(k, v));}
+\DoxyCodeLine{57     \};}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{66     \textcolor{keywordtype}{void} \mbox{\hyperlink{group__StorageManager_gae258909ad45c83a610a45d25c5b5dabe}{Add}}(Key k, std::string path)}
+\DoxyCodeLine{67     \{}
+\DoxyCodeLine{68         \_storage[k].texture.loadFromFile(path);}
+\DoxyCodeLine{69         \_storage[k].sprite.setTexture(\_storage[k].texture);}
+\DoxyCodeLine{70     \};}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{78         sf::Sprite \&\mbox{\hyperlink{group__StorageManager_gafa35abd8cd4b3f99bc505bd56ee2c2c6}{Get}}(Key k)}
+\DoxyCodeLine{79         \{}
+\DoxyCodeLine{80             \textcolor{keywordflow}{return} \_storage[k].sprite;}
+\DoxyCodeLine{81         \};}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83     \textcolor{keyword}{private}:}
+\DoxyCodeLine{84         TStorage \_storage;}
+\DoxyCodeLine{85 \};}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* !SPRITEMANAGER\_HPP\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

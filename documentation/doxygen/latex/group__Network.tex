@@ -1,0 +1,290 @@
+\hypertarget{group__Network}{}\doxysection{Network}
+\label{group__Network}\index{Network@{Network}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classClient}{Client}}
+\begin{DoxyCompactList}\small\item\em Class for the client of the network. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structclient__s}{client\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em struct for the client in order to stock it in the server \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classServer}{Server}}
+\begin{DoxyCompactList}\small\item\em Class for the server of the network. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__Network_ga7bfebc8e763f36d1870198931d6b5eb1}\label{group__Network_ga7bfebc8e763f36d1870198931d6b5eb1}} 
+typedef struct \mbox{\hyperlink{structclient__s}{client\+\_\+s}} {\bfseries client\+\_\+t}
+\begin{DoxyCompactList}\small\item\em struct for the client in order to stock it in the server \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__Network_ga53c2f183bad637a444c7d1a164e02e62}{Client\+::\+Client}} (std\+::string const \&ip, unsigned short port)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classClient}{Client}} and connect to the server. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Network_gaddd2a71501a35ae902e5faa99ee9c351}{Client\+::send}} (std\+::string const \&message)
+\begin{DoxyCompactList}\small\item\em Send a packet to the server. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Network_ga3c364c67fa310228c2c507ec91051ea0}{Client\+::send\+Pos}} (float x, float y)
+\begin{DoxyCompactList}\small\item\em Send a position to the server. \end{DoxyCompactList}\item 
+sf\+::\+Packet \mbox{\hyperlink{group__Network_ga09e51b02bf201079adddc4a641a1b394}{Client\+::receive}} ()
+\begin{DoxyCompactList}\small\item\em Receive a packet from the server. \end{DoxyCompactList}\item 
+sf\+::\+Packet \mbox{\hyperlink{group__Network_gad320512816103b19b9650fabcf3bd175}{Client\+::\+Wait\+Receive}} ()
+\begin{DoxyCompactList}\small\item\em Receive a packet from the server. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Network_ga97e144b48409c0a9873eee09f04ce724}\label{group__Network_ga97e144b48409c0a9873eee09f04ce724}} 
+void {\bfseries Client\+::disconnect} ()
+\begin{DoxyCompactList}\small\item\em disconnect the client from the server \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Network_ga9fd9e7b0c3818d61dc106c8903e21575}{Client\+::\+Get\+Id}} ()
+\begin{DoxyCompactList}\small\item\em Get the Id object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Network_gaf5bb4c25ba8e0c980f5f59d60b19b9dc}\label{group__Network_gaf5bb4c25ba8e0c980f5f59d60b19b9dc}} 
+sf\+::\+Tcp\+Socket \& {\bfseries Client\+::get\+Socket} ()
+\item 
+\mbox{\hyperlink{group__Network_gafdc204b21eae699fb44042665c44bbd0}{Server\+::\+Server}} (unsigned short port)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classServer}{Server}} by bind the listener to a port. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Network_ga4b3aa2579cb1c8cd1d069582c14d0fa6}\label{group__Network_ga4b3aa2579cb1c8cd1d069582c14d0fa6}} 
+{\bfseries Server\+::$\sim$\+Server} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classServer}{Server}} by destroying all client and \textbackslash{} removing the listener and closing it. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Network_ga146787e583173165696dfe8cac3ed18d}\label{group__Network_ga146787e583173165696dfe8cac3ed18d}} 
+void {\bfseries Server\+::accept} ()
+\begin{DoxyCompactList}\small\item\em Accept a new client. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Network_ga1f45599eeba829acf0e27dc6f8189413}{Server\+::send}} (std\+::string const \&message)
+\begin{DoxyCompactList}\small\item\em Send a message to all clients. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Network_ga5541d5a6d165878f7a2381245a2e25b8}{Server\+::send\+Pos}} (float x, float y)
+\begin{DoxyCompactList}\small\item\em Send a position to all clients. \end{DoxyCompactList}\item 
+sf\+::\+Packet \mbox{\hyperlink{group__Network_gafb5b2bca30ce67ec5611383f094f7c4d}{Server\+::receive}} (sf\+::\+Tcp\+Socket $\ast$client)
+\begin{DoxyCompactList}\small\item\em Receive a message from a client. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__Network_ga87ca9f261175648de7bd589d469c7ee0}{Server\+::is\+New\+Connection}} ()
+\begin{DoxyCompactList}\small\item\em Check if there is a new client. \end{DoxyCompactList}\item 
+sf\+::\+Tcp\+Socket $\ast$ \mbox{\hyperlink{group__Network_ga37a55f99feea608eb353932d93c144b2}{Server\+::is\+New\+Message}} ()
+\begin{DoxyCompactList}\small\item\em Check if there is a new message from a client. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__Network_ga0d2eada80bfb7ad309409ce4c9027f42}{Server\+::selector\+Wait}} ()
+\begin{DoxyCompactList}\small\item\em \+: the selector wait 1 microsecond to check if there is a new message \end{DoxyCompactList}\item 
+std\+::vector$<$ sf\+::\+Tcp\+Socket $\ast$ $>$ \mbox{\hyperlink{group__Network_ga6f569f0e037a945460215598509368a3}{Server\+::get\+Clients}} ()
+\begin{DoxyCompactList}\small\item\em Get the Clients object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__Network_ga6fc48e689790adba48b60e1fcf22b8eb}\label{group__Network_ga6fc48e689790adba48b60e1fcf22b8eb}} 
+sf\+::\+Tcp\+Socket {\bfseries client\+\_\+s\+::socket}
+\item 
+\mbox{\Hypertarget{group__Network_ga4c1ddc94da607c36b64293050776b6c9}\label{group__Network_ga4c1ddc94da607c36b64293050776b6c9}} 
+int {\bfseries client\+\_\+s\+::id} \{\}
+\item 
+\mbox{\Hypertarget{group__Network_ga41ade3ef58aa77f2ad85893dd40be15c}\label{group__Network_ga41ade3ef58aa77f2ad85893dd40be15c}} 
+int {\bfseries client\+\_\+s\+::x} \{\}
+\item 
+\mbox{\Hypertarget{group__Network_ga0350e4bd624bd22ce79bf6a9b0a7dd9b}\label{group__Network_ga0350e4bd624bd22ce79bf6a9b0a7dd9b}} 
+int {\bfseries client\+\_\+s\+::y} \{\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__Network_ga53c2f183bad637a444c7d1a164e02e62}\label{group__Network_ga53c2f183bad637a444c7d1a164e02e62}} 
+\index{Network@{Network}!Client@{Client}}
+\index{Client@{Client}!Network@{Network}}
+\doxysubsubsection{\texorpdfstring{Client()}{Client()}}
+{\footnotesize\ttfamily Client\+::\+Client (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{ip,  }\item[{unsigned short}]{port }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classClient}{Client}} and connect to the server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ip} & \+: the ip of the server you want to connect to \\
+\hline
+{\em port} & \+: the port of the server you want to connect to \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Network_ga6f569f0e037a945460215598509368a3}\label{group__Network_ga6f569f0e037a945460215598509368a3}} 
+\index{Network@{Network}!getClients@{getClients}}
+\index{getClients@{getClients}!Network@{Network}}
+\doxysubsubsection{\texorpdfstring{getClients()}{getClients()}}
+{\footnotesize\ttfamily std\+::vector$<$ sf\+::\+Tcp\+Socket $\ast$ $>$ Server\+::get\+Clients (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the Clients object. 
+
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$sf\+::\+Tcp\+Socket $\ast$$>$ \+: return the vector of clients 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__Network_ga9fd9e7b0c3818d61dc106c8903e21575}\label{group__Network_ga9fd9e7b0c3818d61dc106c8903e21575}} 
+\index{Network@{Network}!GetId@{GetId}}
+\index{GetId@{GetId}!Network@{Network}}
+\doxysubsubsection{\texorpdfstring{GetId()}{GetId()}}
+{\footnotesize\ttfamily int Client\+::\+Get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the Id object. 
+
+\begin{DoxyReturn}{Returns}
+int \+: the id of the client 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__Network_ga87ca9f261175648de7bd589d469c7ee0}\label{group__Network_ga87ca9f261175648de7bd589d469c7ee0}} 
+\index{Network@{Network}!isNewConnection@{isNewConnection}}
+\index{isNewConnection@{isNewConnection}!Network@{Network}}
+\doxysubsubsection{\texorpdfstring{isNewConnection()}{isNewConnection()}}
+{\footnotesize\ttfamily bool Server\+::is\+New\+Connection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if there is a new client. 
+
+\begin{DoxyReturn}{Returns}
+bool (true if there is a new client) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__Network_ga37a55f99feea608eb353932d93c144b2}\label{group__Network_ga37a55f99feea608eb353932d93c144b2}} 
+\index{Network@{Network}!isNewMessage@{isNewMessage}}
+\index{isNewMessage@{isNewMessage}!Network@{Network}}
+\doxysubsubsection{\texorpdfstring{isNewMessage()}{isNewMessage()}}
+{\footnotesize\ttfamily sf\+::\+Tcp\+Socket $\ast$ Server\+::is\+New\+Message (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if there is a new message from a client. 
+
+\begin{DoxyReturn}{Returns}
+sf\+::\+Tcp\+Socket$\ast$ (null if there is no new message) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__Network_ga09e51b02bf201079adddc4a641a1b394}\label{group__Network_ga09e51b02bf201079adddc4a641a1b394}} 
+\index{Network@{Network}!receive@{receive}}
+\index{receive@{receive}!Network@{Network}}
+\doxysubsubsection{\texorpdfstring{receive()}{receive()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily sf\+::\+Packet Client\+::receive (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Receive a packet from the server. 
+
+\begin{DoxyReturn}{Returns}
+the sf\+::\+Packet receive 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__Network_gafb5b2bca30ce67ec5611383f094f7c4d}\label{group__Network_gafb5b2bca30ce67ec5611383f094f7c4d}} 
+\index{Network@{Network}!receive@{receive}}
+\index{receive@{receive}!Network@{Network}}
+\doxysubsubsection{\texorpdfstring{receive()}{receive()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily sf\+::\+Packet Server\+::receive (\begin{DoxyParamCaption}\item[{sf\+::\+Tcp\+Socket $\ast$}]{client }\end{DoxyParamCaption})}
+
+
+
+Receive a message from a client. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em client} & socket of the client \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+sf\+::\+Packet 
+\end{DoxyReturn}
+DISCONNECTED CLIENT
+
+GET POS CLIENT AND SEND TO OTHER CLIENT\mbox{\Hypertarget{group__Network_ga0d2eada80bfb7ad309409ce4c9027f42}\label{group__Network_ga0d2eada80bfb7ad309409ce4c9027f42}} 
+\index{Network@{Network}!selectorWait@{selectorWait}}
+\index{selectorWait@{selectorWait}!Network@{Network}}
+\doxysubsubsection{\texorpdfstring{selectorWait()}{selectorWait()}}
+{\footnotesize\ttfamily bool Server\+::selector\+Wait (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\+: the selector wait 1 microsecond to check if there is a new message 
+
+\begin{DoxyReturn}{Returns}
+true \+: the selector succesfully wait for a new message 
+
+false \+: the selector failed to wait for a new message 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__Network_gaddd2a71501a35ae902e5faa99ee9c351}\label{group__Network_gaddd2a71501a35ae902e5faa99ee9c351}} 
+\index{Network@{Network}!send@{send}}
+\index{send@{send}!Network@{Network}}
+\doxysubsubsection{\texorpdfstring{send()}{send()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Client\+::send (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{message }\end{DoxyParamCaption})}
+
+
+
+Send a packet to the server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sf\+::\+Packet} & you want to send \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Network_ga1f45599eeba829acf0e27dc6f8189413}\label{group__Network_ga1f45599eeba829acf0e27dc6f8189413}} 
+\index{Network@{Network}!send@{send}}
+\index{send@{send}!Network@{Network}}
+\doxysubsubsection{\texorpdfstring{send()}{send()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Server\+::send (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{message }\end{DoxyParamCaption})}
+
+
+
+Send a message to all clients. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Network_ga3c364c67fa310228c2c507ec91051ea0}\label{group__Network_ga3c364c67fa310228c2c507ec91051ea0}} 
+\index{Network@{Network}!sendPos@{sendPos}}
+\index{sendPos@{sendPos}!Network@{Network}}
+\doxysubsubsection{\texorpdfstring{sendPos()}{sendPos()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Client\+::send\+Pos (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})}
+
+
+
+Send a position to the server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & position x of the player \\
+\hline
+{\em y} & position y of the player \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Network_ga5541d5a6d165878f7a2381245a2e25b8}\label{group__Network_ga5541d5a6d165878f7a2381245a2e25b8}} 
+\index{Network@{Network}!sendPos@{sendPos}}
+\index{sendPos@{sendPos}!Network@{Network}}
+\doxysubsubsection{\texorpdfstring{sendPos()}{sendPos()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Server\+::send\+Pos (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})}
+
+
+
+Send a position to all clients. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & position x of the player \\
+\hline
+{\em y} & position y of the player \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Network_gafdc204b21eae699fb44042665c44bbd0}\label{group__Network_gafdc204b21eae699fb44042665c44bbd0}} 
+\index{Network@{Network}!Server@{Server}}
+\index{Server@{Server}!Network@{Network}}
+\doxysubsubsection{\texorpdfstring{Server()}{Server()}}
+{\footnotesize\ttfamily Server\+::\+Server (\begin{DoxyParamCaption}\item[{unsigned short}]{port }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Construct a new \mbox{\hyperlink{classServer}{Server}} by bind the listener to a port. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & unsigned short \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Network_gad320512816103b19b9650fabcf3bd175}\label{group__Network_gad320512816103b19b9650fabcf3bd175}} 
+\index{Network@{Network}!WaitReceive@{WaitReceive}}
+\index{WaitReceive@{WaitReceive}!Network@{Network}}
+\doxysubsubsection{\texorpdfstring{WaitReceive()}{WaitReceive()}}
+{\footnotesize\ttfamily sf\+::\+Packet Client\+::\+Wait\+Receive (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Receive a packet from the server. 
+
+\begin{DoxyReturn}{Returns}
+sf\+::\+Packet \+: the packet that was received 
+\end{DoxyReturn}
