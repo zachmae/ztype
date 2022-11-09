@@ -107,10 +107,11 @@ void User::boss_magic_system(registry &r, SpriteManager<std::string>& _spriteMan
     if (time_span < std::chrono::seconds(1))
         return;
     entity_t magic = r.spawn_entity();
-    r.add_component<drawable>(magic, {_spriteManager.Get("black_magic")});
-    r.add_component<position>(magic, {static_cast<float>(w.getSize().x) * 0.9f, 400.0f});
     float random_x_vel = static_cast<float>(rand() % 100) / 10;
     float random_y_vel = (static_cast<float>(rand() % 100) - 50) / 10;
+
+    r.add_component<drawable>(magic, {_spriteManager.Get("black_magic")});
+    r.add_component<position>(magic, {static_cast<float>(w.getSize().x) * 0.9f, 400.0f});
     r.add_component<velocity>(magic, {-1 * random_x_vel, random_y_vel});
     r.add_component<animation_basic>(magic, {sf::IntRect(0, 0, 70, 100), 0, 10, 70, 0.2f});
     r.add_component<is_ally>(magic, {false});
