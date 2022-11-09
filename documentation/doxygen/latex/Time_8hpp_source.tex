@@ -1,0 +1,65 @@
+\hypertarget{Time_8hpp_source}{}\doxysection{Time.\+hpp}
+\label{Time_8hpp_source}\index{/home/Teyi/Epitech/Semestre5/CPP/rtype/src/PAML\_sfml/System/Time.hpp@{/home/Teyi/Epitech/Semestre5/CPP/rtype/src/PAML\_sfml/System/Time.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{** EPITECH PROJECT, 2022}}
+\DoxyCodeLine{3 \textcolor{comment}{** B-\/CPP-\/500-\/PAR-\/5-\/1-\/rtype-\/zacharie.lawson}}
+\DoxyCodeLine{4 \textcolor{comment}{** File description:}}
+\DoxyCodeLine{5 \textcolor{comment}{** ITime}}
+\DoxyCodeLine{6 \textcolor{comment}{*/}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#ifndef PAML\_SFML\_TIME\_HPP}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{    \#define PAML\_SFML\_TIME\_HPP}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{    \#include <SFML/System.hpp>}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{    \#include "{}../../PAML/System.hpp"{}}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{namespace }paml\_sfml \{}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \textcolor{keyword}{class }\mbox{\hyperlink{classpaml__sfml_1_1Time}{Time}} : \textcolor{keyword}{public} \mbox{\hyperlink{classpaml_1_1ITime}{paml::ITime}} \{}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20         \textcolor{keyword}{public}:}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22             \mbox{\hyperlink{classpaml__sfml_1_1Time}{Time}}() : \_time()}
+\DoxyCodeLine{23             \{}
+\DoxyCodeLine{24             \}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26             \mbox{\hyperlink{classpaml__sfml_1_1Time}{Time}}(\mbox{\hyperlink{classpaml__sfml_1_1Time}{Time}} \&\&t)}
+\DoxyCodeLine{27             : \_time(t.\_time)}
+\DoxyCodeLine{28             \{}
+\DoxyCodeLine{29             \}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31             \mbox{\hyperlink{classpaml__sfml_1_1Time}{Time}}(\textcolor{keyword}{const} sf::Time \&t)}
+\DoxyCodeLine{32             : \_time(t)}
+\DoxyCodeLine{33             \{}
+\DoxyCodeLine{34             \}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36             \mbox{\hyperlink{classpaml__sfml_1_1Time}{\string~Time}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38             \textcolor{keywordtype}{float} asSeconds()}
+\DoxyCodeLine{39             \{}
+\DoxyCodeLine{40                 \textcolor{keywordflow}{return} \_time.asSeconds();}
+\DoxyCodeLine{41             \}}
+\DoxyCodeLine{42             paml::int32\_t asMilliseconds()}
+\DoxyCodeLine{43             \{}
+\DoxyCodeLine{44                 \textcolor{keywordflow}{return} \_time.asMilliseconds();}
+\DoxyCodeLine{45             \}}
+\DoxyCodeLine{46             paml::int64\_t asMicroseconds()}
+\DoxyCodeLine{47             \{}
+\DoxyCodeLine{48                 \textcolor{keywordflow}{return} \_time.asMicroseconds();}
+\DoxyCodeLine{49             \}}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51             \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classpaml__sfml_1_1System}{System}};}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53         \textcolor{keyword}{private}:}
+\DoxyCodeLine{54             sf::Time \_time;}
+\DoxyCodeLine{55     \};}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57 \} \textcolor{comment}{// namespace paml}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* !PAML\_SFML\_ITIME\_HPP\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

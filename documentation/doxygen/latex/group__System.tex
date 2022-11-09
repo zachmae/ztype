@@ -1,0 +1,259 @@
+\hypertarget{group__System}{}\doxysection{System}
+\label{group__System}\index{System@{System}}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceUser}{User}}
+\begin{DoxyCompactList}\small\item\em Namespace for all game related content, here systems. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{group__System_ga67dc1b0691869904da7879bf857c332a}{User\+::is\+\_\+ship\+\_\+out\+\_\+system}} (std\+::optional$<$ \mbox{\hyperlink{structposition}{position}} $>$ pos, std\+::optional$<$ \mbox{\hyperlink{structvelocity}{velocity}} $>$ vel, Window\+\_\+ref w)
+\begin{DoxyCompactList}\small\item\em System that replace the ship if he goes out of screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__System_ga4e946176ee9363d8e808852962e3a18a}{User\+::position\+\_\+system}} (\mbox{\hyperlink{classregistry}{registry}} \&r, Window\+\_\+ref w, \mbox{\hyperlink{classClient}{Client}} \&client)
+\begin{DoxyCompactList}\small\item\em \+: handle position of all of the entities \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__System_gaff16b4e1b44b32293eabfad5ecbf65d0}{User\+::animation\+\_\+basic\+\_\+system}} (\mbox{\hyperlink{classregistry}{registry}} \&r)
+\begin{DoxyCompactList}\small\item\em handle basic animations in a sprite sheet \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__System_ga3f6ca00526da76fc3dc4005d01649543}{User\+::animate\+\_\+ship\+\_\+system}} (\mbox{\hyperlink{classregistry}{registry}} \&r, size\+\_\+t entity\+\_\+index, int key\+\_\+code)
+\begin{DoxyCompactList}\small\item\em system that can animate ships \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__System_ga7abcffd89b8d3fa49ca90426bcdc2d3a}{User\+::bullet\+\_\+creation\+\_\+system}} (\mbox{\hyperlink{classregistry}{registry}} \&r, float src\+\_\+x, float src\+\_\+y, \mbox{\hyperlink{classSpriteManager}{Sprite\+Manager}}$<$ std\+::string $>$ \+\_\+sprite\+Manager, \mbox{\hyperlink{classAudioManager}{Audio\+Manager}}$<$ std\+::string $>$ \&\+\_\+audio\+Manager)
+\begin{DoxyCompactList}\small\item\em system that can create a bullet from the position of the ship \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__System_ga101714180c81496b536faf2a52f86181}{User\+::enemy\+\_\+system}} (\mbox{\hyperlink{classregistry}{registry}} \&r, \mbox{\hyperlink{classSpriteManager}{Sprite\+Manager}}$<$ std\+::string $>$ \&\+\_\+sprite\+Manager, Window\+\_\+ref w)
+\begin{DoxyCompactList}\small\item\em system that can create random enemy when i need to \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__System_ga2b763e76fbfbfa822f32ec3b63c1bf9a}{User\+::boss\+\_\+magic\+\_\+system}} (\mbox{\hyperlink{classregistry}{registry}} \&r, \mbox{\hyperlink{classSpriteManager}{Sprite\+Manager}}$<$ std\+::string $>$ \&\+\_\+sprite\+Manager, Window\+\_\+ref w)
+\begin{DoxyCompactList}\small\item\em system that allow the generation of magic attack if the boss is alive \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__System_gaf9344443fbeada23fad678aaa174c375}{User\+::collision\+\_\+system}} (\mbox{\hyperlink{classregistry}{registry}} \&r, \mbox{\hyperlink{classAudioManager}{Audio\+Manager}}$<$ std\+::string $>$ \&\+\_\+audio\+Manager)
+\begin{DoxyCompactList}\small\item\em system that handle collision between entities \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__System_ga1d240024a1b1ac267b1cb977b13176ce}{User\+::control\+\_\+system}} (\mbox{\hyperlink{classregistry}{registry}} \&r, Event\+\_\+ref e, const \mbox{\hyperlink{classSpriteManager}{Sprite\+Manager}}$<$ std\+::string $>$ \&\+\_\+sprite\+Manager, \mbox{\hyperlink{classAudioManager}{Audio\+Manager}}$<$ std\+::string $>$ \&\+\_\+audio\+Manager)
+\begin{DoxyCompactList}\small\item\em system that can handle controls of the entities that i am able to move \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__System_gab999ebb5f6f381c9099404c587475006}{User\+::remove\+\_\+out\+\_\+of\+\_\+screen\+\_\+system}} (\mbox{\hyperlink{classregistry}{registry}} \&r, Window\+\_\+ref w)
+\begin{DoxyCompactList}\small\item\em system that can remove every entities that are out of the window in order to free memory \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__System_gad5a598e85df32a0c56bee190f25ba289}{User\+::draw\+\_\+system}} (\mbox{\hyperlink{classregistry}{registry}} \&r, Window\+\_\+ref w)
+\begin{DoxyCompactList}\small\item\em system that draw every drawable entity \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__System_ga3f6ca00526da76fc3dc4005d01649543}\label{group__System_ga3f6ca00526da76fc3dc4005d01649543}} 
+\index{System@{System}!animate\_ship\_system@{animate\_ship\_system}}
+\index{animate\_ship\_system@{animate\_ship\_system}!System@{System}}
+\doxysubsubsection{\texorpdfstring{animate\_ship\_system()}{animate\_ship\_system()}}
+{\footnotesize\ttfamily void User\+::animate\+\_\+ship\+\_\+system (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classregistry}{registry}} \&}]{r,  }\item[{size\+\_\+t}]{entity\+\_\+index,  }\item[{int}]{key\+\_\+code }\end{DoxyParamCaption})}
+
+
+
+system that can animate ships 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & \+: registry, contain all of the entities and the related components \\
+\hline
+{\em entity\+\_\+index} & \+: index of the entity i want to animate \\
+\hline
+{\em key\+\_\+code} & \+: key code of the key pressed \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__System_gaff16b4e1b44b32293eabfad5ecbf65d0}\label{group__System_gaff16b4e1b44b32293eabfad5ecbf65d0}} 
+\index{System@{System}!animation\_basic\_system@{animation\_basic\_system}}
+\index{animation\_basic\_system@{animation\_basic\_system}!System@{System}}
+\doxysubsubsection{\texorpdfstring{animation\_basic\_system()}{animation\_basic\_system()}}
+{\footnotesize\ttfamily void User\+::animation\+\_\+basic\+\_\+system (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classregistry}{registry}} \&}]{r }\end{DoxyParamCaption})}
+
+
+
+handle basic animations in a sprite sheet 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & \+: registry, contain all of the entities and the related components \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__System_ga2b763e76fbfbfa822f32ec3b63c1bf9a}\label{group__System_ga2b763e76fbfbfa822f32ec3b63c1bf9a}} 
+\index{System@{System}!boss\_magic\_system@{boss\_magic\_system}}
+\index{boss\_magic\_system@{boss\_magic\_system}!System@{System}}
+\doxysubsubsection{\texorpdfstring{boss\_magic\_system()}{boss\_magic\_system()}}
+{\footnotesize\ttfamily void User\+::boss\+\_\+magic\+\_\+system (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classregistry}{registry}} \&}]{r,  }\item[{\mbox{\hyperlink{classSpriteManager}{Sprite\+Manager}}$<$ std\+::string $>$ \&}]{\+\_\+sprite\+Manager,  }\item[{Window\+\_\+ref}]{w }\end{DoxyParamCaption})}
+
+
+
+system that allow the generation of magic attack if the boss is alive 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & \+: registry, contain all of the entities and the related components \\
+\hline
+{\em \+\_\+sprite\+Manager} & \+: sprite manager reference of all sprites \\
+\hline
+{\em w} & \+: window reference \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__System_ga7abcffd89b8d3fa49ca90426bcdc2d3a}\label{group__System_ga7abcffd89b8d3fa49ca90426bcdc2d3a}} 
+\index{System@{System}!bullet\_creation\_system@{bullet\_creation\_system}}
+\index{bullet\_creation\_system@{bullet\_creation\_system}!System@{System}}
+\doxysubsubsection{\texorpdfstring{bullet\_creation\_system()}{bullet\_creation\_system()}}
+{\footnotesize\ttfamily void User\+::bullet\+\_\+creation\+\_\+system (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classregistry}{registry}} \&}]{r,  }\item[{float}]{src\+\_\+x,  }\item[{float}]{src\+\_\+y,  }\item[{\mbox{\hyperlink{classSpriteManager}{Sprite\+Manager}}$<$ std\+::string $>$}]{\+\_\+sprite\+Manager,  }\item[{\mbox{\hyperlink{classAudioManager}{Audio\+Manager}}$<$ std\+::string $>$ \&}]{\+\_\+audio\+Manager }\end{DoxyParamCaption})}
+
+
+
+system that can create a bullet from the position of the ship 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & \+: registry, contain all of the entities and the related components \\
+\hline
+{\em src\+\_\+x} & \+: x position of the ship \\
+\hline
+{\em src\+\_\+y} & \+: y position of the ship \\
+\hline
+{\em \+\_\+sprite\+Manager} & \+: sprite manager reference of all sprites \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__System_gaf9344443fbeada23fad678aaa174c375}\label{group__System_gaf9344443fbeada23fad678aaa174c375}} 
+\index{System@{System}!collision\_system@{collision\_system}}
+\index{collision\_system@{collision\_system}!System@{System}}
+\doxysubsubsection{\texorpdfstring{collision\_system()}{collision\_system()}}
+{\footnotesize\ttfamily void User\+::collision\+\_\+system (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classregistry}{registry}} \&}]{r,  }\item[{\mbox{\hyperlink{classAudioManager}{Audio\+Manager}}$<$ std\+::string $>$ \&}]{\+\_\+audio\+Manager }\end{DoxyParamCaption})}
+
+
+
+system that handle collision between entities 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & \+: registry, contain all of the entities and the related components \\
+\hline
+{\em \+\_\+audio\+Manager} & \+: audio manager reference of all sounds \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__System_ga1d240024a1b1ac267b1cb977b13176ce}\label{group__System_ga1d240024a1b1ac267b1cb977b13176ce}} 
+\index{System@{System}!control\_system@{control\_system}}
+\index{control\_system@{control\_system}!System@{System}}
+\doxysubsubsection{\texorpdfstring{control\_system()}{control\_system()}}
+{\footnotesize\ttfamily void User\+::control\+\_\+system (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classregistry}{registry}} \&}]{r,  }\item[{Event\+\_\+ref}]{e,  }\item[{const \mbox{\hyperlink{classSpriteManager}{Sprite\+Manager}}$<$ std\+::string $>$ \&}]{\+\_\+sprite\+Manager,  }\item[{\mbox{\hyperlink{classAudioManager}{Audio\+Manager}}$<$ std\+::string $>$ \&}]{\+\_\+audio\+Manager }\end{DoxyParamCaption})}
+
+
+
+system that can handle controls of the entities that i am able to move 
+
+control the user input
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & \+: registry, contain all of the entities and the related components \\
+\hline
+{\em e} & \+: event that i want to handle \\
+\hline
+{\em \+\_\+sprite\+Manager} & \+: sprite manager reference of all sprites\\
+\hline
+\end{DoxyParams}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & \+: the reference to the registry \\
+\hline
+{\em e} & \+: the reference to the event manager \\
+\hline
+{\em \+\_\+sprite\+Manager} & \+: the reference to the sprite manager \\
+\hline
+{\em \+\_\+audio\+Manager} & \+: the reference to the audio manager \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__System_gad5a598e85df32a0c56bee190f25ba289}\label{group__System_gad5a598e85df32a0c56bee190f25ba289}} 
+\index{System@{System}!draw\_system@{draw\_system}}
+\index{draw\_system@{draw\_system}!System@{System}}
+\doxysubsubsection{\texorpdfstring{draw\_system()}{draw\_system()}}
+{\footnotesize\ttfamily void User\+::draw\+\_\+system (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classregistry}{registry}} \&}]{r,  }\item[{Window\+\_\+ref}]{w }\end{DoxyParamCaption})}
+
+
+
+system that draw every drawable entity 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & \+: registry, contain all of the entities and the related components \\
+\hline
+{\em w} & \+: window reference \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__System_ga101714180c81496b536faf2a52f86181}\label{group__System_ga101714180c81496b536faf2a52f86181}} 
+\index{System@{System}!enemy\_system@{enemy\_system}}
+\index{enemy\_system@{enemy\_system}!System@{System}}
+\doxysubsubsection{\texorpdfstring{enemy\_system()}{enemy\_system()}}
+{\footnotesize\ttfamily void User\+::enemy\+\_\+system (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classregistry}{registry}} \&}]{r,  }\item[{\mbox{\hyperlink{classSpriteManager}{Sprite\+Manager}}$<$ std\+::string $>$ \&}]{\+\_\+sprite\+Manager,  }\item[{Window\+\_\+ref}]{w }\end{DoxyParamCaption})}
+
+
+
+system that can create random enemy when i need to 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & \+: registry, contain all of the entities and the related components \\
+\hline
+{\em \+\_\+sprite\+Manager} & \+: sprite manager reference of all sprites \\
+\hline
+{\em w} & \+: window reference \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__System_ga67dc1b0691869904da7879bf857c332a}\label{group__System_ga67dc1b0691869904da7879bf857c332a}} 
+\index{System@{System}!is\_ship\_out\_system@{is\_ship\_out\_system}}
+\index{is\_ship\_out\_system@{is\_ship\_out\_system}!System@{System}}
+\doxysubsubsection{\texorpdfstring{is\_ship\_out\_system()}{is\_ship\_out\_system()}}
+{\footnotesize\ttfamily bool User\+::is\+\_\+ship\+\_\+out\+\_\+system (\begin{DoxyParamCaption}\item[{std\+::optional$<$ \mbox{\hyperlink{structposition}{position}} $>$}]{pos,  }\item[{std\+::optional$<$ \mbox{\hyperlink{structvelocity}{velocity}} $>$}]{vel,  }\item[{Window\+\_\+ref}]{w }\end{DoxyParamCaption})}
+
+
+
+System that replace the ship if he goes out of screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & \+: position of the ship \\
+\hline
+{\em vel} & \+: velocity of the ship (position after the next move) \\
+\hline
+{\em w} & \+: window reference \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true \+: if the ship is out of screen 
+
+false \+: if the ship is not out of screen 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__System_ga4e946176ee9363d8e808852962e3a18a}\label{group__System_ga4e946176ee9363d8e808852962e3a18a}} 
+\index{System@{System}!position\_system@{position\_system}}
+\index{position\_system@{position\_system}!System@{System}}
+\doxysubsubsection{\texorpdfstring{position\_system()}{position\_system()}}
+{\footnotesize\ttfamily void User\+::position\+\_\+system (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classregistry}{registry}} \&}]{r,  }\item[{Window\+\_\+ref}]{w,  }\item[{\mbox{\hyperlink{classClient}{Client}} \&}]{client }\end{DoxyParamCaption})}
+
+
+
+\+: handle position of all of the entities 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & \+: registry, contain all of the entities and the related components \\
+\hline
+{\em w} & \+: window reference \\
+\hline
+{\em client} & \+: client reference \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__System_gab999ebb5f6f381c9099404c587475006}\label{group__System_gab999ebb5f6f381c9099404c587475006}} 
+\index{System@{System}!remove\_out\_of\_screen\_system@{remove\_out\_of\_screen\_system}}
+\index{remove\_out\_of\_screen\_system@{remove\_out\_of\_screen\_system}!System@{System}}
+\doxysubsubsection{\texorpdfstring{remove\_out\_of\_screen\_system()}{remove\_out\_of\_screen\_system()}}
+{\footnotesize\ttfamily void User\+::remove\+\_\+out\+\_\+of\+\_\+screen\+\_\+system (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classregistry}{registry}} \&}]{r,  }\item[{Window\+\_\+ref}]{w }\end{DoxyParamCaption})}
+
+
+
+system that can remove every entities that are out of the window in order to free memory 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & \+: registry, contain all of the entities and the related components \\
+\hline
+{\em w} & \+: window reference \\
+\hline
+\end{DoxyParams}

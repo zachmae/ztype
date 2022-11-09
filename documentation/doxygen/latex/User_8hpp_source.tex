@@ -1,0 +1,173 @@
+\hypertarget{User_8hpp_source}{}\doxysection{User.\+hpp}
+\label{User_8hpp_source}\index{/home/Teyi/Epitech/Semestre5/CPP/rtype/src/User/User.hpp@{/home/Teyi/Epitech/Semestre5/CPP/rtype/src/User/User.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{** EPITECH PROJECT, 2022}}
+\DoxyCodeLine{3 \textcolor{comment}{** B-\/CPP-\/500-\/PAR-\/5-\/1-\/rtype-\/zacharie.lawson}}
+\DoxyCodeLine{4 \textcolor{comment}{** File description:}}
+\DoxyCodeLine{5 \textcolor{comment}{** User}}
+\DoxyCodeLine{6 \textcolor{comment}{*/}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}SceneManager/SceneManager.hpp"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}SpriteManager.hpp"{}} \textcolor{comment}{// add init scene deprecated cause shouldn't be used}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}ProjectManager/ProjectComponent.hpp"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}UserComponent.hpp"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}SceneManager/SceneComponent.hpp"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}SceneManager/SceneManager.hpp"{}}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}Systems/System.hpp"{}}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}Systems/UserSystem.hpp"{}}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include "{}Scenes/Game/Init.hpp"{}} \textcolor{comment}{// WHAT THE FUCK}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include "{}Network/Client.hpp"{}}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include "{}AudioManager.hpp"{}}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include "{}SpriteManager.hpp"{}}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#include "{}sfml\_ref.hpp"{}}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#include "{}UserManager.hpp"{}}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{35 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceUser}{User}} \{}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{46     [[deprecated]]}
+\DoxyCodeLine{47     \textcolor{keywordtype}{void} \mbox{\hyperlink{classUser_1_1UserManager_aea31a0133be73187b782ec17e4cef0f3}{UserManager::InitScene}}(\mbox{\hyperlink{classregistry}{Registry\_ref}} r, \mbox{\hyperlink{classSpriteManager}{SpriteManager\_ref<std::string>}} sm, \mbox{\hyperlink{classAudioManager}{AudioManager\_ref<std::string>}} am, \mbox{\hyperlink{classMusicManager}{MusicManager\_ref<std::string>}} mm, \mbox{\hyperlink{classSceneManager}{SceneManager\_ref<std::string>}} scene)}
+\DoxyCodeLine{48     \{}
+\DoxyCodeLine{49         scene.\mbox{\hyperlink{classSceneManager_a1b217a6449e8207f41c11474d9333401}{Get}}(\textcolor{stringliteral}{"{}tutorial"{}}).\mbox{\hyperlink{classScene_a56a5a902844f41ecab924d53b80ec3c4}{SetZIndex}}(-\/1);}
+\DoxyCodeLine{50         scene.\mbox{\hyperlink{classSceneManager_a1b217a6449e8207f41c11474d9333401}{Get}}(\textcolor{stringliteral}{"{}game"{}}).\mbox{\hyperlink{classScene_a56a5a902844f41ecab924d53b80ec3c4}{SetZIndex}}(-\/1);}
+\DoxyCodeLine{51         scene.\mbox{\hyperlink{classSceneManager_a1b217a6449e8207f41c11474d9333401}{Get}}(\textcolor{stringliteral}{"{}menu"{}}).\mbox{\hyperlink{classScene_a56a5a902844f41ecab924d53b80ec3c4}{SetZIndex}}(-\/1);}
+\DoxyCodeLine{52         scene.\mbox{\hyperlink{classSceneManager_a1b217a6449e8207f41c11474d9333401}{Get}}(\textcolor{stringliteral}{"{}loading"{}}).\mbox{\hyperlink{classScene_a56a5a902844f41ecab924d53b80ec3c4}{SetZIndex}}(-\/1);}
+\DoxyCodeLine{53         scene.\mbox{\hyperlink{classSceneManager_a1b217a6449e8207f41c11474d9333401}{Get}}(\textcolor{stringliteral}{"{}settings"{}}).\mbox{\hyperlink{classScene_a56a5a902844f41ecab924d53b80ec3c4}{SetZIndex}}(-\/1);}
+\DoxyCodeLine{54         scene.\mbox{\hyperlink{classSceneManager_a1b217a6449e8207f41c11474d9333401}{Get}}(\textcolor{stringliteral}{"{}lose"{}}).\mbox{\hyperlink{classScene_a56a5a902844f41ecab924d53b80ec3c4}{SetZIndex}}(-\/1);}
+\DoxyCodeLine{55         scene.\mbox{\hyperlink{classSceneManager_a1b217a6449e8207f41c11474d9333401}{Get}}(\textcolor{stringliteral}{"{}win"{}}).\mbox{\hyperlink{classScene_a56a5a902844f41ecab924d53b80ec3c4}{SetZIndex}}(-\/1);}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57         User::Game::background\_generation(r, sm, scene, \textcolor{stringliteral}{"{}background\_back"{}}, -\/0.1f);}
+\DoxyCodeLine{58         User::Game::background\_generation(r, sm, scene, \textcolor{stringliteral}{"{}background\_stars"{}}, -\/0.2f);}
+\DoxyCodeLine{59         User::Game::background\_generation(r, sm, scene, \textcolor{stringliteral}{"{}background\_planets\_back"{}}, -\/0.5f);}
+\DoxyCodeLine{60         User::Game::background\_generation(r, sm, scene, \textcolor{stringliteral}{"{}background\_planets\_front"{}}, -\/0.8f);}
+\DoxyCodeLine{61         User::Game::ship\_generation(r, sm, scene, am, \textcolor{stringliteral}{"{}ship"{}}, \textcolor{keyword}{true});}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63         mm.\mbox{\hyperlink{group__StorageManager_ga733c1d5ec0cf6f8af31637a6967561a1}{play}}(\textcolor{stringliteral}{"{}epitomize"{}});}
+\DoxyCodeLine{64     \}}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{75     \textcolor{keyword}{template} <\textcolor{keyword}{typename} Key>}
+\DoxyCodeLine{76     \textcolor{keywordtype}{void} \mbox{\hyperlink{classUser_1_1UserManager_a14e6381225eeb1e1c0dca9a17f3191d8}{UserManager::UpdateScene}}(\mbox{\hyperlink{classregistry}{Registry\_ref}} reg, \mbox{\hyperlink{classSceneManager}{SceneManager<Key>}} \&scene, sf::RenderWindow \&window, sf::Event \&event)}
+\DoxyCodeLine{77     \{}
+\DoxyCodeLine{78         ;}
+\DoxyCodeLine{79     \}}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{85     \textcolor{keywordtype}{void} \mbox{\hyperlink{classUser_1_1UserManager_a575672a372f0f46a18074c45c2005390}{UserManager::Close}}()}
+\DoxyCodeLine{86     \{}
+\DoxyCodeLine{87         \_client.\mbox{\hyperlink{group__Network_ga97e144b48409c0a9873eee09f04ce724}{disconnect}}();}
+\DoxyCodeLine{88     \}}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{100     \textcolor{keyword}{template}<\textcolor{keyword}{typename} Key>}
+\DoxyCodeLine{101     \textcolor{keywordtype}{void} \mbox{\hyperlink{classUser_1_1UserManager_a8f65c1c441499a173aaaefb94c3eec6a}{UserManager::UpdateEventSystem}}(\mbox{\hyperlink{classregistry}{Registry\_ref}} reg, Event\_ref event, Window\_ref window, \mbox{\hyperlink{classSpriteManager}{SpriteManager\_ref<Key>}} sm, \mbox{\hyperlink{classAudioManager}{AudioManager\_ref<Key>}} am)}
+\DoxyCodeLine{102     \{}
+\DoxyCodeLine{103         \mbox{\hyperlink{group__System_ga1d240024a1b1ac267b1cb977b13176ce}{User::control\_system}}(reg, event, sm, am);}
+\DoxyCodeLine{104     \}}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{115     \textcolor{keyword}{template}<\textcolor{keyword}{typename} Key>}
+\DoxyCodeLine{116     \textcolor{keywordtype}{void} \mbox{\hyperlink{classUser_1_1UserManager_a1ffdaf90136d5d535471b6e86abe2899}{UserManager::UpdateClient}}(\mbox{\hyperlink{classregistry}{Registry\_ref}} reg, \mbox{\hyperlink{classSceneManager}{SceneManager\_ref<std::string>}} scenes, \mbox{\hyperlink{classSpriteManager}{SpriteManager\_ref<Key>}} \_sm, \mbox{\hyperlink{classAudioManager}{AudioManager\_ref<Key>}} am)}
+\DoxyCodeLine{117     \{}
+\DoxyCodeLine{118         sf::Packet sfp = \_client.\mbox{\hyperlink{group__Network_gad320512816103b19b9650fabcf3bd175}{WaitReceive}}();}
+\DoxyCodeLine{119         \textcolor{keywordflow}{if} (sfp.getData() != NULL) \{ \textcolor{comment}{//cond doesn't work}}
+\DoxyCodeLine{120             std::string comparator;}
+\DoxyCodeLine{121             sfp >> comparator;}
+\DoxyCodeLine{122             \textcolor{keywordflow}{if} (comparator == \textcolor{stringliteral}{"{}new\_client"{}}) \{}
+\DoxyCodeLine{123                 \textcolor{comment}{//createNewClient(Registry\_ref reg, SceneManager\_ref<Key> scenes, SpriteManager\_ref<Key> \_sm, Client \&client);}}
+\DoxyCodeLine{127 \textcolor{comment}{}                \textcolor{keywordtype}{int} newCliId = 0;}
+\DoxyCodeLine{128                 sfp >> newCliId;}
+\DoxyCodeLine{129                 \textcolor{comment}{// comment on stock les id des autres}}
+\DoxyCodeLine{130                 \mbox{\hyperlink{structentity__t}{entity\_t}} newCliEntity = scenes.\mbox{\hyperlink{classSceneManager_a1b217a6449e8207f41c11474d9333401}{Get}}(\textcolor{stringliteral}{"{}game"{}}).\mbox{\hyperlink{classScene_a7ea9e035bc36ee3b67a89a7ad39167d4}{SpawnEntity}}();}
+\DoxyCodeLine{131                 reg.\mbox{\hyperlink{group__ECS_ga9731cef0d6a3803fadf6c2ebb5fb8a1b}{add\_component}}<\mbox{\hyperlink{structdrawable}{drawable}}>(newCliEntity, \{\_sm.\mbox{\hyperlink{group__StorageManager_gafa35abd8cd4b3f99bc505bd56ee2c2c6}{Get}}(\textcolor{stringliteral}{"{}ship"{}})\});}
+\DoxyCodeLine{132                 reg.\mbox{\hyperlink{group__ECS_ga9731cef0d6a3803fadf6c2ebb5fb8a1b}{add\_component}}<\mbox{\hyperlink{structposition}{position}}>(newCliEntity, \{100, 300\});}
+\DoxyCodeLine{133                 reg.\mbox{\hyperlink{group__ECS_ga9731cef0d6a3803fadf6c2ebb5fb8a1b}{add\_component}}<\mbox{\hyperlink{structvelocity}{velocity}}>(newCliEntity, \{2, 2\});}
+\DoxyCodeLine{134                 reg.\mbox{\hyperlink{group__ECS_ga9731cef0d6a3803fadf6c2ebb5fb8a1b}{add\_component}}<\mbox{\hyperlink{structresizable}{resizable}}>(newCliEntity, \{2, 2\});}
+\DoxyCodeLine{135                 reg.\mbox{\hyperlink{group__ECS_ga9731cef0d6a3803fadf6c2ebb5fb8a1b}{add\_component}}<\mbox{\hyperlink{structanimation__adaptative}{animation\_adaptative}}>(newCliEntity, \{sf::IntRect(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(166.0 * 0.4), 0, 32, 17), 0, 0, 0.1f\});}
+\DoxyCodeLine{136                 reg.\mbox{\hyperlink{group__ECS_ga9731cef0d6a3803fadf6c2ebb5fb8a1b}{add\_component}}<\textcolor{keywordtype}{int}>(newCliEntity, \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(newCliId));}
+\DoxyCodeLine{137                 reg.\mbox{\hyperlink{group__ECS_ga9731cef0d6a3803fadf6c2ebb5fb8a1b}{add\_component}}<\mbox{\hyperlink{structis__ship}{is\_ship}}>(newCliEntity, \{\});}
+\DoxyCodeLine{138                 reg.\mbox{\hyperlink{group__ECS_ga9731cef0d6a3803fadf6c2ebb5fb8a1b}{add\_component}}<\mbox{\hyperlink{structis__ally}{is\_ally}}>(newCliEntity, \{\textcolor{keyword}{true}\});}
+\DoxyCodeLine{139                 reg.\mbox{\hyperlink{group__ECS_ga9731cef0d6a3803fadf6c2ebb5fb8a1b}{add\_component}}<\mbox{\hyperlink{structcollidable}{collidable}}>(newCliEntity, \{\});}
+\DoxyCodeLine{140                 reg.\mbox{\hyperlink{group__ECS_ga9731cef0d6a3803fadf6c2ebb5fb8a1b}{add\_component}}<\mbox{\hyperlink{structhealth}{health}}>(newCliEntity, \{1\});}
+\DoxyCodeLine{141                 reg.\mbox{\hyperlink{group__ECS_ga9731cef0d6a3803fadf6c2ebb5fb8a1b}{add\_component}}<\mbox{\hyperlink{structattack}{attack}}>(newCliEntity, \{0\});}
+\DoxyCodeLine{142                 reg.\mbox{\hyperlink{group__ECS_ga9731cef0d6a3803fadf6c2ebb5fb8a1b}{add\_component}}<\mbox{\hyperlink{structdeath__sfx}{death\_sfx}}>(newCliEntity, \{\textcolor{stringliteral}{"{}explosion"{}}\});}
+\DoxyCodeLine{143             \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (comparator == \textcolor{stringliteral}{"{}old\_client"{}}) \{}
+\DoxyCodeLine{144                 \textcolor{comment}{//createOldClient(Registry\_ref reg, SceneManager\_ref<Key> scenes, SpriteManager\_ref<Key> \_sm, Client \&client);}}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{149                 \textcolor{keywordtype}{int} amount = 0;}
+\DoxyCodeLine{150                 \textcolor{keywordtype}{int} newCliId = 0;}
+\DoxyCodeLine{151                 sfp >> amount;}
+\DoxyCodeLine{152                 \textcolor{keywordflow}{for} (sfp >> newCliId; amount != 0; sfp >> newCliId, amount-\/-\/) \{}
+\DoxyCodeLine{153                     \textcolor{keywordflow}{if} (\_client.\mbox{\hyperlink{group__Network_ga9fd9e7b0c3818d61dc106c8903e21575}{GetId}}() != newCliId) \{}
+\DoxyCodeLine{154                         \mbox{\hyperlink{structentity__t}{entity\_t}} newCliEntity = reg.\mbox{\hyperlink{group__ECS_ga75d49eb0c9936d57146007f06cbaf735}{spawn\_entity}}();}
+\DoxyCodeLine{155                         reg.\mbox{\hyperlink{group__ECS_ga9731cef0d6a3803fadf6c2ebb5fb8a1b}{add\_component}}<\mbox{\hyperlink{structdrawable}{drawable}}>(newCliEntity, \{\_sm.\mbox{\hyperlink{group__StorageManager_gafa35abd8cd4b3f99bc505bd56ee2c2c6}{Get}}(\textcolor{stringliteral}{"{}ship"{}})\});}
+\DoxyCodeLine{156                         reg.\mbox{\hyperlink{group__ECS_ga9731cef0d6a3803fadf6c2ebb5fb8a1b}{add\_component}}<\mbox{\hyperlink{structposition}{position}}>(newCliEntity, \{100, 200\});}
+\DoxyCodeLine{157                         reg.\mbox{\hyperlink{group__ECS_ga9731cef0d6a3803fadf6c2ebb5fb8a1b}{add\_component}}<\mbox{\hyperlink{structvelocity}{velocity}}>(newCliEntity, \{2, 2\});}
+\DoxyCodeLine{158                         reg.\mbox{\hyperlink{group__ECS_ga9731cef0d6a3803fadf6c2ebb5fb8a1b}{add\_component}}<\mbox{\hyperlink{structanimation__adaptative}{animation\_adaptative}}>(newCliEntity, \{sf::IntRect(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(166.0 * 0.4), 0, 32, 17), 0, 0, 0.1f\});}
+\DoxyCodeLine{159                         reg.\mbox{\hyperlink{group__ECS_ga9731cef0d6a3803fadf6c2ebb5fb8a1b}{add\_component}}<\mbox{\hyperlink{structresizable}{resizable}}>(newCliEntity, \{2, 2\});}
+\DoxyCodeLine{160                         reg.\mbox{\hyperlink{group__ECS_ga9731cef0d6a3803fadf6c2ebb5fb8a1b}{add\_component}}<\mbox{\hyperlink{structis__ship}{is\_ship}}>(newCliEntity, \{\});}
+\DoxyCodeLine{161                         reg.\mbox{\hyperlink{group__ECS_ga9731cef0d6a3803fadf6c2ebb5fb8a1b}{add\_component}}<\mbox{\hyperlink{structcollidable}{collidable}}>(newCliEntity, \{\});}
+\DoxyCodeLine{162                         reg.\mbox{\hyperlink{group__ECS_ga9731cef0d6a3803fadf6c2ebb5fb8a1b}{add\_component}}<\textcolor{keywordtype}{int}>(newCliEntity, \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(newCliId));}
+\DoxyCodeLine{163                     \}}
+\DoxyCodeLine{164                 \}}
+\DoxyCodeLine{165             \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (comparator == \textcolor{stringliteral}{"{}client\_pos"{}}) \{}
+\DoxyCodeLine{166                \textcolor{comment}{//editClientPos(Registry\_ref reg, SceneManager\_ref<Key> scenes, SpriteManager\_ref<Key> \_sm, Client \&client);}}
+\DoxyCodeLine{170 \textcolor{comment}{}                \textcolor{keywordtype}{int} \textcolor{keywordtype}{id} = 0;}
+\DoxyCodeLine{171                 \textcolor{keywordtype}{float} x = 0;}
+\DoxyCodeLine{172                 \textcolor{keywordtype}{float} y = 0;}
+\DoxyCodeLine{173                 sfp >> \textcolor{keywordtype}{id} >> x >> y;}
+\DoxyCodeLine{174                 \textcolor{keyword}{auto} \&positions = reg.\mbox{\hyperlink{group__ECS_ga3866ee276a5a1d78d00cd403e8e8c7d9}{get\_components}}<\mbox{\hyperlink{structposition}{position}}>();}
+\DoxyCodeLine{175                 \textcolor{keyword}{auto} \&ids = reg.\mbox{\hyperlink{group__ECS_ga3866ee276a5a1d78d00cd403e8e8c7d9}{get\_components}}<\textcolor{keywordtype}{int}>();}
+\DoxyCodeLine{176                 \textcolor{keywordtype}{int} i = 0;}
+\DoxyCodeLine{177                 \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} \&\_id : ids) \{}
+\DoxyCodeLine{178                     \textcolor{keywordflow}{if} (\_id != std::nullopt \&\& \_id == \textcolor{keywordtype}{id}) \{}
+\DoxyCodeLine{179                         \textcolor{keywordflow}{if} (positions[i] != std::nullopt)}
+\DoxyCodeLine{180                             reg.\mbox{\hyperlink{group__ECS_ga9731cef0d6a3803fadf6c2ebb5fb8a1b}{add\_component}}<\mbox{\hyperlink{structposition}{position}}>(reg.\mbox{\hyperlink{group__ECS_ga0f3b12e1cad77680b500a0b138a60b71}{entity\_from\_index}}(i), \{x, y\});}
+\DoxyCodeLine{181                     \}}
+\DoxyCodeLine{182                     ++i;}
+\DoxyCodeLine{183                 \}}
+\DoxyCodeLine{184             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{185                 std::cout << \textcolor{stringliteral}{"{}unknow type"{}} << std::endl;}
+\DoxyCodeLine{186             \}}
+\DoxyCodeLine{187         \}}
+\DoxyCodeLine{191         sf::Packet packet;}
+\DoxyCodeLine{192         \textcolor{keyword}{auto} \&positions = reg.\mbox{\hyperlink{group__ECS_ga3866ee276a5a1d78d00cd403e8e8c7d9}{get\_components}}<\mbox{\hyperlink{structposition}{position}}>();}
+\DoxyCodeLine{193 }
+\DoxyCodeLine{194         \textcolor{keywordflow}{if} (positions[4] != std::nullopt) \{}
+\DoxyCodeLine{195             packet << \textcolor{stringliteral}{"{}pos\_client"{}} << \_client.\mbox{\hyperlink{group__Network_ga9fd9e7b0c3818d61dc106c8903e21575}{GetId}}() << positions[4].value().x << positions[4].value().y;}
+\DoxyCodeLine{196             \textcolor{keywordflow}{if} (\_client.getSocket().send(packet) != sf::Socket::Status::Done) \{}
+\DoxyCodeLine{197                 std::cerr << \textcolor{stringliteral}{"{}Error : Sending failed (maybe server down)"{}} << std::endl;}
+\DoxyCodeLine{198                 exit(84);}
+\DoxyCodeLine{199             \}}
+\DoxyCodeLine{200         \}}
+\DoxyCodeLine{201         std::cout << \textcolor{stringliteral}{"{}Update Client end"{}} << std::endl;}
+\DoxyCodeLine{202     \}}
+\DoxyCodeLine{203 }
+\DoxyCodeLine{213     \textcolor{keyword}{template}<\textcolor{keyword}{typename} Key>}
+\DoxyCodeLine{214     \textcolor{keywordtype}{void} \mbox{\hyperlink{classUser_1_1UserManager_af3e96c15c8da418dfdf5e9f2e9a4aa1a}{UserManager::UpdateWindowSystem}}(\mbox{\hyperlink{classregistry}{Registry\_ref}} reg, \mbox{\hyperlink{classSceneManager}{SceneManager\_ref<Key>}} scene, Window\_ref window, \mbox{\hyperlink{classSpriteManager}{SpriteManager\_ref<Key>}} sm)}
+\DoxyCodeLine{215     \{}
+\DoxyCodeLine{216         \textcolor{comment}{//all system}}
+\DoxyCodeLine{217         \mbox{\hyperlink{group__System_ga101714180c81496b536faf2a52f86181}{User::enemy\_system}}(reg, sm, window);}
+\DoxyCodeLine{218         \mbox{\hyperlink{group__System_ga2b763e76fbfbfa822f32ec3b63c1bf9a}{User::boss\_magic\_system}}(reg, sm, window);}
+\DoxyCodeLine{219         \mbox{\hyperlink{group__System_ga4e946176ee9363d8e808852962e3a18a}{User::position\_system}}(reg, window, \_client);}
+\DoxyCodeLine{220         \mbox{\hyperlink{group__System_gad5a598e85df32a0c56bee190f25ba289}{User::draw\_system}}(reg, window);}
+\DoxyCodeLine{221         \mbox{\hyperlink{namespaceUser_a070bba7f6db81353d3f673755d52cc90}{User::displayscene\_system}}(reg, scene, window);}
+\DoxyCodeLine{222 }
+\DoxyCodeLine{223     \textcolor{comment}{//    draw\_system(reg, window);}}
+\DoxyCodeLine{224 }
+\DoxyCodeLine{225     \}}
+\DoxyCodeLine{226 }
+\DoxyCodeLine{236     \textcolor{keyword}{template}<\textcolor{keyword}{typename} Key>}
+\DoxyCodeLine{237     \textcolor{keywordtype}{void} \mbox{\hyperlink{classUser_1_1UserManager_a4e73f7826dad6fe2784383307e0e4751}{UserManager::UpdatePostWindowSystem}}(\mbox{\hyperlink{classregistry}{Registry\_ref}} reg, \mbox{\hyperlink{classSceneManager}{SceneManager\_ref<Key>}} scene, Window\_ref window, \mbox{\hyperlink{classAudioManager}{AudioManager\_ref<std::string>}} am)}
+\DoxyCodeLine{238     \{}
+\DoxyCodeLine{239         \mbox{\hyperlink{group__System_gaf9344443fbeada23fad678aaa174c375}{User::collision\_system}}(reg, am);}
+\DoxyCodeLine{240         \mbox{\hyperlink{group__System_gab999ebb5f6f381c9099404c587475006}{User::remove\_out\_of\_screen\_system}}(reg, window);}
+\DoxyCodeLine{241     \}}
+\DoxyCodeLine{242 }
+\DoxyCodeLine{243 \}}
+
+\end{DoxyCode}

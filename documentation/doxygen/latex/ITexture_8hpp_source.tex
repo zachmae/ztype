@@ -1,0 +1,37 @@
+\hypertarget{ITexture_8hpp_source}{}\doxysection{ITexture.\+hpp}
+\label{ITexture_8hpp_source}\index{/home/Teyi/Epitech/Semestre5/CPP/rtype/src/PAML/Graphics/ITexture.hpp@{/home/Teyi/Epitech/Semestre5/CPP/rtype/src/PAML/Graphics/ITexture.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{** EPITECH PROJECT, 2022}}
+\DoxyCodeLine{3 \textcolor{comment}{** B-\/CPP-\/500-\/PAR-\/5-\/1-\/rtype-\/zacharie.lawson}}
+\DoxyCodeLine{4 \textcolor{comment}{** File description:}}
+\DoxyCodeLine{5 \textcolor{comment}{** ITexture}}
+\DoxyCodeLine{6 \textcolor{comment}{*/}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef PAML\_ITEXTURE\_HPP}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{    \#define PAML\_ITEXTURE\_HPP}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{    \#include "{}../System/Type.hpp"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{    \#include <string>}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{namespace }paml \{}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     \textcolor{keyword}{class }\mbox{\hyperlink{classpaml_1_1ITexture}{ITexture}} \{}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18         \textcolor{keyword}{public}:}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20             \textcolor{keyword}{virtual} \mbox{\hyperlink{classpaml_1_1ITexture}{\string~ITexture}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{21             \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} loadFromFile(\textcolor{keyword}{const} std::string \&filename) = 0;}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23             \textcolor{comment}{// TODO -\/ Not sure about this one}}
+\DoxyCodeLine{24             \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} create(uint32\_t width, uint32\_t height) = 0;}
+\DoxyCodeLine{25             \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} update(\mbox{\hyperlink{classpaml_1_1ITexture}{ITexture}} \&Texture) = 0;}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// !PAML\_ITEXTURE\_HPP}}
+
+\end{DoxyCode}

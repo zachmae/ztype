@@ -1,0 +1,63 @@
+\hypertarget{Clock_8hpp_source}{}\doxysection{Clock.\+hpp}
+\label{Clock_8hpp_source}\index{/home/Teyi/Epitech/Semestre5/CPP/rtype/src/PAML\_sfml/System/Clock.hpp@{/home/Teyi/Epitech/Semestre5/CPP/rtype/src/PAML\_sfml/System/Clock.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{** EPITECH PROJECT, 2022}}
+\DoxyCodeLine{3 \textcolor{comment}{** B-\/CPP-\/500-\/PAR-\/5-\/1-\/rtype-\/zacharie.lawson}}
+\DoxyCodeLine{4 \textcolor{comment}{** File description:}}
+\DoxyCodeLine{5 \textcolor{comment}{** IClock}}
+\DoxyCodeLine{6 \textcolor{comment}{*/}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef PAML\_SFML\_CLOCK\_HPP}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{    \#define PAML\_SFML\_CLOCK\_HPP}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{    \#include <SFML/System.hpp>}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{    \#include "{}../../PAML/System/IClock.hpp"{}}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{preprocessor}{    \#include "{}Time.hpp"{}}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{keyword}{namespace }paml\_sfml \{}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \textcolor{keyword}{class }\mbox{\hyperlink{classpaml__sfml_1_1Clock}{Clock}} : \textcolor{keyword}{public} \mbox{\hyperlink{classpaml_1_1IClock}{paml::IClock}} \{}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21         \textcolor{keyword}{public}:}
+\DoxyCodeLine{22             \mbox{\hyperlink{classpaml__sfml_1_1Clock}{Clock}}()}
+\DoxyCodeLine{23             : \_clock()}
+\DoxyCodeLine{24             \{}
+\DoxyCodeLine{25             \}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27             \mbox{\hyperlink{classpaml__sfml_1_1Clock}{Clock}}(sf::Clock \&\&clock)}
+\DoxyCodeLine{28             : \_clock(clock)}
+\DoxyCodeLine{29             \{}
+\DoxyCodeLine{30             \}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32             \mbox{\hyperlink{classpaml__sfml_1_1Clock}{Clock}}(\textcolor{keyword}{const} sf::Clock \&clock)}
+\DoxyCodeLine{33             : \_clock(clock)}
+\DoxyCodeLine{34             \{}
+\DoxyCodeLine{35             \}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37             \mbox{\hyperlink{classpaml__sfml_1_1Clock}{\string~Clock}}()}
+\DoxyCodeLine{38             \{}
+\DoxyCodeLine{39             \}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41             \mbox{\hyperlink{classpaml__sfml_1_1Time}{Time}} getElapsedTime()}
+\DoxyCodeLine{42             \{}
+\DoxyCodeLine{43                 \textcolor{keywordflow}{return} \_clock.getElapsedTime();}
+\DoxyCodeLine{44             \}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46             \mbox{\hyperlink{classpaml__sfml_1_1Time}{Time}} restart()}
+\DoxyCodeLine{47             \{}
+\DoxyCodeLine{48                 \textcolor{keywordflow}{return} \_clock.restart();}
+\DoxyCodeLine{49             \}}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51         \textcolor{keyword}{private}:}
+\DoxyCodeLine{52             sf::Clock \_clock;}
+\DoxyCodeLine{53     \};}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \} \textcolor{comment}{// namespace paml}}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* !ICLOCK\_HPP\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,49 @@
+\hypertarget{Shape_8hpp_source}{}\doxysection{Shape.\+hpp}
+\label{Shape_8hpp_source}\index{/home/Teyi/Epitech/Semestre5/CPP/rtype/src/PAML\_sfml/Graphics/Shape.hpp@{/home/Teyi/Epitech/Semestre5/CPP/rtype/src/PAML\_sfml/Graphics/Shape.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{** EPITECH PROJECT, 2022}}
+\DoxyCodeLine{3 \textcolor{comment}{** B-\/CPP-\/500-\/PAR-\/5-\/1-\/rtype-\/zacharie.lawson}}
+\DoxyCodeLine{4 \textcolor{comment}{** File description:}}
+\DoxyCodeLine{5 \textcolor{comment}{** IShape}}
+\DoxyCodeLine{6 \textcolor{comment}{*/}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef PAML\_SFML\_SHAPE\_HPP}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{    \#define PAML\_SFML\_SHAPE\_HPP}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{    \#include <SFML/Graphics.hpp>}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{    \#include "{}../../PAML/Graphics.hpp"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{    \#include "{}Texture.hpp"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{    \#include "{}Color.hpp"{}}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{preprocessor}{    \#include "{}Texture.hpp"{}}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{    \#include "{}Color.hpp"{}}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{keyword}{namespace }paml\_sfml \{}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     \textcolor{keyword}{class }\mbox{\hyperlink{classpaml__sfml_1_1Shape}{Shape}} : \textcolor{keyword}{public} \mbox{\hyperlink{classpaml_1_1IShape}{paml::IShape}}, \textcolor{keyword}{public} paml::Drawable, \textcolor{keyword}{public} paml::Transformable \{}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24         \textcolor{keyword}{public}:}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26             \string~IShape() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28             \textcolor{keywordtype}{void} setTexture(\textcolor{keyword}{const} \mbox{\hyperlink{classpaml__sfml_1_1Texture}{Texture}} \&texture) = 0;}
+\DoxyCodeLine{29             \mbox{\hyperlink{classpaml__sfml_1_1Texture}{Texture}} \&getTexture() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31             \textcolor{keywordtype}{void} setColor(\mbox{\hyperlink{classpaml__sfml_1_1Color}{Color}} \&color) = 0;}
+\DoxyCodeLine{32             \mbox{\hyperlink{classpaml__sfml_1_1Color}{Color}} \&getColor() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34         \textcolor{keyword}{private}:}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36             sf::Shape \_shape;}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \};}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// !PAML\_SFML\_ISHAPE\_HPP}}
+
+\end{DoxyCode}

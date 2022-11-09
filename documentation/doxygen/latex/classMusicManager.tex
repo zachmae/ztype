@@ -1,0 +1,66 @@
+\hypertarget{classMusicManager}{}\doxysection{Music\+Manager\texorpdfstring{$<$}{<} Key \texorpdfstring{$>$}{>} Class Template Reference}
+\label{classMusicManager}\index{MusicManager$<$ Key $>$@{MusicManager$<$ Key $>$}}
+
+
+\mbox{\hyperlink{classMusicManager}{Music\+Manager}}.  
+
+
+
+
+{\ttfamily \#include $<$Music\+Manager.\+hpp$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using {\bfseries AStorage} = std\+::map$<$ Key, \mbox{\hyperlink{classmodules_1_1SFMLMusicModule}{modules\+::\+SFMLMusic\+Module}} $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group__StorageManager_ga54b3aa54a92b36216249fe3c204624b8}{Add}} (Key k, \mbox{\hyperlink{classmodules_1_1SFMLMusicModule}{modules\+::\+SFMLMusic\+Module}} \&v)
+\begin{DoxyCompactList}\small\item\em Add. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__StorageManager_ga10e68ea42b23d5fd689046b1f6ae23b7}{Add}} (Key k, std\+::string path)
+\begin{DoxyCompactList}\small\item\em Add. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmodules_1_1SFMLMusicModule}{modules\+::\+SFMLMusic\+Module}} \& \mbox{\hyperlink{group__StorageManager_ga0c1165af6a0ce103820c25c96bc3479d}{Get}} (Key k)
+\begin{DoxyCompactList}\small\item\em Get. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__StorageManager_ga733c1d5ec0cf6f8af31637a6967561a1}{play}} (Key k)
+\begin{DoxyCompactList}\small\item\em play the sound at the given key \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__StorageManager_ga7b2779453772c4fa79448b2046dff2c8}{stop}} (Key k)
+\begin{DoxyCompactList}\small\item\em stop the sound at the given key \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__StorageManager_ga794a88705b7217fe7566d81284a5acba}{pause}} (Key k)
+\begin{DoxyCompactList}\small\item\em pause the sound at the given key \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__StorageManager_gaa4c849e97210a2a939baa6e29918a75b}{stop\+All}} ()
+\begin{DoxyCompactList}\small\item\em Stop every sound. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__StorageManager_ga4b99f36c1d2a50473c6895207cc957c7}{set\+Loop}} (Key k)
+\begin{DoxyCompactList}\small\item\em Loop the sound at the given buffer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__StorageManager_gad7ebaba611bc196900c1325d619058fe}{stop\+Loop}} (Key k)
+\begin{DoxyCompactList}\small\item\em Stop the audio loop at the given key. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__StorageManager_ga395bdb88d182721e3a43f5c4e5657902}{set\+Volume}} (float volume)
+\begin{DoxyCompactList}\small\item\em set volume \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__StorageManager_gabf8ce816be9302092eac354ca82cc0c2}{get\+Volume}} ()
+\begin{DoxyCompactList}\small\item\em get volume \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__StorageManager_gac5156d9648925013b249d4e48360f719}{update\+Volume}} ()
+\begin{DoxyCompactList}\small\item\em update the volume of the sound \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__StorageManager_ga23fe305a5ccc2a503aca20c70ed167dc}{get\+Loop}} (Key k)
+\begin{DoxyCompactList}\small\item\em get loop of the sound at the given key \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__Modules_ga8787896c32aed13fc78443a5191cdb0b}{modules\+::\+Music\+Status}} \mbox{\hyperlink{group__StorageManager_ga8e168085d2c4082fe42d48c3565a1509}{get\+Status}} (Key k)
+\begin{DoxyCompactList}\small\item\em Get the Status object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Key$>$\newline
+class Music\+Manager$<$ Key $>$}
+\mbox{\hyperlink{classMusicManager}{Music\+Manager}}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+{\em Value} & \\
+\hline
+\end{DoxyTemplParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/\+Teyi/\+Epitech/\+Semestre5/\+CPP/rtype/src/Music\+Manager.\+hpp\end{DoxyCompactItemize}

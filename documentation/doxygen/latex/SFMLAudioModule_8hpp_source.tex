@@ -1,0 +1,116 @@
+\hypertarget{SFMLAudioModule_8hpp_source}{}\doxysection{SFMLAudio\+Module.\+hpp}
+\label{SFMLAudioModule_8hpp_source}\index{/home/Teyi/Epitech/Semestre5/CPP/rtype/modules/SFMLAudioModule.hpp@{/home/Teyi/Epitech/Semestre5/CPP/rtype/modules/SFMLAudioModule.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{** EPITECH PROJECT, 2022}}
+\DoxyCodeLine{3 \textcolor{comment}{** rtype}}
+\DoxyCodeLine{4 \textcolor{comment}{** File description:}}
+\DoxyCodeLine{5 \textcolor{comment}{** SFMLAudioModule}}
+\DoxyCodeLine{6 \textcolor{comment}{*/}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef SFMLAUDIOMODULE\_HPP\_}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{    \#define SFMLAUDIOMODULE\_HPP\_}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{    \#include "{}SFML/Audio.hpp"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{    \#include "{}IAudioModule.hpp"{}}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{18 \textcolor{keyword}{namespace }modules \{}
+\DoxyCodeLine{19     \textcolor{keyword}{class }\mbox{\hyperlink{classmodules_1_1SFMLAudioModule}{SFMLAudioModule}} : \textcolor{keyword}{public} \mbox{\hyperlink{classmodules_1_1IAudioModule}{IAudioModule}} \{}
+\DoxyCodeLine{20         \textcolor{keyword}{public}:}
+\DoxyCodeLine{21             \mbox{\hyperlink{classmodules_1_1SFMLAudioModule}{SFMLAudioModule}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{28             \mbox{\hyperlink{group__Modules_gaf2a1708da1b546302f0eaa74211b1248}{SFMLAudioModule}}(\textcolor{keyword}{const} std::string path) \{}
+\DoxyCodeLine{29                 \mbox{\hyperlink{group__Modules_gaaf787145f966eeb79f62cf26f6a439f7}{setSource}}(path);}
+\DoxyCodeLine{30             \}}
+\DoxyCodeLine{31             \mbox{\hyperlink{classmodules_1_1SFMLAudioModule}{\string~SFMLAudioModule}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{38             \textcolor{keywordtype}{void} \mbox{\hyperlink{group__Modules_gaaf787145f966eeb79f62cf26f6a439f7}{setSource}}(std::string source\_path)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{39                 \_buffer.loadFromFile(source\_path);}
+\DoxyCodeLine{40                 \_sound.setBuffer(\_buffer);}
+\DoxyCodeLine{41             \}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{47             \textcolor{keywordtype}{void} \mbox{\hyperlink{group__Modules_ga3fc30ffa737ea68f3ccb760c28d91bea}{play}}()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{48                 \_sound.play();}
+\DoxyCodeLine{49             \}}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{55             \textcolor{keywordtype}{void} \mbox{\hyperlink{group__Modules_gaa52a96654f5f3fe3fe322aef2bde1b20}{pause}}()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{56                 \_sound.pause();}
+\DoxyCodeLine{57             \}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{63             \textcolor{keywordtype}{void} \mbox{\hyperlink{group__Modules_ga40831694622e92cddab91b8f787962e1}{stop}}()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{64                 \_sound.stop();}
+\DoxyCodeLine{65             \}}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{72             \textcolor{keywordtype}{void} \mbox{\hyperlink{group__Modules_gadaa43a428e10e7cd5446b3d990944b49}{setVolume}}(\textcolor{keywordtype}{float} volume)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{73                 \_sound.setVolume(volume);}
+\DoxyCodeLine{74             \}}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{81             \mbox{\hyperlink{group__Modules_ga8787896c32aed13fc78443a5191cdb0b}{MusicStatus}} \mbox{\hyperlink{group__Modules_ga621c9c5f28e74713cebba766ccd548f9}{getStatus}}()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{82                 \textcolor{keywordflow}{if} (\_sound.getStatus() == sf::Sound::Status::Playing)}
+\DoxyCodeLine{83                     \textcolor{keywordflow}{return} MusicStatus::PLAYING;}
+\DoxyCodeLine{84                 \textcolor{keywordflow}{if} (\_sound.getStatus() == sf::Sound::Status::Paused)}
+\DoxyCodeLine{85                     \textcolor{keywordflow}{return} MusicStatus::PAUSED;}
+\DoxyCodeLine{86                 \textcolor{keywordflow}{return} MusicStatus::STOPPED;}
+\DoxyCodeLine{87             \}}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89         \textcolor{keyword}{protected}:}
+\DoxyCodeLine{90         \textcolor{keyword}{private}:}
+\DoxyCodeLine{91             sf::SoundBuffer \_buffer;}
+\DoxyCodeLine{92             sf::Sound \_sound;}
+\DoxyCodeLine{93     \};}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95     \textcolor{keyword}{class }\mbox{\hyperlink{classmodules_1_1SFMLMusicModule}{SFMLMusicModule}} : \textcolor{keyword}{public} \mbox{\hyperlink{classmodules_1_1IMusicModule}{IMusicModule}} \{}
+\DoxyCodeLine{96         \textcolor{keyword}{public}:}
+\DoxyCodeLine{97             \mbox{\hyperlink{classmodules_1_1SFMLMusicModule}{SFMLMusicModule}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{104             \mbox{\hyperlink{group__Modules_ga14a3cb08820f7450ec355b9b03f4ec5e}{SFMLMusicModule}}(\textcolor{keyword}{const} std::string path) \{}
+\DoxyCodeLine{105                 \mbox{\hyperlink{group__Modules_ga6d2ace83b826b5eafb5ce4bf52d7260e}{setSource}}(path);}
+\DoxyCodeLine{106             \}}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108             \mbox{\hyperlink{classmodules_1_1SFMLMusicModule}{\string~SFMLMusicModule}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{115             \textcolor{keywordtype}{void} \mbox{\hyperlink{group__Modules_ga6d2ace83b826b5eafb5ce4bf52d7260e}{setSource}}(std::string source\_path)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{116                 \_music.openFromFile(source\_path);}
+\DoxyCodeLine{117             \}}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{123             \textcolor{keywordtype}{void} \mbox{\hyperlink{group__Modules_gad4d43a9cf8cd6c19e3d5e0a0dbb7360a}{play}}()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{124                 \_music.play();}
+\DoxyCodeLine{125             \}}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{131             \textcolor{keywordtype}{void} \mbox{\hyperlink{group__Modules_gacf372f4d8ca76311f67ee77edb9bee99}{pause}}()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{132                 \_music.pause();}
+\DoxyCodeLine{133             \}}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{139             \textcolor{keywordtype}{void} \mbox{\hyperlink{group__Modules_ga8e97c82c6bf0bc56f7ec6427f0db04c4}{stop}}()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{140                 \_music.stop();}
+\DoxyCodeLine{141             \}}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{148             \textcolor{keywordtype}{void} \mbox{\hyperlink{group__Modules_ga26bca0c6290f86e1d7dede72bb3086bd}{setVolume}}(\textcolor{keywordtype}{float} volume)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{149                 \_music.setVolume(volume);}
+\DoxyCodeLine{150             \}}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{157             \textcolor{keywordtype}{void} \mbox{\hyperlink{group__Modules_ga3acb7b9d9d17a0c2585b6bc3409b2c53}{setLoop}}(\textcolor{keywordtype}{bool} loop)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{158                 \_music.setLoop(loop);}
+\DoxyCodeLine{159             \}}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{167             \textcolor{keywordtype}{bool} \mbox{\hyperlink{group__Modules_ga0a4ff040ef5a4d3b98f08b89299f5e16}{getLoop}}()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{168                 \textcolor{keywordflow}{return} \_music.getLoop();}
+\DoxyCodeLine{169             \}}
+\DoxyCodeLine{170 }
+\DoxyCodeLine{176             \mbox{\hyperlink{group__Modules_ga8787896c32aed13fc78443a5191cdb0b}{MusicStatus}} \mbox{\hyperlink{group__Modules_ga7a506c2469b00cdd853c3f49d173985b}{getStatus}}()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{177                 \textcolor{keywordflow}{if} (\_music.getStatus() == sf::Music::Status::Playing)}
+\DoxyCodeLine{178                     \textcolor{keywordflow}{return} MusicStatus::PLAYING;}
+\DoxyCodeLine{179                 \textcolor{keywordflow}{if} (\_music.getStatus() == sf::Music::Status::Paused)}
+\DoxyCodeLine{180                     \textcolor{keywordflow}{return} MusicStatus::PAUSED;}
+\DoxyCodeLine{181                 \textcolor{keywordflow}{return} MusicStatus::STOPPED;}
+\DoxyCodeLine{182             \}}
+\DoxyCodeLine{183 }
+\DoxyCodeLine{184         \textcolor{keyword}{protected}:}
+\DoxyCodeLine{185         \textcolor{keyword}{private}:}
+\DoxyCodeLine{186             sf::Music \_music;}
+\DoxyCodeLine{187     \};}
+\DoxyCodeLine{188 \} \textcolor{comment}{// namespace modules}}
+\DoxyCodeLine{189 }
+\DoxyCodeLine{190 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* !SFMLAUDIOMODULE\_HPP\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

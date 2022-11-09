@@ -1,0 +1,89 @@
+\hypertarget{Scene_8hpp_source}{}\doxysection{Scene.\+hpp}
+\label{Scene_8hpp_source}\index{/home/Teyi/Epitech/Semestre5/CPP/rtype/src/SceneManager/Scene.hpp@{/home/Teyi/Epitech/Semestre5/CPP/rtype/src/SceneManager/Scene.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{** EPITECH PROJECT, 2022}}
+\DoxyCodeLine{3 \textcolor{comment}{** B-\/CPP-\/500-\/PAR-\/5-\/1-\/rtype-\/zacharie.lawson}}
+\DoxyCodeLine{4 \textcolor{comment}{** File description:}}
+\DoxyCodeLine{5 \textcolor{comment}{** Scene}}
+\DoxyCodeLine{6 \textcolor{comment}{*/}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <nlohmann/json.hpp>}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}../ProjectManager/Ecs.hpp"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}SceneComponent.hpp"{}}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#ifndef SCENE\_HPP\_}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{    \#define SCENE\_HPP\_}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{keyword}{using }json = nlohmann::json;}
+\DoxyCodeLine{21 \textcolor{keyword}{using }\mbox{\hyperlink{classregistry}{Registry\_ref}} = \mbox{\hyperlink{classregistry}{registry}} \&;}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{30 \textcolor{keyword}{class }\mbox{\hyperlink{classScene}{Scene}} \{}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keyword}{using }\mbox{\hyperlink{classScene}{Scene\_ref}} = \mbox{\hyperlink{classScene}{Scene}} \&;}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{keyword}{public}:}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36         \mbox{\hyperlink{classScene}{Scene}}() = \textcolor{keyword}{delete};}
+\DoxyCodeLine{44         \mbox{\hyperlink{classScene_adf9bc95025069dee2f3667dae6bdd0bc}{Scene}}(\mbox{\hyperlink{classregistry}{Registry\_ref}} reg, \textcolor{keywordtype}{int} sceneId, std::string path)}
+\DoxyCodeLine{45         : \_ecs(reg)}
+\DoxyCodeLine{46         \{}
+\DoxyCodeLine{47             std::ifstream ifs(path);}
+\DoxyCodeLine{48             json file;}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50             \_id = sceneId;}
+\DoxyCodeLine{51             \_zIndex = 0;}
+\DoxyCodeLine{52             \textcolor{keywordflow}{if} (ifs.good()) \{}
+\DoxyCodeLine{53                 file = json::parse(ifs);}
+\DoxyCodeLine{54                 std::cout << file << std::endl;}
+\DoxyCodeLine{55                 \textcolor{comment}{//for (auto \&entity : file["{}entities"{}]) \{}}
+\DoxyCodeLine{56                 \textcolor{comment}{//    entity\_t e = \_ecs.spawn\_entity();}}
+\DoxyCodeLine{57                 \textcolor{comment}{//    \_entities.push\_back(e);}}
+\DoxyCodeLine{58                 \textcolor{comment}{//    std::cout << "{}not-\/used"{}<< entity << std::endl;}}
+\DoxyCodeLine{59                 \textcolor{comment}{//    std::cout << "{}\(\backslash\)tentity: "{} << e.\_idx << std::endl;}}
+\DoxyCodeLine{60                 \textcolor{comment}{//\}}}
+\DoxyCodeLine{61                 std::cout << \textcolor{stringliteral}{"{}Scene loaded"{}} << std::endl;}
+\DoxyCodeLine{62             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{63                 std::cout << \textcolor{stringliteral}{"{}Scene not loaded"{}} << std::endl;}
+\DoxyCodeLine{64             \}}
+\DoxyCodeLine{65             std::cout << \textcolor{stringliteral}{"{}Scene created"{}} << std::endl;}
+\DoxyCodeLine{66         \}}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{73         \mbox{\hyperlink{structentity__t}{entity\_t}} \mbox{\hyperlink{classScene_a7ea9e035bc36ee3b67a89a7ad39167d4}{SpawnEntity}}()}
+\DoxyCodeLine{74         \{}
+\DoxyCodeLine{75             \mbox{\hyperlink{structentity__t}{entity\_t}} ent = \_ecs.\mbox{\hyperlink{group__ECS_ga75d49eb0c9936d57146007f06cbaf735}{spawn\_entity}}();}
+\DoxyCodeLine{76             \_ecs.\mbox{\hyperlink{group__ECS_ga9731cef0d6a3803fadf6c2ebb5fb8a1b}{add\_component}}<\mbox{\hyperlink{structSceneId}{SceneId}}>(ent, \{\_id\});}
+\DoxyCodeLine{77             \textcolor{keywordflow}{return} ent;}
+\DoxyCodeLine{78         \}}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{86         \textcolor{keywordtype}{int} \mbox{\hyperlink{classScene_a56a5a902844f41ecab924d53b80ec3c4}{SetZIndex}}(\textcolor{keywordtype}{int} zIndex)}
+\DoxyCodeLine{87         \{}
+\DoxyCodeLine{88             \_zIndex = zIndex;}
+\DoxyCodeLine{89             \textcolor{keywordflow}{return} \_zIndex;}
+\DoxyCodeLine{90         \}}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{98         \textcolor{keywordtype}{int} \mbox{\hyperlink{classScene_a5f612148d707c9197341b20359812a9a}{GetZIndex}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{99 \textcolor{keyword}{        }\{}
+\DoxyCodeLine{100             \textcolor{keywordflow}{return} \_zIndex;}
+\DoxyCodeLine{101         \}}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{108         \textcolor{keywordtype}{int} \mbox{\hyperlink{classScene_aec623462ef3c48c825c27def3f5a5859}{GetId}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{109 \textcolor{keyword}{        }\{}
+\DoxyCodeLine{110             \textcolor{keywordflow}{return} \_id;}
+\DoxyCodeLine{111         \}}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113     \textcolor{keyword}{private}:}
+\DoxyCodeLine{114         \mbox{\hyperlink{classregistry}{Registry\_ref}} \_ecs;}
+\DoxyCodeLine{115         \textcolor{keywordtype}{int} \_zIndex;}
+\DoxyCodeLine{116         \textcolor{keywordtype}{int} \_id;}
+\DoxyCodeLine{117 \};}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* !SCENE\_HPP\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,260 @@
+\hypertarget{Ecs_8hpp_source}{}\doxysection{Ecs.\+hpp}
+\label{Ecs_8hpp_source}\index{/home/Teyi/Epitech/Semestre5/CPP/rtype/src/ProjectManager/Ecs.hpp@{/home/Teyi/Epitech/Semestre5/CPP/rtype/src/ProjectManager/Ecs.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <optional>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <any>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <unordered\_map>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <typeindex>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <functional>}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{16 \textcolor{comment}{//Step 0:}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#ifndef ECS\_HPP\_}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{    \#define ECS\_HPP\_}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{keyword}{class }\mbox{\hyperlink{classregistry}{registry}};}
+\DoxyCodeLine{21 \textcolor{keyword}{using }\mbox{\hyperlink{classregistry}{Registry\_ref}} = \mbox{\hyperlink{classregistry}{registry}} \&;}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{comment}{//Step 0:}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{30 \textcolor{keyword}{struct }\mbox{\hyperlink{structentity__t}{entity\_t}} \{}
+\DoxyCodeLine{31     \textcolor{keywordtype}{size\_t} \_idx;}
+\DoxyCodeLine{32     \mbox{\hyperlink{structentity__t}{entity\_t}}() = \textcolor{keyword}{delete};}
+\DoxyCodeLine{33     \mbox{\hyperlink{structentity__t}{\string~entity\_t}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{keyword}{friend} \mbox{\hyperlink{classregistry}{registry}};}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \textcolor{keyword}{private}:}
+\DoxyCodeLine{38         \textcolor{keyword}{explicit} \mbox{\hyperlink{structentity__t}{entity\_t}}(\textcolor{keywordtype}{size\_t} idx)}
+\DoxyCodeLine{39         \{}
+\DoxyCodeLine{40             \_idx = idx;}
+\DoxyCodeLine{41         \};}
+\DoxyCodeLine{42 \};}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{52 \textcolor{keyword}{template} <\textcolor{keyword}{typename} Component>}
+\DoxyCodeLine{53 std::ostream\& \mbox{\hyperlink{group__ECS_ga73521ca7b0963cf320601b7e8ce115fc}{operator<<}}(std::ostream\& os, std::optional<Component> \textcolor{keyword}{const} \&c)}
+\DoxyCodeLine{54 \{}
+\DoxyCodeLine{55     \textcolor{keywordflow}{if} (c)}
+\DoxyCodeLine{56         os << c.value();}
+\DoxyCodeLine{57     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{58         os << \textcolor{stringliteral}{"{}None"{}};}
+\DoxyCodeLine{59     \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{60 \}}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{69 \textcolor{keyword}{template} <\textcolor{keyword}{typename} Component>}
+\DoxyCodeLine{70 \textcolor{keyword}{class }\mbox{\hyperlink{classsparse__array}{sparse\_array}} \{}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72     public :}
+\DoxyCodeLine{73         \textcolor{keyword}{using }value\_type = std::optional<Component>;}
+\DoxyCodeLine{74         \textcolor{keyword}{using }reference\_type = value\_type \&;}
+\DoxyCodeLine{75         \textcolor{keyword}{using }const\_reference\_type = value\_type \textcolor{keyword}{const} \&;}
+\DoxyCodeLine{76         \textcolor{keyword}{using }container\_t = std::vector<value\_type>;}
+\DoxyCodeLine{77         \textcolor{keyword}{using }size\_type = \textcolor{keyword}{typename} container\_t::size\_type ;}
+\DoxyCodeLine{78         \textcolor{keyword}{using }iterator = \textcolor{keyword}{typename} container\_t::iterator ;}
+\DoxyCodeLine{79         \textcolor{keyword}{using }const\_iterator = \textcolor{keyword}{typename} container\_t::const\_iterator ;}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81     public :}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{86         \mbox{\hyperlink{group__ECS_ga9437af3619227d4ab973cad2f6bfa818}{sparse\_array}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{93         \mbox{\hyperlink{group__ECS_ga99d9756419717256dab5ce1aea62d8da}{sparse\_array}}(\mbox{\hyperlink{classsparse__array}{sparse\_array}} \textcolor{keyword}{const} \&) = \textcolor{keywordflow}{default}; \textcolor{comment}{//}}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{101         \mbox{\hyperlink{group__ECS_gad93b07fae9a6a1e0029768fd8aa22703}{sparse\_array}}(\mbox{\hyperlink{classsparse__array}{sparse\_array}} \&\&) noexcept = default;}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{107         \string~\mbox{\hyperlink{classsparse__array}{sparse\_array}}() = default;}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{115         \mbox{\hyperlink{classsparse__array}{sparse\_array}} \&operator=(\mbox{\hyperlink{classsparse__array}{sparse\_array}} const \&) = default;}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{123         \mbox{\hyperlink{classsparse__array}{sparse\_array}} \&operator=(\mbox{\hyperlink{classsparse__array}{sparse\_array}} \&\&) noexcept = default;}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{131         reference\_type operator[](\textcolor{keywordtype}{size\_t} idx)}
+\DoxyCodeLine{132         \{}
+\DoxyCodeLine{133             \textcolor{keywordflow}{return} \_data[idx];}
+\DoxyCodeLine{134         \};}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{142         const\_reference\_type \mbox{\hyperlink{group__ECS_ga1d66e1a1e11a9bcef70425c3c09eb6b4}{operator[]}}(\textcolor{keywordtype}{size\_t} idx)\textcolor{keyword}{ const}}
+\DoxyCodeLine{143 \textcolor{keyword}{        }\{}
+\DoxyCodeLine{144             \textcolor{keywordflow}{return} \_data.at(idx);}
+\DoxyCodeLine{145         \};}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{152         iterator \mbox{\hyperlink{group__ECS_ga1cdf824b5897fb3ffc857843b37453b2}{begin}}() \{}
+\DoxyCodeLine{153             \textcolor{keywordflow}{return} \_data.begin();}
+\DoxyCodeLine{154         \};}
+\DoxyCodeLine{155 }
+\DoxyCodeLine{161         const\_iterator \mbox{\hyperlink{group__ECS_ga25c3a93f84f860ee55bb25f8da67e358}{begin}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{162 \textcolor{keyword}{        }\{}
+\DoxyCodeLine{163             \textcolor{keywordflow}{return} \_data.begin();}
+\DoxyCodeLine{164         \};}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{171         const\_iterator \mbox{\hyperlink{group__ECS_ga8f6e23b67ea783baf53129f8907e297a}{cbegin}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{172 \textcolor{keyword}{        }\{}
+\DoxyCodeLine{173             \textcolor{keywordflow}{return} \_data.cbegin();}
+\DoxyCodeLine{174         \};}
+\DoxyCodeLine{175 }
+\DoxyCodeLine{181         iterator \mbox{\hyperlink{group__ECS_gaf6749bdfbdc5200a77549f52594107eb}{end}}()}
+\DoxyCodeLine{182         \{}
+\DoxyCodeLine{183             \textcolor{keywordflow}{return} \_data.end();}
+\DoxyCodeLine{184         \};}
+\DoxyCodeLine{185 }
+\DoxyCodeLine{191         const\_iterator \mbox{\hyperlink{group__ECS_ga094425cbf56a592e130b67ecda68cd3d}{end}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{192 \textcolor{keyword}{        }\{}
+\DoxyCodeLine{193             \textcolor{keywordflow}{return} \_data.end();}
+\DoxyCodeLine{194         \};}
+\DoxyCodeLine{195 }
+\DoxyCodeLine{201         const\_iterator \mbox{\hyperlink{group__ECS_gadb95eba3fb7e88207a4374c04950d167}{cend}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{202 \textcolor{keyword}{        }\{}
+\DoxyCodeLine{203             \textcolor{keywordflow}{return} \_data.cend();}
+\DoxyCodeLine{204         \};}
+\DoxyCodeLine{205 }
+\DoxyCodeLine{211         size\_type \mbox{\hyperlink{group__ECS_ga6679a2315be266da4c01ad97f00e51fd}{size}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{212 \textcolor{keyword}{        }\{}
+\DoxyCodeLine{213             \textcolor{keywordflow}{return} \_data.size();}
+\DoxyCodeLine{214         \};}
+\DoxyCodeLine{215 }
+\DoxyCodeLine{223         reference\_type \mbox{\hyperlink{group__ECS_ga5405e60b1686ddbae5715e9ff44efaa7}{insert\_at}} ( size\_type pos , Component \textcolor{keyword}{const} \&c) \textcolor{comment}{//\string~ rvalue}}
+\DoxyCodeLine{224         \{}
+\DoxyCodeLine{225             \textcolor{keywordflow}{if} (\_data.size() <= pos)}
+\DoxyCodeLine{226                 \_data.resize(pos + 1);}
+\DoxyCodeLine{227             \_data[pos] = std::make\_optional (c);}
+\DoxyCodeLine{228             \textcolor{keywordflow}{return} \_data[pos];}
+\DoxyCodeLine{229         \};}
+\DoxyCodeLine{230 }
+\DoxyCodeLine{238         reference\_type \mbox{\hyperlink{group__ECS_gac63a5ffed5183dacc9d6df639f038b8d}{insert\_at}} ( size\_type pos , Component \&\&c) \textcolor{comment}{//\string~ lvalue}}
+\DoxyCodeLine{239         \{}
+\DoxyCodeLine{240             \textcolor{keywordflow}{if} (\_data.size() <= pos)}
+\DoxyCodeLine{241                 \_data.resize(pos + 1);}
+\DoxyCodeLine{242             \_data[pos] = std::make\_optional (std::move(c));}
+\DoxyCodeLine{243             \textcolor{keywordflow}{return} \_data[pos];}
+\DoxyCodeLine{244         \};}
+\DoxyCodeLine{245 }
+\DoxyCodeLine{254         \textcolor{keyword}{template} <\textcolor{keyword}{class }... Params>}
+\DoxyCodeLine{255         reference\_type \mbox{\hyperlink{group__ECS_gae689ca7b4a055ff5ffec48a7336f7d44}{emplace\_at}} ( size\_type pos , Params \&\&...args)}
+\DoxyCodeLine{256         \{}
+\DoxyCodeLine{257             container\_t vecArgs = \{args...\};}
+\DoxyCodeLine{258 }
+\DoxyCodeLine{259             size\_type i = vecArgs.size();}
+\DoxyCodeLine{260             \textcolor{keywordflow}{if} ( \_data.size() <= pos + i)}
+\DoxyCodeLine{261                 \_data.resize(pos + i);}
+\DoxyCodeLine{262             i = 0;}
+\DoxyCodeLine{263             \textcolor{keywordflow}{for}(value\_type v : vecArgs) \{}
+\DoxyCodeLine{264                 \_data[pos + i] = v;}
+\DoxyCodeLine{265                 ++i;}
+\DoxyCodeLine{266             \}}
+\DoxyCodeLine{267             \textcolor{keywordflow}{return} \_data[pos];}
+\DoxyCodeLine{268         \};}
+\DoxyCodeLine{269 }
+\DoxyCodeLine{275         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__ECS_gac0bea77704ce39c1a731dc69de8d9d2d}{erase}} ( size\_type pos ) \{}
+\DoxyCodeLine{276             \textcolor{keywordflow}{if} (pos >= 0 \&\& pos < \_data.size())}
+\DoxyCodeLine{277                 \_data[pos] = std::nullopt;}
+\DoxyCodeLine{278         \};}
+\DoxyCodeLine{279 }
+\DoxyCodeLine{286         size\_type \mbox{\hyperlink{group__ECS_gaaf28747955bbc6e4dfbb1d63fb27c18c}{get\_index}} ( value\_type \textcolor{keyword}{const} \&v)\textcolor{keyword}{ const}}
+\DoxyCodeLine{287 \textcolor{keyword}{        }\{}
+\DoxyCodeLine{288             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < \_data.size(); i++) \{}
+\DoxyCodeLine{289                 \textcolor{keywordflow}{if} (v == \_data[i])}
+\DoxyCodeLine{290                     \textcolor{keywordflow}{return} i;}
+\DoxyCodeLine{291             \}}
+\DoxyCodeLine{292             \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{293         \};}
+\DoxyCodeLine{294 }
+\DoxyCodeLine{299         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__ECS_gab34e95bdc6b4c360a996fb63ba1a78d2}{display}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{300 \textcolor{keyword}{        }\{}
+\DoxyCodeLine{301             \textcolor{keywordtype}{bool} first = \textcolor{keyword}{true};}
+\DoxyCodeLine{302             std::cout << \textcolor{stringliteral}{"{}\{ "{}};}
+\DoxyCodeLine{303             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \textcolor{keyword}{const} \&v : \_data) \{}
+\DoxyCodeLine{304                 \textcolor{keywordflow}{if} (!first) \{}
+\DoxyCodeLine{305                     std::cout << \textcolor{stringliteral}{"{}, "{}} << v;}
+\DoxyCodeLine{306                 \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{307                     std::cout << v;}
+\DoxyCodeLine{308                     first = \textcolor{keyword}{false};}
+\DoxyCodeLine{309                 \}}
+\DoxyCodeLine{310             \}}
+\DoxyCodeLine{311             std::cout << \textcolor{stringliteral}{"{}\}"{}} << std::endl;}
+\DoxyCodeLine{312         \};}
+\DoxyCodeLine{313 }
+\DoxyCodeLine{314     private :}
+\DoxyCodeLine{315         container\_t \_data ;}
+\DoxyCodeLine{316 \};}
+\DoxyCodeLine{317 }
+\DoxyCodeLine{323 \textcolor{keyword}{class }\mbox{\hyperlink{classregistry}{registry}} \{}
+\DoxyCodeLine{324     public :}
+\DoxyCodeLine{325 }
+\DoxyCodeLine{332         \textcolor{keyword}{template} <\textcolor{keyword}{class} Component>}
+\DoxyCodeLine{333         \mbox{\hyperlink{classsparse__array}{sparse\_array<Component>}} \&\mbox{\hyperlink{group__ECS_gac77008529bb6e296916633cc41ba5be5}{register\_component}}()}
+\DoxyCodeLine{334         \{}
+\DoxyCodeLine{335             \_components\_arrays[std::type\_index(\textcolor{keyword}{typeid}(Component))] = std::make\_any<sparse\_array<Component>>();}
+\DoxyCodeLine{336             \_components\_removes.push\_back([] (\mbox{\hyperlink{classregistry}{registry}} \&r, \mbox{\hyperlink{structentity__t}{entity\_t}} \textcolor{keyword}{const} \&e) \{ r.\mbox{\hyperlink{group__ECS_ga3866ee276a5a1d78d00cd403e8e8c7d9}{get\_components}}<Component>().erase(e.\_idx); \} );}
+\DoxyCodeLine{337             \textcolor{keywordflow}{return} std::any\_cast<sparse\_array<Component> \&>(\_components\_arrays[std::type\_index(\textcolor{keyword}{typeid}(Component))]);}
+\DoxyCodeLine{338         \};}
+\DoxyCodeLine{339 }
+\DoxyCodeLine{346         \textcolor{keyword}{template} <\textcolor{keyword}{class} Component>}
+\DoxyCodeLine{347         \mbox{\hyperlink{classsparse__array}{sparse\_array<Component>}} \&\mbox{\hyperlink{group__ECS_ga3866ee276a5a1d78d00cd403e8e8c7d9}{get\_components}}()}
+\DoxyCodeLine{348         \{}
+\DoxyCodeLine{349             \textcolor{keywordflow}{return} std::any\_cast<sparse\_array<Component> \&>(\_components\_arrays[std::type\_index(\textcolor{keyword}{typeid}(Component))]); \textcolor{comment}{//}}
+\DoxyCodeLine{350         \};}
+\DoxyCodeLine{351 }
+\DoxyCodeLine{358         \textcolor{keyword}{template} <\textcolor{keyword}{class} Component>}
+\DoxyCodeLine{359         \mbox{\hyperlink{classsparse__array}{sparse\_array<Component>}} \textcolor{keyword}{const} \&\mbox{\hyperlink{group__ECS_ga216d887232d1a7b36b115add610c2d84}{get\_components}} ()\textcolor{keyword}{ const}}
+\DoxyCodeLine{360 \textcolor{keyword}{        }\{}
+\DoxyCodeLine{361             \textcolor{keywordflow}{return} std::any\_cast<sparse\_array<Component> \&>(\_components\_arrays.at(std::type\_index(\textcolor{keyword}{typeid}(Component))));}
+\DoxyCodeLine{362         \};}
+\DoxyCodeLine{363 }
+\DoxyCodeLine{369         \mbox{\hyperlink{structentity__t}{entity\_t}} \mbox{\hyperlink{group__ECS_ga75d49eb0c9936d57146007f06cbaf735}{spawn\_entity}}() \textcolor{comment}{// \string~}}
+\DoxyCodeLine{370         \{}
+\DoxyCodeLine{371             \textcolor{keywordflow}{if} (!\_killed\_entities.empty()) \{}
+\DoxyCodeLine{372                 \mbox{\hyperlink{structentity__t}{entity\_t}} tmp = \_killed\_entities.back();}
+\DoxyCodeLine{373                 \_killed\_entities.pop\_back();}
+\DoxyCodeLine{374                 \textcolor{keywordflow}{return} tmp;}
+\DoxyCodeLine{375             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{376                     ++\_entitys\_count;}
+\DoxyCodeLine{377                     \textcolor{keywordflow}{return} \mbox{\hyperlink{structentity__t}{entity\_t}}(\_entitys\_count -\/ 1);}
+\DoxyCodeLine{378             \}}
+\DoxyCodeLine{379         \};}
+\DoxyCodeLine{380 }
+\DoxyCodeLine{387         \textcolor{comment}{// \string~}}
+\DoxyCodeLine{388         \textcolor{keyword}{static} \mbox{\hyperlink{structentity__t}{entity\_t}} \mbox{\hyperlink{group__ECS_ga0f3b12e1cad77680b500a0b138a60b71}{entity\_from\_index}}(std::size\_t idx) \textcolor{comment}{// \string~ create an entity}}
+\DoxyCodeLine{389         \{}
+\DoxyCodeLine{390             \textcolor{keywordflow}{return} \mbox{\hyperlink{structentity__t}{entity\_t}}(idx);}
+\DoxyCodeLine{391         \};}
+\DoxyCodeLine{392 }
+\DoxyCodeLine{399         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__ECS_ga6c967fb2267fd8eaeb155f2be5b5650c}{kill\_entity}}(\mbox{\hyperlink{structentity__t}{entity\_t}} \textcolor{keyword}{const} \&e)}
+\DoxyCodeLine{400         \{}
+\DoxyCodeLine{401             \_killed\_entities.push\_back(e);}
+\DoxyCodeLine{402             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} f: \_components\_removes)}
+\DoxyCodeLine{403                 f(*\textcolor{keyword}{this}, e);}
+\DoxyCodeLine{404         \};}
+\DoxyCodeLine{405 }
+\DoxyCodeLine{414         \textcolor{keyword}{template} <\textcolor{keyword}{typename} Component>}
+\DoxyCodeLine{415         \textcolor{keyword}{typename} sparse\_array<Component>::reference\_type \mbox{\hyperlink{group__ECS_ga9731cef0d6a3803fadf6c2ebb5fb8a1b}{add\_component}}(\mbox{\hyperlink{structentity__t}{entity\_t}} \textcolor{keyword}{const} \&to, Component \&\&c)}
+\DoxyCodeLine{416         \{}
+\DoxyCodeLine{417             get\_components<Component>().emplace\_at(to.\_idx, c);}
+\DoxyCodeLine{418             \textcolor{keywordflow}{return} get\_components<Component>()[to.\_idx];}
+\DoxyCodeLine{419         \};}
+\DoxyCodeLine{420 }
+\DoxyCodeLine{430         \textcolor{keyword}{template} <\textcolor{keyword}{typename} Component, \textcolor{keyword}{typename} ... Params>}
+\DoxyCodeLine{431         \textcolor{keyword}{typename} sparse\_array <Component>::reference\_type \mbox{\hyperlink{group__ECS_gadd92ff90bc7a767c18d5349c07a757a9}{emplace\_component}}(\mbox{\hyperlink{structentity__t}{entity\_t}} \textcolor{keyword}{const} \&to, Params \&\&... p)}
+\DoxyCodeLine{432         \{}
+\DoxyCodeLine{433             get\_components<Component>().emplace\_at(to.\_idx, p...);}
+\DoxyCodeLine{434             \textcolor{keywordflow}{return} get\_components<Component>()[to.\_idx];}
+\DoxyCodeLine{435         \};}
+\DoxyCodeLine{436 }
+\DoxyCodeLine{443         \textcolor{keyword}{template} <\textcolor{keyword}{typename} Component>}
+\DoxyCodeLine{444         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__ECS_gae6ae3ba636214bb3972a99492923bf7c}{remove\_component}}(\mbox{\hyperlink{structentity__t}{entity\_t}} \textcolor{keyword}{const} \&from)}
+\DoxyCodeLine{445         \{}
+\DoxyCodeLine{446             get\_components<Component>().erase(from.\_idx);}
+\DoxyCodeLine{447         \};}
+\DoxyCodeLine{448 }
+\DoxyCodeLine{449     private :}
+\DoxyCodeLine{450         \textcolor{keywordtype}{size\_t} \_entitys\_count = 0;}
+\DoxyCodeLine{451         std::vector<entity\_t> \_killed\_entities;}
+\DoxyCodeLine{452 }
+\DoxyCodeLine{453         std::unordered\_map<std::type\_index, std::any> \_components\_arrays;}
+\DoxyCodeLine{454 }
+\DoxyCodeLine{455         std::vector<std::function<void(\mbox{\hyperlink{classregistry}{registry}} \&, \mbox{\hyperlink{structentity__t}{entity\_t}} \textcolor{keyword}{const} \&)>> \_components\_removes;}
+\DoxyCodeLine{456 \};}
+\DoxyCodeLine{457 }
+\DoxyCodeLine{458 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// ECS\_HPP\_}}
+
+\end{DoxyCode}

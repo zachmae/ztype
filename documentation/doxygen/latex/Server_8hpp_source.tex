@@ -1,0 +1,75 @@
+\hypertarget{Server_8hpp_source}{}\doxysection{Server.\+hpp}
+\label{Server_8hpp_source}\index{/home/Teyi/Epitech/Semestre5/CPP/rtype/src/Network/Server.hpp@{/home/Teyi/Epitech/Semestre5/CPP/rtype/src/Network/Server.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{** EPITECH PROJECT, 2022}}
+\DoxyCodeLine{3 \textcolor{comment}{** client.hpp}}
+\DoxyCodeLine{4 \textcolor{comment}{** File description:}}
+\DoxyCodeLine{5 \textcolor{comment}{** client}}
+\DoxyCodeLine{6 \textcolor{comment}{*/}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef SERVER\_HPP\_}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define SERVER\_HPP\_}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <SFML/Network.hpp>}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{20 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structclient__s}{client\_s}} \{}
+\DoxyCodeLine{21     sf::TcpSocket socket;}
+\DoxyCodeLine{22     \textcolor{keywordtype}{int} \textcolor{keywordtype}{id}\{\};}
+\DoxyCodeLine{23     \textcolor{keywordtype}{int} x\{\};}
+\DoxyCodeLine{24     \textcolor{keywordtype}{int} y\{\};}
+\DoxyCodeLine{25 \} \mbox{\hyperlink{group__Network_ga7bfebc8e763f36d1870198931d6b5eb1}{client\_t}};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{31 \textcolor{keyword}{class }\mbox{\hyperlink{classServer}{Server}} \{}
+\DoxyCodeLine{32 \textcolor{keyword}{public}:}
+\DoxyCodeLine{38     \textcolor{keyword}{inline} \textcolor{keyword}{explicit} \mbox{\hyperlink{group__Network_gafdc204b21eae699fb44042665c44bbd0}{Server}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{short} port) \{}
+\DoxyCodeLine{39         \textcolor{keywordflow}{if} (\_listener.listen(port) != sf::Socket::Status::Done) \textcolor{comment}{// Bind the listener to a port}}
+\DoxyCodeLine{40             std::cerr << \textcolor{stringliteral}{"{}Error : Fail to bind the port"{}} << std::endl;}
+\DoxyCodeLine{41         \_selector.add(\_listener);}
+\DoxyCodeLine{42         \_id = 0;}
+\DoxyCodeLine{43     \};}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{49     \textcolor{keyword}{inline} \mbox{\hyperlink{group__Network_ga4b3aa2579cb1c8cd1d069582c14d0fa6}{\string~Server}}() \{}
+\DoxyCodeLine{50         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&client : \_clients)}
+\DoxyCodeLine{51             \textcolor{keyword}{delete} client;}
+\DoxyCodeLine{52         \_selector.remove(\_listener);}
+\DoxyCodeLine{53         \_listener.close();}
+\DoxyCodeLine{54     \};}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{59     \textcolor{keywordtype}{void} \mbox{\hyperlink{group__Network_ga146787e583173165696dfe8cac3ed18d}{accept}}();}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{65     \textcolor{keywordtype}{void} \mbox{\hyperlink{group__Network_ga1f45599eeba829acf0e27dc6f8189413}{send}}(std::string \textcolor{keyword}{const} \&message);}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{72     \textcolor{keywordtype}{void} \mbox{\hyperlink{group__Network_ga5541d5a6d165878f7a2381245a2e25b8}{sendPos}}(\textcolor{keywordtype}{float} x, \textcolor{keywordtype}{float} y);}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{79     sf::Packet \mbox{\hyperlink{group__Network_gafb5b2bca30ce67ec5611383f094f7c4d}{receive}}(sf::TcpSocket *client);}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{85     \textcolor{keywordtype}{bool} \mbox{\hyperlink{group__Network_ga87ca9f261175648de7bd589d469c7ee0}{isNewConnection}}() \{ \textcolor{keywordflow}{return} \_selector.isReady(\_listener); \};}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{91     sf::TcpSocket *\mbox{\hyperlink{group__Network_ga37a55f99feea608eb353932d93c144b2}{isNewMessage}}() \{}
+\DoxyCodeLine{92         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&client : \_clients) \{}
+\DoxyCodeLine{93             \textcolor{keywordflow}{if} (\_selector.isReady(*client)) \{}
+\DoxyCodeLine{94                 \textcolor{keywordflow}{return} client;}
+\DoxyCodeLine{95             \}}
+\DoxyCodeLine{96         \}}
+\DoxyCodeLine{97         \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{98     \};}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100 }
+\DoxyCodeLine{107     \textcolor{keywordtype}{bool} \mbox{\hyperlink{group__Network_ga0d2eada80bfb7ad309409ce4c9027f42}{selectorWait}}() \{ \textcolor{keywordflow}{return} \_selector.wait(sf::microseconds(1)); \};}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{114     std::vector<sf::TcpSocket *>  \mbox{\hyperlink{group__Network_ga6f569f0e037a945460215598509368a3}{getClients}}() \{ \textcolor{keywordflow}{return} \_clients; \};}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116 \textcolor{keyword}{private}:}
+\DoxyCodeLine{117     sf::TcpSocket \_socket;                                   \textcolor{comment}{// Create a socket}}
+\DoxyCodeLine{118     sf::SocketSelector \_selector;                            \textcolor{comment}{// Create a selector}}
+\DoxyCodeLine{119     sf::TcpListener \_listener;                               \textcolor{comment}{// Create a listener}}
+\DoxyCodeLine{120     std::vector<sf::TcpSocket *> \_clients;                   \textcolor{comment}{// Create a vector of clients}}
+\DoxyCodeLine{121     \textcolor{keywordtype}{int} \_id;                                                 \textcolor{comment}{// Create an id for each client}}
+\DoxyCodeLine{122 \};}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* SERVER\_HPP\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

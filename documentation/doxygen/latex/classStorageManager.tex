@@ -1,0 +1,111 @@
+\hypertarget{classStorageManager}{}\doxysection{Storage\+Manager\texorpdfstring{$<$}{<} Key, Value, \+\_\+\+Arg\+Types \texorpdfstring{$>$}{>} Class Template Reference}
+\label{classStorageManager}\index{StorageManager$<$ Key, Value, \_ArgTypes $>$@{StorageManager$<$ Key, Value, \_ArgTypes $>$}}
+
+
+\mbox{\hyperlink{classStorageManager}{Storage\+Manager}}.  
+
+
+
+
+{\ttfamily \#include $<$Storage\+Manager.\+hpp$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classStorageManager_af7f17a55956c7fb8fde81116ed7974cf}\label{classStorageManager_af7f17a55956c7fb8fde81116ed7974cf}} 
+using {\bfseries TStorage} = std\+::map$<$ Key, Value $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classStorageManager_a5e64eb9104809ee1b7df76935fb53e49}\label{classStorageManager_a5e64eb9104809ee1b7df76935fb53e49}} 
+{\bfseries Storage\+Manager} (std\+::function$<$ Value(\+\_\+\+Arg\+Types...)$>$ f)
+\item 
+void \mbox{\hyperlink{classStorageManager_ae32fb274e42316cc51b3eef05cd92382}{Add}} (Key k, Value \&v)
+\begin{DoxyCompactList}\small\item\em Add. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classStorageManager_a0df6b9b3ebad27e04ed8f852701fde03}{Add}} (Key k, \+\_\+\+Arg\+Types... vc)
+\begin{DoxyCompactList}\small\item\em Add. \end{DoxyCompactList}\item 
+Value \& \mbox{\hyperlink{classStorageManager_aad24ae469bd27bf39b7f8c3236186ad4}{Get}} (Key k)
+\begin{DoxyCompactList}\small\item\em Get. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Key, typename Value, typename... \+\_\+\+Arg\+Types$>$\newline
+class Storage\+Manager$<$ Key, Value, \+\_\+\+Arg\+Types $>$}
+\mbox{\hyperlink{classStorageManager}{Storage\+Manager}}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+{\em Value} & \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyAuthor}{Author}
+\href{mailto:perry.chouteau@epitech.eu}{\texttt{ perry.\+chouteau@epitech.\+eu}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classStorageManager_a0df6b9b3ebad27e04ed8f852701fde03}\label{classStorageManager_a0df6b9b3ebad27e04ed8f852701fde03}} 
+\index{StorageManager$<$ Key, Value, \_ArgTypes $>$@{StorageManager$<$ Key, Value, \_ArgTypes $>$}!Add@{Add}}
+\index{Add@{Add}!StorageManager$<$ Key, Value, \_ArgTypes $>$@{StorageManager$<$ Key, Value, \_ArgTypes $>$}}
+\doxysubsubsection{\texorpdfstring{Add()}{Add()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Key , typename Value , typename... \+\_\+\+Arg\+Types$>$ \\
+void \mbox{\hyperlink{classStorageManager}{Storage\+Manager}}$<$ Key, Value, \+\_\+\+Arg\+Types $>$\+::\+Add (\begin{DoxyParamCaption}\item[{Key}]{k,  }\item[{\+\_\+\+Arg\+Types...}]{vc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em k} & \\
+\hline
+{\em path} & \\
+\hline
+{\em f} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classStorageManager_ae32fb274e42316cc51b3eef05cd92382}\label{classStorageManager_ae32fb274e42316cc51b3eef05cd92382}} 
+\index{StorageManager$<$ Key, Value, \_ArgTypes $>$@{StorageManager$<$ Key, Value, \_ArgTypes $>$}!Add@{Add}}
+\index{Add@{Add}!StorageManager$<$ Key, Value, \_ArgTypes $>$@{StorageManager$<$ Key, Value, \_ArgTypes $>$}}
+\doxysubsubsection{\texorpdfstring{Add()}{Add()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Key , typename Value , typename... \+\_\+\+Arg\+Types$>$ \\
+void \mbox{\hyperlink{classStorageManager}{Storage\+Manager}}$<$ Key, Value, \+\_\+\+Arg\+Types $>$\+::\+Add (\begin{DoxyParamCaption}\item[{Key}]{k,  }\item[{Value \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em k} & \\
+\hline
+{\em v} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classStorageManager_aad24ae469bd27bf39b7f8c3236186ad4}\label{classStorageManager_aad24ae469bd27bf39b7f8c3236186ad4}} 
+\index{StorageManager$<$ Key, Value, \_ArgTypes $>$@{StorageManager$<$ Key, Value, \_ArgTypes $>$}!Get@{Get}}
+\index{Get@{Get}!StorageManager$<$ Key, Value, \_ArgTypes $>$@{StorageManager$<$ Key, Value, \_ArgTypes $>$}}
+\doxysubsubsection{\texorpdfstring{Get()}{Get()}}
+{\footnotesize\ttfamily template$<$typename Key , typename Value , typename... \+\_\+\+Arg\+Types$>$ \\
+Value \& \mbox{\hyperlink{classStorageManager}{Storage\+Manager}}$<$ Key, Value, \+\_\+\+Arg\+Types $>$\+::\+Get (\begin{DoxyParamCaption}\item[{Key}]{k }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+sf\+::\+Sprite 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/\+Teyi/\+Epitech/\+Semestre5/\+CPP/rtype/src/Storage\+Manager.\+hpp\end{DoxyCompactItemize}
