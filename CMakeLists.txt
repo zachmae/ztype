@@ -15,30 +15,81 @@ if(CMAKE_COMPILER_IS_GNUCXX)
 endif(CMAKE_COMPILER_IS_GNUCXX)
 
 if (WIN32)
-    add_compile_options(-Wall)
+    add_compile_options(/W4)
     set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG "./")
     #set_target_properties (rtype.exe PROPERTIES PREFIX "./build/")
 endif(WIN32)
 
-#ADD_LIBRARY(MyStaticLib STATIC
+#Client executable generation
 add_executable(${PROJECT_NAME}
-        src/main.cpp
+
+        src/User/Scenes/Game/Init.cpp
+
+        src/main_client.cpp
+        src/main_server.cpp
+        src/Languages.cpp
         src/Network/Server.cpp
         src/Network/Client.cpp
-        src/ECS/Systems/AnimationSystem.cpp
-        src/ECS/Systems/PositionSystem.cpp
-        src/ECS/Systems/DisplaySystem.cpp
-        src/ECS/Systems/EventSystem.cpp
-        )
 
-include_directories(includes)
+        src/User/Systems/AnimationSystem.cpp
+        src/User/Systems/DisplaySystem.cpp
+        src/User/Systems/EventSystem.cpp
+        src/User/Systems/PositionSystem.cpp
+
+        )
 
 target_link_libraries(${PROJECT_NAME}
     sfml-window
     sfml-graphics
     sfml-network
+    sfml-audio
+    sfml-system
     nlohmann_json::nlohmann_json
 )
+
+#Server executable generation
+#add_executable(Server
+#    src/main_server.cpp
+#    src/Network/Server.cpp
+#)
+#
+#target_link_libraries(Server
+#    sfml-network
+#    sfml-system
+#)
+
+include_directories(#includes
+                    modules
+                    includes
+                    src)
+
+
+if (WIN32)
+  add_custom_command(TARGET rtype POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy ${FETCHCONTENT_BASE_DIR}/sfml-build/lib/Debug/sfml-window-d-2.dll ${CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG}
+    COMMAND_EXPAND_LISTS
+  )
+  add_custom_command(TARGET rtype POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy ${FETCHCONTENT_BASE_DIR}/sfml-build/lib/Debug/sfml-network-d-2.dll ${CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG}
+    COMMAND_EXPAND_LISTS
+  )
+  add_custom_command(TARGET rtype POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy ${FETCHCONTENT_BASE_DIR}/sfml-build/lib/Debug/sfml-system-d-2.dll ${CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG}
+    COMMAND_EXPAND_LISTS
+  )
+  add_custom_command(TARGET rtype POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy ${FETCHCONTENT_BASE_DIR}/sfml-build/lib/Debug/sfml-graphics-d-2.dll ${CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG}
+    COMMAND_EXPAND_LISTS
+  )
+  add_custom_command(TARGET rtype POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy ${FETCHCONTENT_BASE_DIR}/sfml-build/lib/Debug/sfml-audio-d-2.dll ${CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG}
+    COMMAND_EXPAND_LISTS
+  )
+  add_custom_command(TARGET rtype POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy ${FETCHCONTENT_BASE_DIR}/sfml-src/extlibs/bin/x64/openal32.dll ${CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG}
+    COMMAND_EXPAND_LISTS
+  )
+endif()
 
 install(TARGETS rtype RUNTIME DESTINATION bin)
 include(CPack)

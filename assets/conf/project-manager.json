@@ -1,0 +1,14 @@
+{
+    "window": {
+        "title": "Z-Type",
+        "width": 1920,
+        "height": 1080,
+        "framerate-limit": 60 },
+    "sprites-path": "../assets/conf/sprites.json",
+    "sounds-path": "../assets/conf/sounds.json",
+    "scenes-path": "../assets/conf/scenes.json",
+    "network": {
+        "port": 8080,
+        "ip": "192.168.1.25"
+    }
+}

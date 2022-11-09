@@ -12,8 +12,12 @@ rtype
 
 ## extra ##
 .vscode
+.vs
 .idea
 
 ## documentation ##
 documentation/doxygen/html/
 documentation/doxygen/latex/
+
+## json ##
+nlokmann/

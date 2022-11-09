@@ -1,0 +1,17 @@
+{
+    "animated":true,
+    "animation":{
+        "type":"adaptative",
+        "rect":{
+            "left":0,
+            "top":0,
+            "width":64,
+            "height":64
+        },
+        "frame_current":{
+            "x":0,
+            "y":0
+        },
+        "frame_time":0.5
+    }
+}
