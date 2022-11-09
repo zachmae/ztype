@@ -14,8 +14,6 @@
 #include <SFML/System.hpp>
 #include <SFML/Network.hpp>
 
-#include "../SceneManager/SceneManager.hpp"
-
 #ifndef USERCOMPONENT_HPP_
     #define USERCOMPONENT_HPP_
 
@@ -42,48 +40,11 @@ struct velocity {
 };
 
 /**
- * @struct drawable
- *
- * @brief drawable of the entity
- */
-struct drawable {
-    sf::Sprite sprite;
-};
-
-/**
  * @struct controlable
  *
  * @brief controlable of the entity
  */
 struct controlable {
-};
-
-
-/**
- * @struct animation_basic
- *
- * @brief Component basic animation contain the animation of the entity in order to animate it in a generic way
- *
- */
-struct animation_basic {
-    sf::IntRect rect;
-    int frame_current{};
-    int frame_max{};
-    int frame_size{};
-    float frame_time{};
-};
-
-/**
- * @struct animation_adaptative
- *
- * @brief Component animation adaptative contain the animation of the entity in order to animate it remotely
- *
- */
-struct animation_adaptative {
-    sf::IntRect rect;
-    int frame_current_x{};
-    int frame_current_y{};
-    float frame_time{};
 };
 
 /**
@@ -160,24 +121,6 @@ struct health {
  *
  */
 struct is_boss {
-};
-
-/**
- * @struct death_sfx
- *
- * @brief Component death_sfx in order to handle the death sound of the entity
- *
- */
-struct death_sfx {
-    std::string key;
-};
-
-struct clickable {
-    std::function<void(SceneManager_ref<std::string>)> callback;
-};
-
-struct clickable_sfx {
-    std::string key;
 };
 
 struct uuid {

@@ -37,6 +37,11 @@
 #include "../AudioManager.hpp"
 #include "../MusicManager.hpp"
 
+//User
+#include "User.hpp"
+#include "UserComponentManager.hpp"
+
+
 /**
  * @namespace Project
  *
@@ -64,8 +69,10 @@ namespace Project {
              * @param jsonfile
              */
             UserProjectManager(std::string jsonfile)
-            : ProjectManager(jsonfile), _window(CreateWindow(jsonfile)), _sm(), _am(), _mm()
-            {
+            : ProjectManager(jsonfile), _userManager(jsonfile), _window(CreateWindow(jsonfile)), _sm(), _am(), _mm()
+            {                //User
+                config_extractor<user_config::components_list>::function(_ecs); //user
+
                 config_extractor<scene_config::components_list>::function(_ecs); //sys
 
                 json file = json::parse(std::ifstream(jsonfile.c_str()));
@@ -218,6 +225,7 @@ namespace Project {
 
 
         private:
+            User::UserManager _userManager;
 
             //sfml
             sf::RenderWindow _window;
@@ -228,7 +236,6 @@ namespace Project {
             SpriteManager<std::string> _sm;
             MusicManager<std::string> _mm;
             AudioManager<std::string> _am;
-        public:
     };
 
 };

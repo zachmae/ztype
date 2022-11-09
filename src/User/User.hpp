@@ -41,7 +41,6 @@ namespace User {
      * @param sm
      * @param scene
      */
-    [[deprecated]]
     void UserManager::InitScene(Registry_ref r, SpriteManager_ref<std::string> sm, AudioManager_ref<std::string> am, MusicManager_ref<std::string> mm, SceneManager_ref<std::string> scene)
     {
         scene.Get("tutorial").SetZIndex(-1);

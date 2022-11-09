@@ -13,10 +13,6 @@
 #include <type_traits> //std::is_same_v
 #include <iostream>
 
-//User
-#include "../User/User.hpp"
-#include "../User/UserComponentManager.hpp"
-
 //ProjectManager
 #include "ProjectComponentManager.hpp"
 
@@ -36,10 +32,8 @@ namespace Project {
         public:
 
             ProjectManager(std::string jsonfile)
-            : _userManager(jsonfile)
             {
                 config_extractor<project_config::components_list>::function(_ecs); //sys
-                config_extractor<user_config::components_list>::function(_ecs); //user
             };
 
             ~ProjectManager() = default;
@@ -88,8 +82,6 @@ namespace Project {
 
         protected:
             registry _ecs;
-
-            User::UserManager _userManager;
 
         public:
     };

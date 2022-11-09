@@ -161,9 +161,7 @@ namespace User {
             }
 
             Client _client;
-
     };
-
 }
 
 #endif /* !USERMANAGER_HPP_ */
