@@ -37,7 +37,7 @@ namespace User {
          * @param audioManager : the reference to the audio manager
          * @param name : the name of the button in the sprite manager
          */
-        void button_generation(Registry_ref reg, SpriteManager_ref<std::string> sprite_manager, SceneManager_ref<std::string> scene, AudioManager_ref<std::string> audioManager, std::string name);
+        void button_generation(Registry_ref reg, SpriteManager_ref<std::string> sprite_manager, SceneManager_ref<std::string> scene, AudioManager_ref<std::string> audioManager, std::string name, std::pair<float, float> pos, clickable callback);
 
     }
 }

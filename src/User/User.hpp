@@ -16,8 +16,6 @@
 #include "Systems/System.hpp"
 #include "Systems/UserSystem.hpp"
 
-#include "Scenes/Game/Init.hpp" // WHAT THE FUCK
-
 #include "Network/Client.hpp"
 
 #include "AudioManager.hpp"
@@ -26,6 +24,12 @@
 #include "sfml_ref.hpp"
 
 #include "UserManager.hpp"
+
+//Scenes
+#include "Scenes/Game/Init.hpp"
+
+#include "Scenes/Menu/Init.hpp"
+#include "Scenes/Menu/ClickActions.hpp"
 
 /**
  * @brief namespace User
@@ -48,7 +52,7 @@ namespace User {
     {
         scene.Get("tutorial").SetZIndex(-1);
         scene.Get("game").SetZIndex(-1);
-        scene.Get("menu").SetZIndex(-1);
+        scene.Get("menu").SetZIndex(5);
         scene.Get("loading").SetZIndex(-1);
         scene.Get("settings").SetZIndex(-1);
         scene.Get("lose").SetZIndex(-1);
@@ -60,6 +64,7 @@ namespace User {
         User::Game::background_generation(r, sm, scene, "background_planets_front", -0.8f);
         User::Game::ship_generation(r, sm, scene, am, "ship", true);
 
+        User::Menu::button_generation(r, sm, scene, am, "button", std::pair<float, float>(0, 0), {static_cast<std::function<void(SceneManager_ref<std::string>)>>(test_menu)});
         mm.play("epitomize");
     }
 
@@ -75,7 +80,7 @@ namespace User {
     template <typename Key>
     void UserManager::UpdateScene(Registry_ref reg, SceneManager<Key> &scene, sf::RenderWindow &window, sf::Event &event)
     {
-        ;
+        User::click_system(reg, scene, event, window);
     }
 
     /**

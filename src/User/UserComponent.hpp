@@ -57,6 +57,15 @@ struct drawable {
 struct controlable {
 };
 
+/**
+ * @struct clickable
+ * 
+ * @brief Component clickable in order to handle the click of the entity (button)
+ */
+struct clickable {
+    std::function<void(SceneManager_ref<std::string>)> callback;
+};
+
 
 /**
  * @struct animation_basic
@@ -169,16 +178,6 @@ struct is_boss {
  */
 struct death_sfx {
     std::string key;
-};
-
-/**
- * @struct clickable
- *
- * @brief Component clickable in order to handle the click of the entity (button)
- *
- */
-struct clickable {
-    std::function<void(SceneManager_ref<std::string>)> callback;
 };
 
 /**

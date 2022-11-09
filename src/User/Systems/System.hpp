@@ -122,4 +122,15 @@ namespace User {
      * @param w : window reference
      */
     void draw_system(registry &r, Window_ref w);
+
+    /**
+     * @brief click system
+     *
+     * @param reg
+     * @param scene
+     * @param event
+     * @param window
+     */
+    template<typename Key>
+    void click_system(Registry_ref reg, SceneManager_ref<Key> scene, Event_ref event, Window_ref window);
 }

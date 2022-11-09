@@ -24,6 +24,8 @@ endif(WIN32)
 add_executable(${PROJECT_NAME}
 
         src/User/Scenes/Game/Init.cpp
+        src/User/Scenes/Menu/ClickActions.cpp
+        src/User/Scenes/Menu/Init.cpp
 
         src/main_client.cpp
         src/main_server.cpp
@@ -35,7 +37,7 @@ add_executable(${PROJECT_NAME}
         src/User/Systems/DisplaySystem.cpp
         src/User/Systems/EventSystem.cpp
         src/User/Systems/PositionSystem.cpp
-
+        src/User/Systems/SceneSystem.cpp
         )
 
 target_link_libraries(${PROJECT_NAME}
