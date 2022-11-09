@@ -10,6 +10,7 @@
 #include "../../ProjectManager/Ecs.hpp"
 #include "../UserComponent.hpp"
 #include "../../SpriteManager.hpp"
+#include "SceneManager/SceneManager.hpp"
 #include "../../AudioManager.hpp"
 #include "../../Network/Client.hpp"
 #include "../../Network/Server.hpp"
@@ -89,6 +90,15 @@ namespace User {
      */
     void boss_magic_system(registry &r, SpriteManager<std::string>& _spriteManager, Window_ref w);
 
+    /**
+     * @brief system that check if there is player left alive
+     *
+     * @param reg : registry, contain all of the entities and the related components
+     * @param scene : scene manager reference
+     * @return true : if there is no player left alive
+     * @return false : if there is still player left alive
+     */
+    bool check_lose_system(Registry_ref reg, SceneManager_ref<std::string> scene);
 
     /**
      * @brief system that handle collision between entities

@@ -42,6 +42,7 @@
 #include "UserComponentManager.hpp"
 
 #include "Globals.hpp"
+#include "Languages.hpp"
 
 /**
  * @namespace Project
@@ -98,25 +99,29 @@ namespace Project {
              */
             int Start(std::string const &ip, unsigned short port)
             {
+                bool leave = false;
                 _userManager.InitScene(_ecs, _sm, _am, _mm, _scenes);
-                while (_window.isOpen()) { // run the program as long as the window is open
+                while (_window.isOpen() && !leave) { // run the program as long as the window is open
                     // check all the window's events that were triggered since the last iteration of the loop
                     while (_window.pollEvent(_event)) {
                         // "close requested" event: we close the window
                         if (_event.type == sf::Event::Closed) {
                             _userManager.Close();
                             _window.close();
-                            return 0;
+                            break;
                         }
                         _userManager.UpdateScene(_ecs, _scenes, _window, _event);
                         _userManager.UpdateEventSystem(_ecs, _event, _window, _sm, _am);
                     }
+                    if (!_window.isOpen())
+                        break;
                     _userManager.UpdateClient(_ecs, _scenes, _sm, _am);
                     _window.clear();
                     _userManager.UpdateWindowSystem(_ecs, _scenes, _window, _sm);
                     _window.display();
-                    _userManager.UpdatePostWindowSystem(_ecs, _scenes, _window, _am);
+                    leave = _userManager.UpdatePostWindowSystem(_ecs, _scenes, _window, _am);
                 }
+                std::cout << dictionnary_language[leave ? "game_over": "bye"] << std::endl;
                 return 0;
             };
 

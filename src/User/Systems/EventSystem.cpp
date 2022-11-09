@@ -121,3 +121,15 @@ void User::boss_magic_system(registry &r, SpriteManager<std::string>& _spriteMan
 
     last_time = current_time;
 }
+
+bool User::check_lose_system(Registry_ref reg, SceneManager_ref<std::string> scene)
+{
+    int ally_count = 0;
+    auto &is_ships = reg.get_components<is_ship>();
+
+    for (size_t i = 0; i < is_ships.size(); ++i) {
+        if (is_ships[i])
+            ally_count++;
+    }
+    return !ally_count;
+}

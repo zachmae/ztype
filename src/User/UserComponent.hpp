@@ -6,7 +6,6 @@
 */
 
 #include <functional>
-#include <uuid/uuid.h>
 
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>

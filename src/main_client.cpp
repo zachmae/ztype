@@ -54,14 +54,13 @@ int main(int ac, char const * const av[])
 {
     prepare_language(ac, av);
     display_dict();
-    if (ac == 2)
-        server::StartServer(static_cast<unsigned short>(std::atoi(av[1])));
-    if (ac < 2 || ac > 3)
+    if (ac < 2)
         return displayUsage(84);
     if (ac == 2 && av[1] != nullptr && (std::string(av[1]) == "-h" ||
                                         std::string(av[1]) == "--help"))
         return displayUsage(0);
-
+    if (ac == 2)
+        server::StartServer(static_cast<unsigned short>(std::atoi(av[1])));
     if (!isNumber(av[2]))
         return std::cerr << "Error : Port must be a number" << std::endl, 84;
 

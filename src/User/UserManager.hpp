@@ -137,7 +137,7 @@ namespace User {
              * @param am
              */
             template<typename Key>
-            void UpdatePostWindowSystem(Registry_ref reg, SceneManager_ref<Key> scene, Window_ref window, AudioManager_ref<std::string> am);
+            bool UpdatePostWindowSystem(Registry_ref reg, SceneManager_ref<Key> scene, Window_ref window, AudioManager_ref<std::string> am);
 
         private:
 

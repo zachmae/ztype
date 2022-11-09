@@ -2,6 +2,7 @@
     "dictionnary": {
         "welcome": "welcome",
         "hello": "hello",
+        "game_over": "Game over",
         "bye": "goodbye"
     }
 }

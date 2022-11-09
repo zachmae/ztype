@@ -197,7 +197,6 @@ namespace User {
                 exit(84);
             }
         }
-        std::cout << "Update Client end" << std::endl;
     }
 
     /**
@@ -233,10 +232,11 @@ namespace User {
      * @param am : the reference to the audio manager
      */
     template<typename Key>
-    void UserManager::UpdatePostWindowSystem(Registry_ref reg, SceneManager_ref<Key> scene, Window_ref window, AudioManager_ref<std::string> am)
+    bool UserManager::UpdatePostWindowSystem(Registry_ref reg, SceneManager_ref<Key> scene, Window_ref window, AudioManager_ref<std::string> am)
     {
         User::collision_system(reg, am);
         User::remove_out_of_screen_system(reg, window);
+        return User::check_lose_system(reg, scene);
     }
 
 }
