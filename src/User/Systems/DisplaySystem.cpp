@@ -10,7 +10,7 @@
 
 /**
  * @brief display the hitboxes of the entities if the debug mode is activated
- * 
+ *
  * @param w : the window reference
  * @param s :the sprite reference
  * @param team : the team if the entity has one (optional)

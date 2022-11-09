@@ -6,6 +6,7 @@
 */
 
 #include "System.hpp"
+#include "Globals.hpp"
 
 int count_bosses(Registry_ref reg)
 {
@@ -28,7 +29,7 @@ void User::enemy_system(registry &r, SpriteManager<std::string>& _spriteManager,
     if (time_span < std::chrono::seconds(2))
         return;
     entity_t enemy = r.spawn_entity();
-    int enemy_type = rand() % 4;
+    int enemy_type = rand() % Globals::difficulty;
     if (enemy_type == 0) {
         r.add_component<drawable>(enemy, {_spriteManager.Get("enemy")});
         r.add_component<position>(enemy, {static_cast<float>(w.getSize().x) * 0.9f, static_cast<float>(rand() % (w.getSize().y - 64))});
@@ -38,6 +39,7 @@ void User::enemy_system(registry &r, SpriteManager<std::string>& _spriteManager,
         r.add_component<is_ally>(enemy, {false});
         r.add_component<health>(enemy, {20});
         r.add_component<attack>(enemy, {10});
+        r.add_component<value_score>(enemy, {10});
     } else if (enemy_type == 1) {
         r.add_component<drawable>(enemy, {_spriteManager.Get("enemy_02")});
         r.add_component<position>(enemy, {static_cast<float>(w.getSize().x) * 0.9f, static_cast<float>(rand() % (w.getSize().y - 32))});
@@ -47,6 +49,7 @@ void User::enemy_system(registry &r, SpriteManager<std::string>& _spriteManager,
         r.add_component<is_ally>(enemy, {false});
         r.add_component<health>(enemy, {1});
         r.add_component<attack>(enemy, {10});
+        r.add_component<value_score>(enemy, {1});
     } else if (enemy_type == 2) {
         r.add_component<drawable>(enemy, {_spriteManager.Get("enemy_03")});
         r.add_component<position>(enemy, {static_cast<float>(w.getSize().x) * 0.9f, static_cast<float>(rand() % (w.getSize().y - 96))});
@@ -56,6 +59,7 @@ void User::enemy_system(registry &r, SpriteManager<std::string>& _spriteManager,
         r.add_component<is_ally>(enemy, {false});
         r.add_component<health>(enemy, {40});
         r.add_component<attack>(enemy, {10});
+        r.add_component<value_score>(enemy, {100});
     } else if (enemy_type == 3) {
         r.add_component<drawable>(enemy, {_spriteManager.Get("boss")});
         r.add_component<position>(enemy, {static_cast<float>(w.getSize().x) * 0.7f, static_cast<float>(100)});
@@ -65,6 +69,7 @@ void User::enemy_system(registry &r, SpriteManager<std::string>& _spriteManager,
         r.add_component<is_ally>(enemy, {false});
         r.add_component<health>(enemy, {100});
         r.add_component<attack>(enemy, {100});
+        r.add_component<value_score>(enemy, {1000});
         r.add_component<is_boss>(enemy, {});
     }
     last_time = current_time;

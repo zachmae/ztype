@@ -78,6 +78,8 @@ namespace Project {
                 config_extractor<scene_config::components_list>::function(_ecs); //sys
 
                 json file = json::parse(std::ifstream(jsonfile.c_str()));
+                if (Globals::difficulty == 0)
+                    Globals::difficulty = file["game-settings"]["difficulty"];
                 InitWindow(file);
                 InitSprites(file);
                 InitSounds(file);
@@ -101,6 +103,7 @@ namespace Project {
             {
                 bool leave = false;
                 _userManager.InitScene(_ecs, _sm, _am, _mm, _scenes);
+                Globals::score = 0;
                 while (_window.isOpen() && !leave) { // run the program as long as the window is open
                     // check all the window's events that were triggered since the last iteration of the loop
                     while (_window.pollEvent(_event)) {
@@ -121,7 +124,7 @@ namespace Project {
                     _window.display();
                     leave = _userManager.UpdatePostWindowSystem(_ecs, _scenes, _window, _am);
                 }
-                std::cout << dictionnary_language[leave ? "game_over": "bye"] << std::endl;
+                std::cout << dictionnary_language[leave ? "game_over": "bye"] << std::endl <<"score: " << Globals::score << std::endl;
                 return 0;
             };
 
@@ -192,7 +195,8 @@ namespace Project {
 
                 if (ifs.good()) { //check if file exist
                     fileSprite = json::parse(ifs);
-                    Globals::debug_mode =  fileSprite["debug"];
+                    if (!Globals::debug_mode)
+                        Globals::debug_mode =  fileSprite["debug"];
                     for (auto &it : fileSprite["sprites"]) { //get each sprite
                         std::cout << "load: " << it["name"] << it["path"] << std::endl; //debug
                         _sm.Add(it["name"], it["path"]); // add sprite to sprite manager

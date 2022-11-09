@@ -190,6 +190,14 @@ struct clickable_sfx {
     std::string key;
 };
 
+/**
+ * @brief Component value_score so that the player earn points when the entity is killed
+ *
+ */
+struct value_score {
+    int value;
+};
+
 struct uuid {
     char uuid[32];
 };

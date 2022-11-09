@@ -10,6 +10,8 @@
 
 namespace Globals {
     inline bool debug_mode = false;
+    inline int score = 0;
+    inline int difficulty = 0;
 }
 
 #endif /* !GLOBALS_HPP_ */
