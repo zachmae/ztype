@@ -1,0 +1,70 @@
+\hypertarget{ProjectManager_8hpp_source}{}\doxysection{Project\+Manager.\+hpp}
+\label{ProjectManager_8hpp_source}\index{/home/Teyi/Epitech/Semestre5/CPP/rtype/src/ProjectManager/ProjectManager.hpp@{/home/Teyi/Epitech/Semestre5/CPP/rtype/src/ProjectManager/ProjectManager.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{** EPITECH PROJECT, 2022}}
+\DoxyCodeLine{3 \textcolor{comment}{** B-\/CPP-\/500-\/PAR-\/5-\/1-\/rtype-\/zacharie.lawson}}
+\DoxyCodeLine{4 \textcolor{comment}{** File description:}}
+\DoxyCodeLine{5 \textcolor{comment}{** ProjectManager}}
+\DoxyCodeLine{6 \textcolor{comment}{*/}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef PROJECTMANAGER\_HPP\_}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define PROJECTMANAGER\_HPP\_}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{comment}{//Std}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <tuple>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <type\_traits>} \textcolor{comment}{//std::is\_same\_v}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{comment}{//User}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}../User/User.hpp"{}}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include "{}../User/UserComponentManager.hpp"{}}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{comment}{//ProjectManager}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include "{}ProjectComponentManager.hpp"{}}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{28 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceProject}{Project}} \{}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{35     \textcolor{keyword}{class }\mbox{\hyperlink{classProject_1_1ProjectManager}{ProjectManager}} \{}
+\DoxyCodeLine{36         \textcolor{keyword}{public}:}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38             \mbox{\hyperlink{classProject_1_1ProjectManager}{ProjectManager}}(std::string jsonfile)}
+\DoxyCodeLine{39             : \_userManager(jsonfile)}
+\DoxyCodeLine{40             \{}
+\DoxyCodeLine{41                 \mbox{\hyperlink{structProject_1_1ProjectManager_1_1config__extractor}{config\_extractor<project\_config::components\_list>::function}}(\_ecs); \textcolor{comment}{//sys}}
+\DoxyCodeLine{42                 \mbox{\hyperlink{structProject_1_1ProjectManager_1_1config__extractor}{config\_extractor<user\_config::components\_list>::function}}(\_ecs); \textcolor{comment}{//user}}
+\DoxyCodeLine{43             \};}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45             \mbox{\hyperlink{classProject_1_1ProjectManager}{\string~ProjectManager}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{54             \textcolor{keyword}{virtual} \textcolor{keywordtype}{int} \mbox{\hyperlink{classProject_1_1ProjectManager_ae107a29bf014445ae7fea30f3572468b}{Start}}(std::string \textcolor{keyword}{const} \&ip, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{short} port) = 0;}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58         \textcolor{keyword}{protected}:}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{66             \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{67             \textcolor{keyword}{struct }\mbox{\hyperlink{structProject_1_1ProjectManager_1_1config__extractor}{config\_extractor}} \{ \textcolor{comment}{// ne devrait jamais être instancié sauf erreur => gestion d'erreur}}
+\DoxyCodeLine{68                 \textcolor{keyword}{static\_assert}(std::is\_same\_v<T, std::tuple<>>, \textcolor{stringliteral}{"{}component\_list in ComponentManager.hpp should be a tuple of Components"{}}); \textcolor{comment}{// empeche la compilation si T n'est pas std::tuple<int> (ce qui ne peux jamais arriver)}}
+\DoxyCodeLine{69             \};}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{77             \textcolor{keyword}{template} <\textcolor{keyword}{class }... Components>}
+\DoxyCodeLine{78             \textcolor{keyword}{struct }\mbox{\hyperlink{structProject_1_1ProjectManager_1_1config__extractor}{config\_extractor}}<std::tuple<Components...>> \{ \textcolor{comment}{// overload si T est un tuple de choses. Ne clash pas avec la def précédentes}}
+\DoxyCodeLine{84 \textcolor{comment}{}                \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{structProject_1_1ProjectManager_1_1config__extractor_3_01std_1_1tuple_3_01Components_8_8_8_01_4_01_4_a5678b38d6e0f5f7385cbcdd2e6572b04}{function}}(\mbox{\hyperlink{classregistry}{registry}} \&r) \{}
+\DoxyCodeLine{85                     (r.\mbox{\hyperlink{group__ECS_gac77008529bb6e296916633cc41ba5be5}{register\_component}}<Components>(), ...);}
+\DoxyCodeLine{86                 \}}
+\DoxyCodeLine{87             \};}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89         \textcolor{keyword}{protected}:}
+\DoxyCodeLine{90             \mbox{\hyperlink{classregistry}{registry}} \_ecs;}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92             \mbox{\hyperlink{classUser_1_1UserManager}{User::UserManager}} \_userManager;}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94         \textcolor{keyword}{public}:}
+\DoxyCodeLine{95     \};}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97 \};}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* !PROJECTMANAGER\_HPP\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

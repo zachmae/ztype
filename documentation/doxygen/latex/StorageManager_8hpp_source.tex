@@ -1,0 +1,55 @@
+\hypertarget{StorageManager_8hpp_source}{}\doxysection{Storage\+Manager.\+hpp}
+\label{StorageManager_8hpp_source}\index{/home/Teyi/Epitech/Semestre5/CPP/rtype/src/StorageManager.hpp@{/home/Teyi/Epitech/Semestre5/CPP/rtype/src/StorageManager.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{** EPITECH PROJECT, 2022}}
+\DoxyCodeLine{3 \textcolor{comment}{** B-\/CPP-\/500-\/PAR-\/5-\/1-\/rtype-\/zacharie.lawson}}
+\DoxyCodeLine{4 \textcolor{comment}{** File description:}}
+\DoxyCodeLine{5 \textcolor{comment}{** SpriteManager}}
+\DoxyCodeLine{6 \textcolor{comment}{*/}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <SFML/Window.hpp>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}SFML/Graphics.hpp"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}SFML/Audio.hpp"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}SFML/System.hpp"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}SFML/Network.hpp"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}Scene.hpp"{}}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{comment}{//\#ifndef SPRITEMANAGER\_HPP\_}}
+\DoxyCodeLine{17 \textcolor{comment}{//\#define SPRITEMANAGER\_HPP\_}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{27 \textcolor{comment}{//template<typename \_Res, typename... \_ArgTypes>}}
+\DoxyCodeLine{28 \textcolor{comment}{//class function<\_Res(\_ArgTypes...)>}}
+\DoxyCodeLine{29 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Key, \textcolor{keyword}{typename} Value, \textcolor{keyword}{typename}... \_ArgTypes>}
+\DoxyCodeLine{30 \textcolor{keyword}{class }\mbox{\hyperlink{classStorageManager}{StorageManager}} \{}
+\DoxyCodeLine{31     \textcolor{keyword}{public}:}
+\DoxyCodeLine{32         \textcolor{keyword}{using }TStorage = std::map<Key, Value>;}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34         \mbox{\hyperlink{classStorageManager}{StorageManager}}(std::function<Value(\_ArgTypes...)> f)}
+\DoxyCodeLine{35         : \_f(f) \{\}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{43         \textcolor{keywordtype}{void} \mbox{\hyperlink{classStorageManager_ae32fb274e42316cc51b3eef05cd92382}{Add}}(Key k, Value \&v)}
+\DoxyCodeLine{44         \{}
+\DoxyCodeLine{45             \_storage.insert(std::pair<Key, Value>(k, v));}
+\DoxyCodeLine{46         \}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{56         \textcolor{keywordtype}{void} \mbox{\hyperlink{classStorageManager_a0df6b9b3ebad27e04ed8f852701fde03}{Add}}(Key k, \_ArgTypes... vc)}
+\DoxyCodeLine{57         \{}
+\DoxyCodeLine{58             \_storage.insert(std::pair<Key, Value>(k, \_f(vc)));}
+\DoxyCodeLine{59         \}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{67         Value \&\mbox{\hyperlink{classStorageManager_aad24ae469bd27bf39b7f8c3236186ad4}{Get}}(Key k)}
+\DoxyCodeLine{68         \{}
+\DoxyCodeLine{69               \textcolor{keywordflow}{return} \_storage[k];}
+\DoxyCodeLine{70         \}}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72     \textcolor{keyword}{private}:}
+\DoxyCodeLine{73         TStorage \_storage;}
+\DoxyCodeLine{74         std::function<Value(\_ArgTypes...)> \_f;}
+\DoxyCodeLine{75 \};}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77 \textcolor{comment}{//\#endif /* !SPRITEMANAGER\_HPP\_ */}}
+
+\end{DoxyCode}

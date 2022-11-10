@@ -1,0 +1,39 @@
+\hypertarget{classClient}{}\doxysection{Client Class Reference}
+\label{classClient}\index{Client@{Client}}
+
+
+Class for the client of the network.  
+
+
+
+
+{\ttfamily \#include $<$Client.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__Network_ga53c2f183bad637a444c7d1a164e02e62}{Client}} (std\+::string const \&ip, unsigned short port)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classClient}{Client}} and connect to the server. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Network_gaddd2a71501a35ae902e5faa99ee9c351}{send}} (std\+::string const \&message)
+\begin{DoxyCompactList}\small\item\em Send a packet to the server. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Network_ga3c364c67fa310228c2c507ec91051ea0}{send\+Pos}} (float x, float y)
+\begin{DoxyCompactList}\small\item\em Send a position to the server. \end{DoxyCompactList}\item 
+sf\+::\+Packet \mbox{\hyperlink{group__Network_ga09e51b02bf201079adddc4a641a1b394}{receive}} ()
+\begin{DoxyCompactList}\small\item\em Receive a packet from the server. \end{DoxyCompactList}\item 
+sf\+::\+Packet \mbox{\hyperlink{group__Network_gad320512816103b19b9650fabcf3bd175}{Wait\+Receive}} ()
+\begin{DoxyCompactList}\small\item\em Receive a packet from the server. \end{DoxyCompactList}\item 
+void {\bfseries disconnect} ()
+\begin{DoxyCompactList}\small\item\em disconnect the client from the server \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Network_ga9fd9e7b0c3818d61dc106c8903e21575}{Get\+Id}} ()
+\begin{DoxyCompactList}\small\item\em Get the Id object. \end{DoxyCompactList}\item 
+sf\+::\+Tcp\+Socket \& {\bfseries get\+Socket} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for the client of the network. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/\+Teyi/\+Epitech/\+Semestre5/\+CPP/rtype/src/\+Network/Client.\+hpp\item 
+/home/\+Teyi/\+Epitech/\+Semestre5/\+CPP/rtype/src/\+Network/Client.\+cpp\end{DoxyCompactItemize}

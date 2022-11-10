@@ -1,0 +1,124 @@
+\hypertarget{classScene}{}\doxysection{Scene Class Reference}
+\label{classScene}\index{Scene@{Scene}}
+
+
+used in \mbox{\hyperlink{classSceneManager}{Scene\+Manager}}  
+
+
+
+
+{\ttfamily \#include $<$Scene.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classScene_adf9bc95025069dee2f3667dae6bdd0bc}{Scene}} (\mbox{\hyperlink{classregistry}{Registry\+\_\+ref}} reg, int scene\+Id, std\+::string path)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classScene}{Scene}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structentity__t}{entity\+\_\+t}} \mbox{\hyperlink{classScene_a7ea9e035bc36ee3b67a89a7ad39167d4}{Spawn\+Entity}} ()
+\begin{DoxyCompactList}\small\item\em Spawn an entity like in Ecs but with a scene\+Id. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classScene_a56a5a902844f41ecab924d53b80ec3c4}{Set\+ZIndex}} (int z\+Index)
+\begin{DoxyCompactList}\small\item\em Set the Z Index of the scene. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classScene_a5f612148d707c9197341b20359812a9a}{Get\+ZIndex}} () const
+\begin{DoxyCompactList}\small\item\em Get the Z Index of the scene. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classScene_aec623462ef3c48c825c27def3f5a5859}{Get\+Id}} () const
+\begin{DoxyCompactList}\small\item\em Get the Id of the scene. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+used in \mbox{\hyperlink{classSceneManager}{Scene\+Manager}} 
+
+\begin{DoxyAuthor}{Author}
+\href{mailto:perry.chouteau@epitech.eu}{\texttt{ perry.\+chouteau@epitech.\+eu}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classScene_adf9bc95025069dee2f3667dae6bdd0bc}\label{classScene_adf9bc95025069dee2f3667dae6bdd0bc}} 
+\index{Scene@{Scene}!Scene@{Scene}}
+\index{Scene@{Scene}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{Scene()}{Scene()}}
+{\footnotesize\ttfamily Scene\+::\+Scene (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classregistry}{Registry\+\_\+ref}}}]{reg,  }\item[{int}]{scene\+Id,  }\item[{std\+::string}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \mbox{\hyperlink{classScene}{Scene}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em reg} & \\
+\hline
+{\em scene\+Id} & \\
+\hline
+{\em path} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classScene_aec623462ef3c48c825c27def3f5a5859}\label{classScene_aec623462ef3c48c825c27def3f5a5859}} 
+\index{Scene@{Scene}!GetId@{GetId}}
+\index{GetId@{GetId}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{GetId()}{GetId()}}
+{\footnotesize\ttfamily int Scene\+::\+Get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the Id of the scene. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classScene_a5f612148d707c9197341b20359812a9a}\label{classScene_a5f612148d707c9197341b20359812a9a}} 
+\index{Scene@{Scene}!GetZIndex@{GetZIndex}}
+\index{GetZIndex@{GetZIndex}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{GetZIndex()}{GetZIndex()}}
+{\footnotesize\ttfamily int Scene\+::\+Get\+ZIndex (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the Z Index of the scene. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em z\+Index} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classScene_a56a5a902844f41ecab924d53b80ec3c4}\label{classScene_a56a5a902844f41ecab924d53b80ec3c4}} 
+\index{Scene@{Scene}!SetZIndex@{SetZIndex}}
+\index{SetZIndex@{SetZIndex}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{SetZIndex()}{SetZIndex()}}
+{\footnotesize\ttfamily int Scene\+::\+Set\+ZIndex (\begin{DoxyParamCaption}\item[{int}]{z\+Index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set the Z Index of the scene. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em z\+Index} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classScene_a7ea9e035bc36ee3b67a89a7ad39167d4}\label{classScene_a7ea9e035bc36ee3b67a89a7ad39167d4}} 
+\index{Scene@{Scene}!SpawnEntity@{SpawnEntity}}
+\index{SpawnEntity@{SpawnEntity}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{SpawnEntity()}{SpawnEntity()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structentity__t}{entity\+\_\+t}} Scene\+::\+Spawn\+Entity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Spawn an entity like in Ecs but with a scene\+Id. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{structentity__t}{entity\+\_\+t}} 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/\+Teyi/\+Epitech/\+Semestre5/\+CPP/rtype/src/\+Scene\+Manager/Scene.\+hpp\end{DoxyCompactItemize}

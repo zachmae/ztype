@@ -1,0 +1,45 @@
+\hypertarget{classServer}{}\doxysection{Server Class Reference}
+\label{classServer}\index{Server@{Server}}
+
+
+Class for the server of the network.  
+
+
+
+
+{\ttfamily \#include $<$Server.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__Network_gafdc204b21eae699fb44042665c44bbd0}{Server}} (unsigned short port)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classServer}{Server}} by bind the listener to a port. \end{DoxyCompactList}\item 
+{\bfseries $\sim$\+Server} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classServer}{Server}} by destroying all client and \textbackslash{} removing the listener and closing it. \end{DoxyCompactList}\item 
+void {\bfseries accept} ()
+\begin{DoxyCompactList}\small\item\em Accept a new client. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Network_ga1f45599eeba829acf0e27dc6f8189413}{send}} (std\+::string const \&message)
+\begin{DoxyCompactList}\small\item\em Send a message to all clients. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Network_ga5541d5a6d165878f7a2381245a2e25b8}{send\+Pos}} (float x, float y)
+\begin{DoxyCompactList}\small\item\em Send a position to all clients. \end{DoxyCompactList}\item 
+sf\+::\+Packet \mbox{\hyperlink{group__Network_gafb5b2bca30ce67ec5611383f094f7c4d}{receive}} (sf\+::\+Tcp\+Socket $\ast$client)
+\begin{DoxyCompactList}\small\item\em Receive a message from a client. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__Network_ga87ca9f261175648de7bd589d469c7ee0}{is\+New\+Connection}} ()
+\begin{DoxyCompactList}\small\item\em Check if there is a new client. \end{DoxyCompactList}\item 
+sf\+::\+Tcp\+Socket $\ast$ \mbox{\hyperlink{group__Network_ga37a55f99feea608eb353932d93c144b2}{is\+New\+Message}} ()
+\begin{DoxyCompactList}\small\item\em Check if there is a new message from a client. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__Network_ga0d2eada80bfb7ad309409ce4c9027f42}{selector\+Wait}} ()
+\begin{DoxyCompactList}\small\item\em \+: the selector wait 1 microsecond to check if there is a new message \end{DoxyCompactList}\item 
+std\+::vector$<$ sf\+::\+Tcp\+Socket $\ast$ $>$ \mbox{\hyperlink{group__Network_ga6f569f0e037a945460215598509368a3}{get\+Clients}} ()
+\begin{DoxyCompactList}\small\item\em Get the Clients object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for the server of the network. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/\+Teyi/\+Epitech/\+Semestre5/\+CPP/rtype/src/\+Network/Server.\+hpp\item 
+/home/\+Teyi/\+Epitech/\+Semestre5/\+CPP/rtype/src/\+Network/Server.\+cpp\end{DoxyCompactItemize}

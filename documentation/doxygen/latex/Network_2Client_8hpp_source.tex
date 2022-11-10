@@ -1,0 +1,44 @@
+\hypertarget{Network_2Client_8hpp_source}{}\doxysection{Client.\+hpp}
+\label{Network_2Client_8hpp_source}\index{/home/Teyi/Epitech/Semestre5/CPP/rtype/src/Network/Client.hpp@{/home/Teyi/Epitech/Semestre5/CPP/rtype/src/Network/Client.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{** EPITECH PROJECT, 2022}}
+\DoxyCodeLine{3 \textcolor{comment}{** client.hpp}}
+\DoxyCodeLine{4 \textcolor{comment}{** File description:}}
+\DoxyCodeLine{5 \textcolor{comment}{** client}}
+\DoxyCodeLine{6 \textcolor{comment}{*/}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef CLIENT\_HPP\_}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define CLIENT\_HPP\_}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <SFML/Network.hpp>}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{20 \textcolor{keyword}{class }\mbox{\hyperlink{classClient}{Client}} \{}
+\DoxyCodeLine{21     \textcolor{keyword}{public}:}
+\DoxyCodeLine{28         \mbox{\hyperlink{classClient}{Client}}(std::string \textcolor{keyword}{const} \&ip, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{short} port);}
+\DoxyCodeLine{29         \textcolor{keyword}{inline} \mbox{\hyperlink{classClient}{\string~Client}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 }
+\DoxyCodeLine{37         [[deprecated]] \textcolor{keywordtype}{void} \mbox{\hyperlink{group__Network_gaddd2a71501a35ae902e5faa99ee9c351}{send}}(std::string \textcolor{keyword}{const} \&message);}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{45         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__Network_ga3c364c67fa310228c2c507ec91051ea0}{sendPos}}(\textcolor{keywordtype}{float} x, \textcolor{keywordtype}{float} y);}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{52         \textcolor{keyword}{inline} sf::Packet \mbox{\hyperlink{group__Network_ga09e51b02bf201079adddc4a641a1b394}{receive}}(); \textcolor{comment}{// not used}}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{59         sf::Packet \mbox{\hyperlink{group__Network_gad320512816103b19b9650fabcf3bd175}{WaitReceive}}();}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{64         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__Network_ga97e144b48409c0a9873eee09f04ce724}{disconnect}}();}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{71         \textcolor{keywordtype}{int} \mbox{\hyperlink{group__Network_ga9fd9e7b0c3818d61dc106c8903e21575}{GetId}}() \{ \textcolor{keywordflow}{return} \_id; \}}
+\DoxyCodeLine{72         [[nodiscard]] \textcolor{keyword}{inline} sf::TcpSocket \&getSocket() \{ \textcolor{keywordflow}{return} \_socket; \}}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74     \textcolor{keyword}{private}:}
+\DoxyCodeLine{75         sf::TcpSocket \_socket;}
+\DoxyCodeLine{76         \textcolor{keywordtype}{int} \_id = 0;}
+\DoxyCodeLine{77 \};}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* CLIENT\_HPP\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

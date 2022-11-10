@@ -1,0 +1,162 @@
+\hypertarget{classSceneManager}{}\doxysection{Scene\+Manager\texorpdfstring{$<$}{<} Key \texorpdfstring{$>$}{>} Class Template Reference}
+\label{classSceneManager}\index{SceneManager$<$ Key $>$@{SceneManager$<$ Key $>$}}
+
+
+\mbox{\hyperlink{classSpriteManager}{Sprite\+Manager}}.  
+
+
+
+
+{\ttfamily \#include $<$Scene\+Manager.\+hpp$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSceneManager_a8c67442b3e27dc9cc888155607b8c989}\label{classSceneManager_a8c67442b3e27dc9cc888155607b8c989}} 
+using {\bfseries TStorage} = std\+::map$<$ Key, \mbox{\hyperlink{classScene}{Scene}} $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSceneManager_a06786442359543a83dadfa7ef2fc4dd8}\label{classSceneManager_a06786442359543a83dadfa7ef2fc4dd8}} 
+{\bfseries Scene\+Manager} ()
+\begin{DoxyCompactList}\small\item\em Construct a new Sprite Manager object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSceneManager_a7fd266f0cfa89d0a5b1deb2196f29b35}{Add}} (Key k, const \mbox{\hyperlink{classScene}{Scene}} \&v)
+\begin{DoxyCompactList}\small\item\em Add. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSceneManager_af5bf6ee78a4fd3b680fe9b44e00544ba}{Add}} (Key k, std\+::string path)
+\begin{DoxyCompactList}\small\item\em Add. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classScene}{Scene}} \& \mbox{\hyperlink{classSceneManager_a1b217a6449e8207f41c11474d9333401}{Get}} (Key k)
+\begin{DoxyCompactList}\small\item\em Get a \mbox{\hyperlink{classScene}{Scene}} by its key. \end{DoxyCompactList}\item 
+std\+::map$<$ Key, \mbox{\hyperlink{classScene}{Scene}} $>$ \mbox{\hyperlink{classSceneManager_a899f70c3d2d5ed5cd751725b64047274}{Get\+Scenes}} ()
+\begin{DoxyCompactList}\small\item\em Get all Scenes and their keys. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{classSceneManager_a2911a709c77d6b3c2294ed0398686c7a}{Get\+Ordered\+Ztype\+Positive\+Only}} ()
+\begin{DoxyCompactList}\small\item\em Get Ordered Ztype Positive Only. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{classSceneManager_a29e7ac4f0576e497811f6a5270165bf4}{Get\+Display\+Order\+Of\+Scene\+ID}} ()
+\begin{DoxyCompactList}\small\item\em Get the Display Order Of \mbox{\hyperlink{classScene}{Scene}} ID. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Key$>$\newline
+class Scene\+Manager$<$ Key $>$}
+\mbox{\hyperlink{classSpriteManager}{Sprite\+Manager}}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+{\em Value} & \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyAuthor}{Author}
+\href{mailto:perry.chouteau@epitech.eu}{\texttt{ perry.\+chouteau@epitech.\+eu}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSceneManager_a7fd266f0cfa89d0a5b1deb2196f29b35}\label{classSceneManager_a7fd266f0cfa89d0a5b1deb2196f29b35}} 
+\index{SceneManager$<$ Key $>$@{SceneManager$<$ Key $>$}!Add@{Add}}
+\index{Add@{Add}!SceneManager$<$ Key $>$@{SceneManager$<$ Key $>$}}
+\doxysubsubsection{\texorpdfstring{Add()}{Add()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Key $>$ \\
+void \mbox{\hyperlink{classSceneManager}{Scene\+Manager}}$<$ Key $>$\+::\+Add (\begin{DoxyParamCaption}\item[{Key}]{k,  }\item[{const \mbox{\hyperlink{classScene}{Scene}} \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & \\
+\hline
+{\em v} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+\href{mailto:perry.chouteau@epitech.eu}{\texttt{ perry.\+chouteau@epitech.\+eu}} 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{classSceneManager_af5bf6ee78a4fd3b680fe9b44e00544ba}\label{classSceneManager_af5bf6ee78a4fd3b680fe9b44e00544ba}} 
+\index{SceneManager$<$ Key $>$@{SceneManager$<$ Key $>$}!Add@{Add}}
+\index{Add@{Add}!SceneManager$<$ Key $>$@{SceneManager$<$ Key $>$}}
+\doxysubsubsection{\texorpdfstring{Add()}{Add()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Key $>$ \\
+void \mbox{\hyperlink{classSceneManager}{Scene\+Manager}}$<$ Key $>$\+::\+Add (\begin{DoxyParamCaption}\item[{Key}]{k,  }\item[{std\+::string}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & \\
+\hline
+{\em texture} & \\
+\hline
+{\em f} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSceneManager_a1b217a6449e8207f41c11474d9333401}\label{classSceneManager_a1b217a6449e8207f41c11474d9333401}} 
+\index{SceneManager$<$ Key $>$@{SceneManager$<$ Key $>$}!Get@{Get}}
+\index{Get@{Get}!SceneManager$<$ Key $>$@{SceneManager$<$ Key $>$}}
+\doxysubsubsection{\texorpdfstring{Get()}{Get()}}
+{\footnotesize\ttfamily template$<$typename Key $>$ \\
+\mbox{\hyperlink{classScene}{Scene}} \& \mbox{\hyperlink{classSceneManager}{Scene\+Manager}}$<$ Key $>$\+::\+Get (\begin{DoxyParamCaption}\item[{Key}]{k }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get a \mbox{\hyperlink{classScene}{Scene}} by its key. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classScene}{Scene}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSceneManager_a29e7ac4f0576e497811f6a5270165bf4}\label{classSceneManager_a29e7ac4f0576e497811f6a5270165bf4}} 
+\index{SceneManager$<$ Key $>$@{SceneManager$<$ Key $>$}!GetDisplayOrderOfSceneID@{GetDisplayOrderOfSceneID}}
+\index{GetDisplayOrderOfSceneID@{GetDisplayOrderOfSceneID}!SceneManager$<$ Key $>$@{SceneManager$<$ Key $>$}}
+\doxysubsubsection{\texorpdfstring{GetDisplayOrderOfSceneID()}{GetDisplayOrderOfSceneID()}}
+{\footnotesize\ttfamily template$<$typename Key $>$ \\
+std\+::vector$<$ int $>$ \mbox{\hyperlink{classSceneManager}{Scene\+Manager}}$<$ Key $>$\+::\+Get\+Display\+Order\+Of\+Scene\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the Display Order Of \mbox{\hyperlink{classScene}{Scene}} ID. 
+
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$int$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSceneManager_a2911a709c77d6b3c2294ed0398686c7a}\label{classSceneManager_a2911a709c77d6b3c2294ed0398686c7a}} 
+\index{SceneManager$<$ Key $>$@{SceneManager$<$ Key $>$}!GetOrderedZtypePositiveOnly@{GetOrderedZtypePositiveOnly}}
+\index{GetOrderedZtypePositiveOnly@{GetOrderedZtypePositiveOnly}!SceneManager$<$ Key $>$@{SceneManager$<$ Key $>$}}
+\doxysubsubsection{\texorpdfstring{GetOrderedZtypePositiveOnly()}{GetOrderedZtypePositiveOnly()}}
+{\footnotesize\ttfamily template$<$typename Key $>$ \\
+std\+::vector$<$ int $>$ \mbox{\hyperlink{classSceneManager}{Scene\+Manager}}$<$ Key $>$\+::\+Get\+Ordered\+Ztype\+Positive\+Only (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get Ordered Ztype Positive Only. 
+
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$int$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSceneManager_a899f70c3d2d5ed5cd751725b64047274}\label{classSceneManager_a899f70c3d2d5ed5cd751725b64047274}} 
+\index{SceneManager$<$ Key $>$@{SceneManager$<$ Key $>$}!GetScenes@{GetScenes}}
+\index{GetScenes@{GetScenes}!SceneManager$<$ Key $>$@{SceneManager$<$ Key $>$}}
+\doxysubsubsection{\texorpdfstring{GetScenes()}{GetScenes()}}
+{\footnotesize\ttfamily template$<$typename Key $>$ \\
+std\+::map$<$ Key, \mbox{\hyperlink{classScene}{Scene}} $>$ \mbox{\hyperlink{classSceneManager}{Scene\+Manager}}$<$ Key $>$\+::\+Get\+Scenes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get all Scenes and their keys. 
+
+\begin{DoxyReturn}{Returns}
+std\+::map$<$\+Key, Scene$>$ 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/\+Teyi/\+Epitech/\+Semestre5/\+CPP/rtype/src/\+Scene\+Manager/Scene\+Manager.\+hpp\end{DoxyCompactItemize}

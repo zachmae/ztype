@@ -7,8 +7,11 @@
     "sprites-path": "../assets/conf/sprites.json",
     "sounds-path": "../assets/conf/sounds.json",
     "scenes-path": "../assets/conf/scenes.json",
+    "game-settings" : {
+        "difficulty" : 4
+    },
     "network": {
         "port": 8080,
-        "ip": "localhost"
+        "ip": "fill with your ip"
     }
 }

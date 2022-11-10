@@ -1,0 +1,66 @@
+\hypertarget{Event_8hpp_source}{}\doxysection{Event.\+hpp}
+\label{Event_8hpp_source}\index{/home/Teyi/Epitech/Semestre5/CPP/rtype/src/PAML\_sfml/Window/Event.hpp@{/home/Teyi/Epitech/Semestre5/CPP/rtype/src/PAML\_sfml/Window/Event.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{** EPITECH PROJECT, 2022}}
+\DoxyCodeLine{3 \textcolor{comment}{** B-\/CPP-\/500-\/PAR-\/5-\/1-\/rtype-\/zacharie.lawson}}
+\DoxyCodeLine{4 \textcolor{comment}{** File description:}}
+\DoxyCodeLine{5 \textcolor{comment}{** IEvent}}
+\DoxyCodeLine{6 \textcolor{comment}{*/}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef PAML\_SFML\_EVENT\_HPP\_}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{    \#define PAML\_SFML\_EVENT\_HPP\_}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{    \#include "{}../System/Type.hpp"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{    \#include "{}../System/Vector2.hpp"{}}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{    \#include "{}Keyboard.hpp"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{    \#include "{}Mouse.hpp"{}}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{namespace }paml\_sfml \{}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \textcolor{keyword}{class }\mbox{\hyperlink{classpaml__sfml_1_1Event}{Event}} : \textcolor{keyword}{public} \mbox{\hyperlink{classpaml_1_1IEvent}{paml::IEvent}} \{}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22         \textcolor{keyword}{public}:}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24             \mbox{\hyperlink{classpaml__sfml_1_1Event}{Event}}();}
+\DoxyCodeLine{25             \mbox{\hyperlink{classpaml__sfml_1_1Event}{\string~Event}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27             \textcolor{keywordtype}{bool} isClosed();}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29             \textcolor{keywordtype}{bool} isResized();}
+\DoxyCodeLine{30             \mbox{\hyperlink{classpaml__sfml_1_1Vector2}{Vector2<uint32\_t>}} GetSize();}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32             \textcolor{keywordtype}{bool} isLostFocus();}
+\DoxyCodeLine{33             \textcolor{keywordtype}{bool} GainedFocus();}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35             \textcolor{keywordtype}{bool} isTextEntered();}
+\DoxyCodeLine{36             uint32\_t GetUnicode();}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38             \textcolor{keywordtype}{bool} isKeyPressed();}
+\DoxyCodeLine{39             \textcolor{keywordtype}{bool} isKeyReleased();}
+\DoxyCodeLine{40             Keyboard::Key GetKey();}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42             \textcolor{keywordtype}{bool} isMouseWheelScrolled();}
+\DoxyCodeLine{43             \textcolor{keywordtype}{float} GetMouseWheelScroll();}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45             \textcolor{keywordtype}{bool} isMouseButtonPressed();}
+\DoxyCodeLine{46             \textcolor{keywordtype}{bool} isMouseButtonReleased();}
+\DoxyCodeLine{47             Mouse::Button GetMouseButton();}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49             \textcolor{keywordtype}{bool} isMouseMoved();}
+\DoxyCodeLine{50             \mbox{\hyperlink{classpaml__sfml_1_1Vector2}{Vector2<int32\_t>}} GetMousePosition();}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52             \textcolor{keywordtype}{bool} isMouseEntered();}
+\DoxyCodeLine{53             \textcolor{keywordtype}{bool} isMouseLeft();}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     \};}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57 \} \textcolor{comment}{// namespace paml}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* !PAML\_IEVENT\_HPP\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

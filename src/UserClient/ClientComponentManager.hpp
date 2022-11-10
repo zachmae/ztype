@@ -23,6 +23,7 @@ namespace User {
                                             health,
                                             is_boss,
                                             death_sfx,
+                                            value_score,
                                             int>;
     };
 

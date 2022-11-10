@@ -8,6 +8,13 @@
 #include "System.hpp"
 #include "Globals.hpp"
 
+/**
+ * @brief display the hitboxes of the entities if the debug mode is activated
+ *
+ * @param w : the window reference
+ * @param s :the sprite reference
+ * @param team : the team if the entity has one (optional)
+ */
 static void display_debug_mode(sf::RenderWindow &w, sf::Sprite &s, std::optional<is_ally> team)
 {
     sf::RectangleShape rect;

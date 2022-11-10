@@ -1,0 +1,48 @@
+\hypertarget{Image_8hpp_source}{}\doxysection{Image.\+hpp}
+\label{Image_8hpp_source}\index{/home/Teyi/Epitech/Semestre5/CPP/rtype/src/PAML\_sfml/Graphics/Image.hpp@{/home/Teyi/Epitech/Semestre5/CPP/rtype/src/PAML\_sfml/Graphics/Image.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{** EPITECH PROJECT, 2021}}
+\DoxyCodeLine{3 \textcolor{comment}{** IColor}}
+\DoxyCodeLine{4 \textcolor{comment}{** File description:}}
+\DoxyCodeLine{5 \textcolor{comment}{** Image}}
+\DoxyCodeLine{6 \textcolor{comment}{*/}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef PAML\_SFML\_IMAGE\_HPP}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{    \#define PAML\_SFML\_IMAGE\_HPP}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{    \#include <string>}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{    \#include "{}../../PAML/Graphics.hpp"{}}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{preprocessor}{    \#include "{}../System/Type.hpp"{}}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{keyword}{namespace }paml\_sfml \{}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \textcolor{keyword}{class }\mbox{\hyperlink{classpaml__sfml_1_1Image}{Image}} : \textcolor{keyword}{public} \mbox{\hyperlink{classpaml_1_1IImage}{paml::IImage}}  \{}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21         \textcolor{keyword}{public}:}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23             \mbox{\hyperlink{classpaml__sfml_1_1Image}{Image}}();}
+\DoxyCodeLine{24             \mbox{\hyperlink{classpaml__sfml_1_1Image}{\string~Image}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26             \textcolor{keywordtype}{void} create(uint32\_t width, uint32\_t height, \textcolor{keyword}{const} IColor \&color);}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28             \textcolor{keywordtype}{bool} loadFromFile(\textcolor{keyword}{const} std::string \&filename);}
+\DoxyCodeLine{29             \textcolor{keywordtype}{bool} saveToFile(\textcolor{keyword}{const} std::string \&filename) \textcolor{keyword}{const};}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31             \textcolor{keywordtype}{void} setPixel(uint32\_t posX, uint32\_t posY, IColor \&color);}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33             IColor \&getColor(uint32\_t posX, uint32\_t posY) \textcolor{keyword}{const};}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35         \textcolor{keyword}{private}:}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37             sf::Image \_image;}
+\DoxyCodeLine{38     \};}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// !PAML\_\_SFML\_IMAGE\_HPP}}
+
+\end{DoxyCode}

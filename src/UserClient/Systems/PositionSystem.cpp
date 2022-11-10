@@ -6,6 +6,7 @@
 */
 
 #include "System.hpp"
+#include "Globals.hpp"
 
 bool User::is_ship_out_system(std::optional<position> pos, std::optional<velocity> vel, Window_ref w)
 {
@@ -72,6 +73,7 @@ void User::collision_system(registry &r, AudioManager<std::string>& _audioManage
         auto &attack = r.get_components<struct attack>();
         auto &healths = r.get_components<struct health>();
         auto &death_sfxs = r.get_components<struct death_sfx>();
+        auto &points = r.get_components<struct value_score>();
 
         for (unsigned int idx_1 = 0; idx_1 < collidables.size() && idx_1 < drawables.size() && idx_1 < are_allies.size(); ++idx_1) {
             for (unsigned int idx_2 = idx_1 + 1; idx_2 < collidables.size() && idx_2 < drawables.size() && idx_2 < are_allies.size(); ++idx_2) {
@@ -85,11 +87,15 @@ void User::collision_system(registry &r, AudioManager<std::string>& _audioManage
                             healths[idx_2]->hp -= attack[idx_1]->damage;
                             healths[idx_1]->hp -= attack[idx_2]->damage;
                             if (healths[idx_2]->hp <= 0) {
+                                if (idx_2 < points.size() && points[idx_2])
+                                    Globals::score += points[idx_2]->value;
                                 if (idx_2 < death_sfxs.size() && death_sfxs[idx_2])
                                     _audioManager.play(death_sfxs[idx_2]->key);
                                 r.kill_entity(r.entity_from_index(idx_2));
                             }
                             if (healths[idx_1]->hp <= 0) {
+                                if (idx_1 < points.size() && points[idx_1])
+                                    Globals::score += points[idx_1]->value;
                                 if (idx_1 < death_sfxs.size() && death_sfxs[idx_1])
                                     _audioManager.play(death_sfxs[idx_1]->key);
                                 r.kill_entity(r.entity_from_index(idx_1));

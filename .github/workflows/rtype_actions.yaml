@@ -22,7 +22,7 @@ jobs:
   linux_testing_setup:
     runs-on: ubuntu-latest
     container: epitechcontent/epitest-docker
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
       ## GET THE REPOSITORY
       - name: checkout

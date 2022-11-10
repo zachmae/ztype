@@ -1,0 +1,60 @@
+\hypertarget{classpaml_1_1IWindow}{}\doxysection{paml\+::IWindow Class Reference}
+\label{classpaml_1_1IWindow}\index{paml::IWindow@{paml::IWindow}}
+Inheritance diagram for paml\+::IWindow\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classpaml_1_1IWindow}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classpaml_1_1IWindow_aa70050ec1c1c3b20539082ffdbc56f3b}\label{classpaml_1_1IWindow_aa70050ec1c1c3b20539082ffdbc56f3b}} 
+enum {\bfseries style} \{ \newline
+{\bfseries None} = 0
+, {\bfseries Titlebar} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 0
+, {\bfseries Resize} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 1
+, {\bfseries Close} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 2
+, \newline
+{\bfseries Fullscreen} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 3
+, {\bfseries Default} = Titlebar $\vert$ Resize $\vert$ Close
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classpaml_1_1IWindow_ab70932fc85d4ea0f0b0034527afb1bc1}\label{classpaml_1_1IWindow_ab70932fc85d4ea0f0b0034527afb1bc1}} 
+virtual bool {\bfseries close} ()=0
+\item 
+\mbox{\Hypertarget{classpaml_1_1IWindow_acbcc12929fe1d7b772147411fd038e48}\label{classpaml_1_1IWindow_acbcc12929fe1d7b772147411fd038e48}} 
+virtual bool {\bfseries is\+Open} () const =0
+\item 
+\mbox{\Hypertarget{classpaml_1_1IWindow_a187153a2acf4d6f57a30a3ca0ab538f2}\label{classpaml_1_1IWindow_a187153a2acf4d6f57a30a3ca0ab538f2}} 
+virtual void {\bfseries display} ()=0
+\item 
+\mbox{\Hypertarget{classpaml_1_1IWindow_ace5a4a4490a016a7acd427237ec5c937}\label{classpaml_1_1IWindow_ace5a4a4490a016a7acd427237ec5c937}} 
+virtual void {\bfseries set\+Framerate\+Limit} (uint32\+\_\+t)=0
+\item 
+\mbox{\Hypertarget{classpaml_1_1IWindow_aa21dedb03ffbf0a1072228357c7f9723}\label{classpaml_1_1IWindow_aa21dedb03ffbf0a1072228357c7f9723}} 
+virtual void {\bfseries set\+Mouse\+Cursor\+Visible} (bool)=0
+\item 
+\mbox{\Hypertarget{classpaml_1_1IWindow_a3face21ca4bd40d1766889032d351978}\label{classpaml_1_1IWindow_a3face21ca4bd40d1766889032d351978}} 
+virtual void {\bfseries set\+Visible} (bool)=0
+\item 
+\mbox{\Hypertarget{classpaml_1_1IWindow_a091b6065796af2e3e2c98430cd5cf497}\label{classpaml_1_1IWindow_a091b6065796af2e3e2c98430cd5cf497}} 
+virtual \mbox{\hyperlink{classpaml_1_1IVector2}{IVector2}}$<$ uint32\+\_\+t $>$ {\bfseries get\+Size} () const =0
+\item 
+\mbox{\Hypertarget{classpaml_1_1IWindow_a1630b6f9f6846fdc8163756824a8da9f}\label{classpaml_1_1IWindow_a1630b6f9f6846fdc8163756824a8da9f}} 
+virtual void {\bfseries set\+Size} (const \mbox{\hyperlink{classpaml_1_1IVector2}{IVector2}}$<$ uint32\+\_\+t $>$ \&)=0
+\item 
+\mbox{\Hypertarget{classpaml_1_1IWindow_a957d343a12db9a3b55f3c2bc207cef12}\label{classpaml_1_1IWindow_a957d343a12db9a3b55f3c2bc207cef12}} 
+virtual void {\bfseries draw} (\mbox{\hyperlink{classpaml_1_1IDrawable}{IDrawable}} \&)=0
+\item 
+\mbox{\Hypertarget{classpaml_1_1IWindow_ae5552cb2a869719b5d476c284c89865b}\label{classpaml_1_1IWindow_ae5552cb2a869719b5d476c284c89865b}} 
+virtual void {\bfseries poll\+Event} (\mbox{\hyperlink{classpaml_1_1IEvent}{IEvent}} \&)=0
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/\+Teyi/\+Epitech/\+Semestre5/\+CPP/rtype/src/\+PAML/\+Window/IWindow.\+hpp\end{DoxyCompactItemize}

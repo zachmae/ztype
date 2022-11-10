@@ -1,0 +1,597 @@
+\hypertarget{group__Modules}{}\doxysection{Modules}
+\label{group__Modules}\index{Modules@{Modules}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classmodules_1_1IAudioModule}{modules\+::\+IAudio\+Module}}
+\begin{DoxyCompactList}\small\item\em Interface for the audio module. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classmodules_1_1IMusicModule}{modules\+::\+IMusic\+Module}}
+\begin{DoxyCompactList}\small\item\em Interface for the music module. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classmodules_1_1SFMLAudioModule}{modules\+::\+SFMLAudio\+Module}}
+\item 
+class \mbox{\hyperlink{classmodules_1_1SFMLMusicModule}{modules\+::\+SFMLMusic\+Module}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group__Modules_ga8787896c32aed13fc78443a5191cdb0b}{modules\+::\+Music\+Status}} \{ {\bfseries PLAYING}
+, {\bfseries PAUSED}
+, {\bfseries STOPPED}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumerate the different status of a sound. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{group__Modules_ga15a17d096a8b78d68b7af7fd6b73be0f}{modules\+::\+IAudio\+Module\+::set\+Source}} (std\+::string source\+\_\+path)=0
+\begin{DoxyCompactList}\small\item\em load and set an audio file \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{group__Modules_ga250719cac8a96bb0cec98c8a9429aded}{modules\+::\+IAudio\+Module\+::play}} ()=0
+\begin{DoxyCompactList}\small\item\em play the audio source \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{group__Modules_ga4e93ed7d6f18ec90c0a756f0b4d967de}{modules\+::\+IAudio\+Module\+::pause}} ()=0
+\begin{DoxyCompactList}\small\item\em pause the audio source \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{group__Modules_gacc9c647c70c3ea95981efb4d2f564a7a}{modules\+::\+IAudio\+Module\+::stop}} ()=0
+\begin{DoxyCompactList}\small\item\em stop the audio source \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{group__Modules_ga81ed323a9654542b95a7e9d955c6a07d}{modules\+::\+IAudio\+Module\+::set\+Volume}} (float volume)=0
+\begin{DoxyCompactList}\small\item\em Set the volume of the audio source. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{group__Modules_ga8787896c32aed13fc78443a5191cdb0b}{Music\+Status}} \mbox{\hyperlink{group__Modules_ga26278060ac53a6746e22cc324fd43713}{modules\+::\+IAudio\+Module\+::get\+Status}} ()=0
+\begin{DoxyCompactList}\small\item\em Get the status of the audio source. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{group__Modules_ga6c29c8296fea229b069fae619fb26ddb}{modules\+::\+IMusic\+Module\+::set\+Source}} (std\+::string source\+\_\+path)=0
+\begin{DoxyCompactList}\small\item\em load and set an audio file \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{group__Modules_ga1c1f8a2e2cba554b5cb24a04edf72f66}{modules\+::\+IMusic\+Module\+::play}} ()=0
+\begin{DoxyCompactList}\small\item\em play the audio source \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{group__Modules_ga0ae49ee505b61908635177f06d0ec8a0}{modules\+::\+IMusic\+Module\+::pause}} ()=0
+\begin{DoxyCompactList}\small\item\em pause the audio source \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{group__Modules_ga9fa5000062130efd72c89f24f0d91850}{modules\+::\+IMusic\+Module\+::stop}} ()=0
+\begin{DoxyCompactList}\small\item\em stop the audio source \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{group__Modules_gacb66855c7f652f9ae9fbfddd9e972a4c}{modules\+::\+IMusic\+Module\+::set\+Volume}} (float volume)=0
+\begin{DoxyCompactList}\small\item\em Set the Volume of the audio source. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{group__Modules_ga55fb36241f03274388e8360c30fbcbcc}{modules\+::\+IMusic\+Module\+::set\+Loop}} (bool loop)=0
+\begin{DoxyCompactList}\small\item\em Set the Loop of the audio source. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{group__Modules_ga8acae0b19258244b17562a5c4c88eb6b}{modules\+::\+IMusic\+Module\+::get\+Loop}} ()=0
+\begin{DoxyCompactList}\small\item\em Get the Loop of the audio source. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{group__Modules_ga8787896c32aed13fc78443a5191cdb0b}{Music\+Status}} \mbox{\hyperlink{group__Modules_ga118cd0dc49b4d909aafc0120b0f1670a}{modules\+::\+IMusic\+Module\+::get\+Status}} ()=0
+\begin{DoxyCompactList}\small\item\em Get the status of the audio source. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__Modules_gaf2a1708da1b546302f0eaa74211b1248}{modules\+::\+SFMLAudio\+Module\+::\+SFMLAudio\+Module}} (const std\+::string path)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classmodules_1_1SFMLAudioModule}{SFMLAudio\+Module}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Modules_gaaf787145f966eeb79f62cf26f6a439f7}{modules\+::\+SFMLAudio\+Module\+::set\+Source}} (std\+::string source\+\_\+path) override
+\begin{DoxyCompactList}\small\item\em Set the Source object from the path. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Modules_ga3fc30ffa737ea68f3ccb760c28d91bea}{modules\+::\+SFMLAudio\+Module\+::play}} () override
+\begin{DoxyCompactList}\small\item\em Play the sound effect. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Modules_gaa52a96654f5f3fe3fe322aef2bde1b20}{modules\+::\+SFMLAudio\+Module\+::pause}} () override
+\begin{DoxyCompactList}\small\item\em Pause the sound effect. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Modules_ga40831694622e92cddab91b8f787962e1}{modules\+::\+SFMLAudio\+Module\+::stop}} () override
+\begin{DoxyCompactList}\small\item\em Stop the sound effect. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Modules_gadaa43a428e10e7cd5446b3d990944b49}{modules\+::\+SFMLAudio\+Module\+::set\+Volume}} (float volume) override
+\begin{DoxyCompactList}\small\item\em Set the Volume of the sound effect. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__Modules_ga8787896c32aed13fc78443a5191cdb0b}{Music\+Status}} \mbox{\hyperlink{group__Modules_ga621c9c5f28e74713cebba766ccd548f9}{modules\+::\+SFMLAudio\+Module\+::get\+Status}} () override
+\begin{DoxyCompactList}\small\item\em Get the Status object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__Modules_ga14a3cb08820f7450ec355b9b03f4ec5e}{modules\+::\+SFMLMusic\+Module\+::\+SFMLMusic\+Module}} (const std\+::string path)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classmodules_1_1SFMLMusicModule}{SFMLMusic\+Module}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Modules_ga6d2ace83b826b5eafb5ce4bf52d7260e}{modules\+::\+SFMLMusic\+Module\+::set\+Source}} (std\+::string source\+\_\+path) override
+\begin{DoxyCompactList}\small\item\em Set the Source object from the path. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Modules_gad4d43a9cf8cd6c19e3d5e0a0dbb7360a}{modules\+::\+SFMLMusic\+Module\+::play}} () override
+\begin{DoxyCompactList}\small\item\em Play the music. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Modules_gacf372f4d8ca76311f67ee77edb9bee99}{modules\+::\+SFMLMusic\+Module\+::pause}} () override
+\begin{DoxyCompactList}\small\item\em Pause the music. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Modules_ga8e97c82c6bf0bc56f7ec6427f0db04c4}{modules\+::\+SFMLMusic\+Module\+::stop}} () override
+\begin{DoxyCompactList}\small\item\em Stop the music. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Modules_ga26bca0c6290f86e1d7dede72bb3086bd}{modules\+::\+SFMLMusic\+Module\+::set\+Volume}} (float volume) override
+\begin{DoxyCompactList}\small\item\em Set the Volume of the music. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Modules_ga3acb7b9d9d17a0c2585b6bc3409b2c53}{modules\+::\+SFMLMusic\+Module\+::set\+Loop}} (bool loop) override
+\begin{DoxyCompactList}\small\item\em set the Loop the music \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__Modules_ga0a4ff040ef5a4d3b98f08b89299f5e16}{modules\+::\+SFMLMusic\+Module\+::get\+Loop}} () override
+\begin{DoxyCompactList}\small\item\em Get the Loop status of the music. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__Modules_ga8787896c32aed13fc78443a5191cdb0b}{Music\+Status}} \mbox{\hyperlink{group__Modules_ga7a506c2469b00cdd853c3f49d173985b}{modules\+::\+SFMLMusic\+Module\+::get\+Status}} () override
+\begin{DoxyCompactList}\small\item\em Get the Status object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{group__Modules_ga8787896c32aed13fc78443a5191cdb0b}\label{group__Modules_ga8787896c32aed13fc78443a5191cdb0b}} 
+\index{Modules@{Modules}!MusicStatus@{MusicStatus}}
+\index{MusicStatus@{MusicStatus}!Modules@{Modules}}
+\doxysubsubsection{\texorpdfstring{MusicStatus}{MusicStatus}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group__Modules_ga8787896c32aed13fc78443a5191cdb0b}{modules\+::\+Music\+Status}}}
+
+
+
+Enumerate the different status of a sound. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__Modules_ga0a4ff040ef5a4d3b98f08b89299f5e16}\label{group__Modules_ga0a4ff040ef5a4d3b98f08b89299f5e16}} 
+\index{Modules@{Modules}!getLoop@{getLoop}}
+\index{getLoop@{getLoop}!Modules@{Modules}}
+\doxysubsubsection{\texorpdfstring{getLoop()}{getLoop()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool modules\+::\+SFMLMusic\+Module\+::get\+Loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the Loop status of the music. 
+
+\begin{DoxyReturn}{Returns}
+true \+: if the music is looping 
+
+false \+: if the music is not looping 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{group__Modules_ga8acae0b19258244b17562a5c4c88eb6b}{modules\+::\+IMusic\+Module}}.
+
+\mbox{\Hypertarget{group__Modules_ga8acae0b19258244b17562a5c4c88eb6b}\label{group__Modules_ga8acae0b19258244b17562a5c4c88eb6b}} 
+\index{Modules@{Modules}!getLoop@{getLoop}}
+\index{getLoop@{getLoop}!Modules@{Modules}}
+\doxysubsubsection{\texorpdfstring{getLoop()}{getLoop()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual bool modules\+::\+IMusic\+Module\+::get\+Loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Get the Loop of the audio source. 
+
+\begin{DoxyReturn}{Returns}
+true \+: is looping 
+
+false \+: don\textquotesingle{}t loop 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{group__Modules_ga0a4ff040ef5a4d3b98f08b89299f5e16}{modules\+::\+SFMLMusic\+Module}}.
+
+\mbox{\Hypertarget{group__Modules_ga621c9c5f28e74713cebba766ccd548f9}\label{group__Modules_ga621c9c5f28e74713cebba766ccd548f9}} 
+\index{Modules@{Modules}!getStatus@{getStatus}}
+\index{getStatus@{getStatus}!Modules@{Modules}}
+\doxysubsubsection{\texorpdfstring{getStatus()}{getStatus()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__Modules_ga8787896c32aed13fc78443a5191cdb0b}{Music\+Status}} modules\+::\+SFMLAudio\+Module\+::get\+Status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the Status object. 
+
+\begin{DoxyReturn}{Returns}
+Music\+Status \+: the current status of the sound effect 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{group__Modules_ga26278060ac53a6746e22cc324fd43713}{modules\+::\+IAudio\+Module}}.
+
+\mbox{\Hypertarget{group__Modules_ga7a506c2469b00cdd853c3f49d173985b}\label{group__Modules_ga7a506c2469b00cdd853c3f49d173985b}} 
+\index{Modules@{Modules}!getStatus@{getStatus}}
+\index{getStatus@{getStatus}!Modules@{Modules}}
+\doxysubsubsection{\texorpdfstring{getStatus()}{getStatus()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__Modules_ga8787896c32aed13fc78443a5191cdb0b}{Music\+Status}} modules\+::\+SFMLMusic\+Module\+::get\+Status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the Status object. 
+
+\begin{DoxyReturn}{Returns}
+Music\+Status \+: the current status of the music 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{group__Modules_ga118cd0dc49b4d909aafc0120b0f1670a}{modules\+::\+IMusic\+Module}}.
+
+\mbox{\Hypertarget{group__Modules_ga26278060ac53a6746e22cc324fd43713}\label{group__Modules_ga26278060ac53a6746e22cc324fd43713}} 
+\index{Modules@{Modules}!getStatus@{getStatus}}
+\index{getStatus@{getStatus}!Modules@{Modules}}
+\doxysubsubsection{\texorpdfstring{getStatus()}{getStatus()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{group__Modules_ga8787896c32aed13fc78443a5191cdb0b}{Music\+Status}} modules\+::\+IAudio\+Module\+::get\+Status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Get the status of the audio source. 
+
+\begin{DoxyReturn}{Returns}
+Music\+Status \+: status that correspond of an enum given above 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{group__Modules_ga621c9c5f28e74713cebba766ccd548f9}{modules\+::\+SFMLAudio\+Module}}.
+
+\mbox{\Hypertarget{group__Modules_ga118cd0dc49b4d909aafc0120b0f1670a}\label{group__Modules_ga118cd0dc49b4d909aafc0120b0f1670a}} 
+\index{Modules@{Modules}!getStatus@{getStatus}}
+\index{getStatus@{getStatus}!Modules@{Modules}}
+\doxysubsubsection{\texorpdfstring{getStatus()}{getStatus()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{group__Modules_ga8787896c32aed13fc78443a5191cdb0b}{Music\+Status}} modules\+::\+IMusic\+Module\+::get\+Status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Get the status of the audio source. 
+
+\begin{DoxyReturn}{Returns}
+Music\+Status \+: status that correspond of an enum given above 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{group__Modules_ga7a506c2469b00cdd853c3f49d173985b}{modules\+::\+SFMLMusic\+Module}}.
+
+\mbox{\Hypertarget{group__Modules_gaa52a96654f5f3fe3fe322aef2bde1b20}\label{group__Modules_gaa52a96654f5f3fe3fe322aef2bde1b20}} 
+\index{Modules@{Modules}!pause@{pause}}
+\index{pause@{pause}!Modules@{Modules}}
+\doxysubsubsection{\texorpdfstring{pause()}{pause()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily void modules\+::\+SFMLAudio\+Module\+::pause (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Pause the sound effect. 
+
+
+
+Implements \mbox{\hyperlink{group__Modules_ga4e93ed7d6f18ec90c0a756f0b4d967de}{modules\+::\+IAudio\+Module}}.
+
+\mbox{\Hypertarget{group__Modules_gacf372f4d8ca76311f67ee77edb9bee99}\label{group__Modules_gacf372f4d8ca76311f67ee77edb9bee99}} 
+\index{Modules@{Modules}!pause@{pause}}
+\index{pause@{pause}!Modules@{Modules}}
+\doxysubsubsection{\texorpdfstring{pause()}{pause()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily void modules\+::\+SFMLMusic\+Module\+::pause (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Pause the music. 
+
+
+
+Implements \mbox{\hyperlink{group__Modules_ga0ae49ee505b61908635177f06d0ec8a0}{modules\+::\+IMusic\+Module}}.
+
+\mbox{\Hypertarget{group__Modules_ga4e93ed7d6f18ec90c0a756f0b4d967de}\label{group__Modules_ga4e93ed7d6f18ec90c0a756f0b4d967de}} 
+\index{Modules@{Modules}!pause@{pause}}
+\index{pause@{pause}!Modules@{Modules}}
+\doxysubsubsection{\texorpdfstring{pause()}{pause()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily virtual void modules\+::\+IAudio\+Module\+::pause (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+pause the audio source 
+
+
+
+Implemented in \mbox{\hyperlink{group__Modules_gaa52a96654f5f3fe3fe322aef2bde1b20}{modules\+::\+SFMLAudio\+Module}}.
+
+\mbox{\Hypertarget{group__Modules_ga0ae49ee505b61908635177f06d0ec8a0}\label{group__Modules_ga0ae49ee505b61908635177f06d0ec8a0}} 
+\index{Modules@{Modules}!pause@{pause}}
+\index{pause@{pause}!Modules@{Modules}}
+\doxysubsubsection{\texorpdfstring{pause()}{pause()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily virtual void modules\+::\+IMusic\+Module\+::pause (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+pause the audio source 
+
+
+
+Implemented in \mbox{\hyperlink{group__Modules_gacf372f4d8ca76311f67ee77edb9bee99}{modules\+::\+SFMLMusic\+Module}}.
+
+\mbox{\Hypertarget{group__Modules_ga3fc30ffa737ea68f3ccb760c28d91bea}\label{group__Modules_ga3fc30ffa737ea68f3ccb760c28d91bea}} 
+\index{Modules@{Modules}!play@{play}}
+\index{play@{play}!Modules@{Modules}}
+\doxysubsubsection{\texorpdfstring{play()}{play()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily void modules\+::\+SFMLAudio\+Module\+::play (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Play the sound effect. 
+
+
+
+Implements \mbox{\hyperlink{group__Modules_ga250719cac8a96bb0cec98c8a9429aded}{modules\+::\+IAudio\+Module}}.
+
+\mbox{\Hypertarget{group__Modules_gad4d43a9cf8cd6c19e3d5e0a0dbb7360a}\label{group__Modules_gad4d43a9cf8cd6c19e3d5e0a0dbb7360a}} 
+\index{Modules@{Modules}!play@{play}}
+\index{play@{play}!Modules@{Modules}}
+\doxysubsubsection{\texorpdfstring{play()}{play()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily void modules\+::\+SFMLMusic\+Module\+::play (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Play the music. 
+
+
+
+Implements \mbox{\hyperlink{group__Modules_ga1c1f8a2e2cba554b5cb24a04edf72f66}{modules\+::\+IMusic\+Module}}.
+
+\mbox{\Hypertarget{group__Modules_ga250719cac8a96bb0cec98c8a9429aded}\label{group__Modules_ga250719cac8a96bb0cec98c8a9429aded}} 
+\index{Modules@{Modules}!play@{play}}
+\index{play@{play}!Modules@{Modules}}
+\doxysubsubsection{\texorpdfstring{play()}{play()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily virtual void modules\+::\+IAudio\+Module\+::play (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+play the audio source 
+
+
+
+Implemented in \mbox{\hyperlink{group__Modules_ga3fc30ffa737ea68f3ccb760c28d91bea}{modules\+::\+SFMLAudio\+Module}}.
+
+\mbox{\Hypertarget{group__Modules_ga1c1f8a2e2cba554b5cb24a04edf72f66}\label{group__Modules_ga1c1f8a2e2cba554b5cb24a04edf72f66}} 
+\index{Modules@{Modules}!play@{play}}
+\index{play@{play}!Modules@{Modules}}
+\doxysubsubsection{\texorpdfstring{play()}{play()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily virtual void modules\+::\+IMusic\+Module\+::play (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+play the audio source 
+
+
+
+Implemented in \mbox{\hyperlink{group__Modules_gad4d43a9cf8cd6c19e3d5e0a0dbb7360a}{modules\+::\+SFMLMusic\+Module}}.
+
+\mbox{\Hypertarget{group__Modules_ga3acb7b9d9d17a0c2585b6bc3409b2c53}\label{group__Modules_ga3acb7b9d9d17a0c2585b6bc3409b2c53}} 
+\index{Modules@{Modules}!setLoop@{setLoop}}
+\index{setLoop@{setLoop}!Modules@{Modules}}
+\doxysubsubsection{\texorpdfstring{setLoop()}{setLoop()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void modules\+::\+SFMLMusic\+Module\+::set\+Loop (\begin{DoxyParamCaption}\item[{bool}]{loop }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+set the Loop the music 
+
+
+\begin{DoxyParams}{Parameters}
+{\em loop} & \+: boolean to loop the music \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{group__Modules_ga55fb36241f03274388e8360c30fbcbcc}{modules\+::\+IMusic\+Module}}.
+
+\mbox{\Hypertarget{group__Modules_ga55fb36241f03274388e8360c30fbcbcc}\label{group__Modules_ga55fb36241f03274388e8360c30fbcbcc}} 
+\index{Modules@{Modules}!setLoop@{setLoop}}
+\index{setLoop@{setLoop}!Modules@{Modules}}
+\doxysubsubsection{\texorpdfstring{setLoop()}{setLoop()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void modules\+::\+IMusic\+Module\+::set\+Loop (\begin{DoxyParamCaption}\item[{bool}]{loop }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Set the Loop of the audio source. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em loop} & \+: loop if true \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{group__Modules_ga3acb7b9d9d17a0c2585b6bc3409b2c53}{modules\+::\+SFMLMusic\+Module}}.
+
+\mbox{\Hypertarget{group__Modules_gaaf787145f966eeb79f62cf26f6a439f7}\label{group__Modules_gaaf787145f966eeb79f62cf26f6a439f7}} 
+\index{Modules@{Modules}!setSource@{setSource}}
+\index{setSource@{setSource}!Modules@{Modules}}
+\doxysubsubsection{\texorpdfstring{setSource()}{setSource()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily void modules\+::\+SFMLAudio\+Module\+::set\+Source (\begin{DoxyParamCaption}\item[{std\+::string}]{source\+\_\+path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Set the Source object from the path. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & \+: relative path to the asset of the sound effect \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{group__Modules_ga15a17d096a8b78d68b7af7fd6b73be0f}{modules\+::\+IAudio\+Module}}.
+
+\mbox{\Hypertarget{group__Modules_ga6d2ace83b826b5eafb5ce4bf52d7260e}\label{group__Modules_ga6d2ace83b826b5eafb5ce4bf52d7260e}} 
+\index{Modules@{Modules}!setSource@{setSource}}
+\index{setSource@{setSource}!Modules@{Modules}}
+\doxysubsubsection{\texorpdfstring{setSource()}{setSource()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily void modules\+::\+SFMLMusic\+Module\+::set\+Source (\begin{DoxyParamCaption}\item[{std\+::string}]{source\+\_\+path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Set the Source object from the path. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & \+: relative path to the asset of the music \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{group__Modules_ga6c29c8296fea229b069fae619fb26ddb}{modules\+::\+IMusic\+Module}}.
+
+\mbox{\Hypertarget{group__Modules_ga15a17d096a8b78d68b7af7fd6b73be0f}\label{group__Modules_ga15a17d096a8b78d68b7af7fd6b73be0f}} 
+\index{Modules@{Modules}!setSource@{setSource}}
+\index{setSource@{setSource}!Modules@{Modules}}
+\doxysubsubsection{\texorpdfstring{setSource()}{setSource()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily virtual void modules\+::\+IAudio\+Module\+::set\+Source (\begin{DoxyParamCaption}\item[{std\+::string}]{source\+\_\+path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+load and set an audio file 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source\+\_\+path} & \+: path to the asset file \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{group__Modules_gaaf787145f966eeb79f62cf26f6a439f7}{modules\+::\+SFMLAudio\+Module}}.
+
+\mbox{\Hypertarget{group__Modules_ga6c29c8296fea229b069fae619fb26ddb}\label{group__Modules_ga6c29c8296fea229b069fae619fb26ddb}} 
+\index{Modules@{Modules}!setSource@{setSource}}
+\index{setSource@{setSource}!Modules@{Modules}}
+\doxysubsubsection{\texorpdfstring{setSource()}{setSource()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily virtual void modules\+::\+IMusic\+Module\+::set\+Source (\begin{DoxyParamCaption}\item[{std\+::string}]{source\+\_\+path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+load and set an audio file 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source\+\_\+path} & \+: path to the asset file \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{group__Modules_ga6d2ace83b826b5eafb5ce4bf52d7260e}{modules\+::\+SFMLMusic\+Module}}.
+
+\mbox{\Hypertarget{group__Modules_gadaa43a428e10e7cd5446b3d990944b49}\label{group__Modules_gadaa43a428e10e7cd5446b3d990944b49}} 
+\index{Modules@{Modules}!setVolume@{setVolume}}
+\index{setVolume@{setVolume}!Modules@{Modules}}
+\doxysubsubsection{\texorpdfstring{setVolume()}{setVolume()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily void modules\+::\+SFMLAudio\+Module\+::set\+Volume (\begin{DoxyParamCaption}\item[{float}]{volume }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Set the Volume of the sound effect. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em volume} & \+: volume of the sound effect \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{group__Modules_ga81ed323a9654542b95a7e9d955c6a07d}{modules\+::\+IAudio\+Module}}.
+
+\mbox{\Hypertarget{group__Modules_ga26bca0c6290f86e1d7dede72bb3086bd}\label{group__Modules_ga26bca0c6290f86e1d7dede72bb3086bd}} 
+\index{Modules@{Modules}!setVolume@{setVolume}}
+\index{setVolume@{setVolume}!Modules@{Modules}}
+\doxysubsubsection{\texorpdfstring{setVolume()}{setVolume()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily void modules\+::\+SFMLMusic\+Module\+::set\+Volume (\begin{DoxyParamCaption}\item[{float}]{volume }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Set the Volume of the music. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em volume} & \+: volume of the music \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{group__Modules_gacb66855c7f652f9ae9fbfddd9e972a4c}{modules\+::\+IMusic\+Module}}.
+
+\mbox{\Hypertarget{group__Modules_ga81ed323a9654542b95a7e9d955c6a07d}\label{group__Modules_ga81ed323a9654542b95a7e9d955c6a07d}} 
+\index{Modules@{Modules}!setVolume@{setVolume}}
+\index{setVolume@{setVolume}!Modules@{Modules}}
+\doxysubsubsection{\texorpdfstring{setVolume()}{setVolume()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily virtual void modules\+::\+IAudio\+Module\+::set\+Volume (\begin{DoxyParamCaption}\item[{float}]{volume }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Set the volume of the audio source. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em volume} & \+: float that correspond to the volume on a scale of 0 to 100 \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{group__Modules_gadaa43a428e10e7cd5446b3d990944b49}{modules\+::\+SFMLAudio\+Module}}.
+
+\mbox{\Hypertarget{group__Modules_gacb66855c7f652f9ae9fbfddd9e972a4c}\label{group__Modules_gacb66855c7f652f9ae9fbfddd9e972a4c}} 
+\index{Modules@{Modules}!setVolume@{setVolume}}
+\index{setVolume@{setVolume}!Modules@{Modules}}
+\doxysubsubsection{\texorpdfstring{setVolume()}{setVolume()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily virtual void modules\+::\+IMusic\+Module\+::set\+Volume (\begin{DoxyParamCaption}\item[{float}]{volume }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Set the Volume of the audio source. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em volume} & \+: a float going from 0 to 100 \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{group__Modules_ga26bca0c6290f86e1d7dede72bb3086bd}{modules\+::\+SFMLMusic\+Module}}.
+
+\mbox{\Hypertarget{group__Modules_gaf2a1708da1b546302f0eaa74211b1248}\label{group__Modules_gaf2a1708da1b546302f0eaa74211b1248}} 
+\index{Modules@{Modules}!SFMLAudioModule@{SFMLAudioModule}}
+\index{SFMLAudioModule@{SFMLAudioModule}!Modules@{Modules}}
+\doxysubsubsection{\texorpdfstring{SFMLAudioModule()}{SFMLAudioModule()}}
+{\footnotesize\ttfamily modules\+::\+SFMLAudio\+Module\+::\+SFMLAudio\+Module (\begin{DoxyParamCaption}\item[{const std\+::string}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \mbox{\hyperlink{classmodules_1_1SFMLAudioModule}{SFMLAudio\+Module}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & \+: relative path to the asset of the sound effect \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Modules_ga14a3cb08820f7450ec355b9b03f4ec5e}\label{group__Modules_ga14a3cb08820f7450ec355b9b03f4ec5e}} 
+\index{Modules@{Modules}!SFMLMusicModule@{SFMLMusicModule}}
+\index{SFMLMusicModule@{SFMLMusicModule}!Modules@{Modules}}
+\doxysubsubsection{\texorpdfstring{SFMLMusicModule()}{SFMLMusicModule()}}
+{\footnotesize\ttfamily modules\+::\+SFMLMusic\+Module\+::\+SFMLMusic\+Module (\begin{DoxyParamCaption}\item[{const std\+::string}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \mbox{\hyperlink{classmodules_1_1SFMLMusicModule}{SFMLMusic\+Module}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & \+: relative path to the asset of the music \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Modules_ga40831694622e92cddab91b8f787962e1}\label{group__Modules_ga40831694622e92cddab91b8f787962e1}} 
+\index{Modules@{Modules}!stop@{stop}}
+\index{stop@{stop}!Modules@{Modules}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily void modules\+::\+SFMLAudio\+Module\+::stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Stop the sound effect. 
+
+
+
+Implements \mbox{\hyperlink{group__Modules_gacc9c647c70c3ea95981efb4d2f564a7a}{modules\+::\+IAudio\+Module}}.
+
+\mbox{\Hypertarget{group__Modules_ga8e97c82c6bf0bc56f7ec6427f0db04c4}\label{group__Modules_ga8e97c82c6bf0bc56f7ec6427f0db04c4}} 
+\index{Modules@{Modules}!stop@{stop}}
+\index{stop@{stop}!Modules@{Modules}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily void modules\+::\+SFMLMusic\+Module\+::stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Stop the music. 
+
+
+
+Implements \mbox{\hyperlink{group__Modules_ga9fa5000062130efd72c89f24f0d91850}{modules\+::\+IMusic\+Module}}.
+
+\mbox{\Hypertarget{group__Modules_gacc9c647c70c3ea95981efb4d2f564a7a}\label{group__Modules_gacc9c647c70c3ea95981efb4d2f564a7a}} 
+\index{Modules@{Modules}!stop@{stop}}
+\index{stop@{stop}!Modules@{Modules}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily virtual void modules\+::\+IAudio\+Module\+::stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+stop the audio source 
+
+
+
+Implemented in \mbox{\hyperlink{group__Modules_ga40831694622e92cddab91b8f787962e1}{modules\+::\+SFMLAudio\+Module}}.
+
+\mbox{\Hypertarget{group__Modules_ga9fa5000062130efd72c89f24f0d91850}\label{group__Modules_ga9fa5000062130efd72c89f24f0d91850}} 
+\index{Modules@{Modules}!stop@{stop}}
+\index{stop@{stop}!Modules@{Modules}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily virtual void modules\+::\+IMusic\+Module\+::stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+stop the audio source 
+
+
+
+Implemented in \mbox{\hyperlink{group__Modules_ga8e97c82c6bf0bc56f7ec6427f0db04c4}{modules\+::\+SFMLMusic\+Module}}.
+
