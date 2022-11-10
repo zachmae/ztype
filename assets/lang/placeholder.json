@@ -3,6 +3,7 @@
         "welcome": "",
         "hello": "",
         "game_over": "",
+        "score": "",
         "bye": ""
     }
 }

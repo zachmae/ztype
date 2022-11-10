@@ -198,6 +198,21 @@ struct value_score {
     int value;
 };
 
+/**
+ * @brief Component text in order to handle the text of the entity
+ *
+ */
+struct text {
+    std::string text;
+};
+
+/**
+ * @brief Component is_score in order to handle the score of the player
+ *
+ */
+struct is_score {
+};
+
 struct uuid {
     char uuid[32];
 };

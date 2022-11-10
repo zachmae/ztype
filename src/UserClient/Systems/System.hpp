@@ -54,6 +54,13 @@ namespace User {
     void animation_basic_system(registry &r);
 
     /**
+     * @brief update the score object
+     *
+     * @param r : registry, contain all of the entities and the related components
+     */
+    void update_score(registry &r);
+
+    /**
      * @brief system that can animate ships
      *
      * @param r : registry, contain all of the entities and the related components

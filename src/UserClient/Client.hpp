@@ -27,6 +27,8 @@
 #include "ClientComponent.hpp"
 #include "ClientManager.hpp"
 
+#include "Globals.hpp"
+
 /**
  * @brief namespace User
  *
@@ -45,6 +47,7 @@ namespace User {
      */
     void ClientManager::InitScene(Registry_ref r, SpriteManager_ref<std::string> sm, AudioManager_ref<std::string> am, MusicManager_ref<std::string> mm, SceneManager_ref<std::string> scene)
     {
+        Globals::font.loadFromFile("../assets/font/pixeboy_font.ttf");
         scene.Get("tutorial").SetZIndex(-1);
         scene.Get("game").SetZIndex(-1);
         scene.Get("menu").SetZIndex(-1);
@@ -59,6 +62,11 @@ namespace User {
         User::Game::background_generation(r, sm, scene, "background_planets_front", -0.8f);
         User::Game::ship_generation(r, sm, scene, am, "ship", true);
 
+        entity_t score = scene.Get("game").SpawnEntity();
+        r.add_component<text>(score, {""});
+        r.add_component<is_score>(score, {});
+        r.add_component<position>(score, {0, 0});
+        r.add_component<resizable>(score, {2, 2});
         mm.play("epitomize");
     }
 
@@ -212,6 +220,7 @@ namespace User {
     void ClientManager::UpdateWindowSystem(Registry_ref reg, SceneManager_ref<Key> scene, Window_ref window, SpriteManager_ref<Key> sm)
     {
         //all system
+        User::update_score(reg);
         User::enemy_system(reg, sm, window);
         User::boss_magic_system(reg, sm, window);
         User::position_system(reg, window, _client);

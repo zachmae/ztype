@@ -124,7 +124,7 @@ namespace User {
                     _window.display();
                     leave = _clientManager.UpdatePostWindowSystem(_ecs, _scenes, _window, _am);
                 }
-                std::cout << dictionnary_language[leave ? "game_over": "bye"] << std::endl <<"score: " << Globals::score << std::endl;
+                std::cout << dictionnary_language[leave ? "game_over": "bye"] << std::endl << dictionnary_language["score"] + ": " << Globals::score << std::endl;
                 return 0;
             };
 

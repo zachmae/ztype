@@ -3,6 +3,7 @@
         "welcome": "benvenido",
         "hello": "hola",
         "game_over": "fin del juego",
+        "score": "pointos",
         "bye": "adios"
     }
 }

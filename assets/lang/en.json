@@ -3,6 +3,7 @@
         "welcome": "welcome",
         "hello": "hello",
         "game_over": "Game over",
+        "score": "Score",
         "bye": "goodbye"
     }
 }

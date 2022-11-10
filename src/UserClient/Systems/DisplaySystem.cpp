@@ -37,6 +37,7 @@ void User::draw_system(registry &r, Window_ref w)
     auto &animation_adaptatives = r.get_components<struct animation_adaptative>();
     auto &resizables = r.get_components<struct resizable>();
     auto &are_allies = r.get_components<is_ally>();
+    auto &textables = r.get_components<text>();
     bool collision_box = Globals::debug_mode;
 
     animation_basic_system(r);
@@ -52,6 +53,18 @@ void User::draw_system(registry &r, Window_ref w)
                 display_debug_mode(w, drawables[i]->sprite, are_allies[i]);
             }
             w.draw(drawables[i]->sprite);
+        }
+    }
+    for (size_t i = 0; i < textables.size(); ++i) {
+        if (textables[i]) {
+            sf::Text text_object;
+            text_object.setFont(Globals::font);
+            text_object.setString(textables[i]->text);
+            if (i < positions.size() && positions[i])
+                text_object.setPosition(positions[i]->x, positions[i]->y);
+            if (i < resizables.size() && resizables[i])
+                text_object.setScale(resizables[i]->x, resizables[i]->y);
+            w.draw(text_object);
         }
     }
 }

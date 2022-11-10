@@ -6,6 +6,7 @@
 */
 
 #include "System.hpp"
+#include "Languages.hpp"
 #include "Globals.hpp"
 
 int count_bosses(Registry_ref reg)
@@ -137,4 +138,20 @@ bool User::check_lose_system(Registry_ref reg, SceneManager_ref<std::string> sce
             ally_count++;
     }
     return !ally_count;
+}
+
+void User::update_score(registry &r)
+{
+    auto &texts = r.get_components<text>();
+    auto &scores = r.get_components<is_score>();
+    std::stringstream ss;
+    ss << Globals::score;
+    std::string str;
+    ss >> str;
+
+    for (size_t i = 0; i < scores.size() && i < texts.size(); ++i) {
+        if (scores[i] && texts[i]) {
+            texts[i]->text = dictionnary_language["score"] + std::string(": ") + str;
+        }
+    }
 }
