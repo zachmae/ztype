@@ -6,12 +6,12 @@
 #include "SceneManager/Scene.hpp"
 #include "SceneManager/SceneComponent.hpp"
 
-#include "../UserComponent.hpp"
+#include "../ServerComponent.hpp"
 
 #include "SpriteManager.hpp"
 #include "AudioManager.hpp"
 
-#include "User/Systems/System.hpp"
+#include "System.hpp"
 
 #ifndef USERSYSTEM_HPP_
     #define USERSYSTEM_HPP_

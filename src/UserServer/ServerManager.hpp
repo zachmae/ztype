@@ -8,19 +8,18 @@
 #ifndef USERMANAGER_HPP_
     #define USERMANAGER_HPP_
 
-    #include "SceneManager/SceneManager.hpp"
     #include "SpriteManager.hpp" // add init scene deprecated cause shouldn't be used
 
-    #include "ProjectManager/ProjectComponent.hpp"
-    #include "UserComponent.hpp"
-    #include "SceneManager/SceneComponent.hpp"
-    #include "SceneManager/SceneManager.hpp"
+    #include "../ProjectManager/ProjectComponent.hpp"
+    #include "../SceneManager/SceneComponent.hpp"
+    #include "../SceneManager/SceneManager.hpp"
 
-    #include "User/Systems/UserSystem.hpp"
-    #include "User/Systems/System.hpp"
-    #include "User/Scenes/Game/Game.hpp" // WHAT THE FUCK
-
+    #include "Systems/ServerSystem.hpp"
+    #include "Systems/System.hpp"
     #include "Network/Client.hpp"
+
+    #include "ServerComponent.hpp"
+
 
     #include "AudioManager.hpp"
     #include "SpriteManager.hpp"
@@ -33,7 +32,7 @@
  *
  * @author perry.chouteau@epitech.eu
  */
-namespace Server {
+namespace User {
 
     /**
      * @class UserManager
@@ -60,6 +59,10 @@ namespace Server {
              *
              */
             ~ServerManager() = default;
+
+            UpdateServer();
+            UpdateClients(Registry_ref registry);
+
 
         private:
 

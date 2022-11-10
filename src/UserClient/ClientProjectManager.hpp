@@ -38,8 +38,8 @@
 #include "../MusicManager.hpp"
 
 //User
-#include "User.hpp"
-#include "UserComponentManager.hpp"
+#include "Client.hpp"
+#include "ClientComponentManager.hpp"
 
 #include "Globals.hpp"
 
@@ -48,7 +48,7 @@
  *
  * @author perry.chouteau@epitech.eu
  */
-namespace Project {
+namespace User {
 
     using json = nlohmann::json;
     using Window_ref = sf::RenderWindow &;
@@ -61,7 +61,7 @@ namespace Project {
      *
      * @author perry.chouteau@epitech.eu
      */
-    class UserProjectManager final : public ProjectManager {
+    class ClientProjectManager final : public Project::ProjectManager {
         public:
 
             /**
@@ -69,10 +69,10 @@ namespace Project {
              *
              * @param jsonfile
              */
-            UserProjectManager(std::string jsonfile)
-            : ProjectManager(jsonfile), _userManager(jsonfile), _window(CreateWindow(jsonfile)), _sm(), _am(), _mm()
+            ClientProjectManager(std::string jsonfile)
+            : ProjectManager(jsonfile), _clientManager(jsonfile), _window(CreateWindow(jsonfile)), _sm(), _am(), _mm()
             {                //User
-                config_extractor<user_config::components_list>::function(_ecs); //user
+                config_extractor<client_config::components_list>::function(_ecs); //user
 
                 config_extractor<scene_config::components_list>::function(_ecs); //sys
 
@@ -87,7 +87,7 @@ namespace Project {
              * @brief Destroy the User Project Manager
              *
              */
-            ~UserProjectManager() = default;
+            ~ClientProjectManager() = default;
 
             /**
              * @brief Start our Client
@@ -98,24 +98,24 @@ namespace Project {
              */
             int Start(std::string const &ip, unsigned short port)
             {
-                _userManager.InitScene(_ecs, _sm, _am, _mm, _scenes);
+                _clientManager.InitScene(_ecs, _sm, _am, _mm, _scenes);
                 while (_window.isOpen()) { // run the program as long as the window is open
                     // check all the window's events that were triggered since the last iteration of the loop
                     while (_window.pollEvent(_event)) {
                         // "close requested" event: we close the window
                         if (_event.type == sf::Event::Closed) {
-                            _userManager.Close();
+                            _clientManager.Close();
                             _window.close();
                             return 0;
                         }
-                        _userManager.UpdateScene(_ecs, _scenes, _window, _event);
-                        _userManager.UpdateEventSystem(_ecs, _event, _window, _sm, _am);
+                        _clientManager.UpdateScene(_ecs, _scenes, _window, _event);
+                        _clientManager.UpdateEventSystem(_ecs, _event, _window, _sm, _am);
                     }
-                    _userManager.UpdateClient(_ecs, _scenes, _sm, _am);
+                    _clientManager.UpdateClient(_ecs, _scenes, _sm, _am);
                     _window.clear();
-                    _userManager.UpdateWindowSystem(_ecs, _scenes, _window, _sm);
+                    _clientManager.UpdateWindowSystem(_ecs, _scenes, _window, _sm);
                     _window.display();
-                    _userManager.UpdatePostWindowSystem(_ecs, _scenes, _window, _am);
+                    _clientManager.UpdatePostWindowSystem(_ecs, _scenes, _window, _am);
                 }
                 return 0;
             };
@@ -227,7 +227,7 @@ namespace Project {
 
 
         private:
-            User::UserManager _userManager;
+            User::ClientManager _clientManager;
 
             //sfml
             sf::RenderWindow _window;

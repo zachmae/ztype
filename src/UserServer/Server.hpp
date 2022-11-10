@@ -32,7 +32,7 @@
  *
  * @author perry.chouteau@epitech.eu
  */
-namespace Server {
+namespace User {
 
 //    void ServerManager::Function();
 

@@ -8,17 +8,16 @@
 #ifndef USERMANAGER_HPP_
     #define USERMANAGER_HPP_
 
-    #include "SceneManager/SceneManager.hpp"
-    #include "SpriteManager.hpp" // add init scene deprecated cause shouldn't be used
+    #include "../SceneManager/SceneManager.hpp"
+    #include "../SpriteManager.hpp" // add init scene deprecated cause shouldn't be used
 
-    #include "ProjectManager/ProjectComponent.hpp"
-    #include "UserComponent.hpp"
-    #include "SceneManager/SceneComponent.hpp"
-    #include "SceneManager/SceneManager.hpp"
+    #include "ClientComponent.hpp"
+    #include "../SceneManager/SceneComponent.hpp"
+    #include "../SceneManager/SceneManager.hpp"
 
-    #include "User/Systems/UserSystem.hpp"
-    #include "User/Systems/System.hpp"
-    #include "User/Scenes/Game/Game.hpp" // WHAT THE FUCK
+    #include "Systems/ClientSystem.hpp"
+    #include "Systems/System.hpp"
+    #include "Scenes/Game/Game.hpp" // WHAT THE FUCK
 
     #include "Network/Client.hpp"
 
@@ -42,14 +41,14 @@ namespace User {
      *
      * @author perry.chouteau@epitech.eu
      */
-    class UserManager final {
+    class ClientManager final {
         public:
             /**
              * @brief Construct a new User Manager object
              * init Client
              *
              */
-            UserManager(std::string jsonfile)
+            ClientManager(std::string jsonfile)
             : _client(getNetwork(jsonfile).first, getNetwork(jsonfile).second)
             {
 
@@ -59,7 +58,7 @@ namespace User {
              * @brief Destroy UserManager
              *
              */
-            ~UserManager() = default;
+            ~ClientManager() = default;
 
             /**
              * @brief init scene

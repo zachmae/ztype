@@ -46,7 +46,7 @@
  *
  * @author perry.chouteau@epitech.eu
  */
-namespace Project {
+namespace User {
 
     using json = nlohmann::json;
     using Window_ref = sf::RenderWindow &;
@@ -100,7 +100,7 @@ namespace Project {
             //Server functions
 
         private:
-            Server::ServerManager _serverManager;
+            User::ServerManager _serverManager;
 
     };
 

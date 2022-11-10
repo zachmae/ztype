@@ -9,12 +9,11 @@
 #include "SpriteManager.hpp" // add init scene deprecated cause shouldn't be used
 
 #include "ProjectManager/ProjectComponent.hpp"
-#include "UserComponent.hpp"
 #include "SceneManager/SceneComponent.hpp"
 #include "SceneManager/SceneManager.hpp"
 
 #include "Systems/System.hpp"
-#include "Systems/UserSystem.hpp"
+#include "Systems/ClientSystem.hpp"
 
 #include "Scenes/Game/Init.hpp" // WHAT THE FUCK
 
@@ -25,7 +24,8 @@
 
 #include "sfml_ref.hpp"
 
-#include "UserManager.hpp"
+#include "ClientComponent.hpp"
+#include "ClientManager.hpp"
 
 /**
  * @brief namespace User
@@ -43,7 +43,7 @@ namespace User {
      * @param mm : the reference to the music manager
      * @param scene : the reference to the scene manager
      */
-    void UserManager::InitScene(Registry_ref r, SpriteManager_ref<std::string> sm, AudioManager_ref<std::string> am, MusicManager_ref<std::string> mm, SceneManager_ref<std::string> scene)
+    void ClientManager::InitScene(Registry_ref r, SpriteManager_ref<std::string> sm, AudioManager_ref<std::string> am, MusicManager_ref<std::string> mm, SceneManager_ref<std::string> scene)
     {
         scene.Get("tutorial").SetZIndex(-1);
         scene.Get("game").SetZIndex(-1);
@@ -72,7 +72,7 @@ namespace User {
      * @param event
      */
     template <typename Key>
-    void UserManager::UpdateScene(Registry_ref reg, SceneManager<Key> &scene, sf::RenderWindow &window, sf::Event &event)
+    void ClientManager::UpdateScene(Registry_ref reg, SceneManager<Key> &scene, sf::RenderWindow &window, sf::Event &event)
     {
         ;
     }
@@ -81,7 +81,7 @@ namespace User {
      * @brief Close the Client
      *
      */
-    void UserManager::Close()
+    void ClientManager::Close()
     {
         _client.disconnect();
     }
@@ -97,7 +97,7 @@ namespace User {
      * @param am : the reference to the audio manager
      */
     template<typename Key>
-    void UserManager::UpdateEventSystem(Registry_ref reg, Event_ref event, Window_ref window, SpriteManager_ref<Key> sm, AudioManager_ref<Key> am)
+    void ClientManager::UpdateEventSystem(Registry_ref reg, Event_ref event, Window_ref window, SpriteManager_ref<Key> sm, AudioManager_ref<Key> am)
     {
         User::control_system(reg, event, sm, am);
     }
@@ -112,7 +112,7 @@ namespace User {
      * @param am : the reference to the audio manager
      */
     template<typename Key>
-    void UserManager::UpdateClient(Registry_ref reg, SceneManager_ref<std::string> scenes, SpriteManager_ref<Key> _sm, AudioManager_ref<Key> am)
+    void ClientManager::UpdateClient(Registry_ref reg, SceneManager_ref<std::string> scenes, SpriteManager_ref<Key> _sm, AudioManager_ref<Key> am)
     {
         sf::Packet sfp = _client.WaitReceive();
         if (sfp.getData() != NULL) { //cond doesn't work
@@ -210,7 +210,7 @@ namespace User {
      * @param _sm : the reference to the sprite manager
      */
     template<typename Key>
-    void UserManager::UpdateWindowSystem(Registry_ref reg, SceneManager_ref<Key> scene, Window_ref window, SpriteManager_ref<Key> sm)
+    void ClientManager::UpdateWindowSystem(Registry_ref reg, SceneManager_ref<Key> scene, Window_ref window, SpriteManager_ref<Key> sm)
     {
         //all system
         User::enemy_system(reg, sm, window);
@@ -233,7 +233,7 @@ namespace User {
      * @param am : the reference to the audio manager
      */
     template<typename Key>
-    void UserManager::UpdatePostWindowSystem(Registry_ref reg, SceneManager_ref<Key> scene, Window_ref window, AudioManager_ref<std::string> am)
+    void ClientManager::UpdatePostWindowSystem(Registry_ref reg, SceneManager_ref<Key> scene, Window_ref window, AudioManager_ref<std::string> am)
     {
         User::collision_system(reg, am);
         User::remove_out_of_screen_system(reg, window);

@@ -7,7 +7,7 @@
 */
 
 #include <cctype>
-#include "User/UserProjectManager.hpp"
+#include "UserClient/ClientProjectManager.hpp"
 #include "main_server.hpp"
 #include "Languages.hpp"
 
@@ -66,7 +66,7 @@ int main(int ac, char const * const av[])
         return std::cerr << "Error : Port must be a number" << std::endl, 84;
 
     srand(static_cast<unsigned int>(time(nullptr)));
-    Project::UserProjectManager upm("../assets/conf/project-manager.json");
+    User::ClientProjectManager upm("../assets/conf/project-manager.json");
     return upm.Start(av[1], static_cast<unsigned short>(std::atoi(av[2])));
 
 }

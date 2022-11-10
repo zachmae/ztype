@@ -8,7 +8,7 @@
 #include <optional>
 #include <chrono>
 #include "../../ProjectManager/Ecs.hpp"
-#include "../UserComponent.hpp"
+#include "../ClientComponent.hpp"
 #include "../../SpriteManager.hpp"
 #include "../../AudioManager.hpp"
 #include "../../Network/Client.hpp"

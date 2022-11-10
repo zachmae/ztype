@@ -14,8 +14,8 @@
 #include <SFML/System.hpp>
 #include <SFML/Network.hpp>
 
-#ifndef USERCOMPONENT_HPP_
-    #define USERCOMPONENT_HPP_
+#ifndef SERVERCOMPONENT_HPP_
+    #define SERVERCOMPONENT_HPP_
 
 //utilisateur
 
