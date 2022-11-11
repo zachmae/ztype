@@ -65,7 +65,23 @@ namespace User {
      *
      * @param r : registry, contain all of the entities and the related components
      */
-    void upadate_button_language(registry &r);
+    void update_button_language(registry &r);
+
+    /**
+     * @brief update music text volume
+     *
+     * @param r : registry, contain all of the entities and the related components
+     * @param mm : the reference to the music manager
+     */
+    void update_music_volume_text(registry &r, MusicManager_ref<std::string> mm);
+
+    /**
+     * @brief update music text volume
+     *
+     * @param r : registry, contain all of the entities and the related components
+     * @param mm : the reference to the music manager
+     */
+    void update_audio_volume_text(registry &r, AudioManager_ref<std::string> am);
 
     /**
      * @brief system that can animate ships
@@ -150,11 +166,13 @@ namespace User {
     /**
      * @brief click system
      *
-     * @param reg
-     * @param scene
+     * @param reg : the reference to the registry
+     * @param scene : the reference to the scene manager
      * @param event
      * @param window
+     * @param am : the reference to the audio manager
+     * @param mm : the reference to the music manager
      */
     template<typename Key>
-    void click_system(Registry_ref reg, SceneManager_ref<Key> scene, Event_ref event, Window_ref window);
+    void click_system(Registry_ref reg, SceneManager_ref<Key> scene, Event_ref event, Window_ref window, AudioManager_ref<std::string> am, MusicManager_ref<std::string> mm);
 }

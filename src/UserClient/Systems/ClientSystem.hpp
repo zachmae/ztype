@@ -56,7 +56,7 @@ namespace User {
         }
     }
     template<typename Key>
-    void User::click_system(Registry_ref reg, SceneManager_ref<Key> scene, Event_ref event, Window_ref window)
+    void User::click_system(Registry_ref reg, SceneManager_ref<Key> scene, Event_ref event, Window_ref window, AudioManager_ref<std::string> am, MusicManager_ref<std::string> mm)
     {
         auto &clickables = reg.get_components<clickable>();
         auto &drawables = reg.get_components<drawable>();
@@ -66,13 +66,13 @@ namespace User {
             for (size_t i = 0; i < drawables.size() && i < positions.size() && i < clickables.size(); ++i) {
                 if (drawables[i] && positions[i] && clickables[i]) {
                     if (drawables[i]->sprite.getGlobalBounds().contains(sf::Mouse::getPosition().x, sf::Mouse::getPosition().y)) {
-                        clickables[i]->callback(scene);
+                        clickables[i]->callback(scene, am, mm);
                     }
                 }
             }
         }
         if (event.type == sf::Event::KeyReleased  && event.key.code == sf::Keyboard::Escape) {
-            pop_settings(scene);
+            pop_settings(scene, am, mm);
         }
     }
 

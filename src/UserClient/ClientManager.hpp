@@ -81,7 +81,7 @@ namespace User {
              * @param event
              */
             template <typename Key>
-            void UpdateScene(Registry_ref reg, SceneManager<Key> &, sf::RenderWindow &window, sf::Event &event);
+            void UpdateScene(Registry_ref reg, SceneManager<Key> &, sf::RenderWindow &window, sf::Event &event, AudioManager_ref<std::string> am, MusicManager_ref<std::string> mm);
 
             /**
              * @brief When Project is closing call this function to let the user act as he want

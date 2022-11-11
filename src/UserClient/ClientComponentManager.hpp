@@ -29,6 +29,8 @@ namespace User {
                                             text,
                                             is_score,
                                             is_text_button_dict,
+                                            is_music,
+                                            is_audio,
                                             int>;
     };
 

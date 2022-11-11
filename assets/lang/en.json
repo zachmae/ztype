@@ -11,6 +11,8 @@
         "french_button": "FRENCH",
         "english_button": "ENGLISH",
         "japanese_font": "JAPANESE",
-        "spanish_font": "SPANISH"
+        "spanish_font": "SPANISH",
+        "header_music_text": "MUSIC VOLUME",
+        "header_audio_text": "SOUNDS VOLUME"
     }
 }

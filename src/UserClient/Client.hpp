@@ -67,24 +67,51 @@ namespace User {
         User::Game::ship_generation(r, sm, scene, am, "ship", true);
 
         User::Menu::background_generation(r, sm, scene, "white_shadow");
-        User::Menu::button_generation(r, sm, scene, am, "button", std::pair<float, float>(400, 200), {static_cast<std::function<void(SceneManager_ref<std::string>)>>(back_to_game)}, "start_button");
-        User::Menu::button_generation(r, sm, scene, am, "button", std::pair<float, float>(400, 800), {static_cast<std::function<void(SceneManager_ref<std::string>)>>(exit_game)}, "exit_button");
-        User::Menu::button_generation(r, sm, scene, am, "left_button", std::pair<float, float>(300, 400), {static_cast<std::function<void(SceneManager_ref<std::string>)>>(back_to_game)}, "");
-        User::Menu::button_generation(r, sm, scene, am, "right_button", std::pair<float, float>(700, 400), {static_cast<std::function<void(SceneManager_ref<std::string>)>>(back_to_game)}, "");
-        User::Menu::button_generation(r, sm, scene, am, "left_button", std::pair<float, float>(300, 600), {static_cast<std::function<void(SceneManager_ref<std::string>)>>(back_to_game)}, "");
-        User::Menu::button_generation(r, sm, scene, am, "right_button", std::pair<float, float>(700, 600), {static_cast<std::function<void(SceneManager_ref<std::string>)>>(back_to_game)}, "");
-        User::Menu::button_generation(r, sm, scene, am, "button", std::pair<float, float>(1300, 200), {static_cast<std::function<void(SceneManager_ref<std::string>)>>(switch_language_to_fr)}, "french_button");
-        User::Menu::button_generation(r, sm, scene, am, "button", std::pair<float, float>(1300, 400), {static_cast<std::function<void(SceneManager_ref<std::string>)>>(switch_language_to_eng)}, "english_button");
-        User::Menu::button_generation(r, sm, scene, am, "button", std::pair<float, float>(1300, 600), {static_cast<std::function<void(SceneManager_ref<std::string>)>>(switch_language_to_jap)}, "japanese_font");
-        User::Menu::button_generation(r, sm, scene, am, "button", std::pair<float, float>(1300, 800), {static_cast<std::function<void(SceneManager_ref<std::string>)>>(switch_language_to_spa)}, "spanish_font");
+        User::Menu::button_generation(r, sm, scene, am, "button", std::pair<float, float>(400, 200), {static_cast<std::function<void(SceneManager_ref<std::string>, AudioManager_ref<std::string>, MusicManager_ref<std::string>)>>(back_to_game)}, "start_button");
+        User::Menu::button_generation(r, sm, scene, am, "button", std::pair<float, float>(400, 800), {static_cast<std::function<void(SceneManager_ref<std::string>, AudioManager_ref<std::string>, MusicManager_ref<std::string>)>>(exit_game)}, "exit_button");
+        User::Menu::button_generation(r, sm, scene, am, "left_button", std::pair<float, float>(300, 400), {static_cast<std::function<void(SceneManager_ref<std::string>, AudioManager_ref<std::string>, MusicManager_ref<std::string>)>>(downgrade_music)}, "");
+        User::Menu::button_generation(r, sm, scene, am, "right_button", std::pair<float, float>(700, 400), {static_cast<std::function<void(SceneManager_ref<std::string>, AudioManager_ref<std::string>, MusicManager_ref<std::string>)>>(upgrade_music)}, "");
+        User::Menu::button_generation(r, sm, scene, am, "left_button", std::pair<float, float>(300, 600), {static_cast<std::function<void(SceneManager_ref<std::string>, AudioManager_ref<std::string>, MusicManager_ref<std::string>)>>(downgrade_audio)}, "");
+        User::Menu::button_generation(r, sm, scene, am, "right_button", std::pair<float, float>(700, 600), {static_cast<std::function<void(SceneManager_ref<std::string>, AudioManager_ref<std::string>, MusicManager_ref<std::string>)>>(upgrade_audio)}, "");
+        User::Menu::button_generation(r, sm, scene, am, "button", std::pair<float, float>(1300, 200), {static_cast<std::function<void(SceneManager_ref<std::string>, AudioManager_ref<std::string>, MusicManager_ref<std::string>)>>(switch_language_to_fr)}, "french_button");
+        User::Menu::button_generation(r, sm, scene, am, "button", std::pair<float, float>(1300, 400), {static_cast<std::function<void(SceneManager_ref<std::string>, AudioManager_ref<std::string>, MusicManager_ref<std::string>)>>(switch_language_to_eng)}, "english_button");
+        User::Menu::button_generation(r, sm, scene, am, "button", std::pair<float, float>(1300, 600), {static_cast<std::function<void(SceneManager_ref<std::string>, AudioManager_ref<std::string>, MusicManager_ref<std::string>)>>(switch_language_to_jap)}, "japanese_font");
+        User::Menu::button_generation(r, sm, scene, am, "button", std::pair<float, float>(1300, 800), {static_cast<std::function<void(SceneManager_ref<std::string>, AudioManager_ref<std::string>, MusicManager_ref<std::string>)>>(switch_language_to_spa)}, "spanish_font");
 
-        User::upadate_button_language(r);
 
         entity_t score = scene.Get("game").SpawnEntity();
         r.add_component<text>(score, {std::string("")});
         r.add_component<is_score>(score, {});
         r.add_component<position>(score, {0, 0});
         r.add_component<resizable>(score, {2, 2});
+
+        entity_t header_music_text = scene.Get("menu").SpawnEntity();
+        r.add_component<text>(header_music_text, {std::string("")});
+        r.add_component<is_text_button_dict>(header_music_text, {std::string("header_music_text")});
+        r.add_component<position>(header_music_text, {430, 350});
+        r.add_component<resizable>(header_music_text, {1, 1});
+
+        entity_t music_text = scene.Get("menu").SpawnEntity();
+        r.add_component<text>(music_text, {std::string("")});
+        r.add_component<is_music>(music_text, {});
+        r.add_component<position>(music_text, {520, 400});
+        r.add_component<resizable>(music_text, {2, 2});
+
+        entity_t header_audio_text = scene.Get("menu").SpawnEntity();
+        r.add_component<text>(header_audio_text, {std::string("")});
+        r.add_component<is_text_button_dict>(header_audio_text, {std::string("header_audio_text")});
+        r.add_component<position>(header_audio_text, {430, 550});
+        r.add_component<resizable>(header_audio_text, {1, 1});
+
+        entity_t audio_text = scene.Get("menu").SpawnEntity();
+        r.add_component<text>(audio_text, {std::string("")});
+        r.add_component<is_audio>(audio_text, {});
+        r.add_component<position>(audio_text, {520, 600});
+        r.add_component<resizable>(audio_text, {2, 2});
+
+        User::update_button_language(r);
+        User::update_music_volume_text(r, mm);
+        User::update_audio_volume_text(r, am);
         mm.play("epitomize");
     }
 
@@ -98,9 +125,9 @@ namespace User {
      * @param event
      */
     template <typename Key>
-    void ClientManager::UpdateScene(Registry_ref reg, SceneManager<Key> &scene, sf::RenderWindow &window, sf::Event &event)
+    void ClientManager::UpdateScene(Registry_ref reg, SceneManager<Key> &scene, sf::RenderWindow &window, sf::Event &event, AudioManager_ref<std::string> am, MusicManager_ref<std::string> mm)
     {
-        User::click_system(reg, scene, event, window);
+        User::click_system(reg, scene, event, window, am, mm);
     }
 
     /**
@@ -239,7 +266,7 @@ namespace User {
     {
         //all system
         User::update_score(reg);
-        User::upadate_button_language(reg);
+        User::update_button_language(reg);
         User::enemy_system(reg, sm, window, scene);
         User::boss_magic_system(reg, sm, window, scene);
         User::position_system(reg, window, _client);

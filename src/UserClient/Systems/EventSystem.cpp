@@ -156,7 +156,7 @@ void User::update_score(registry &r)
     }
 }
 
-void User::upadate_button_language(registry &r)
+void User::update_button_language(registry &r)
 {
     auto &texts = r.get_components<text>();
     auto &text_button = r.get_components<is_text_button_dict>();
@@ -164,6 +164,32 @@ void User::upadate_button_language(registry &r)
     for (size_t i = 0; i < text_button.size() && i < texts.size(); ++i) {
         if (text_button[i] && texts[i]) {
             texts[i]->text_str = std::string(dictionnary_language[text_button[i]->key]);
+        }
+    }
+}
+
+void User::update_music_volume_text(registry &r, MusicManager_ref<std::string> mm)
+{
+    auto &texts = r.get_components<text>();
+    auto &text_button = r.get_components<is_music>();
+    int volume = (int)mm.getVolume();
+
+    for (size_t i = 0; i < text_button.size() && i < texts.size(); ++i) {
+        if (text_button[i] && texts[i]) {
+            texts[i]->text_str = std::string(std::to_string(volume));
+        }
+    }
+}
+
+void User::update_audio_volume_text(registry &r, AudioManager_ref<std::string> am)
+{
+    auto &texts = r.get_components<text>();
+    auto &text_button = r.get_components<is_audio>();
+    int volume = (int)am.getVolume();
+
+    for (size_t i = 0; i < text_button.size() && i < texts.size(); ++i) {
+        if (text_button[i] && texts[i]) {
+            texts[i]->text_str = std::string(std::to_string(volume));
         }
     }
 }
