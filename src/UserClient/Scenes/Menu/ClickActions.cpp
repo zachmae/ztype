@@ -5,6 +5,7 @@
 ** ClickActions
 */
 
+#include "Languages.hpp"
 #include "ClickActions.hpp"
 
 void back_to_game(SceneManager_ref<std::string> scene)
@@ -30,20 +31,20 @@ void pop_settings(SceneManager_ref<std::string> scene)
 
 void switch_language_to_fr(SceneManager_ref<std::string> scene)
 {
-
+    load_language(std::string("fr"));
 }
 
 void switch_language_to_eng(SceneManager_ref<std::string> scene)
 {
-
+    load_language(std::string("en"));
 }
 
 void switch_language_to_jap(SceneManager_ref<std::string> scene)
 {
-
+    load_language(std::string("jp"));
 }
 
 void switch_language_to_spa(SceneManager_ref<std::string> scene)
 {
-
+    load_language(std::string("es"));
 }

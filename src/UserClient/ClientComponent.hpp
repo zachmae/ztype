@@ -215,4 +215,8 @@ struct uuid {
     char uuid[32];
 };
 
+struct is_text_button_dict {
+    std::string key;
+};
+
 #endif /* !USERCOMPONENT_HPP_ */

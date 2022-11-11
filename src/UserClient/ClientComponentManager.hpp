@@ -28,6 +28,7 @@ namespace User {
                                             value_score,
                                             text,
                                             is_score,
+                                            is_text_button_dict,
                                             int>;
     };
 

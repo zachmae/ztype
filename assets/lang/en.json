@@ -5,6 +5,12 @@
         "hello": "hello",
         "game_over": "Game over",
         "score": "Score",
-        "bye": "goodbye"
+        "bye": "goodbye",
+        "start_button": "RESTART",
+        "exit_button": "EXIT",
+        "french_button": "FRENCH",
+        "english_button": "ENGLISH",
+        "japanese_font": "JAPANESE",
+        "spanish_font": "SPANISH"
     }
 }

@@ -155,3 +155,15 @@ void User::update_score(registry &r)
         }
     }
 }
+
+void User::upadate_button_language(registry &r)
+{
+    auto &texts = r.get_components<text>();
+    auto &text_button = r.get_components<is_text_button_dict>();
+
+    for (size_t i = 0; i < text_button.size() && i < texts.size(); ++i) {
+        if (text_button[i] && texts[i]) {
+            texts[i]->text_str = std::string(dictionnary_language[text_button[i]->key]);
+        }
+    }
+}

@@ -61,6 +61,13 @@ namespace User {
     void update_score(registry &r);
 
     /**
+     * @brief update button text language
+     *
+     * @param r : registry, contain all of the entities and the related components
+     */
+    void upadate_button_language(registry &r);
+
+    /**
      * @brief system that can animate ships
      *
      * @param r : registry, contain all of the entities and the related components

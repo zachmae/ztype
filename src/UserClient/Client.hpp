@@ -67,16 +67,18 @@ namespace User {
         User::Game::ship_generation(r, sm, scene, am, "ship", true);
 
         User::Menu::background_generation(r, sm, scene, "white_shadow");
-        User::Menu::button_generation(r, sm, scene, am, "button", std::pair<float, float>(400, 200), {static_cast<std::function<void(SceneManager_ref<std::string>)>>(back_to_game)});
-        User::Menu::button_generation(r, sm, scene, am, "button", std::pair<float, float>(400, 800), {static_cast<std::function<void(SceneManager_ref<std::string>)>>(exit_game)});
-        User::Menu::button_generation(r, sm, scene, am, "left_button", std::pair<float, float>(300, 400), {static_cast<std::function<void(SceneManager_ref<std::string>)>>(back_to_game)});
-        User::Menu::button_generation(r, sm, scene, am, "right_button", std::pair<float, float>(700, 400), {static_cast<std::function<void(SceneManager_ref<std::string>)>>(back_to_game)});
-        User::Menu::button_generation(r, sm, scene, am, "left_button", std::pair<float, float>(300, 600), {static_cast<std::function<void(SceneManager_ref<std::string>)>>(back_to_game)});
-        User::Menu::button_generation(r, sm, scene, am, "right_button", std::pair<float, float>(700, 600), {static_cast<std::function<void(SceneManager_ref<std::string>)>>(back_to_game)});
-        User::Menu::button_generation(r, sm, scene, am, "button", std::pair<float, float>(1300, 200), {static_cast<std::function<void(SceneManager_ref<std::string>)>>(switch_language_to_fr)});
-        User::Menu::button_generation(r, sm, scene, am, "button", std::pair<float, float>(1300, 400), {static_cast<std::function<void(SceneManager_ref<std::string>)>>(switch_language_to_eng)});
-        User::Menu::button_generation(r, sm, scene, am, "button", std::pair<float, float>(1300, 600), {static_cast<std::function<void(SceneManager_ref<std::string>)>>(switch_language_to_jap)});
-        User::Menu::button_generation(r, sm, scene, am, "button", std::pair<float, float>(1300, 800), {static_cast<std::function<void(SceneManager_ref<std::string>)>>(switch_language_to_spa)});
+        User::Menu::button_generation(r, sm, scene, am, "button", std::pair<float, float>(400, 200), {static_cast<std::function<void(SceneManager_ref<std::string>)>>(back_to_game)}, "start_button");
+        User::Menu::button_generation(r, sm, scene, am, "button", std::pair<float, float>(400, 800), {static_cast<std::function<void(SceneManager_ref<std::string>)>>(exit_game)}, "exit_button");
+        User::Menu::button_generation(r, sm, scene, am, "left_button", std::pair<float, float>(300, 400), {static_cast<std::function<void(SceneManager_ref<std::string>)>>(back_to_game)}, "");
+        User::Menu::button_generation(r, sm, scene, am, "right_button", std::pair<float, float>(700, 400), {static_cast<std::function<void(SceneManager_ref<std::string>)>>(back_to_game)}, "");
+        User::Menu::button_generation(r, sm, scene, am, "left_button", std::pair<float, float>(300, 600), {static_cast<std::function<void(SceneManager_ref<std::string>)>>(back_to_game)}, "");
+        User::Menu::button_generation(r, sm, scene, am, "right_button", std::pair<float, float>(700, 600), {static_cast<std::function<void(SceneManager_ref<std::string>)>>(back_to_game)}, "");
+        User::Menu::button_generation(r, sm, scene, am, "button", std::pair<float, float>(1300, 200), {static_cast<std::function<void(SceneManager_ref<std::string>)>>(switch_language_to_fr)}, "french_button");
+        User::Menu::button_generation(r, sm, scene, am, "button", std::pair<float, float>(1300, 400), {static_cast<std::function<void(SceneManager_ref<std::string>)>>(switch_language_to_eng)}, "english_button");
+        User::Menu::button_generation(r, sm, scene, am, "button", std::pair<float, float>(1300, 600), {static_cast<std::function<void(SceneManager_ref<std::string>)>>(switch_language_to_jap)}, "japanese_font");
+        User::Menu::button_generation(r, sm, scene, am, "button", std::pair<float, float>(1300, 800), {static_cast<std::function<void(SceneManager_ref<std::string>)>>(switch_language_to_spa)}, "spanish_font");
+
+        User::upadate_button_language(r);
 
         entity_t score = scene.Get("game").SpawnEntity();
         r.add_component<text>(score, {std::string("")});
@@ -237,6 +239,7 @@ namespace User {
     {
         //all system
         User::update_score(reg);
+        User::upadate_button_language(reg);
         User::enemy_system(reg, sm, window, scene);
         User::boss_magic_system(reg, sm, window, scene);
         User::position_system(reg, window, _client);

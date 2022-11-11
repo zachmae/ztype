@@ -11,7 +11,11 @@
 #include "SpriteManager.hpp"
 #include "AudioManager.hpp"
 
+#include <codecvt>
+#include <locale>
+
 #include "System.hpp"
+#include "Globals.hpp"
 
 #ifndef USERSYSTEM_HPP_
     #define USERSYSTEM_HPP_
@@ -89,14 +93,41 @@ namespace User {
         auto &drawables = _ecs.get_components<drawable>();
         auto &positions = _ecs.get_components<position>();
         auto &SceneIds = _ecs.get_components<SceneId>();
+        auto &animation_adaptatives = _ecs.get_components<struct animation_adaptative>();
+        auto &resizables = _ecs.get_components<struct resizable>();
+        auto &are_allies = _ecs.get_components<is_ally>();
+        auto &textables = _ecs.get_components<text>();
+        bool collision_box = Globals::debug_mode;
 
-
+        animation_basic_system(_ecs);
         for (const auto& sceneId: vi) {
             for (size_t i = 0; i < drawables.size() && i < positions.size() && i < SceneIds.size(); ++i) {
                 if (drawables[i] && positions[i] && SceneIds[i] && SceneIds[i]->_sceneId == sceneId) {
-                    drawables[i]->sprite.setPosition({positions[i]->x, positions[i]->y});
+                    if (i < positions.size() && positions[i])
+                        drawables[i]->sprite.setPosition(positions[i]->x, positions[i]->y);
+                    if (i < animation_adaptatives.size() && animation_adaptatives[i])
+                        drawables[i]->sprite.setTextureRect(animation_adaptatives[i]->rect);
+                    if (i < resizables.size() && resizables[i])
+                        drawables[i]->sprite.setScale(resizables[i]->x, resizables[i]->y);
+                    if (collision_box && i < are_allies.size()) {
+                        // display_debug_mode(window, drawables[i]->sprite, are_allies[i]);
+                    }
+                    // drawables[i]->sprite.setPosition({positions[i]->x, positions[i]->y});
                     window.draw(drawables[i]->sprite);
                }
+            }
+            for (size_t i = 0; i < textables.size(); ++i) {
+                if (textables[i] && positions[i] && SceneIds[i] && SceneIds[i]->_sceneId == sceneId) {
+                    sf::Text text_object;
+                    text_object.setFont(Globals::font);
+                    static std::wstring_convert<std::codecvt_utf8<wchar_t>> utf8_conv;
+                    text_object.setString(utf8_conv.from_bytes(textables[i]->text_str));
+                    if (i < positions.size() && positions[i])
+                        text_object.setPosition(positions[i]->x, positions[i]->y);
+                    if (i < resizables.size() && resizables[i])
+                        text_object.setScale(resizables[i]->x, resizables[i]->y);
+                    window.draw(text_object);
+                }
             }
         }
     }
