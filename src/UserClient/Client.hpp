@@ -47,7 +47,6 @@ namespace User {
      */
     void ClientManager::InitScene(Registry_ref r, SpriteManager_ref<std::string> sm, AudioManager_ref<std::string> am, MusicManager_ref<std::string> mm, SceneManager_ref<std::string> scene)
     {
-        Globals::font.loadFromFile("../assets/font/complete_font.ttf");
         scene.Get("tutorial").SetZIndex(-1);
         scene.Get("game").SetZIndex(-1);
         scene.Get("menu").SetZIndex(-1);

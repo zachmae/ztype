@@ -6,6 +6,7 @@
 */
 
 #include "Languages.hpp"
+#include "Globals.hpp"
 
 void prepare_language(int ac, char const * const av[])
 {
@@ -32,6 +33,7 @@ void load_language(std::string lang)
     if (!file.good())
         file = std::ifstream(dict_path["en"]);
     file_json = nlohmann::json::parse(file);
+    Globals::font.loadFromFile(file_json["font"]);
     for (auto &it : file_json["dictionnary"].items())
             dictionnary_language[it.key()] = it.value();
 }

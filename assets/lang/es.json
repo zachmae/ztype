@@ -1,4 +1,5 @@
 {
+    "font": "../assets/font/pixeboy_font.ttf",
     "dictionnary": {
         "welcome": "benvenido",
         "hello": "hola",
