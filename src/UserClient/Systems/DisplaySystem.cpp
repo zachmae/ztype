@@ -63,7 +63,7 @@ void User::draw_system(registry &r, Window_ref w)
             sf::Text text_object;
             text_object.setFont(Globals::font);
             static std::wstring_convert<std::codecvt_utf8<wchar_t>> utf8_conv;
-            text_object.setString(utf8_conv.from_bytes(textables[i]->text));
+            text_object.setString(utf8_conv.from_bytes(textables[i]->text_str));
             if (i < positions.size() && positions[i])
                 text_object.setPosition(positions[i]->x, positions[i]->y);
             if (i < resizables.size() && resizables[i])

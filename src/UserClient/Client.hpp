@@ -63,7 +63,7 @@ namespace User {
         User::Game::ship_generation(r, sm, scene, am, "ship", true);
 
         entity_t score = scene.Get("game").SpawnEntity();
-        r.add_component<text>(score, {""});
+        r.add_component<text>(score, {std::string("")});
         r.add_component<is_score>(score, {});
         r.add_component<position>(score, {0, 0});
         r.add_component<resizable>(score, {2, 2});

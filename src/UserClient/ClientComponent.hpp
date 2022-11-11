@@ -203,7 +203,7 @@ struct value_score {
  *
  */
 struct text {
-    std::string text;
+    std::string text_str;
 };
 
 /**

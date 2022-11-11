@@ -151,7 +151,7 @@ void User::update_score(registry &r)
 
     for (size_t i = 0; i < scores.size() && i < texts.size(); ++i) {
         if (scores[i] && texts[i]) {
-            texts[i]->text = dictionnary_language["score"] + std::string(": ") + str;
+            texts[i]->text_str = std::string(dictionnary_language["score"] + std::string(": ") + str);
         }
     }
 }
