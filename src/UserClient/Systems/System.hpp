@@ -86,8 +86,9 @@ namespace User {
      * @param r : registry, contain all of the entities and the related components
      * @param _spriteManager : sprite manager reference of all sprites
      * @param w : window reference
+     * @param client : client reference
      */
-    void enemy_system(registry &r, SpriteManager<std::string>& _spriteManager, Window_ref w);
+    void enemy_system(registry &r, SpriteManager<std::string>& _spriteManager, Window_ref w, Client &client);
 
     /**
      * @brief system that allow the generation of magic attack if the boss is alive

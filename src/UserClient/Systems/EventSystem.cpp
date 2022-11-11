@@ -20,7 +20,7 @@ int count_bosses(Registry_ref reg)
     return count;
 }
 
-void User::enemy_system(registry &r, SpriteManager<std::string>& _spriteManager, Window_ref w)
+void User::enemy_system(registry &r, SpriteManager<std::string>& _spriteManager, Window_ref w, Client &client)
 {
     if (count_bosses(r) || Globals::difficulty == 0)
         return;
@@ -30,10 +30,14 @@ void User::enemy_system(registry &r, SpriteManager<std::string>& _spriteManager,
     if (time_span < std::chrono::seconds(2))
         return;
     entity_t enemy = r.spawn_entity();
+    float pos_x = 0;
+    float pos_y = 0;
     int enemy_type = rand() % Globals::difficulty;
     if (enemy_type == 0) {
         r.add_component<drawable>(enemy, {_spriteManager.Get("enemy")});
-        r.add_component<position>(enemy, {static_cast<float>(w.getSize().x) * 0.9f, static_cast<float>(rand() % (w.getSize().y - 64))});
+        pos_x = static_cast<float>(w.getSize().x) * 0.9f;
+        pos_y = static_cast<float>(rand() % (w.getSize().y - 64));
+        r.add_component<position>(enemy, {pos_x, pos_y});
         r.add_component<velocity>(enemy, {-3, 0});
         r.add_component<animation_adaptative>(enemy, {sf::IntRect(0, 0, 64, 64), 0, 0, 0.5f});
         r.add_component<collidable>(enemy, {});
@@ -43,7 +47,9 @@ void User::enemy_system(registry &r, SpriteManager<std::string>& _spriteManager,
         r.add_component<value_score>(enemy, {10});
     } else if (enemy_type == 1) {
         r.add_component<drawable>(enemy, {_spriteManager.Get("enemy_02")});
-        r.add_component<position>(enemy, {static_cast<float>(w.getSize().x) * 0.9f, static_cast<float>(rand() % (w.getSize().y - 32))});
+        pos_x = static_cast<float>(w.getSize().x) * 0.9f;
+        pos_y = static_cast<float>(rand() % (w.getSize().y - 32));
+        r.add_component<position>(enemy, {pos_x, pos_y});
         r.add_component<velocity>(enemy, {-5, 0});
         r.add_component<animation_basic>(enemy, {sf::IntRect(0, 0, 32, 32), 0, 2, 32, 0.2f});
         r.add_component<collidable>(enemy, {});
@@ -53,7 +59,9 @@ void User::enemy_system(registry &r, SpriteManager<std::string>& _spriteManager,
         r.add_component<value_score>(enemy, {1});
     } else if (enemy_type == 2) {
         r.add_component<drawable>(enemy, {_spriteManager.Get("enemy_03")});
-        r.add_component<position>(enemy, {static_cast<float>(w.getSize().x) * 0.9f, static_cast<float>(rand() % (w.getSize().y - 96))});
+        pos_x = static_cast<float>(w.getSize().x) * 0.9f;
+        pos_y = static_cast<float>(rand() % (w.getSize().y - 96));
+        r.add_component<position>(enemy, {pos_x, pos_y});
         r.add_component<velocity>(enemy, {-1, 0});
         r.add_component<animation_basic>(enemy, {sf::IntRect(0, 0, 96, 96), 0, 4, 96, 0.3f});
         r.add_component<collidable>(enemy, {});
@@ -63,7 +71,9 @@ void User::enemy_system(registry &r, SpriteManager<std::string>& _spriteManager,
         r.add_component<value_score>(enemy, {100});
     } else if (enemy_type == 3) {
         r.add_component<drawable>(enemy, {_spriteManager.Get("boss")});
-        r.add_component<position>(enemy, {static_cast<float>(w.getSize().x) * 0.7f, static_cast<float>(100)});
+        pos_x = static_cast<float>(w.getSize().x) * 0.7f;
+        pos_y = static_cast<float>(100);
+        r.add_component<position>(enemy, {pos_x, pos_y});
         r.add_component<animation_basic>(enemy, {sf::IntRect(0, 0, 100, 100), 0, 13, 100, 0.2f});
         r.add_component<collidable>(enemy, {});
         r.add_component<resizable>(enemy, {4, 4});
@@ -73,6 +83,7 @@ void User::enemy_system(registry &r, SpriteManager<std::string>& _spriteManager,
         r.add_component<value_score>(enemy, {1000});
         r.add_component<is_boss>(enemy, {});
     }
+    client.sendEnnemy(enemy_type, pos_x, pos_y);
     last_time = current_time;
 }
 

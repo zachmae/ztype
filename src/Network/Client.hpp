@@ -52,6 +52,16 @@ class Client {
          */
         void sendBlaster(float x, float y);
 
+        /**
+         * @brief Send the spawn of an ennemy to the server
+         *
+         * @param type type of the ennemy
+         * @param x position x of the blaster
+         * @param y position y of the blaster
+         */
+        void sendEnnemy(int type, float x, float y);
+
+
 
         /**
          * @brief Receive a packet from the server

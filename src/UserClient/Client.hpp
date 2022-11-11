@@ -157,7 +157,7 @@ namespace User {
                 sfp >> amount;
                 for (sfp >> newCliId; amount != 0; sfp >> newCliId, amount--) {
                     if (_client.GetId() != newCliId) {
-                        entity_t newCliEntity = reg.spawn_entity();
+                        entity_t newCliEntity = scenes.Get("game").SpawnEntity();
                         reg.add_component<drawable>(newCliEntity, {_sm.Get("ship")});
                         reg.add_component<position>(newCliEntity, {100, 200});
                         reg.add_component<velocity>(newCliEntity, {2, 2});
@@ -192,7 +192,7 @@ namespace User {
                 float x = 0;
                 float y = 0;
                 sfp >> id >> x >> y;
-                entity_t bullet = reg.spawn_entity();
+                entity_t bullet = scenes.Get("game").SpawnEntity();
                 reg.add_component<drawable>(bullet, {_sm.Get("bullet")});
                 reg.add_component<position>(bullet, {x, y});
                 reg.add_component<velocity>(bullet, {10, 0});
@@ -202,6 +202,55 @@ namespace User {
                 reg.add_component<attack>(bullet, {10});
                 reg.add_component<health>(bullet, {1});
                 am.play("blaster");
+            } else if (comparator == "ennemy_gen") {
+                int id = 0;
+                int type = 0;
+                float x = 0;
+                float y = 0;
+                sfp >> id >> type >> x >> y;
+                entity_t enemy = scenes.Get("game").SpawnEntity();
+                if (type == 0) {
+                    reg.add_component<drawable>(enemy, {_sm.Get("enemy")});
+                    reg.add_component<position>(enemy, {x, y});
+                    reg.add_component<velocity>(enemy, {-3, 0});
+                    reg.add_component<animation_adaptative>(enemy, {sf::IntRect(0, 0, 64, 64), 0, 0, 0.5f});
+                    reg.add_component<collidable>(enemy, {});
+                    reg.add_component<is_ally>(enemy, {false});
+                    reg.add_component<health>(enemy, {20});
+                    reg.add_component<attack>(enemy, {10});
+                    reg.add_component<value_score>(enemy, {10});
+                } else if (type == 1) {
+                    reg.add_component<drawable>(enemy, {_sm.Get("enemy_02")});
+                    reg.add_component<position>(enemy, {x, y});
+                    reg.add_component<velocity>(enemy, {-5, 0});
+                    reg.add_component<animation_basic>(enemy, {sf::IntRect(0, 0, 32, 32), 0, 2, 32, 0.2f});
+                    reg.add_component<collidable>(enemy, {});
+                    reg.add_component<is_ally>(enemy, {false});
+                    reg.add_component<health>(enemy, {1});
+                    reg.add_component<attack>(enemy, {10});
+                    reg.add_component<value_score>(enemy, {1});
+                } else if (type == 2) {
+                    reg.add_component<drawable>(enemy, {_sm.Get("enemy_03")});
+                    reg.add_component<position>(enemy, {x, y});
+                    reg.add_component<velocity>(enemy, {-1, 0});
+                    reg.add_component<animation_basic>(enemy, {sf::IntRect(0, 0, 96, 96), 0, 4, 96, 0.3f});
+                    reg.add_component<collidable>(enemy, {});
+                    reg.add_component<is_ally>(enemy, {false});
+                    reg.add_component<health>(enemy, {40});
+                    reg.add_component<attack>(enemy, {10});
+                    reg.add_component<value_score>(enemy, {100});
+                } else if (type == 3) {
+                    reg.add_component<drawable>(enemy, {_sm.Get("boss")});
+                    reg.add_component<position>(enemy, {x, y});
+                    reg.add_component<animation_basic>(enemy, {sf::IntRect(0, 0, 100, 100), 0, 13, 100, 0.2f});
+                    reg.add_component<collidable>(enemy, {});
+                    reg.add_component<resizable>(enemy, {4, 4});
+                    reg.add_component<is_ally>(enemy, {false});
+                    reg.add_component<health>(enemy, {100});
+                    reg.add_component<attack>(enemy, {100});
+                    reg.add_component<value_score>(enemy, {1000});
+                    reg.add_component<is_boss>(enemy, {});
+                }
             } else {
                 std::cout << "unknow type" << std::endl;
             }
@@ -235,7 +284,7 @@ namespace User {
     {
         //all system
         User::update_score(reg);
-        User::enemy_system(reg, sm, window);
+        User::enemy_system(reg, sm, window, _client);
         User::boss_magic_system(reg, sm, window);
         User::position_system(reg, window, _client);
         User::draw_system(reg, window);

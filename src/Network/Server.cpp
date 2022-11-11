@@ -138,6 +138,24 @@ sf::Packet Server::receive(sf::TcpSocket *client)
                 std::cerr << "Error : Sending failed " << (status ? *status : -50) << std::endl;
             }
         }
+    }  else if (type == "ennemy spawn") {
+        int id;
+        int type;
+        float x;
+        float y;
+        sf::Packet atEveryone;
+
+        packet >> id >>type >> x >> y;
+
+        atEveryone << "ennemy_gen" << id << type << x << y;
+        for (auto a_client : _clients) {
+            std::optional<sf::Socket::Status> status = std::nullopt;
+            if (client != a_client && (status = a_client->send(atEveryone)) == sf::Socket::Status::Done) {
+                std::cout << "server_send ID : " << id << " X : " << x << " Y : " << y << std::endl;
+            } else {
+                std::cerr << "Error : Sending failed " << (status ? *status : -50) << std::endl;
+            }
+        }
     }
       //  packet >> _x >> _y;
 
