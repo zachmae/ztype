@@ -25,8 +25,9 @@ namespace User {
      * @param e : the reference to the event manager
      * @param _spriteManager : the reference to the sprite manager
      * @param _audioManager : the reference to the audio manager
+     * @param client : the reference to the client
      */
-    void control_system(registry &r, Event_ref e, const SpriteManager<std::string>& _spriteManager, AudioManager<std::string>& _audioManager)
+    void control_system(registry &r, Event_ref e, const SpriteManager<std::string>& _spriteManager, AudioManager<std::string>& _audioManager, Client &client)
     {
         auto &controllables = r.get_components<controlable>();
         auto &velocities = r.get_components<velocity>();
@@ -44,7 +45,7 @@ namespace User {
                 } if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
                     velocities[i]->x = 10;
                 } if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
-                    User::bullet_creation_system(r, positions[i]->x, positions[i]->y, _spriteManager, _audioManager);
+                    User::bullet_creation_system(r, positions[i]->x, positions[i]->y, _spriteManager, _audioManager, client);
                 }
                 if (i < are_ships.size() && are_ships[i])
                     User::animate_ship_system(r, i, e.key.code);

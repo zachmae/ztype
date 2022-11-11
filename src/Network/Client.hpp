@@ -45,6 +45,15 @@ class Client {
         void sendPos(float x, float y);
 
         /**
+         * @brief Send the position of a blaster spawn to the server
+         *
+         * @param x position x of the blaster
+         * @param y position y of the blaster
+         */
+        void sendBlaster(float x, float y);
+
+
+        /**
          * @brief Receive a packet from the server
          *
          * @return the sf::Packet receive

@@ -76,8 +76,9 @@ namespace User {
      * @param src_x : x position of the ship
      * @param src_y : y position of the ship
      * @param _spriteManager : sprite manager reference of all sprites
+     * @param client : client reference
      */
-    void bullet_creation_system(registry &r, float src_x, float src_y, SpriteManager<std::string> _spriteManager, AudioManager<std::string>& _audioManager);
+    void bullet_creation_system(registry &r, float src_x, float src_y, SpriteManager<std::string> _spriteManager, AudioManager<std::string>& _audioManager, Client &client);
 
     /**
      * @brief system that can create random enemy when i need to
@@ -121,8 +122,9 @@ namespace User {
      * @param r : registry, contain all of the entities and the related components
      * @param e : event that i want to handle
      * @param _spriteManager : sprite manager reference of all sprites
+     * @param client : client reference
      */
-    void control_system(registry &r, Event_ref e, const SpriteManager<std::string>& _spriteManager, AudioManager<std::string>& _audioManager);
+    void control_system(registry &r, Event_ref e, const SpriteManager<std::string>& _spriteManager, AudioManager<std::string>& _audioManager, Client &client);
 
     /**
      * @brief system that can remove every entities that are out of the window in order to free memory

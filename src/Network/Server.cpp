@@ -121,6 +121,23 @@ sf::Packet Server::receive(sf::TcpSocket *client)
                 std::cerr << "Error : Sending failed " << (status ? *status : -50) << std::endl;
             }
         }
+    } else if (type == "blaster shot") {
+        int id;
+        float x;
+        float y;
+        sf::Packet atEveryone;
+
+        packet >> id >> x >> y;
+
+        atEveryone << "blaster_pos" << id << x << y;
+        for (auto a_client : _clients) {
+            std::optional<sf::Socket::Status> status = std::nullopt;
+            if (client != a_client && (status = a_client->send(atEveryone)) == sf::Socket::Status::Done) {
+                std::cout << "server_send ID : " << id << " X : " << x << " Y : " << y << std::endl;
+            } else {
+                std::cerr << "Error : Sending failed " << (status ? *status : -50) << std::endl;
+            }
+        }
     }
       //  packet >> _x >> _y;
 

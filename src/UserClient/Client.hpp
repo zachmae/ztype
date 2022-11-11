@@ -106,7 +106,7 @@ namespace User {
     template<typename Key>
     void ClientManager::UpdateEventSystem(Registry_ref reg, Event_ref event, Window_ref window, SpriteManager_ref<Key> sm, AudioManager_ref<Key> am)
     {
-        User::control_system(reg, event, sm, am);
+        User::control_system(reg, event, sm, am, _client);
     }
 
     /**
@@ -187,6 +187,21 @@ namespace User {
                     }
                     ++i;
                 }
+            } else if (comparator == "blaster_pos") {
+                int id = 0;
+                float x = 0;
+                float y = 0;
+                sfp >> id >> x >> y;
+                entity_t bullet = reg.spawn_entity();
+                reg.add_component<drawable>(bullet, {_sm.Get("bullet")});
+                reg.add_component<position>(bullet, {x, y});
+                reg.add_component<velocity>(bullet, {10, 0});
+                reg.add_component<animation_basic>(bullet, {sf::IntRect(0, 34, 50, 17), 0, 8, 50, 0.1f});
+                reg.add_component<collidable>(bullet, {});
+                reg.add_component<is_ally>(bullet, {true});
+                reg.add_component<attack>(bullet, {10});
+                reg.add_component<health>(bullet, {1});
+                am.play("blaster");
             } else {
                 std::cout << "unknow type" << std::endl;
             }

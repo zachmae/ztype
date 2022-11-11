@@ -62,6 +62,23 @@ namespace server {
                                 ++i;
                             }
                         }
+                        if (compare == "blaster_client") {
+                            int id = 0;
+                            float x = 0;
+                            float y = 0;
+                            ;
+                            sfp >> id >> x >> y;
+                            int i = 0;
+                            for (auto &client : server.getClients()) {
+                                if (i != id) {
+                                    sf::Packet newSfp;
+                                    ;
+                                    newSfp << "blaster_pos" << id << x << y;
+                                    client->send(newSfp);
+                                }
+                                ++i;
+                            }
+                        }
                     }
                 }
             }

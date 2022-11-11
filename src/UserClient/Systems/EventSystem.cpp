@@ -22,7 +22,7 @@ int count_bosses(Registry_ref reg)
 
 void User::enemy_system(registry &r, SpriteManager<std::string>& _spriteManager, Window_ref w)
 {
-    if (count_bosses(r))
+    if (count_bosses(r) || Globals::difficulty == 0)
         return;
     static std::chrono::steady_clock::time_point last_time = std::chrono::steady_clock::now();
     std::chrono::steady_clock::time_point current_time = std::chrono::steady_clock::now();
@@ -76,7 +76,7 @@ void User::enemy_system(registry &r, SpriteManager<std::string>& _spriteManager,
     last_time = current_time;
 }
 
-void User::bullet_creation_system(registry &r, float src_x, float src_y, SpriteManager<std::string> _spriteManager, AudioManager<std::string>& _audioManager)
+void User::bullet_creation_system(registry &r, float src_x, float src_y, SpriteManager<std::string> _spriteManager, AudioManager<std::string>& _audioManager, Client &client)
 {
     static std::chrono::steady_clock::time_point last_time = std::chrono::steady_clock::now();
     std::chrono::steady_clock::time_point current_time = std::chrono::steady_clock::now();
@@ -94,18 +94,13 @@ void User::bullet_creation_system(registry &r, float src_x, float src_y, SpriteM
     r.add_component<attack>(bullet, {10});
     r.add_component<health>(bullet, {1});
     _audioManager.play("blaster");
+    client.sendBlaster(src_x + 64, src_y + 8);
     last_time = current_time;
 }
 
 void User::boss_magic_system(registry &r, SpriteManager<std::string>& _spriteManager, Window_ref w)
 {
-    int bosses = 0;
-    auto &are_bosses = r.get_components<is_boss>();
-    for (size_t i = 0; i < are_bosses.size(); ++i) {
-        if (are_bosses[i])
-            bosses++;
-    }
-    if (!bosses)
+    if (!count_bosses(r))
         return;
     static std::chrono::steady_clock::time_point last_time = std::chrono::steady_clock::now();
     std::chrono::steady_clock::time_point current_time = std::chrono::steady_clock::now();
