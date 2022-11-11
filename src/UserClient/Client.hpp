@@ -59,6 +59,7 @@ namespace User {
         scene.Get("lose").SetZIndex(-1);
         scene.Get("win").SetZIndex(-1);
 
+        int i = 0;
         User::Game::background_generation(r, sm, scene, "background_back", -0.1f);
         User::Game::background_generation(r, sm, scene, "background_stars", -0.2f);
         User::Game::background_generation(r, sm, scene, "background_planets_back", -0.5f);
@@ -120,9 +121,9 @@ namespace User {
      * @param am : the reference to the audio manager
      */
     template<typename Key>
-    void ClientManager::UpdateEventSystem(Registry_ref reg, Event_ref event, Window_ref window, SpriteManager_ref<Key> sm, AudioManager_ref<Key> am)
+    void ClientManager::UpdateEventSystem(Registry_ref reg, Event_ref event, Window_ref window, SpriteManager_ref<Key> sm, AudioManager_ref<Key> am, SceneManager_ref<Key> scene)
     {
-        User::control_system(reg, event, sm, am);
+        User::control_system(reg, event, sm, am, scene);
     }
 
     /**
@@ -236,10 +237,10 @@ namespace User {
     {
         //all system
         User::update_score(reg);
-        User::enemy_system(reg, sm, window);
-        User::boss_magic_system(reg, sm, window);
+        User::enemy_system(reg, sm, window, scene);
+        User::boss_magic_system(reg, sm, window, scene);
         User::position_system(reg, window, _client);
-        // User::draw_system(reg, window);
+        User::draw_system(reg, window);
         User::displayscene_system(reg, scene, window);
 
     //    draw_system(reg, window);

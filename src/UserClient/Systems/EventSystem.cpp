@@ -20,7 +20,7 @@ int count_bosses(Registry_ref reg)
     return count;
 }
 
-void User::enemy_system(registry &r, SpriteManager<std::string>& _spriteManager, Window_ref w)
+void User::enemy_system(registry &r, SpriteManager<std::string>& _spriteManager, Window_ref w, SceneManager_ref<std::string> scene)
 {
     if (count_bosses(r))
         return;
@@ -29,7 +29,7 @@ void User::enemy_system(registry &r, SpriteManager<std::string>& _spriteManager,
     std::chrono::seconds time_span = std::chrono::duration_cast<std::chrono::seconds>(current_time - last_time);
     if (time_span < std::chrono::seconds(2))
         return;
-    entity_t enemy = r.spawn_entity();
+    entity_t enemy = scene.Get("game").SpawnEntity();
     int enemy_type = rand() % Globals::difficulty;
     if (enemy_type == 0) {
         r.add_component<drawable>(enemy, {_spriteManager.Get("enemy")});
@@ -76,7 +76,7 @@ void User::enemy_system(registry &r, SpriteManager<std::string>& _spriteManager,
     last_time = current_time;
 }
 
-void User::bullet_creation_system(registry &r, float src_x, float src_y, SpriteManager<std::string> _spriteManager, AudioManager<std::string>& _audioManager)
+void User::bullet_creation_system(registry &r, float src_x, float src_y, SpriteManager<std::string> _spriteManager, AudioManager<std::string>& _audioManager, SceneManager_ref<std::string> scene)
 {
     static std::chrono::steady_clock::time_point last_time = std::chrono::steady_clock::now();
     std::chrono::steady_clock::time_point current_time = std::chrono::steady_clock::now();
@@ -84,7 +84,7 @@ void User::bullet_creation_system(registry &r, float src_x, float src_y, SpriteM
 
     if (time_span < std::chrono::seconds(1))
         return;
-    entity_t bullet = r.spawn_entity();
+    entity_t bullet = scene.Get("game").SpawnEntity();
     r.add_component<drawable>(bullet, {_spriteManager.Get("bullet")});
     r.add_component<position>(bullet, {src_x + 64, src_y + 8});
     r.add_component<velocity>(bullet, {10, 0});
@@ -97,7 +97,7 @@ void User::bullet_creation_system(registry &r, float src_x, float src_y, SpriteM
     last_time = current_time;
 }
 
-void User::boss_magic_system(registry &r, SpriteManager<std::string>& _spriteManager, Window_ref w)
+void User::boss_magic_system(registry &r, SpriteManager<std::string>& _spriteManager, Window_ref w, SceneManager_ref<std::string> scene)
 {
     int bosses = 0;
     auto &are_bosses = r.get_components<is_boss>();
@@ -112,7 +112,7 @@ void User::boss_magic_system(registry &r, SpriteManager<std::string>& _spriteMan
     std::chrono::seconds time_span = std::chrono::duration_cast<std::chrono::seconds>(current_time - last_time);
     if (time_span < std::chrono::seconds(1))
         return;
-    entity_t magic = r.spawn_entity();
+    entity_t magic = scene.Get("game").SpawnEntity();
     float random_x_vel = static_cast<float>(rand() % 100) / 10;
     float random_y_vel = (static_cast<float>(rand() % 100) - 50) / 10;
 

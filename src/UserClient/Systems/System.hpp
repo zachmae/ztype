@@ -77,7 +77,7 @@ namespace User {
      * @param src_y : y position of the ship
      * @param _spriteManager : sprite manager reference of all sprites
      */
-    void bullet_creation_system(registry &r, float src_x, float src_y, SpriteManager<std::string> _spriteManager, AudioManager<std::string>& _audioManager);
+    void bullet_creation_system(registry &r, float src_x, float src_y, SpriteManager<std::string> _spriteManager, AudioManager<std::string>& _audioManager, SceneManager_ref<std::string> scene);
 
     /**
      * @brief system that can create random enemy when i need to
@@ -86,7 +86,7 @@ namespace User {
      * @param _spriteManager : sprite manager reference of all sprites
      * @param w : window reference
      */
-    void enemy_system(registry &r, SpriteManager<std::string>& _spriteManager, Window_ref w);
+    void enemy_system(registry &r, SpriteManager<std::string>& _spriteManager, Window_ref w, SceneManager_ref<std::string> scene);
 
     /**
      * @brief system that allow the generation of magic attack if the boss is alive
@@ -95,7 +95,7 @@ namespace User {
      * @param _spriteManager : sprite manager reference of all sprites
      * @param w : window reference
      */
-    void boss_magic_system(registry &r, SpriteManager<std::string>& _spriteManager, Window_ref w);
+    void boss_magic_system(registry &r, SpriteManager<std::string>& _spriteManager, Window_ref w, SceneManager_ref<std::string> scene);
 
     /**
      * @brief system that check if there is player left alive
@@ -122,7 +122,7 @@ namespace User {
      * @param e : event that i want to handle
      * @param _spriteManager : sprite manager reference of all sprites
      */
-    void control_system(registry &r, Event_ref e, const SpriteManager<std::string>& _spriteManager, AudioManager<std::string>& _audioManager);
+    void control_system(registry &r, Event_ref e, const SpriteManager<std::string>& _spriteManager, AudioManager<std::string>& _audioManager, SceneManager_ref<std::string> scene);
 
     /**
      * @brief system that can remove every entities that are out of the window in order to free memory

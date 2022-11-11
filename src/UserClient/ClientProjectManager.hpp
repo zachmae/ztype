@@ -114,7 +114,7 @@ namespace User {
                             break;
                         }
                         _clientManager.UpdateScene(_ecs, _scenes, _window, _event);
-                        _clientManager.UpdateEventSystem(_ecs, _event, _window, _sm, _am);
+                        _clientManager.UpdateEventSystem(_ecs, _event, _window, _sm, _am, _scenes);
                     }
                     if (!_window.isOpen())
                         break;

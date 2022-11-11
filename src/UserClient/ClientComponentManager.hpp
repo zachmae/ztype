@@ -12,6 +12,8 @@ namespace User {
                                             velocity,
                                             drawable,
                                             controlable,
+                                            clickable,
+                                            clickable_sfx,
                                             animation_basic,
                                             animation_adaptative,
                                             resizable,

@@ -7,7 +7,7 @@
 
 #include <string>
 
-#include "../../UserComponent.hpp"
+#include "../../ClientComponent.hpp"
 #include "../../../ProjectManager/Ecs.hpp"
 
 #include "../../../SceneManager/SceneManager.hpp"

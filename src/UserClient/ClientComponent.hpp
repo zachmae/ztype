@@ -66,7 +66,6 @@ struct clickable {
     std::function<void(SceneManager_ref<std::string>)> callback;
 };
 
-
 /**
  * @struct animation_basic
  *

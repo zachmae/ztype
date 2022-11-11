@@ -100,7 +100,7 @@ namespace User {
              * @param am
              */
             template<typename Key>
-            void UpdateEventSystem(Registry_ref reg, Event_ref event, Window_ref window, SpriteManager_ref<Key> sm, AudioManager_ref<Key> am);
+            void UpdateEventSystem(Registry_ref reg, Event_ref event, Window_ref window, SpriteManager_ref<Key> sm, AudioManager_ref<Key> am, SceneManager_ref<Key> scene);
 
             /**
              * @brief Update Client

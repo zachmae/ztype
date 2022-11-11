@@ -23,5 +23,5 @@
             reg.add_component<drawable>(button, {sprite_manager.Get(name)});
             reg.add_component<position>(button, {pos.first, pos.second});
             reg.add_component<clickable>(button, std::move(callback));
-            // reg.add_component<clickable_sfx>(button, {"explosion"});
+            reg.add_component<clickable_sfx>(button, {"explosion"});
         }
