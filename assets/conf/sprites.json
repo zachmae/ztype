@@ -15,6 +15,7 @@
         {"name": "enemy_03", "path": "../assets/img/enemy_03.png"},
         {"name": "boss", "path": "../assets/img/boss.png"},
         {"name": "black_magic", "path": "../assets/img/black_magic.png"},
-        {"name": "button", "path": "../assets/img/button.png"}
+        {"name": "button", "path": "../assets/img/button.png"},
+        {"name": "white_shadow", "path": "../assets/img/white_shadow.png"}
     ]
 }

@@ -51,8 +51,8 @@ namespace User {
     void UserManager::InitScene(Registry_ref r, SpriteManager_ref<std::string> sm, AudioManager_ref<std::string> am, MusicManager_ref<std::string> mm, SceneManager_ref<std::string> scene)
     {
         scene.Get("tutorial").SetZIndex(-1);
-        scene.Get("game").SetZIndex(-1);
-        scene.Get("menu").SetZIndex(5);
+        scene.Get("game").SetZIndex(1);
+        scene.Get("menu").SetZIndex(-5);
         scene.Get("loading").SetZIndex(-1);
         scene.Get("settings").SetZIndex(-1);
         scene.Get("lose").SetZIndex(-1);
@@ -64,7 +64,9 @@ namespace User {
         User::Game::background_generation(r, sm, scene, "background_planets_front", -0.8f);
         User::Game::ship_generation(r, sm, scene, am, "ship", true);
 
-        User::Menu::button_generation(r, sm, scene, am, "button", std::pair<float, float>(0, 0), {static_cast<std::function<void(SceneManager_ref<std::string>)>>(test_menu)});
+        User::Menu::background_generation(r, sm, scene, "white_shadow");
+        User::Menu::button_generation(r, sm, scene, am, "button", std::pair<float, float>(600, 200), {static_cast<std::function<void(SceneManager_ref<std::string>)>>(back_to_game)});
+        User::Menu::button_generation(r, sm, scene, am, "button", std::pair<float, float>(600, 600), {static_cast<std::function<void(SceneManager_ref<std::string>)>>(exit_game)});
         mm.play("epitomize");
     }
 
@@ -222,7 +224,7 @@ namespace User {
         User::enemy_system(reg, sm, window);
         User::boss_magic_system(reg, sm, window);
         User::position_system(reg, window, _client);
-        User::draw_system(reg, window);
+        // User::draw_system(reg, window);
         User::displayscene_system(reg, scene, window);
 
     //    draw_system(reg, window);

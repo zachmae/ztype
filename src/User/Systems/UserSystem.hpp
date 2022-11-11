@@ -68,6 +68,9 @@ namespace User {
                 }
             }
         }
+        if (event.type == sf::Event::KeyReleased  && event.key.code == sf::Keyboard::Escape) {
+            pop_settings(scene);
+        }
     }
 
     template<typename Key>

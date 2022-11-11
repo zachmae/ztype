@@ -10,6 +10,10 @@
 
 #include "../../../SceneManager/SceneManager.hpp"
 
-void test_menu(SceneManager_ref<std::string> scene);
+void back_to_game(SceneManager_ref<std::string> scene);
+
+void exit_game(SceneManager_ref<std::string> scene);
+
+void pop_settings(SceneManager_ref<std::string> scene);
 
 #endif /* !CLICKACTIONS_HPP_ */

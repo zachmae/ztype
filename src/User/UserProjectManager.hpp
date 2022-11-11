@@ -108,6 +108,8 @@ namespace Project {
                     _userManager.UpdateWindowSystem(_ecs, _scenes, _window, _sm);
                     _window.display();
                     _userManager.UpdatePostWindowSystem(_ecs, _scenes, _window, _am);
+                    if (_scenes.Get("game").GetZIndex() == -1)
+                        return 0;
                 }
                 return 0;
             };
