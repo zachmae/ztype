@@ -1,0 +1,634 @@
+\hypertarget{group__ECS}{}\doxysection{ECS}
+\label{group__ECS}\index{ECS@{ECS}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structentity__t}{entity\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em the definition of an entity \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classsparse__array}{sparse\+\_\+array$<$ Component $>$}}
+\begin{DoxyCompactList}\small\item\em class sparce\+\_\+array \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classregistry}{registry}}
+\begin{DoxyCompactList}\small\item\em registry (ECS) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__ECS_ga822a033c086b7a9a3a65d9a09c7a06bb}\label{group__ECS_ga822a033c086b7a9a3a65d9a09c7a06bb}} 
+using {\bfseries Registry\+\_\+ref} = \mbox{\hyperlink{classregistry}{registry}} \&
+\item 
+\mbox{\Hypertarget{group__ECS_gab7403a6f935fa66034cce5bdcf49a9fc}\label{group__ECS_gab7403a6f935fa66034cce5bdcf49a9fc}} 
+using {\bfseries sparse\+\_\+array$<$ Component $>$\+::value\+\_\+type} = std\+::optional$<$ Component $>$
+\item 
+\mbox{\Hypertarget{group__ECS_gae00c5b30838e89f0d368d55e0ba6a54d}\label{group__ECS_gae00c5b30838e89f0d368d55e0ba6a54d}} 
+using {\bfseries sparse\+\_\+array$<$ Component $>$\+::reference\+\_\+type} = value\+\_\+type \&
+\item 
+\mbox{\Hypertarget{group__ECS_ga373bf1a871a33e79a21da15acf3652f8}\label{group__ECS_ga373bf1a871a33e79a21da15acf3652f8}} 
+using {\bfseries sparse\+\_\+array$<$ Component $>$\+::const\+\_\+reference\+\_\+type} = value\+\_\+type const \&
+\item 
+\mbox{\Hypertarget{group__ECS_ga5f747e93a9406474b106bde9c66f01b7}\label{group__ECS_ga5f747e93a9406474b106bde9c66f01b7}} 
+using {\bfseries sparse\+\_\+array$<$ Component $>$\+::container\+\_\+t} = std\+::vector$<$ value\+\_\+type $>$
+\item 
+\mbox{\Hypertarget{group__ECS_gaf1468a11a30a58090580d1fb399e3cc0}\label{group__ECS_gaf1468a11a30a58090580d1fb399e3cc0}} 
+using {\bfseries sparse\+\_\+array$<$ Component $>$\+::size\+\_\+type} = typename container\+\_\+t\+::size\+\_\+type
+\item 
+\mbox{\Hypertarget{group__ECS_ga1293c5b64d77bb97ed87e57c6276925e}\label{group__ECS_ga1293c5b64d77bb97ed87e57c6276925e}} 
+using {\bfseries sparse\+\_\+array$<$ Component $>$\+::iterator} = typename container\+\_\+t\+::iterator
+\item 
+\mbox{\Hypertarget{group__ECS_ga9beecc69673481f79844336194dfc1a2}\label{group__ECS_ga9beecc69673481f79844336194dfc1a2}} 
+using {\bfseries sparse\+\_\+array$<$ Component $>$\+::const\+\_\+iterator} = typename container\+\_\+t\+::const\+\_\+iterator
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Component $>$ }\\std\+::ostream \& \mbox{\hyperlink{group__ECS_ga73521ca7b0963cf320601b7e8ce115fc}{operator$<$$<$}} (std\+::ostream \&os, std\+::optional$<$ Component $>$ const \&c)
+\begin{DoxyCompactList}\small\item\em operator\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__ECS_ga9437af3619227d4ab973cad2f6bfa818}\label{group__ECS_ga9437af3619227d4ab973cad2f6bfa818}} 
+{\bfseries sparse\+\_\+array$<$ Component $>$\+::sparse\+\_\+array} ()=default
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}} -\/ default constructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__ECS_ga99d9756419717256dab5ce1aea62d8da}{sparse\+\_\+array$<$ Component $>$\+::sparse\+\_\+array}} (\mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}} const \&)=default
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}} -\/ copy constructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__ECS_gad93b07fae9a6a1e0029768fd8aa22703}{sparse\+\_\+array$<$ Component $>$\+::sparse\+\_\+array}} (\mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}} \&\&) noexcept=default
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}} -\/ move constructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__ECS_ga462f64cc46c81b54e7c7d1181f7b889f}{sparse\+\_\+array$<$ Component $>$\+::$\sim$sparse\+\_\+array}} ()=default
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}} -\/ default destructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}} \& \mbox{\hyperlink{group__ECS_ga6e1be23d99d0b140980c1f549c7bf41b}{sparse\+\_\+array$<$ Component $>$\+::operator=}} (\mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}} const \&)=default
+\begin{DoxyCompactList}\small\item\em operator = -\/ copy assignment operator \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}} \& \mbox{\hyperlink{group__ECS_ga1f8c213f7e998b54425fda09f2453077}{sparse\+\_\+array$<$ Component $>$\+::operator=}} (\mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}} \&\&) noexcept=default
+\begin{DoxyCompactList}\small\item\em operator = -\/ move assignment operator \end{DoxyCompactList}\item 
+reference\+\_\+type \mbox{\hyperlink{group__ECS_ga4aa1f2fae14ff1cecdc6e42ded260cad}{sparse\+\_\+array$<$ Component $>$\+::operator\mbox{[}$\,$\mbox{]}}} (size\+\_\+t idx)
+\begin{DoxyCompactList}\small\item\em operator \end{DoxyCompactList}\item 
+const\+\_\+reference\+\_\+type \mbox{\hyperlink{group__ECS_ga1d66e1a1e11a9bcef70425c3c09eb6b4}{sparse\+\_\+array$<$ Component $>$\+::operator\mbox{[}$\,$\mbox{]}}} (size\+\_\+t idx) const
+\begin{DoxyCompactList}\small\item\em operator \end{DoxyCompactList}\item 
+iterator \mbox{\hyperlink{group__ECS_ga1cdf824b5897fb3ffc857843b37453b2}{sparse\+\_\+array$<$ Component $>$\+::begin}} ()
+\begin{DoxyCompactList}\small\item\em begin \end{DoxyCompactList}\item 
+const\+\_\+iterator \mbox{\hyperlink{group__ECS_ga25c3a93f84f860ee55bb25f8da67e358}{sparse\+\_\+array$<$ Component $>$\+::begin}} () const
+\begin{DoxyCompactList}\small\item\em begin \end{DoxyCompactList}\item 
+const\+\_\+iterator \mbox{\hyperlink{group__ECS_ga8f6e23b67ea783baf53129f8907e297a}{sparse\+\_\+array$<$ Component $>$\+::cbegin}} () const
+\begin{DoxyCompactList}\small\item\em end \end{DoxyCompactList}\item 
+iterator \mbox{\hyperlink{group__ECS_gaf6749bdfbdc5200a77549f52594107eb}{sparse\+\_\+array$<$ Component $>$\+::end}} ()
+\begin{DoxyCompactList}\small\item\em end \end{DoxyCompactList}\item 
+const\+\_\+iterator \mbox{\hyperlink{group__ECS_ga094425cbf56a592e130b67ecda68cd3d}{sparse\+\_\+array$<$ Component $>$\+::end}} () const
+\begin{DoxyCompactList}\small\item\em end \end{DoxyCompactList}\item 
+const\+\_\+iterator \mbox{\hyperlink{group__ECS_gadb95eba3fb7e88207a4374c04950d167}{sparse\+\_\+array$<$ Component $>$\+::cend}} () const
+\begin{DoxyCompactList}\small\item\em cend \end{DoxyCompactList}\item 
+size\+\_\+type \mbox{\hyperlink{group__ECS_ga6679a2315be266da4c01ad97f00e51fd}{sparse\+\_\+array$<$ Component $>$\+::size}} () const
+\begin{DoxyCompactList}\small\item\em size \end{DoxyCompactList}\item 
+reference\+\_\+type \mbox{\hyperlink{group__ECS_ga5405e60b1686ddbae5715e9ff44efaa7}{sparse\+\_\+array$<$ Component $>$\+::insert\+\_\+at}} (size\+\_\+type pos, Component const \&c)
+\begin{DoxyCompactList}\small\item\em insert\+\_\+at \end{DoxyCompactList}\item 
+reference\+\_\+type \mbox{\hyperlink{group__ECS_gac63a5ffed5183dacc9d6df639f038b8d}{sparse\+\_\+array$<$ Component $>$\+::insert\+\_\+at}} (size\+\_\+type pos, Component \&\&c)
+\begin{DoxyCompactList}\small\item\em insert\+\_\+at \end{DoxyCompactList}\item 
+{\footnotesize template$<$class ... Params$>$ }\\reference\+\_\+type \mbox{\hyperlink{group__ECS_gae689ca7b4a055ff5ffec48a7336f7d44}{sparse\+\_\+array$<$ Component $>$\+::emplace\+\_\+at}} (size\+\_\+type pos, Params \&\&...args)
+\begin{DoxyCompactList}\small\item\em emplace\+\_\+at \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__ECS_gac0bea77704ce39c1a731dc69de8d9d2d}{sparse\+\_\+array$<$ Component $>$\+::erase}} (size\+\_\+type pos)
+\begin{DoxyCompactList}\small\item\em erase \end{DoxyCompactList}\item 
+size\+\_\+type \mbox{\hyperlink{group__ECS_gaaf28747955bbc6e4dfbb1d63fb27c18c}{sparse\+\_\+array$<$ Component $>$\+::get\+\_\+index}} (value\+\_\+type const \&v) const
+\begin{DoxyCompactList}\small\item\em get\+\_\+index \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__ECS_gab34e95bdc6b4c360a996fb63ba1a78d2}{sparse\+\_\+array$<$ Component $>$\+::display}} () const
+\begin{DoxyCompactList}\small\item\em display \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Component $>$ }\\\mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}}$<$ Component $>$ \& \mbox{\hyperlink{group__ECS_gac77008529bb6e296916633cc41ba5be5}{registry\+::register\+\_\+component}} ()
+\begin{DoxyCompactList}\small\item\em register\+\_\+component \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Component $>$ }\\\mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}}$<$ Component $>$ \& \mbox{\hyperlink{group__ECS_ga3866ee276a5a1d78d00cd403e8e8c7d9}{registry\+::get\+\_\+components}} ()
+\begin{DoxyCompactList}\small\item\em get\+\_\+components \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Component $>$ }\\\mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}}$<$ Component $>$ const \& \mbox{\hyperlink{group__ECS_ga216d887232d1a7b36b115add610c2d84}{registry\+::get\+\_\+components}} () const
+\begin{DoxyCompactList}\small\item\em Get the components object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structentity__t}{entity\+\_\+t}} \mbox{\hyperlink{group__ECS_ga75d49eb0c9936d57146007f06cbaf735}{registry\+::spawn\+\_\+entity}} ()
+\begin{DoxyCompactList}\small\item\em spawn\+\_\+entity -\/ create an entity \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{structentity__t}{entity\+\_\+t}} \mbox{\hyperlink{group__ECS_ga0f3b12e1cad77680b500a0b138a60b71}{registry\+::entity\+\_\+from\+\_\+index}} (std\+::size\+\_\+t idx)
+\item 
+void \mbox{\hyperlink{group__ECS_ga6c967fb2267fd8eaeb155f2be5b5650c}{registry\+::kill\+\_\+entity}} (\mbox{\hyperlink{structentity__t}{entity\+\_\+t}} const \&e)
+\begin{DoxyCompactList}\small\item\em kill entity \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Component $>$ }\\\mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}}$<$ Component $>$\+::reference\+\_\+type \mbox{\hyperlink{group__ECS_ga9731cef0d6a3803fadf6c2ebb5fb8a1b}{registry\+::add\+\_\+component}} (\mbox{\hyperlink{structentity__t}{entity\+\_\+t}} const \&to, Component \&\&c)
+\item 
+{\footnotesize template$<$typename Component , typename ... Params$>$ }\\\mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}}$<$ Component $>$\+::reference\+\_\+type \mbox{\hyperlink{group__ECS_gadd92ff90bc7a767c18d5349c07a757a9}{registry\+::emplace\+\_\+component}} (\mbox{\hyperlink{structentity__t}{entity\+\_\+t}} const \&to, Params \&\&... p)
+\item 
+{\footnotesize template$<$typename Component $>$ }\\void \mbox{\hyperlink{group__ECS_gae6ae3ba636214bb3972a99492923bf7c}{registry\+::remove\+\_\+component}} (\mbox{\hyperlink{structentity__t}{entity\+\_\+t}} const \&from)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__ECS_ga969ea17d28cb51eebe42310ccd983b31}\label{group__ECS_ga969ea17d28cb51eebe42310ccd983b31}} 
+size\+\_\+t {\bfseries entity\+\_\+t\+::\+\_\+idx}
+\item 
+\mbox{\Hypertarget{group__ECS_gaf402dee6c1c46d2838c619715af2d1f7}\label{group__ECS_gaf402dee6c1c46d2838c619715af2d1f7}} 
+friend {\bfseries entity\+\_\+t\+::registry}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__ECS_ga9731cef0d6a3803fadf6c2ebb5fb8a1b}\label{group__ECS_ga9731cef0d6a3803fadf6c2ebb5fb8a1b}} 
+\index{ECS@{ECS}!add\_component@{add\_component}}
+\index{add\_component@{add\_component}!ECS@{ECS}}
+\doxysubsubsection{\texorpdfstring{add\_component()}{add\_component()}}
+{\footnotesize\ttfamily template$<$typename Component $>$ \\
+\mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}}$<$ Component $>$\+::reference\+\_\+type registry\+::add\+\_\+component (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structentity__t}{entity\+\_\+t}} const \&}]{to,  }\item[{Component \&\&}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Component} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em to} & \\
+\hline
+{\em c} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+sparse\+\_\+array$<$\+Component$>$\+::reference\+\_\+type 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__ECS_ga1cdf824b5897fb3ffc857843b37453b2}\label{group__ECS_ga1cdf824b5897fb3ffc857843b37453b2}} 
+\index{ECS@{ECS}!begin@{begin}}
+\index{begin@{begin}!ECS@{ECS}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Component $>$ \\
+iterator \mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}}$<$ Component $>$\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+begin 
+
+\begin{DoxyReturn}{Returns}
+iterator 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__ECS_ga25c3a93f84f860ee55bb25f8da67e358}\label{group__ECS_ga25c3a93f84f860ee55bb25f8da67e358}} 
+\index{ECS@{ECS}!begin@{begin}}
+\index{begin@{begin}!ECS@{ECS}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Component $>$ \\
+const\+\_\+iterator \mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}}$<$ Component $>$\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+begin 
+
+\begin{DoxyReturn}{Returns}
+const\+\_\+iterator 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__ECS_ga8f6e23b67ea783baf53129f8907e297a}\label{group__ECS_ga8f6e23b67ea783baf53129f8907e297a}} 
+\index{ECS@{ECS}!cbegin@{cbegin}}
+\index{cbegin@{cbegin}!ECS@{ECS}}
+\doxysubsubsection{\texorpdfstring{cbegin()}{cbegin()}}
+{\footnotesize\ttfamily template$<$typename Component $>$ \\
+const\+\_\+iterator \mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}}$<$ Component $>$\+::cbegin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+end 
+
+\begin{DoxyReturn}{Returns}
+const\+\_\+iterator 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__ECS_gadb95eba3fb7e88207a4374c04950d167}\label{group__ECS_gadb95eba3fb7e88207a4374c04950d167}} 
+\index{ECS@{ECS}!cend@{cend}}
+\index{cend@{cend}!ECS@{ECS}}
+\doxysubsubsection{\texorpdfstring{cend()}{cend()}}
+{\footnotesize\ttfamily template$<$typename Component $>$ \\
+const\+\_\+iterator \mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}}$<$ Component $>$\+::cend (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+cend 
+
+\begin{DoxyReturn}{Returns}
+const\+\_\+iterator 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__ECS_gab34e95bdc6b4c360a996fb63ba1a78d2}\label{group__ECS_gab34e95bdc6b4c360a996fb63ba1a78d2}} 
+\index{ECS@{ECS}!display@{display}}
+\index{display@{display}!ECS@{ECS}}
+\doxysubsubsection{\texorpdfstring{display()}{display()}}
+{\footnotesize\ttfamily template$<$typename Component $>$ \\
+void \mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}}$<$ Component $>$\+::display (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+display 
+
+\mbox{\Hypertarget{group__ECS_gae689ca7b4a055ff5ffec48a7336f7d44}\label{group__ECS_gae689ca7b4a055ff5ffec48a7336f7d44}} 
+\index{ECS@{ECS}!emplace\_at@{emplace\_at}}
+\index{emplace\_at@{emplace\_at}!ECS@{ECS}}
+\doxysubsubsection{\texorpdfstring{emplace\_at()}{emplace\_at()}}
+{\footnotesize\ttfamily template$<$typename Component $>$ \\
+template$<$class ... Params$>$ \\
+reference\+\_\+type \mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}}$<$ Component $>$\+::emplace\+\_\+at (\begin{DoxyParamCaption}\item[{size\+\_\+type}]{pos,  }\item[{Params \&\&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+emplace\+\_\+at 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Params} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & \\
+\hline
+{\em args} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+reference\+\_\+type 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__ECS_gadd92ff90bc7a767c18d5349c07a757a9}\label{group__ECS_gadd92ff90bc7a767c18d5349c07a757a9}} 
+\index{ECS@{ECS}!emplace\_component@{emplace\_component}}
+\index{emplace\_component@{emplace\_component}!ECS@{ECS}}
+\doxysubsubsection{\texorpdfstring{emplace\_component()}{emplace\_component()}}
+{\footnotesize\ttfamily template$<$typename Component , typename ... Params$>$ \\
+\mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}}$<$ Component $>$\+::reference\+\_\+type registry\+::emplace\+\_\+component (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structentity__t}{entity\+\_\+t}} const \&}]{to,  }\item[{Params \&\&...}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Component} & \\
+\hline
+{\em Params} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em to} & \\
+\hline
+{\em p} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}} $<$\+Component$>$\+::reference\+\_\+type 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__ECS_gaf6749bdfbdc5200a77549f52594107eb}\label{group__ECS_gaf6749bdfbdc5200a77549f52594107eb}} 
+\index{ECS@{ECS}!end@{end}}
+\index{end@{end}!ECS@{ECS}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Component $>$ \\
+iterator \mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}}$<$ Component $>$\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+end 
+
+\begin{DoxyReturn}{Returns}
+iterator 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__ECS_ga094425cbf56a592e130b67ecda68cd3d}\label{group__ECS_ga094425cbf56a592e130b67ecda68cd3d}} 
+\index{ECS@{ECS}!end@{end}}
+\index{end@{end}!ECS@{ECS}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Component $>$ \\
+const\+\_\+iterator \mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}}$<$ Component $>$\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+end 
+
+\begin{DoxyReturn}{Returns}
+const\+\_\+iterator 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__ECS_ga0f3b12e1cad77680b500a0b138a60b71}\label{group__ECS_ga0f3b12e1cad77680b500a0b138a60b71}} 
+\index{ECS@{ECS}!entity\_from\_index@{entity\_from\_index}}
+\index{entity\_from\_index@{entity\_from\_index}!ECS@{ECS}}
+\doxysubsubsection{\texorpdfstring{entity\_from\_index()}{entity\_from\_index()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{structentity__t}{entity\+\_\+t}} registry\+::entity\+\_\+from\+\_\+index (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{idx }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em idx} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{structentity__t}{entity\+\_\+t}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__ECS_gac0bea77704ce39c1a731dc69de8d9d2d}\label{group__ECS_gac0bea77704ce39c1a731dc69de8d9d2d}} 
+\index{ECS@{ECS}!erase@{erase}}
+\index{erase@{erase}!ECS@{ECS}}
+\doxysubsubsection{\texorpdfstring{erase()}{erase()}}
+{\footnotesize\ttfamily template$<$typename Component $>$ \\
+void \mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}}$<$ Component $>$\+::erase (\begin{DoxyParamCaption}\item[{size\+\_\+type}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+erase 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__ECS_ga3866ee276a5a1d78d00cd403e8e8c7d9}\label{group__ECS_ga3866ee276a5a1d78d00cd403e8e8c7d9}} 
+\index{ECS@{ECS}!get\_components@{get\_components}}
+\index{get\_components@{get\_components}!ECS@{ECS}}
+\doxysubsubsection{\texorpdfstring{get\_components()}{get\_components()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class Component $>$ \\
+\mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}}$<$ Component $>$ \& registry\+::get\+\_\+components (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get\+\_\+components 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Component} & \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+sparse\+\_\+array$<$\+Component$>$\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__ECS_ga216d887232d1a7b36b115add610c2d84}\label{group__ECS_ga216d887232d1a7b36b115add610c2d84}} 
+\index{ECS@{ECS}!get\_components@{get\_components}}
+\index{get\_components@{get\_components}!ECS@{ECS}}
+\doxysubsubsection{\texorpdfstring{get\_components()}{get\_components()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class Component $>$ \\
+\mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}}$<$ Component $>$ const  \& registry\+::get\+\_\+components (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the components object. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Component} & \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+sparse\+\_\+array$<$\+Component$>$ const\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__ECS_gaaf28747955bbc6e4dfbb1d63fb27c18c}\label{group__ECS_gaaf28747955bbc6e4dfbb1d63fb27c18c}} 
+\index{ECS@{ECS}!get\_index@{get\_index}}
+\index{get\_index@{get\_index}!ECS@{ECS}}
+\doxysubsubsection{\texorpdfstring{get\_index()}{get\_index()}}
+{\footnotesize\ttfamily template$<$typename Component $>$ \\
+size\+\_\+type \mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}}$<$ Component $>$\+::get\+\_\+index (\begin{DoxyParamCaption}\item[{value\+\_\+type const \&}]{v }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get\+\_\+index 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+size\+\_\+type 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__ECS_gac63a5ffed5183dacc9d6df639f038b8d}\label{group__ECS_gac63a5ffed5183dacc9d6df639f038b8d}} 
+\index{ECS@{ECS}!insert\_at@{insert\_at}}
+\index{insert\_at@{insert\_at}!ECS@{ECS}}
+\doxysubsubsection{\texorpdfstring{insert\_at()}{insert\_at()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Component $>$ \\
+reference\+\_\+type \mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}}$<$ Component $>$\+::insert\+\_\+at (\begin{DoxyParamCaption}\item[{size\+\_\+type}]{pos,  }\item[{Component \&\&}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+insert\+\_\+at 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & \\
+\hline
+{\em c} & //$\sim$ lvalue \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+reference\+\_\+type 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__ECS_ga5405e60b1686ddbae5715e9ff44efaa7}\label{group__ECS_ga5405e60b1686ddbae5715e9ff44efaa7}} 
+\index{ECS@{ECS}!insert\_at@{insert\_at}}
+\index{insert\_at@{insert\_at}!ECS@{ECS}}
+\doxysubsubsection{\texorpdfstring{insert\_at()}{insert\_at()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Component $>$ \\
+reference\+\_\+type \mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}}$<$ Component $>$\+::insert\+\_\+at (\begin{DoxyParamCaption}\item[{size\+\_\+type}]{pos,  }\item[{Component const \&}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+insert\+\_\+at 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & \\
+\hline
+{\em c} & //$\sim$ rvalue \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+reference\+\_\+type 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__ECS_ga6c967fb2267fd8eaeb155f2be5b5650c}\label{group__ECS_ga6c967fb2267fd8eaeb155f2be5b5650c}} 
+\index{ECS@{ECS}!kill\_entity@{kill\_entity}}
+\index{kill\_entity@{kill\_entity}!ECS@{ECS}}
+\doxysubsubsection{\texorpdfstring{kill\_entity()}{kill\_entity()}}
+{\footnotesize\ttfamily void registry\+::kill\+\_\+entity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structentity__t}{entity\+\_\+t}} const \&}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+kill entity 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__ECS_ga73521ca7b0963cf320601b7e8ce115fc}\label{group__ECS_ga73521ca7b0963cf320601b7e8ce115fc}} 
+\index{ECS@{ECS}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!ECS@{ECS}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily template$<$typename Component $>$ \\
+std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{std\+::optional$<$ Component $>$ const \&}]{c }\end{DoxyParamCaption})}
+
+
+
+operator\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Component} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em os} & \\
+\hline
+{\em c} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::ostream\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__ECS_ga1f8c213f7e998b54425fda09f2453077}\label{group__ECS_ga1f8c213f7e998b54425fda09f2453077}} 
+\index{ECS@{ECS}!operator=@{operator=}}
+\index{operator=@{operator=}!ECS@{ECS}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Component $>$ \\
+\mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}} \& \mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}}$<$ Component $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}}$<$ Component $>$ \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}, {\ttfamily [noexcept]}}
+
+
+
+operator = -\/ move assignment operator 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}}} & \&\& \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__ECS_ga6e1be23d99d0b140980c1f549c7bf41b}\label{group__ECS_ga6e1be23d99d0b140980c1f549c7bf41b}} 
+\index{ECS@{ECS}!operator=@{operator=}}
+\index{operator=@{operator=}!ECS@{ECS}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Component $>$ \\
+\mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}} \& \mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}}$<$ Component $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}}$<$ Component $>$ const \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+operator = -\/ copy assignment operator 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}}} & const \& \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__ECS_ga4aa1f2fae14ff1cecdc6e42ded260cad}\label{group__ECS_ga4aa1f2fae14ff1cecdc6e42ded260cad}} 
+\index{ECS@{ECS}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!ECS@{ECS}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Component $>$ \\
+reference\+\_\+type \mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}}$<$ Component $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{idx }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+operator 
+
+
+\begin{DoxyParams}{Parameters}
+{\em idx} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+reference\+\_\+type 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__ECS_ga1d66e1a1e11a9bcef70425c3c09eb6b4}\label{group__ECS_ga1d66e1a1e11a9bcef70425c3c09eb6b4}} 
+\index{ECS@{ECS}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!ECS@{ECS}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Component $>$ \\
+const\+\_\+reference\+\_\+type \mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}}$<$ Component $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{idx }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+operator 
+
+
+\begin{DoxyParams}{Parameters}
+{\em idx} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+const\+\_\+reference\+\_\+type 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__ECS_gac77008529bb6e296916633cc41ba5be5}\label{group__ECS_gac77008529bb6e296916633cc41ba5be5}} 
+\index{ECS@{ECS}!register\_component@{register\_component}}
+\index{register\_component@{register\_component}!ECS@{ECS}}
+\doxysubsubsection{\texorpdfstring{register\_component()}{register\_component()}}
+{\footnotesize\ttfamily template$<$class Component $>$ \\
+\mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}}$<$ Component $>$ \& registry\+::register\+\_\+component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+register\+\_\+component 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Component} & \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+sparse\+\_\+array$<$\+Component$>$\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__ECS_gae6ae3ba636214bb3972a99492923bf7c}\label{group__ECS_gae6ae3ba636214bb3972a99492923bf7c}} 
+\index{ECS@{ECS}!remove\_component@{remove\_component}}
+\index{remove\_component@{remove\_component}!ECS@{ECS}}
+\doxysubsubsection{\texorpdfstring{remove\_component()}{remove\_component()}}
+{\footnotesize\ttfamily template$<$typename Component $>$ \\
+void registry\+::remove\+\_\+component (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structentity__t}{entity\+\_\+t}} const \&}]{from }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Component} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em from} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__ECS_ga6679a2315be266da4c01ad97f00e51fd}\label{group__ECS_ga6679a2315be266da4c01ad97f00e51fd}} 
+\index{ECS@{ECS}!size@{size}}
+\index{size@{size}!ECS@{ECS}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily template$<$typename Component $>$ \\
+size\+\_\+type \mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}}$<$ Component $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+size 
+
+\begin{DoxyReturn}{Returns}
+size\+\_\+type 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__ECS_gad93b07fae9a6a1e0029768fd8aa22703}\label{group__ECS_gad93b07fae9a6a1e0029768fd8aa22703}} 
+\index{ECS@{ECS}!sparse\_array@{sparse\_array}}
+\index{sparse\_array@{sparse\_array}!ECS@{ECS}}
+\doxysubsubsection{\texorpdfstring{sparse\_array()}{sparse\_array()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Component $>$ \\
+\mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}}$<$ Component $>$\mbox{\hyperlink{classsparse__array}{\+::sparse\+\_\+array}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}}$<$ Component $>$ \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}, {\ttfamily [noexcept]}}
+
+
+
+\mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}} -\/ move constructor 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}}} & \&\& @ \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__ECS_ga99d9756419717256dab5ce1aea62d8da}\label{group__ECS_ga99d9756419717256dab5ce1aea62d8da}} 
+\index{ECS@{ECS}!sparse\_array@{sparse\_array}}
+\index{sparse\_array@{sparse\_array}!ECS@{ECS}}
+\doxysubsubsection{\texorpdfstring{sparse\_array()}{sparse\_array()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Component $>$ \\
+\mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}}$<$ Component $>$\mbox{\hyperlink{classsparse__array}{\+::sparse\+\_\+array}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}}$<$ Component $>$ const \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}} -\/ copy constructor 
+
+@params \mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}} const \& \mbox{\Hypertarget{group__ECS_ga75d49eb0c9936d57146007f06cbaf735}\label{group__ECS_ga75d49eb0c9936d57146007f06cbaf735}} 
+\index{ECS@{ECS}!spawn\_entity@{spawn\_entity}}
+\index{spawn\_entity@{spawn\_entity}!ECS@{ECS}}
+\doxysubsubsection{\texorpdfstring{spawn\_entity()}{spawn\_entity()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structentity__t}{entity\+\_\+t}} registry\+::spawn\+\_\+entity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+spawn\+\_\+entity -\/ create an entity 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{structentity__t}{entity\+\_\+t}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__ECS_ga462f64cc46c81b54e7c7d1181f7b889f}\label{group__ECS_ga462f64cc46c81b54e7c7d1181f7b889f}} 
+\index{ECS@{ECS}!````~sparse\_array@{$\sim$sparse\_array}}
+\index{````~sparse\_array@{$\sim$sparse\_array}!ECS@{ECS}}
+\doxysubsubsection{\texorpdfstring{$\sim$sparse\_array()}{~sparse\_array()}}
+{\footnotesize\ttfamily template$<$typename Component $>$ \\
+\mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}}$<$ Component $>$\+::$\sim$\mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\mbox{\hyperlink{classsparse__array}{sparse\+\_\+array}} -\/ default destructor 
+

@@ -1,0 +1,93 @@
+\hypertarget{AudioManager_8hpp_source}{}\doxysection{Audio\+Manager.\+hpp}
+\label{AudioManager_8hpp_source}\index{/home/Teyi/Epitech/Semestre5/CPP/rtype/src/AudioManager.hpp@{/home/Teyi/Epitech/Semestre5/CPP/rtype/src/AudioManager.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{** EPITECH PROJECT, 2022}}
+\DoxyCodeLine{3 \textcolor{comment}{** B-\/CPP-\/500-\/PAR-\/5-\/1-\/rtype-\/zacharie.lawson}}
+\DoxyCodeLine{4 \textcolor{comment}{** File description:}}
+\DoxyCodeLine{5 \textcolor{comment}{** SpriteManager}}
+\DoxyCodeLine{6 \textcolor{comment}{*/}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}SFMLAudioModule.hpp"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#ifndef AUDIOMANAGER\_HPP\_}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#define AUDIOMANAGER\_HPP\_}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{19 \textcolor{keyword}{template} <\textcolor{keyword}{typename} Key>}
+\DoxyCodeLine{20 \textcolor{keyword}{class }\mbox{\hyperlink{classAudioManager}{AudioManager}};}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Key>}
+\DoxyCodeLine{23 \textcolor{keyword}{using }\mbox{\hyperlink{classAudioManager}{AudioManager\_ref}} = \mbox{\hyperlink{classAudioManager}{AudioManager<Key>}} \&;}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 }
+\DoxyCodeLine{32 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Key\textcolor{comment}{/*, typename Value*/}>}
+\DoxyCodeLine{33 \textcolor{keyword}{class }\mbox{\hyperlink{classAudioManager}{AudioManager}} \{}
+\DoxyCodeLine{34     \textcolor{keyword}{public}:}
+\DoxyCodeLine{35         \textcolor{keyword}{using }AStorage = std::map<Key, modules::SFMLAudioModule>;}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{43         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__StorageManager_gab236af81a564c0ddf330dbb153da09a4}{Add}}(Key k, \mbox{\hyperlink{classmodules_1_1SFMLAudioModule}{modules::SFMLAudioModule}} \&v)}
+\DoxyCodeLine{44         \{}
+\DoxyCodeLine{45             \_storage.insert(std::pair<Key, modules::SFMLAudioModule>(k, v));}
+\DoxyCodeLine{46         \};}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{55         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__StorageManager_ga0422da90752546c1fb5420742897939f}{Add}}(Key k, std::string path)}
+\DoxyCodeLine{56         \{}
+\DoxyCodeLine{57             \_storage[k].setSource(path);}
+\DoxyCodeLine{58         \};}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{66         \mbox{\hyperlink{classmodules_1_1SFMLAudioModule}{modules::SFMLAudioModule}} \&\mbox{\hyperlink{group__StorageManager_ga5fce742d16eeb8afb9efec00c71c406b}{Get}}(Key k)}
+\DoxyCodeLine{67         \{}
+\DoxyCodeLine{68             \textcolor{keywordflow}{return} \_storage[k];}
+\DoxyCodeLine{69         \};}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{76         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__StorageManager_gaaf5bfab3ca4417d12c7524f1066d8275}{play}}(Key k)}
+\DoxyCodeLine{77         \{}
+\DoxyCodeLine{78             \_storage[k].play();}
+\DoxyCodeLine{79         \};}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{86         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__StorageManager_gaa9377e2862272aaa17f99e4a173a0018}{stop}}(Key k)}
+\DoxyCodeLine{87         \{}
+\DoxyCodeLine{88             \_storage[k].stop();}
+\DoxyCodeLine{89         \};}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{96         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__StorageManager_ga985a4b153ee456e272f2ebd9123ca45b}{pause}}(Key k)}
+\DoxyCodeLine{97         \{}
+\DoxyCodeLine{98             \_storage[k].pause();}
+\DoxyCodeLine{99         \};}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{105         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__StorageManager_gaba91cdd3c43ae3a5d0df7420eef36bda}{stopAll}}()}
+\DoxyCodeLine{106         \{}
+\DoxyCodeLine{107             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&it : \_storage)}
+\DoxyCodeLine{108                 it.second.stop();}
+\DoxyCodeLine{109         \};}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{115         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__StorageManager_gaa561a48fc1ad1e5a45ca0e2b94fba4dd}{setVolume}}(\textcolor{keywordtype}{float} volume) \{}
+\DoxyCodeLine{116             \_volume = volume;}
+\DoxyCodeLine{117             \mbox{\hyperlink{group__StorageManager_gab0fac95baff4d19e9c3a549d4b6548a6}{updateVolume}}();}
+\DoxyCodeLine{118         \};}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{124         \textcolor{keywordtype}{float} \mbox{\hyperlink{group__StorageManager_ga0ab61f2cdb9cfe947685086d2c5ae040}{getVolume}}() \{}
+\DoxyCodeLine{125             \textcolor{keywordflow}{return} \_volume;}
+\DoxyCodeLine{126         \}}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{132         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__StorageManager_gab0fac95baff4d19e9c3a549d4b6548a6}{updateVolume}}() \{}
+\DoxyCodeLine{133             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&it : \_storage)}
+\DoxyCodeLine{134                 it.second.setVolume(\_volume);}
+\DoxyCodeLine{135         \}}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{143         \mbox{\hyperlink{group__Modules_ga8787896c32aed13fc78443a5191cdb0b}{modules::MusicStatus}} \mbox{\hyperlink{group__StorageManager_ga7b825a436e6888023f01c1401661c139}{getStatus}}(Key k)}
+\DoxyCodeLine{144         \{}
+\DoxyCodeLine{145             \textcolor{keywordflow}{return} \_storage[k].getStatus();}
+\DoxyCodeLine{146         \};}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{148     \textcolor{keyword}{private}:}
+\DoxyCodeLine{149         \textcolor{keywordtype}{float} \_volume = 50;}
+\DoxyCodeLine{150         AStorage \_storage;}
+\DoxyCodeLine{151 \};}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153 }
+\DoxyCodeLine{154 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* !SPRITEMANAGER\_HPP\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

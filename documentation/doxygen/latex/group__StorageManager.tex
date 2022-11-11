@@ -1,0 +1,554 @@
+\hypertarget{group__StorageManager}{}\doxysection{Storage\+Manager}
+\label{group__StorageManager}\index{StorageManager@{StorageManager}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classAudioManager}{Audio\+Manager$<$ Key $>$}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classAudioManager}{Audio\+Manager}}. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classMusicManager}{Music\+Manager$<$ Key $>$}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classMusicManager}{Music\+Manager}}. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classSpriteManager}{Sprite\+Manager$<$ Key $>$}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classSpriteManager}{Sprite\+Manager}}. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structImage}{Image}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{structImage}{Image}} structure that can associate a Texture and a Sprite. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__StorageManager_gac7374d42a709d012b9967b8bff6ad3fc}\label{group__StorageManager_gac7374d42a709d012b9967b8bff6ad3fc}} 
+{\footnotesize template$<$typename Key $>$ }\\using {\bfseries Audio\+Manager\+\_\+ref} = \mbox{\hyperlink{classAudioManager}{Audio\+Manager}}$<$ Key $>$ \&
+\item 
+\mbox{\Hypertarget{group__StorageManager_ga86530ca7455e9188d0775398999af89b}\label{group__StorageManager_ga86530ca7455e9188d0775398999af89b}} 
+using {\bfseries Audio\+Manager$<$ Key $>$\+::\+AStorage} = std\+::map$<$ Key, \mbox{\hyperlink{classmodules_1_1SFMLAudioModule}{modules\+::\+SFMLAudio\+Module}} $>$
+\item 
+\mbox{\Hypertarget{group__StorageManager_gaf26cb27caa79da29c52af3615bb7ed67}\label{group__StorageManager_gaf26cb27caa79da29c52af3615bb7ed67}} 
+{\footnotesize template$<$typename Key $>$ }\\using {\bfseries Music\+Manager\+\_\+ref} = \mbox{\hyperlink{classMusicManager}{Music\+Manager}}$<$ Key $>$ \&
+\item 
+\mbox{\Hypertarget{group__StorageManager_ga807e0a6d701d20e1fec6865bdc09bd76}\label{group__StorageManager_ga807e0a6d701d20e1fec6865bdc09bd76}} 
+using {\bfseries Music\+Manager$<$ Key $>$\+::\+AStorage} = std\+::map$<$ Key, \mbox{\hyperlink{classmodules_1_1SFMLMusicModule}{modules\+::\+SFMLMusic\+Module}} $>$
+\item 
+\mbox{\Hypertarget{group__StorageManager_ga84794745debfbb9f6adf4d06e0384c36}\label{group__StorageManager_ga84794745debfbb9f6adf4d06e0384c36}} 
+{\footnotesize template$<$typename Key $>$ }\\using {\bfseries Sprite\+Manager\+\_\+ref} = \mbox{\hyperlink{classSpriteManager}{Sprite\+Manager}}$<$ Key $>$ \&
+\item 
+\mbox{\Hypertarget{group__StorageManager_ga97489f4587da1d64133de024398f40dd}\label{group__StorageManager_ga97489f4587da1d64133de024398f40dd}} 
+using {\bfseries Sprite\+Manager$<$ Key $>$\+::\+TStorage} = std\+::map$<$ Key, \mbox{\hyperlink{structImage}{Image}} $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group__StorageManager_gab236af81a564c0ddf330dbb153da09a4}{Audio\+Manager$<$ Key $>$\+::\+Add}} (Key k, \mbox{\hyperlink{classmodules_1_1SFMLAudioModule}{modules\+::\+SFMLAudio\+Module}} \&v)
+\begin{DoxyCompactList}\small\item\em Add. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__StorageManager_ga0422da90752546c1fb5420742897939f}{Audio\+Manager$<$ Key $>$\+::\+Add}} (Key k, std\+::string path)
+\begin{DoxyCompactList}\small\item\em Add. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmodules_1_1SFMLAudioModule}{modules\+::\+SFMLAudio\+Module}} \& \mbox{\hyperlink{group__StorageManager_ga5fce742d16eeb8afb9efec00c71c406b}{Audio\+Manager$<$ Key $>$\+::\+Get}} (Key k)
+\begin{DoxyCompactList}\small\item\em Get. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__StorageManager_gaaf5bfab3ca4417d12c7524f1066d8275}{Audio\+Manager$<$ Key $>$\+::play}} (Key k)
+\begin{DoxyCompactList}\small\item\em play the sound at the given key \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__StorageManager_gaa9377e2862272aaa17f99e4a173a0018}{Audio\+Manager$<$ Key $>$\+::stop}} (Key k)
+\begin{DoxyCompactList}\small\item\em stop the sound at the given key \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__StorageManager_ga985a4b153ee456e272f2ebd9123ca45b}{Audio\+Manager$<$ Key $>$\+::pause}} (Key k)
+\begin{DoxyCompactList}\small\item\em pause the sound at the given key \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__StorageManager_gaba91cdd3c43ae3a5d0df7420eef36bda}{Audio\+Manager$<$ Key $>$\+::stop\+All}} ()
+\begin{DoxyCompactList}\small\item\em Stop every sound. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__StorageManager_gaa561a48fc1ad1e5a45ca0e2b94fba4dd}{Audio\+Manager$<$ Key $>$\+::set\+Volume}} (float volume)
+\begin{DoxyCompactList}\small\item\em set volume \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__StorageManager_ga0ab61f2cdb9cfe947685086d2c5ae040}{Audio\+Manager$<$ Key $>$\+::get\+Volume}} ()
+\begin{DoxyCompactList}\small\item\em get volume \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__StorageManager_gab0fac95baff4d19e9c3a549d4b6548a6}{Audio\+Manager$<$ Key $>$\+::update\+Volume}} ()
+\begin{DoxyCompactList}\small\item\em update the volume of the sound \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__Modules_ga8787896c32aed13fc78443a5191cdb0b}{modules\+::\+Music\+Status}} \mbox{\hyperlink{group__StorageManager_ga7b825a436e6888023f01c1401661c139}{Audio\+Manager$<$ Key $>$\+::get\+Status}} (Key k)
+\begin{DoxyCompactList}\small\item\em Get the Status object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__StorageManager_ga54b3aa54a92b36216249fe3c204624b8}{Music\+Manager$<$ Key $>$\+::\+Add}} (Key k, \mbox{\hyperlink{classmodules_1_1SFMLMusicModule}{modules\+::\+SFMLMusic\+Module}} \&v)
+\begin{DoxyCompactList}\small\item\em Add. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__StorageManager_ga10e68ea42b23d5fd689046b1f6ae23b7}{Music\+Manager$<$ Key $>$\+::\+Add}} (Key k, std\+::string path)
+\begin{DoxyCompactList}\small\item\em Add. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmodules_1_1SFMLMusicModule}{modules\+::\+SFMLMusic\+Module}} \& \mbox{\hyperlink{group__StorageManager_ga0c1165af6a0ce103820c25c96bc3479d}{Music\+Manager$<$ Key $>$\+::\+Get}} (Key k)
+\begin{DoxyCompactList}\small\item\em Get. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__StorageManager_ga733c1d5ec0cf6f8af31637a6967561a1}{Music\+Manager$<$ Key $>$\+::play}} (Key k)
+\begin{DoxyCompactList}\small\item\em play the sound at the given key \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__StorageManager_ga7b2779453772c4fa79448b2046dff2c8}{Music\+Manager$<$ Key $>$\+::stop}} (Key k)
+\begin{DoxyCompactList}\small\item\em stop the sound at the given key \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__StorageManager_ga794a88705b7217fe7566d81284a5acba}{Music\+Manager$<$ Key $>$\+::pause}} (Key k)
+\begin{DoxyCompactList}\small\item\em pause the sound at the given key \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__StorageManager_gaa4c849e97210a2a939baa6e29918a75b}{Music\+Manager$<$ Key $>$\+::stop\+All}} ()
+\begin{DoxyCompactList}\small\item\em Stop every sound. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__StorageManager_ga4b99f36c1d2a50473c6895207cc957c7}{Music\+Manager$<$ Key $>$\+::set\+Loop}} (Key k)
+\begin{DoxyCompactList}\small\item\em Loop the sound at the given buffer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__StorageManager_gad7ebaba611bc196900c1325d619058fe}{Music\+Manager$<$ Key $>$\+::stop\+Loop}} (Key k)
+\begin{DoxyCompactList}\small\item\em Stop the audio loop at the given key. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__StorageManager_ga395bdb88d182721e3a43f5c4e5657902}{Music\+Manager$<$ Key $>$\+::set\+Volume}} (float volume)
+\begin{DoxyCompactList}\small\item\em set volume \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__StorageManager_gabf8ce816be9302092eac354ca82cc0c2}{Music\+Manager$<$ Key $>$\+::get\+Volume}} ()
+\begin{DoxyCompactList}\small\item\em get volume \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__StorageManager_gac5156d9648925013b249d4e48360f719}{Music\+Manager$<$ Key $>$\+::update\+Volume}} ()
+\begin{DoxyCompactList}\small\item\em update the volume of the sound \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__StorageManager_ga23fe305a5ccc2a503aca20c70ed167dc}{Music\+Manager$<$ Key $>$\+::get\+Loop}} (Key k)
+\begin{DoxyCompactList}\small\item\em get loop of the sound at the given key \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__Modules_ga8787896c32aed13fc78443a5191cdb0b}{modules\+::\+Music\+Status}} \mbox{\hyperlink{group__StorageManager_ga8e168085d2c4082fe42d48c3565a1509}{Music\+Manager$<$ Key $>$\+::get\+Status}} (Key k)
+\begin{DoxyCompactList}\small\item\em Get the Status object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__StorageManager_gaa0cdd9e7e602bef6f884c7b79a1d4749}{Sprite\+Manager$<$ Key $>$\+::\+Add}} (Key k, \mbox{\hyperlink{structImage}{Image}} \&v)
+\begin{DoxyCompactList}\small\item\em Add. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__StorageManager_gae258909ad45c83a610a45d25c5b5dabe}{Sprite\+Manager$<$ Key $>$\+::\+Add}} (Key k, std\+::string path)
+\begin{DoxyCompactList}\small\item\em Add. \end{DoxyCompactList}\item 
+sf\+::\+Sprite \& \mbox{\hyperlink{group__StorageManager_gafa35abd8cd4b3f99bc505bd56ee2c2c6}{Sprite\+Manager$<$ Key $>$\+::\+Get}} (Key k)
+\begin{DoxyCompactList}\small\item\em Get. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__StorageManager_ga7140dc8010c74359dfbd0d84c6965833}\label{group__StorageManager_ga7140dc8010c74359dfbd0d84c6965833}} 
+sf\+::\+Texture {\bfseries Image\+::texture}
+\item 
+\mbox{\Hypertarget{group__StorageManager_ga528022c941361df7df954a9e103e7737}\label{group__StorageManager_ga528022c941361df7df954a9e103e7737}} 
+sf\+::\+Sprite {\bfseries Image\+::sprite}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__StorageManager_gaa0cdd9e7e602bef6f884c7b79a1d4749}\label{group__StorageManager_gaa0cdd9e7e602bef6f884c7b79a1d4749}} 
+\index{StorageManager@{StorageManager}!Add@{Add}}
+\index{Add@{Add}!StorageManager@{StorageManager}}
+\doxysubsubsection{\texorpdfstring{Add()}{Add()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily template$<$typename Key $>$ \\
+void \mbox{\hyperlink{classSpriteManager}{Sprite\+Manager}}$<$ Key $>$\+::\+Add (\begin{DoxyParamCaption}\item[{Key}]{k,  }\item[{\mbox{\hyperlink{structImage}{Image}} \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & \\
+\hline
+{\em v} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__StorageManager_gab236af81a564c0ddf330dbb153da09a4}\label{group__StorageManager_gab236af81a564c0ddf330dbb153da09a4}} 
+\index{StorageManager@{StorageManager}!Add@{Add}}
+\index{Add@{Add}!StorageManager@{StorageManager}}
+\doxysubsubsection{\texorpdfstring{Add()}{Add()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily template$<$typename Key $>$ \\
+void \mbox{\hyperlink{classAudioManager}{Audio\+Manager}}$<$ Key $>$\+::\+Add (\begin{DoxyParamCaption}\item[{Key}]{k,  }\item[{\mbox{\hyperlink{classmodules_1_1SFMLAudioModule}{modules\+::\+SFMLAudio\+Module}} \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & \\
+\hline
+{\em v} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__StorageManager_ga54b3aa54a92b36216249fe3c204624b8}\label{group__StorageManager_ga54b3aa54a92b36216249fe3c204624b8}} 
+\index{StorageManager@{StorageManager}!Add@{Add}}
+\index{Add@{Add}!StorageManager@{StorageManager}}
+\doxysubsubsection{\texorpdfstring{Add()}{Add()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily template$<$typename Key $>$ \\
+void \mbox{\hyperlink{classMusicManager}{Music\+Manager}}$<$ Key $>$\+::\+Add (\begin{DoxyParamCaption}\item[{Key}]{k,  }\item[{\mbox{\hyperlink{classmodules_1_1SFMLMusicModule}{modules\+::\+SFMLMusic\+Module}} \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & \\
+\hline
+{\em v} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__StorageManager_ga0422da90752546c1fb5420742897939f}\label{group__StorageManager_ga0422da90752546c1fb5420742897939f}} 
+\index{StorageManager@{StorageManager}!Add@{Add}}
+\index{Add@{Add}!StorageManager@{StorageManager}}
+\doxysubsubsection{\texorpdfstring{Add()}{Add()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily template$<$typename Key $>$ \\
+void \mbox{\hyperlink{classAudioManager}{Audio\+Manager}}$<$ Key $>$\+::\+Add (\begin{DoxyParamCaption}\item[{Key}]{k,  }\item[{std\+::string}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & \\
+\hline
+{\em texture} & \\
+\hline
+{\em f} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__StorageManager_ga10e68ea42b23d5fd689046b1f6ae23b7}\label{group__StorageManager_ga10e68ea42b23d5fd689046b1f6ae23b7}} 
+\index{StorageManager@{StorageManager}!Add@{Add}}
+\index{Add@{Add}!StorageManager@{StorageManager}}
+\doxysubsubsection{\texorpdfstring{Add()}{Add()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+{\footnotesize\ttfamily template$<$typename Key $>$ \\
+void \mbox{\hyperlink{classMusicManager}{Music\+Manager}}$<$ Key $>$\+::\+Add (\begin{DoxyParamCaption}\item[{Key}]{k,  }\item[{std\+::string}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & \\
+\hline
+{\em texture} & \\
+\hline
+{\em f} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__StorageManager_gae258909ad45c83a610a45d25c5b5dabe}\label{group__StorageManager_gae258909ad45c83a610a45d25c5b5dabe}} 
+\index{StorageManager@{StorageManager}!Add@{Add}}
+\index{Add@{Add}!StorageManager@{StorageManager}}
+\doxysubsubsection{\texorpdfstring{Add()}{Add()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily template$<$typename Key $>$ \\
+void \mbox{\hyperlink{classSpriteManager}{Sprite\+Manager}}$<$ Key $>$\+::\+Add (\begin{DoxyParamCaption}\item[{Key}]{k,  }\item[{std\+::string}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & \\
+\hline
+{\em texture} & \\
+\hline
+{\em f} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__StorageManager_ga5fce742d16eeb8afb9efec00c71c406b}\label{group__StorageManager_ga5fce742d16eeb8afb9efec00c71c406b}} 
+\index{StorageManager@{StorageManager}!Get@{Get}}
+\index{Get@{Get}!StorageManager@{StorageManager}}
+\doxysubsubsection{\texorpdfstring{Get()}{Get()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename Key $>$ \\
+\mbox{\hyperlink{classmodules_1_1SFMLAudioModule}{modules\+::\+SFMLAudio\+Module}} \& \mbox{\hyperlink{classAudioManager}{Audio\+Manager}}$<$ Key $>$\+::\+Get (\begin{DoxyParamCaption}\item[{Key}]{k }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classmodules_1_1SFMLAudioModule}{modules\+::\+SFMLAudio\+Module}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__StorageManager_ga0c1165af6a0ce103820c25c96bc3479d}\label{group__StorageManager_ga0c1165af6a0ce103820c25c96bc3479d}} 
+\index{StorageManager@{StorageManager}!Get@{Get}}
+\index{Get@{Get}!StorageManager@{StorageManager}}
+\doxysubsubsection{\texorpdfstring{Get()}{Get()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename Key $>$ \\
+\mbox{\hyperlink{classmodules_1_1SFMLMusicModule}{modules\+::\+SFMLMusic\+Module}} \& \mbox{\hyperlink{classMusicManager}{Music\+Manager}}$<$ Key $>$\+::\+Get (\begin{DoxyParamCaption}\item[{Key}]{k }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classmodules_1_1SFMLMusicModule}{modules\+::\+SFMLMusic\+Module}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__StorageManager_gafa35abd8cd4b3f99bc505bd56ee2c2c6}\label{group__StorageManager_gafa35abd8cd4b3f99bc505bd56ee2c2c6}} 
+\index{StorageManager@{StorageManager}!Get@{Get}}
+\index{Get@{Get}!StorageManager@{StorageManager}}
+\doxysubsubsection{\texorpdfstring{Get()}{Get()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename Key $>$ \\
+sf\+::\+Sprite \& \mbox{\hyperlink{classSpriteManager}{Sprite\+Manager}}$<$ Key $>$\+::\+Get (\begin{DoxyParamCaption}\item[{Key}]{k }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+sf\+::\+Sprite 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__StorageManager_ga23fe305a5ccc2a503aca20c70ed167dc}\label{group__StorageManager_ga23fe305a5ccc2a503aca20c70ed167dc}} 
+\index{StorageManager@{StorageManager}!getLoop@{getLoop}}
+\index{getLoop@{getLoop}!StorageManager@{StorageManager}}
+\doxysubsubsection{\texorpdfstring{getLoop()}{getLoop()}}
+{\footnotesize\ttfamily template$<$typename Key $>$ \\
+bool \mbox{\hyperlink{classMusicManager}{Music\+Manager}}$<$ Key $>$\+::get\+Loop (\begin{DoxyParamCaption}\item[{Key}]{k }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get loop of the sound at the given key 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__StorageManager_ga7b825a436e6888023f01c1401661c139}\label{group__StorageManager_ga7b825a436e6888023f01c1401661c139}} 
+\index{StorageManager@{StorageManager}!getStatus@{getStatus}}
+\index{getStatus@{getStatus}!StorageManager@{StorageManager}}
+\doxysubsubsection{\texorpdfstring{getStatus()}{getStatus()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Key $>$ \\
+\mbox{\hyperlink{group__Modules_ga8787896c32aed13fc78443a5191cdb0b}{modules\+::\+Music\+Status}} \mbox{\hyperlink{classAudioManager}{Audio\+Manager}}$<$ Key $>$\+::get\+Status (\begin{DoxyParamCaption}\item[{Key}]{k }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the Status object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+sf\+::\+Sound\+::\+Status 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__StorageManager_ga8e168085d2c4082fe42d48c3565a1509}\label{group__StorageManager_ga8e168085d2c4082fe42d48c3565a1509}} 
+\index{StorageManager@{StorageManager}!getStatus@{getStatus}}
+\index{getStatus@{getStatus}!StorageManager@{StorageManager}}
+\doxysubsubsection{\texorpdfstring{getStatus()}{getStatus()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Key $>$ \\
+\mbox{\hyperlink{group__Modules_ga8787896c32aed13fc78443a5191cdb0b}{modules\+::\+Music\+Status}} \mbox{\hyperlink{classMusicManager}{Music\+Manager}}$<$ Key $>$\+::get\+Status (\begin{DoxyParamCaption}\item[{Key}]{k }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the Status object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+sf\+::\+Sound\+::\+Status 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__StorageManager_ga0ab61f2cdb9cfe947685086d2c5ae040}\label{group__StorageManager_ga0ab61f2cdb9cfe947685086d2c5ae040}} 
+\index{StorageManager@{StorageManager}!getVolume@{getVolume}}
+\index{getVolume@{getVolume}!StorageManager@{StorageManager}}
+\doxysubsubsection{\texorpdfstring{getVolume()}{getVolume()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Key $>$ \\
+float \mbox{\hyperlink{classAudioManager}{Audio\+Manager}}$<$ Key $>$\+::get\+Volume (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get volume 
+
+\mbox{\Hypertarget{group__StorageManager_gabf8ce816be9302092eac354ca82cc0c2}\label{group__StorageManager_gabf8ce816be9302092eac354ca82cc0c2}} 
+\index{StorageManager@{StorageManager}!getVolume@{getVolume}}
+\index{getVolume@{getVolume}!StorageManager@{StorageManager}}
+\doxysubsubsection{\texorpdfstring{getVolume()}{getVolume()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Key $>$ \\
+float \mbox{\hyperlink{classMusicManager}{Music\+Manager}}$<$ Key $>$\+::get\+Volume (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get volume 
+
+\mbox{\Hypertarget{group__StorageManager_ga985a4b153ee456e272f2ebd9123ca45b}\label{group__StorageManager_ga985a4b153ee456e272f2ebd9123ca45b}} 
+\index{StorageManager@{StorageManager}!pause@{pause}}
+\index{pause@{pause}!StorageManager@{StorageManager}}
+\doxysubsubsection{\texorpdfstring{pause()}{pause()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Key $>$ \\
+void \mbox{\hyperlink{classAudioManager}{Audio\+Manager}}$<$ Key $>$\+::pause (\begin{DoxyParamCaption}\item[{Key}]{k }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+pause the sound at the given key 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__StorageManager_ga794a88705b7217fe7566d81284a5acba}\label{group__StorageManager_ga794a88705b7217fe7566d81284a5acba}} 
+\index{StorageManager@{StorageManager}!pause@{pause}}
+\index{pause@{pause}!StorageManager@{StorageManager}}
+\doxysubsubsection{\texorpdfstring{pause()}{pause()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Key $>$ \\
+void \mbox{\hyperlink{classMusicManager}{Music\+Manager}}$<$ Key $>$\+::pause (\begin{DoxyParamCaption}\item[{Key}]{k }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+pause the sound at the given key 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__StorageManager_gaaf5bfab3ca4417d12c7524f1066d8275}\label{group__StorageManager_gaaf5bfab3ca4417d12c7524f1066d8275}} 
+\index{StorageManager@{StorageManager}!play@{play}}
+\index{play@{play}!StorageManager@{StorageManager}}
+\doxysubsubsection{\texorpdfstring{play()}{play()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Key $>$ \\
+void \mbox{\hyperlink{classAudioManager}{Audio\+Manager}}$<$ Key $>$\+::play (\begin{DoxyParamCaption}\item[{Key}]{k }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+play the sound at the given key 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__StorageManager_ga733c1d5ec0cf6f8af31637a6967561a1}\label{group__StorageManager_ga733c1d5ec0cf6f8af31637a6967561a1}} 
+\index{StorageManager@{StorageManager}!play@{play}}
+\index{play@{play}!StorageManager@{StorageManager}}
+\doxysubsubsection{\texorpdfstring{play()}{play()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Key $>$ \\
+void \mbox{\hyperlink{classMusicManager}{Music\+Manager}}$<$ Key $>$\+::play (\begin{DoxyParamCaption}\item[{Key}]{k }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+play the sound at the given key 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__StorageManager_ga4b99f36c1d2a50473c6895207cc957c7}\label{group__StorageManager_ga4b99f36c1d2a50473c6895207cc957c7}} 
+\index{StorageManager@{StorageManager}!setLoop@{setLoop}}
+\index{setLoop@{setLoop}!StorageManager@{StorageManager}}
+\doxysubsubsection{\texorpdfstring{setLoop()}{setLoop()}}
+{\footnotesize\ttfamily template$<$typename Key $>$ \\
+void \mbox{\hyperlink{classMusicManager}{Music\+Manager}}$<$ Key $>$\+::set\+Loop (\begin{DoxyParamCaption}\item[{Key}]{k }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Loop the sound at the given buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & \\
+\hline
+{\em path} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__StorageManager_gaa561a48fc1ad1e5a45ca0e2b94fba4dd}\label{group__StorageManager_gaa561a48fc1ad1e5a45ca0e2b94fba4dd}} 
+\index{StorageManager@{StorageManager}!setVolume@{setVolume}}
+\index{setVolume@{setVolume}!StorageManager@{StorageManager}}
+\doxysubsubsection{\texorpdfstring{setVolume()}{setVolume()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Key $>$ \\
+void \mbox{\hyperlink{classAudioManager}{Audio\+Manager}}$<$ Key $>$\+::set\+Volume (\begin{DoxyParamCaption}\item[{float}]{volume }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+set volume 
+
+\mbox{\Hypertarget{group__StorageManager_ga395bdb88d182721e3a43f5c4e5657902}\label{group__StorageManager_ga395bdb88d182721e3a43f5c4e5657902}} 
+\index{StorageManager@{StorageManager}!setVolume@{setVolume}}
+\index{setVolume@{setVolume}!StorageManager@{StorageManager}}
+\doxysubsubsection{\texorpdfstring{setVolume()}{setVolume()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Key $>$ \\
+void \mbox{\hyperlink{classMusicManager}{Music\+Manager}}$<$ Key $>$\+::set\+Volume (\begin{DoxyParamCaption}\item[{float}]{volume }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+set volume 
+
+\mbox{\Hypertarget{group__StorageManager_gaa9377e2862272aaa17f99e4a173a0018}\label{group__StorageManager_gaa9377e2862272aaa17f99e4a173a0018}} 
+\index{StorageManager@{StorageManager}!stop@{stop}}
+\index{stop@{stop}!StorageManager@{StorageManager}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Key $>$ \\
+void \mbox{\hyperlink{classAudioManager}{Audio\+Manager}}$<$ Key $>$\+::stop (\begin{DoxyParamCaption}\item[{Key}]{k }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+stop the sound at the given key 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__StorageManager_ga7b2779453772c4fa79448b2046dff2c8}\label{group__StorageManager_ga7b2779453772c4fa79448b2046dff2c8}} 
+\index{StorageManager@{StorageManager}!stop@{stop}}
+\index{stop@{stop}!StorageManager@{StorageManager}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Key $>$ \\
+void \mbox{\hyperlink{classMusicManager}{Music\+Manager}}$<$ Key $>$\+::stop (\begin{DoxyParamCaption}\item[{Key}]{k }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+stop the sound at the given key 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__StorageManager_gaba91cdd3c43ae3a5d0df7420eef36bda}\label{group__StorageManager_gaba91cdd3c43ae3a5d0df7420eef36bda}} 
+\index{StorageManager@{StorageManager}!stopAll@{stopAll}}
+\index{stopAll@{stopAll}!StorageManager@{StorageManager}}
+\doxysubsubsection{\texorpdfstring{stopAll()}{stopAll()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Key $>$ \\
+void \mbox{\hyperlink{classAudioManager}{Audio\+Manager}}$<$ Key $>$\+::stop\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Stop every sound. 
+
+\mbox{\Hypertarget{group__StorageManager_gaa4c849e97210a2a939baa6e29918a75b}\label{group__StorageManager_gaa4c849e97210a2a939baa6e29918a75b}} 
+\index{StorageManager@{StorageManager}!stopAll@{stopAll}}
+\index{stopAll@{stopAll}!StorageManager@{StorageManager}}
+\doxysubsubsection{\texorpdfstring{stopAll()}{stopAll()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Key $>$ \\
+void \mbox{\hyperlink{classMusicManager}{Music\+Manager}}$<$ Key $>$\+::stop\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Stop every sound. 
+
+\mbox{\Hypertarget{group__StorageManager_gad7ebaba611bc196900c1325d619058fe}\label{group__StorageManager_gad7ebaba611bc196900c1325d619058fe}} 
+\index{StorageManager@{StorageManager}!stopLoop@{stopLoop}}
+\index{stopLoop@{stopLoop}!StorageManager@{StorageManager}}
+\doxysubsubsection{\texorpdfstring{stopLoop()}{stopLoop()}}
+{\footnotesize\ttfamily template$<$typename Key $>$ \\
+void \mbox{\hyperlink{classMusicManager}{Music\+Manager}}$<$ Key $>$\+::stop\+Loop (\begin{DoxyParamCaption}\item[{Key}]{k }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Stop the audio loop at the given key. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__StorageManager_gab0fac95baff4d19e9c3a549d4b6548a6}\label{group__StorageManager_gab0fac95baff4d19e9c3a549d4b6548a6}} 
+\index{StorageManager@{StorageManager}!updateVolume@{updateVolume}}
+\index{updateVolume@{updateVolume}!StorageManager@{StorageManager}}
+\doxysubsubsection{\texorpdfstring{updateVolume()}{updateVolume()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Key $>$ \\
+void \mbox{\hyperlink{classAudioManager}{Audio\+Manager}}$<$ Key $>$\+::update\+Volume (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+update the volume of the sound 
+
+\mbox{\Hypertarget{group__StorageManager_gac5156d9648925013b249d4e48360f719}\label{group__StorageManager_gac5156d9648925013b249d4e48360f719}} 
+\index{StorageManager@{StorageManager}!updateVolume@{updateVolume}}
+\index{updateVolume@{updateVolume}!StorageManager@{StorageManager}}
+\doxysubsubsection{\texorpdfstring{updateVolume()}{updateVolume()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Key $>$ \\
+void \mbox{\hyperlink{classMusicManager}{Music\+Manager}}$<$ Key $>$\+::update\+Volume (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+update the volume of the sound 
+

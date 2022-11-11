@@ -1,7 +1,10 @@
 {
+    "font": "../assets/font/japanese_font.ttf",
     "dictionnary": {
         "welcome": "Welcome to the dictionnary",
         "hello": "こんにちは",
+        "game_over": "ゲームオーバー",
+        "score": "スコア",
         "bye": "さようなら"
     }
 }

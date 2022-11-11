@@ -1,0 +1,70 @@
+\hypertarget{IAudioModule_8hpp_source}{}\doxysection{IAudio\+Module.\+hpp}
+\label{IAudioModule_8hpp_source}\index{/home/Teyi/Epitech/Semestre5/CPP/rtype/modules/IAudioModule.hpp@{/home/Teyi/Epitech/Semestre5/CPP/rtype/modules/IAudioModule.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{** EPITECH PROJECT, 2022}}
+\DoxyCodeLine{3 \textcolor{comment}{** archi}}
+\DoxyCodeLine{4 \textcolor{comment}{** File description:}}
+\DoxyCodeLine{5 \textcolor{comment}{** IAudioModule}}
+\DoxyCodeLine{6 \textcolor{comment}{*/}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef IAUDIOMODULE\_HPP\_}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define IAUDIOMODULE\_HPP\_}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{18 \textcolor{keyword}{namespace }modules \{}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{24     \textcolor{keyword}{enum} \mbox{\hyperlink{group__Modules_ga8787896c32aed13fc78443a5191cdb0b}{MusicStatus}} \{}
+\DoxyCodeLine{25         PLAYING,}
+\DoxyCodeLine{26         PAUSED,}
+\DoxyCodeLine{27         STOPPED}
+\DoxyCodeLine{28     \};}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{34     \textcolor{keyword}{class }\mbox{\hyperlink{classmodules_1_1IAudioModule}{IAudioModule}}}
+\DoxyCodeLine{35     \{}
+\DoxyCodeLine{36         \textcolor{keyword}{public}:}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38             \textcolor{keyword}{virtual} \mbox{\hyperlink{classmodules_1_1IAudioModule}{\string~IAudioModule}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{45             \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{group__Modules_ga15a17d096a8b78d68b7af7fd6b73be0f}{setSource}}(std::string source\_path) = 0;}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{51             \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{group__Modules_ga250719cac8a96bb0cec98c8a9429aded}{play}}() = 0;}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{57             \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{group__Modules_ga4e93ed7d6f18ec90c0a756f0b4d967de}{pause}}() = 0;}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{63             \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{group__Modules_gacc9c647c70c3ea95981efb4d2f564a7a}{stop}}() = 0;}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{70             \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{group__Modules_ga81ed323a9654542b95a7e9d955c6a07d}{setVolume}}(\textcolor{keywordtype}{float} volume) = 0;}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{77             \textcolor{keyword}{virtual} \mbox{\hyperlink{group__Modules_ga8787896c32aed13fc78443a5191cdb0b}{MusicStatus}} \mbox{\hyperlink{group__Modules_ga26278060ac53a6746e22cc324fd43713}{getStatus}}() = 0;}
+\DoxyCodeLine{78     \};}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{84     \textcolor{keyword}{class }\mbox{\hyperlink{classmodules_1_1IMusicModule}{IMusicModule}}}
+\DoxyCodeLine{85     \{}
+\DoxyCodeLine{86         \textcolor{keyword}{public}:}
+\DoxyCodeLine{87             \textcolor{keyword}{virtual} \mbox{\hyperlink{classmodules_1_1IMusicModule}{\string~IMusicModule}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{94             \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{group__Modules_ga6c29c8296fea229b069fae619fb26ddb}{setSource}}(std::string source\_path) = 0;}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{100             \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{group__Modules_ga1c1f8a2e2cba554b5cb24a04edf72f66}{play}}() = 0;}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{106             \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{group__Modules_ga0ae49ee505b61908635177f06d0ec8a0}{pause}}() = 0;}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{112             \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{group__Modules_ga9fa5000062130efd72c89f24f0d91850}{stop}}() = 0;}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{119             \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{group__Modules_gacb66855c7f652f9ae9fbfddd9e972a4c}{setVolume}}(\textcolor{keywordtype}{float} volume) = 0;}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{126             \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{group__Modules_ga55fb36241f03274388e8360c30fbcbcc}{setLoop}}(\textcolor{keywordtype}{bool} loop) = 0;}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{134             \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{group__Modules_ga8acae0b19258244b17562a5c4c88eb6b}{getLoop}}() = 0;}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{141             \textcolor{keyword}{virtual} \mbox{\hyperlink{group__Modules_ga8787896c32aed13fc78443a5191cdb0b}{MusicStatus}} \mbox{\hyperlink{group__Modules_ga118cd0dc49b4d909aafc0120b0f1670a}{getStatus}}() = 0;}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143     \};}
+\DoxyCodeLine{144 \}}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{146 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* !IAUDIOMODULE\_HPP\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

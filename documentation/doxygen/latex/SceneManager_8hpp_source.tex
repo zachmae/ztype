@@ -1,0 +1,95 @@
+\hypertarget{SceneManager_8hpp_source}{}\doxysection{Scene\+Manager.\+hpp}
+\label{SceneManager_8hpp_source}\index{/home/Teyi/Epitech/Semestre5/CPP/rtype/src/SceneManager/SceneManager.hpp@{/home/Teyi/Epitech/Semestre5/CPP/rtype/src/SceneManager/SceneManager.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{** EPITECH PROJECT, 2022}}
+\DoxyCodeLine{3 \textcolor{comment}{** B-\/CPP-\/500-\/PAR-\/5-\/1-\/rtype-\/zacharie.lawson}}
+\DoxyCodeLine{4 \textcolor{comment}{** File description:}}
+\DoxyCodeLine{5 \textcolor{comment}{** SpriteManager}}
+\DoxyCodeLine{6 \textcolor{comment}{*/}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <SFML/Window.hpp>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <SFML/Graphics.hpp>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <SFML/Audio.hpp>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <SFML/System.hpp>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <SFML/Network.hpp>}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}Scene.hpp"{}}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <unordered\_set>}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#ifndef SCENEMANAGER\_HPP\_}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{    \#define SCENEMANAGER\_HPP\_}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Key>}
+\DoxyCodeLine{23 \textcolor{keyword}{class }\mbox{\hyperlink{classSceneManager}{SceneManager}};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Key>}
+\DoxyCodeLine{26 \textcolor{keyword}{using }\mbox{\hyperlink{classSceneManager}{SceneManager\_ref}} = \mbox{\hyperlink{classSceneManager}{SceneManager<Key>}} \&;}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{36 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Key>}
+\DoxyCodeLine{37 \textcolor{keyword}{class }\mbox{\hyperlink{classSceneManager}{SceneManager}} \{}
+\DoxyCodeLine{38     \textcolor{keyword}{public}:}
+\DoxyCodeLine{39         \textcolor{keyword}{using }TStorage = std::map<Key, Scene>;}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{44         \mbox{\hyperlink{classSceneManager_a06786442359543a83dadfa7ef2fc4dd8}{SceneManager}}() \{\};}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{54         \textcolor{keywordtype}{void} \mbox{\hyperlink{classSceneManager_a7fd266f0cfa89d0a5b1deb2196f29b35}{Add}}(Key k, \textcolor{keyword}{const} \mbox{\hyperlink{classScene}{Scene}} \&v)}
+\DoxyCodeLine{55         \{}
+\DoxyCodeLine{56             \_storage.insert(std::pair<Key, Scene>(k, v));}
+\DoxyCodeLine{57         \};}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{66         \textcolor{keywordtype}{void} \mbox{\hyperlink{classSceneManager_af5bf6ee78a4fd3b680fe9b44e00544ba}{Add}}(Key k, std::string path)}
+\DoxyCodeLine{67         \{}
+\DoxyCodeLine{68             \_storage[k] = \mbox{\hyperlink{classScene}{Scene}}();}
+\DoxyCodeLine{69         \};}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{77         \mbox{\hyperlink{classScene}{Scene}} \&\mbox{\hyperlink{classSceneManager_a1b217a6449e8207f41c11474d9333401}{Get}}(Key k)}
+\DoxyCodeLine{78         \{}
+\DoxyCodeLine{79             \textcolor{keywordflow}{return} \_storage.at(k);}
+\DoxyCodeLine{80         \};}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{87         std::map<Key, Scene> \mbox{\hyperlink{classSceneManager_a899f70c3d2d5ed5cd751725b64047274}{GetScenes}}()}
+\DoxyCodeLine{88         \{}
+\DoxyCodeLine{89             \textcolor{keywordflow}{return} \_storage;}
+\DoxyCodeLine{90         \}}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{97         std::vector<int> \mbox{\hyperlink{classSceneManager_a2911a709c77d6b3c2294ed0398686c7a}{GetOrderedZtypePositiveOnly}}() \{}
+\DoxyCodeLine{98             std::vector<int> vi;}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&scene: \_storage)}
+\DoxyCodeLine{101                 \textcolor{keywordflow}{if} (!(scene.second.GetZIndex() < 0))}
+\DoxyCodeLine{102                     vi.push\_back(scene.second.GetZIndex());}
+\DoxyCodeLine{103             std::sort(vi.begin(), vi.end());}
+\DoxyCodeLine{104             std::unordered\_set<int> s;}
+\DoxyCodeLine{105             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i: vi)}
+\DoxyCodeLine{106                 s.insert(i);}
+\DoxyCodeLine{107             vi.assign(s.begin(), s.end());}
+\DoxyCodeLine{108             sort(vi.begin(), vi.end());}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110             \textcolor{keywordflow}{return} vi;}
+\DoxyCodeLine{111         \};}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{118         std::vector<int> \mbox{\hyperlink{classSceneManager_a29e7ac4f0576e497811f6a5270165bf4}{GetDisplayOrderOfSceneID}}() \{}
+\DoxyCodeLine{119             std::vector<int> vi = \mbox{\hyperlink{classSceneManager_a2911a709c77d6b3c2294ed0398686c7a}{GetOrderedZtypePositiveOnly}}();}
+\DoxyCodeLine{120             std::vector<int> res;}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&zIndex: vi) \{}
+\DoxyCodeLine{123                 \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&scene: \_storage) \{}
+\DoxyCodeLine{124                     \textcolor{keywordflow}{if} (scene.second.GetZIndex() == zIndex)}
+\DoxyCodeLine{125                         res.push\_back(scene.second.GetId());}
+\DoxyCodeLine{126                 \}}
+\DoxyCodeLine{127             \}}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129             \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{130         \};}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{132     \textcolor{keyword}{private}:}
+\DoxyCodeLine{133         TStorage \_storage;}
+\DoxyCodeLine{134 \};}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* !SCENEMANAGER\_HPP\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

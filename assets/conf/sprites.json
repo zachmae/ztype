@@ -1,5 +1,6 @@
 {
     "animation_path":"sprites_animation",
+    "debug":false,
     "sprites": [
         {"name": "background_back", "path": "../assets/img/background/parallax_back.png"},
         {"name": "background_stars", "path": "../assets/img/background/parallax_stars.png"},

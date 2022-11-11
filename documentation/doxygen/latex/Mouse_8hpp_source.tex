@@ -1,0 +1,67 @@
+\hypertarget{Mouse_8hpp_source}{}\doxysection{Mouse.\+hpp}
+\label{Mouse_8hpp_source}\index{/home/Teyi/Epitech/Semestre5/CPP/rtype/src/PAML\_sfml/Window/Mouse.hpp@{/home/Teyi/Epitech/Semestre5/CPP/rtype/src/PAML\_sfml/Window/Mouse.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{** EPITECH PROJECT, 2022}}
+\DoxyCodeLine{3 \textcolor{comment}{** B-\/CPP-\/500-\/PAR-\/5-\/1-\/rtype-\/zacharie.lawson}}
+\DoxyCodeLine{4 \textcolor{comment}{** File description:}}
+\DoxyCodeLine{5 \textcolor{comment}{** IMouse}}
+\DoxyCodeLine{6 \textcolor{comment}{*/}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef PAML\_SFML\_MOUSE\_HPP}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define PAML\_SFML\_IMOUSE\_HPP}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}../../PAML/Window.hpp"{}}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}../System/Vector2.hpp"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}../System/Type.hpp"{}}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}Window.hpp"{}}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{namespace }paml\_sfml \{}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \textcolor{keyword}{class }\mbox{\hyperlink{classpaml__sfml_1_1Mouse}{Mouse}} : \textcolor{keyword}{public} IMouse \{}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     \textcolor{keyword}{public}:}
+\DoxyCodeLine{23         \textcolor{keyword}{enum} Button}
+\DoxyCodeLine{24         \{}
+\DoxyCodeLine{25             Left,}
+\DoxyCodeLine{26             Right,}
+\DoxyCodeLine{27             Middle,}
+\DoxyCodeLine{28             XButton1,}
+\DoxyCodeLine{29             XButton2,}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31             ButtonCount}
+\DoxyCodeLine{32         \};}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34         \textcolor{keyword}{enum} Wheel}
+\DoxyCodeLine{35         \{}
+\DoxyCodeLine{36             VerticalWheel,}
+\DoxyCodeLine{37             HorizontalWheel}
+\DoxyCodeLine{38         \};}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40         \mbox{\hyperlink{classpaml__sfml_1_1Mouse}{Mouse}}()}
+\DoxyCodeLine{41         \{\}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43         \mbox{\hyperlink{classpaml__sfml_1_1Mouse}{\string~Mouse}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45         \textcolor{keywordtype}{bool} isButtonPressed(Button button)}
+\DoxyCodeLine{46         \{}
+\DoxyCodeLine{47             \_mouse.isButtonPressed(\textcolor{keyword}{static\_cast<}sf::Mouse::Button\textcolor{keyword}{>}(button));}
+\DoxyCodeLine{48         \}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50         IVector2<int32\_t> getPosition();}
+\DoxyCodeLine{51         \textcolor{keywordtype}{void} setPosition(\textcolor{keyword}{const} \mbox{\hyperlink{classpaml__sfml_1_1Vector2}{Vector2<int32\_t>}} \&\mbox{\hyperlink{structposition}{position}});}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53         IVector2<int32\_t> getPosition(\textcolor{keyword}{const} \mbox{\hyperlink{classpaml__sfml_1_1Window}{Window}} \&relativeTo);}
+\DoxyCodeLine{54         \textcolor{keywordtype}{void} setPosition(\textcolor{keyword}{const} IVector2<int32\_t> \&\mbox{\hyperlink{structposition}{position}}, \textcolor{keyword}{const} \mbox{\hyperlink{classpaml__sfml_1_1Window}{Window}} \&relativeTo);}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56         sf::Mouse \_mouse;}
+\DoxyCodeLine{57     \};}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \} \textcolor{comment}{// namespace paml}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* !IMOUSE\_HPP\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

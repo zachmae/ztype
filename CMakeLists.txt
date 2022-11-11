@@ -22,23 +22,20 @@ endif(WIN32)
 
 #Client executable generation
 add_executable(${PROJECT_NAME}
+    src/main_client.cpp
+    src/main_server.cpp
+    src/Languages.cpp
+    src/Network/Server.cpp
+    src/Network/Client.cpp
 
-        src/User/Scenes/Game/Init.cpp
-        src/User/Scenes/Menu/ClickActions.cpp
-        src/User/Scenes/Menu/Init.cpp
-
-        src/main_client.cpp
-        src/main_server.cpp
-        src/Languages.cpp
-        src/Network/Server.cpp
-        src/Network/Client.cpp
-
-        src/User/Systems/AnimationSystem.cpp
-        src/User/Systems/DisplaySystem.cpp
-        src/User/Systems/EventSystem.cpp
-        src/User/Systems/PositionSystem.cpp
-        src/User/Systems/SceneSystem.cpp
-        )
+    src/UserClient/Systems/AnimationSystem.cpp
+    src/UserClient/Scenes/Game/Init.cpp
+    src/UserClient/Scenes/Menu/ClickActions.cpp
+    src/UserClient/Scenes/Menu/Init.cpp
+    src/UserClient/Systems/DisplaySystem.cpp
+    src/UserClient/Systems/EventSystem.cpp
+    src/UserClient/Systems/PositionSystem.cpp
+)
 
 target_link_libraries(${PROJECT_NAME}
     sfml-window

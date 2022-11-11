@@ -22,5 +22,8 @@ struct user_config {
                                         health,
                                         is_boss,
                                         death_sfx,
+                                        value_score,
+                                        text,
+                                        is_score,
                                         int>;
 };
