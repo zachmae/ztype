@@ -27,3 +27,23 @@ void pop_settings(SceneManager_ref<std::string> scene)
         scene.Get("game").SetZIndex(-1);
     scene.Get("menu").SetZIndex(2);
 }
+
+void switch_language_to_fr(SceneManager_ref<std::string> scene)
+{
+
+}
+
+void switch_language_to_eng(SceneManager_ref<std::string> scene)
+{
+
+}
+
+void switch_language_to_jap(SceneManager_ref<std::string> scene)
+{
+
+}
+
+void switch_language_to_spa(SceneManager_ref<std::string> scene)
+{
+
+}

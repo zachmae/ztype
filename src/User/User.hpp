@@ -65,8 +65,16 @@ namespace User {
         User::Game::ship_generation(r, sm, scene, am, "ship", true);
 
         User::Menu::background_generation(r, sm, scene, "white_shadow");
-        User::Menu::button_generation(r, sm, scene, am, "button", std::pair<float, float>(600, 200), {static_cast<std::function<void(SceneManager_ref<std::string>)>>(back_to_game)});
-        User::Menu::button_generation(r, sm, scene, am, "button", std::pair<float, float>(600, 600), {static_cast<std::function<void(SceneManager_ref<std::string>)>>(exit_game)});
+        User::Menu::button_generation(r, sm, scene, am, "button", std::pair<float, float>(400, 200), {static_cast<std::function<void(SceneManager_ref<std::string>)>>(back_to_game)});
+        User::Menu::button_generation(r, sm, scene, am, "button", std::pair<float, float>(400, 800), {static_cast<std::function<void(SceneManager_ref<std::string>)>>(exit_game)});
+        User::Menu::button_generation(r, sm, scene, am, "left_button", std::pair<float, float>(300, 400), {static_cast<std::function<void(SceneManager_ref<std::string>)>>(back_to_game)});
+        User::Menu::button_generation(r, sm, scene, am, "right_button", std::pair<float, float>(700, 400), {static_cast<std::function<void(SceneManager_ref<std::string>)>>(back_to_game)});
+        User::Menu::button_generation(r, sm, scene, am, "left_button", std::pair<float, float>(300, 600), {static_cast<std::function<void(SceneManager_ref<std::string>)>>(back_to_game)});
+        User::Menu::button_generation(r, sm, scene, am, "right_button", std::pair<float, float>(700, 600), {static_cast<std::function<void(SceneManager_ref<std::string>)>>(back_to_game)});
+        User::Menu::button_generation(r, sm, scene, am, "button", std::pair<float, float>(1300, 200), {static_cast<std::function<void(SceneManager_ref<std::string>)>>(switch_language_to_fr)});
+        User::Menu::button_generation(r, sm, scene, am, "button", std::pair<float, float>(1300, 400), {static_cast<std::function<void(SceneManager_ref<std::string>)>>(switch_language_to_eng)});
+        User::Menu::button_generation(r, sm, scene, am, "button", std::pair<float, float>(1300, 600), {static_cast<std::function<void(SceneManager_ref<std::string>)>>(switch_language_to_jap)});
+        User::Menu::button_generation(r, sm, scene, am, "button", std::pair<float, float>(1300, 800), {static_cast<std::function<void(SceneManager_ref<std::string>)>>(switch_language_to_spa)});
         mm.play("epitomize");
     }
 

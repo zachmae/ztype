@@ -16,4 +16,12 @@ void exit_game(SceneManager_ref<std::string> scene);
 
 void pop_settings(SceneManager_ref<std::string> scene);
 
+void switch_language_to_fr(SceneManager_ref<std::string> scene);
+
+void switch_language_to_eng(SceneManager_ref<std::string> scene);
+
+void switch_language_to_jap(SceneManager_ref<std::string> scene);
+
+void switch_language_to_spa(SceneManager_ref<std::string> scene);
+
 #endif /* !CLICKACTIONS_HPP_ */
