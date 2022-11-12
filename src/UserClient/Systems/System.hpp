@@ -61,6 +61,29 @@ namespace User {
     void update_score(registry &r);
 
     /**
+     * @brief update button text language
+     *
+     * @param r : registry, contain all of the entities and the related components
+     */
+    void update_button_language(registry &r);
+
+    /**
+     * @brief update music text volume
+     *
+     * @param r : registry, contain all of the entities and the related components
+     * @param mm : the reference to the music manager
+     */
+    void update_music_volume_text(registry &r, MusicManager_ref<std::string> mm);
+
+    /**
+     * @brief update music text volume
+     *
+     * @param r : registry, contain all of the entities and the related components
+     * @param mm : the reference to the music manager
+     */
+    void update_audio_volume_text(registry &r, AudioManager_ref<std::string> am);
+
+    /**
      * @brief system that can animate ships
      *
      * @param r : registry, contain all of the entities and the related components
@@ -76,9 +99,10 @@ namespace User {
      * @param src_x : x position of the ship
      * @param src_y : y position of the ship
      * @param _spriteManager : sprite manager reference of all sprites
+     * @param scene : scene manager reference
      * @param client : client reference
      */
-    void bullet_creation_system(registry &r, float src_x, float src_y, SpriteManager<std::string> _spriteManager, AudioManager<std::string>& _audioManager, Client &client);
+    void bullet_creation_system(registry &r, float src_x, float src_y, SpriteManager<std::string> _spriteManager, AudioManager<std::string>& _audioManager, SceneManager_ref<std::string> scene, Client &client);
 
     /**
      * @brief system that can create random enemy when i need to
@@ -86,9 +110,10 @@ namespace User {
      * @param r : registry, contain all of the entities and the related components
      * @param _spriteManager : sprite manager reference of all sprites
      * @param w : window reference
+     * @param scene : scene manager reference
      * @param client : client reference
      */
-    void enemy_system(registry &r, SpriteManager<std::string>& _spriteManager, Window_ref w, Client &client);
+    void enemy_system(registry &r, SpriteManager<std::string>& _spriteManager, Window_ref w, SceneManager_ref<std::string> scene, Client &client);
 
     /**
      * @brief system that allow the generation of magic attack if the boss is alive
@@ -97,7 +122,7 @@ namespace User {
      * @param _spriteManager : sprite manager reference of all sprites
      * @param w : window reference
      */
-    void boss_magic_system(registry &r, SpriteManager<std::string>& _spriteManager, Window_ref w);
+    void boss_magic_system(registry &r, SpriteManager<std::string>& _spriteManager, Window_ref w, SceneManager_ref<std::string> scene);
 
     /**
      * @brief system that check if there is player left alive
@@ -123,9 +148,10 @@ namespace User {
      * @param r : registry, contain all of the entities and the related components
      * @param e : event that i want to handle
      * @param _spriteManager : sprite manager reference of all sprites
+     * @param scene : scene manager reference
      * @param client : client reference
      */
-    void control_system(registry &r, Event_ref e, const SpriteManager<std::string>& _spriteManager, AudioManager<std::string>& _audioManager, Client &client);
+    void control_system(registry &r, Event_ref e, const SpriteManager<std::string>& _spriteManager, AudioManager<std::string>& _audioManager, SceneManager_ref<std::string> scene, Client &client);
 
     /**
      * @brief system that can remove every entities that are out of the window in order to free memory
@@ -142,4 +168,17 @@ namespace User {
      * @param w : window reference
      */
     void draw_system(registry &r, Window_ref w);
+
+    /**
+     * @brief click system
+     *
+     * @param reg : the reference to the registry
+     * @param scene : the reference to the scene manager
+     * @param event
+     * @param window
+     * @param am : the reference to the audio manager
+     * @param mm : the reference to the music manager
+     */
+    template<typename Key>
+    void click_system(Registry_ref reg, SceneManager_ref<Key> scene, Event_ref event, Window_ref window, AudioManager_ref<std::string> am, MusicManager_ref<std::string> mm);
 }

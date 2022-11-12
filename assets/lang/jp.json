@@ -1,10 +1,18 @@
 {
     "font": "../assets/font/japanese_font.ttf",
     "dictionnary": {
-        "welcome": "Welcome to the dictionnary",
+        "welcome": "辞書へようこそ",
         "hello": "こんにちは",
         "game_over": "ゲームオーバー",
         "score": "スコア",
-        "bye": "さようなら"
+        "bye": "さようなら",
+        "start_button": "リスタート",
+        "exit_button": "エグジット",
+        "french_button": "フレンチ",
+        "english_button": "イングリッシュ",
+        "japanese_font": "日本語",
+        "spanish_font": "スパニッシュ",
+        "header_music_text": "ミュージックボリューム",
+        "header_audio_text": "サウンドボリューム"
     }
 }

@@ -10,6 +10,7 @@ struct user_config {
                                         velocity,
                                         drawable,
                                         controlable,
+                                        clickable,
                                         animation_basic,
                                         animation_adaptative,
                                         resizable,

@@ -12,6 +12,6 @@
     },
     "network": {
         "port": 8080,
-        "ip": "fill with your ip"
+        "ip": "localhost"
     }
 }

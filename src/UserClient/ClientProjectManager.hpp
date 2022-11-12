@@ -113,16 +113,20 @@ namespace User {
                             _window.close();
                             break;
                         }
-                        _clientManager.UpdateScene(_ecs, _scenes, _window, _event);
-                        _clientManager.UpdateEventSystem(_ecs, _event, _window, _sm, _am);
+                        _clientManager.UpdateScene(_ecs, _scenes, _window, _event, _am, _mm);
+                        _clientManager.UpdateEventSystem(_ecs, _event, _window, _sm, _am, _scenes);
                     }
                     if (!_window.isOpen())
                         break;
                     _clientManager.UpdateClient(_ecs, _scenes, _sm, _am);
                     _window.clear();
+                    User::update_music_volume_text(_ecs, _mm);
+                    User::update_audio_volume_text(_ecs, _am);
                     _clientManager.UpdateWindowSystem(_ecs, _scenes, _window, _sm);
                     _window.display();
                     leave = _clientManager.UpdatePostWindowSystem(_ecs, _scenes, _window, _am);
+                    if (_scenes.Get("game").GetZIndex() == -1)
+                        leave = true;
                 }
                 std::cout << dictionnary_language[leave ? "game_over": "bye"] << std::endl << dictionnary_language["score"] + ": " << Globals::score << std::endl;
                 return 0;

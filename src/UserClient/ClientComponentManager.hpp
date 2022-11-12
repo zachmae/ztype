@@ -12,6 +12,8 @@ namespace User {
                                             velocity,
                                             drawable,
                                             controlable,
+                                            clickable,
+                                            clickable_sfx,
                                             animation_basic,
                                             animation_adaptative,
                                             resizable,
@@ -26,6 +28,9 @@ namespace User {
                                             value_score,
                                             text,
                                             is_score,
+                                            is_text_button_dict,
+                                            is_music,
+                                            is_audio,
                                             int>;
     };
 

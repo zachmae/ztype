@@ -5,6 +5,14 @@
         "hello": "",
         "game_over": "",
         "score": "",
-        "bye": ""
+        "bye": "",
+        "start_button": "",
+        "exit_button": "",
+        "french_button": "",
+        "english_button": "",
+        "japanese_font": "",
+        "spanish_font": "",
+        "header_music_text": "",
+        "header_audio_text": ""
     }
 }

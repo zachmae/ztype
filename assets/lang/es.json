@@ -5,6 +5,14 @@
         "hello": "hola",
         "game_over": "fin del juego",
         "score": "pointos",
-        "bye": "adios"
+        "bye": "adios",
+        "start_button": "REINICIAR",
+        "exit_button": "SALIR",
+        "french_button": "FRANCES",
+        "english_button": "INGLES",
+        "japanese_font": "JAPON",
+        "spanish_font": "ESPANOL",
+        "header_music_text": "VOLUMEN DE LA MUSICA",
+        "header_audio_text": "VOLUMEN DE LOS SONIDOS"
     }
 }

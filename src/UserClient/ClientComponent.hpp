@@ -14,6 +14,8 @@
 #include <SFML/Network.hpp>
 
 #include "../SceneManager/SceneManager.hpp"
+#include "AudioManager.hpp"
+#include "MusicManager.hpp"
 
 #ifndef USERCOMPONENT_HPP_
     #define USERCOMPONENT_HPP_
@@ -57,6 +59,14 @@ struct drawable {
 struct controlable {
 };
 
+/**
+ * @struct clickable
+ *
+ * @brief Component clickable in order to handle the click of the entity (button)
+ */
+struct clickable {
+    std::function<void(SceneManager_ref<std::string>, AudioManager_ref<std::string>, MusicManager_ref<std::string>)> callback;
+};
 
 /**
  * @struct animation_basic
@@ -172,16 +182,6 @@ struct death_sfx {
 };
 
 /**
- * @struct clickable
- *
- * @brief Component clickable in order to handle the click of the entity (button)
- *
- */
-struct clickable {
-    std::function<void(SceneManager_ref<std::string>)> callback;
-};
-
-/**
  * @struct clickable sfx
  *
  * @brief Component clickable_sfx in order to handle the sound of the click of the entity (button)
@@ -215,6 +215,28 @@ struct is_score {
 
 struct uuid {
     char uuid[32];
+};
+
+/**
+ * @brief Component is_text_button_dict in order to handle the button text
+ *
+ */
+struct is_text_button_dict {
+    std::string key;
+};
+
+/**
+ * @brief Component is_music in order to handle the music volume text
+ *
+ */
+struct is_music {
+};
+
+/**
+ * @brief Component is_audio in order to handle the audio volume text
+ *
+ */
+struct is_audio {
 };
 
 #endif /* !USERCOMPONENT_HPP_ */

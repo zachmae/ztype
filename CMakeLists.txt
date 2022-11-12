@@ -30,6 +30,8 @@ add_executable(${PROJECT_NAME}
 
     src/UserClient/Systems/AnimationSystem.cpp
     src/UserClient/Scenes/Game/Init.cpp
+    src/UserClient/Scenes/Menu/ClickActions.cpp
+    src/UserClient/Scenes/Menu/Init.cpp
     src/UserClient/Systems/DisplaySystem.cpp
     src/UserClient/Systems/EventSystem.cpp
     src/UserClient/Systems/PositionSystem.cpp

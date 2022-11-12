@@ -7,7 +7,7 @@
 
 #include <string>
 
-#include "../../UserComponent.hpp"
+#include "../../ClientComponent.hpp"
 #include "../../../ProjectManager/Ecs.hpp"
 
 #include "../../../SceneManager/SceneManager.hpp"
@@ -26,7 +26,7 @@ namespace User {
          * @param name : the name of the background in the sprite manager
          * @param parallax_speed : the speed of the background for the parallax (0 for a static one)
          */
-        void background_generation(Registry_ref reg, SpriteManager_ref<std::string> sprite_manager, SceneManager_ref<std::string> scene, std::string name, float parallax_speed);
+        void background_generation(Registry_ref reg, SpriteManager_ref<std::string> sprite_manager, SceneManager_ref<std::string> scene, std::string name);
 
         /**
          * @brief create a button object from the given attributes not complete at the moment (where is the callback ?)
@@ -37,7 +37,7 @@ namespace User {
          * @param audioManager : the reference to the audio manager
          * @param name : the name of the button in the sprite manager
          */
-        void button_generation(Registry_ref reg, SpriteManager_ref<std::string> sprite_manager, SceneManager_ref<std::string> scene, AudioManager_ref<std::string> audioManager, std::string name);
+        void button_generation(Registry_ref reg, SpriteManager_ref<std::string> sprite_manager, SceneManager_ref<std::string> scene, AudioManager_ref<std::string> audioManager, std::string name, std::pair<float, float> pos, clickable callback, std::string str);
 
     }
 }
