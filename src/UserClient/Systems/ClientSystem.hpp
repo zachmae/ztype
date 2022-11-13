@@ -99,7 +99,7 @@ namespace User {
         if (event.type == sf::Event::MouseButtonPressed) {
             for (size_t i = 0; i < drawables.size() && i < positions.size() && i < clickables.size(); ++i) {
                 if (drawables[i] && positions[i] && clickables[i]) {
-                    if (drawables[i]->sprite.getGlobalBounds().intersect({window.mapPixelToCoords(sf::Mouse::getPosition(window)), {1.f, 1.f}})) {
+                    if (drawables[i]->sprite.getGlobalBounds().intersects({window.mapPixelToCoords(sf::Mouse::getPosition(window)), {1.f, 1.f}})) {
                         clickables[i]->callback(scene, am, mm);
                     }
                 }
