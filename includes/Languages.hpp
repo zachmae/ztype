@@ -15,7 +15,7 @@
 #include <fstream>
 
 /*!
- *  \addtogroup Language management
+ *  \addtogroup LanguageManagement
  *  @{
  */
 

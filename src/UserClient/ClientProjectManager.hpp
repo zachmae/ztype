@@ -45,7 +45,7 @@
 #include "Languages.hpp"
 
 /**
- * @namespace Project
+ * @namespace User
  *
  * @author perry.chouteau@epitech.eu
  */
