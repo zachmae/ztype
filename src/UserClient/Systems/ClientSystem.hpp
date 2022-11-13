@@ -20,6 +20,27 @@
 #ifndef USERSYSTEM_HPP_
     #define USERSYSTEM_HPP_
 
+/**
+ * @brief display the hitboxes of the entities if the debug mode is activated
+ *
+ * @param w : the window reference
+ * @param s :the sprite reference
+ * @param team : the team if the entity has one (optional)
+ */
+static void display_debug_mode(sf::RenderWindow &w, sf::Sprite &s, std::optional<is_ally> team)
+{
+    sf::RectangleShape rect;
+
+    rect.setPosition(s.getPosition());
+    rect.setSize(sf::Vector2f(s.getGlobalBounds().width, s.getGlobalBounds().height));
+    rect.setFillColor(sf::Color::Transparent);
+    rect.setOutlineColor(sf::Color::Red);
+    if (team && team->status == true)
+        rect.setOutlineColor(sf::Color::Green);
+    rect.setOutlineThickness(2);
+    w.draw(rect);
+}
+
 namespace User {
 
     /**
@@ -78,7 +99,7 @@ namespace User {
         if (event.type == sf::Event::MouseButtonPressed) {
             for (size_t i = 0; i < drawables.size() && i < positions.size() && i < clickables.size(); ++i) {
                 if (drawables[i] && positions[i] && clickables[i]) {
-                    if (drawables[i]->sprite.getGlobalBounds().contains(sf::Mouse::getPosition().x, sf::Mouse::getPosition().y)) {
+                    if (drawables[i]->sprite.getGlobalBounds().intersect({window.mapPixelToCoords(sf::Mouse::getPosition(window)), {1.f, 1.f}})) {
                         clickables[i]->callback(scene, am, mm);
                     }
                 }
@@ -123,7 +144,7 @@ namespace User {
                     if (i < resizables.size() && resizables[i])
                         drawables[i]->sprite.setScale(resizables[i]->x, resizables[i]->y);
                     if (collision_box && i < are_allies.size()) {
-                        // display_debug_mode(window, drawables[i]->sprite, are_allies[i]);
+                        display_debug_mode(window, drawables[i]->sprite, are_allies[i]);
                     }
                     // drawables[i]->sprite.setPosition({positions[i]->x, positions[i]->y});
                     window.draw(drawables[i]->sprite);
