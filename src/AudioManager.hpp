@@ -37,8 +37,8 @@ class AudioManager {
         /**
          * @brief Add
          *
-         * @param t
-         * @param v
+         * @param k : Key
+         * @param v : Value
          */
         void Add(Key k, modules::SFMLAudioModule &v)
         {
@@ -48,9 +48,8 @@ class AudioManager {
         /**
          * @brief Add
          *
-         * @param t
-         * @param texture
-         * @param f
+         * @param k : Key
+         * @param path : Path
          */
         void Add(Key k, std::string path)
         {
@@ -60,7 +59,7 @@ class AudioManager {
         /**
          * @brief Get
          *
-         * @param t
+         * @param k : key
          * @return modules::SFMLAudioModule&
          */
         modules::SFMLAudioModule &Get(Key k)
@@ -71,7 +70,7 @@ class AudioManager {
         /**
          * @brief play the sound at the given key
          *
-         * @param key
+         * @param k : key
          */
         void play(Key k)
         {
@@ -81,7 +80,7 @@ class AudioManager {
         /**
          * @brief stop the sound at the given key
          *
-         * @param key
+         * @param k : key
          */
         void stop(Key k)
         {
@@ -91,7 +90,7 @@ class AudioManager {
         /**
          * @brief pause the sound at the given key
          *
-         * @param key
+         * @param k : key
          */
         void pause(Key k)
         {
@@ -111,6 +110,7 @@ class AudioManager {
         /**
          * @brief set volume
          *
+         * @param volume : volume to be set
          */
         void setVolume(float volume) {
             _volume = volume;
@@ -137,7 +137,7 @@ class AudioManager {
         /**
          * @brief Get the Status object
          *
-         * @param key
+         * @param key : the key of the sound
          * @return sf::Sound::Status
          */
         modules::MusicStatus getStatus(Key k)

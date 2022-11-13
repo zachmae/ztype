@@ -56,6 +56,18 @@ namespace User {
             }
         }
     }
+
+    /**
+     * @brief click system that handle the click on the buttons
+     *
+     * @tparam Key
+     * @param reg : the reference to the registry
+     * @param scene : the reference to the scene manager
+     * @param event : the reference to the event manager
+     * @param window : the reference to the window
+     * @param am : the reference to the audio manager
+     * @param mm : the reference to the music manager
+     */
     template<typename Key>
     void User::click_system(Registry_ref reg, SceneManager_ref<Key> scene, Event_ref event, Window_ref window, AudioManager_ref<std::string> am, MusicManager_ref<std::string> mm)
     {

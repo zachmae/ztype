@@ -14,6 +14,10 @@
 #include <iostream>
 #include <fstream>
 
+/*!
+ *  \addtogroup Language management
+ *  @{
+ */
 
 inline std::map<std::string, std::string> dict_path = {};
 

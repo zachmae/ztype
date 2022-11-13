@@ -68,7 +68,7 @@ namespace User {
             /**
              * @brief Construct a Project Manager using c++ inheritance folowing User needs !
              *
-             * @param jsonfile
+             * @param jsonfile : json file to load
              */
             ClientProjectManager(std::string jsonfile)
             : ProjectManager(jsonfile), _clientManager(jsonfile), _window(CreateWindow(jsonfile)), _sm(), _am(), _mm()
@@ -95,8 +95,8 @@ namespace User {
             /**
              * @brief Start our Client
              *
-             * @param ip
-             * @param port
+             * @param ip : ip to connect
+             * @param port : port to connect
              * @return int
              */
             int Start(std::string const &ip, unsigned short port)
@@ -139,7 +139,7 @@ namespace User {
             /**
              * @brief Create Window from json file
              *
-             * @param jsonfile
+             * @param jsonfile : json file to load
              * @return sf::RenderWindow
              */
             sf::RenderWindow CreateWindow(std::string jsonfile)
@@ -164,7 +164,7 @@ namespace User {
             /**
              * @brief Init Scenes from json file
              *
-             * @param file
+             * @param file : json file to load
              */
             void InitScenes(json file)
             {
@@ -189,7 +189,7 @@ namespace User {
             /**
              * @brief Init Sprites from json file
              *
-             * @param file
+             * @param file : json file to load
              */
             void InitSprites(json file)
             {
@@ -214,7 +214,7 @@ namespace User {
             /**
              * @brief Init Sounds from json file
              *
-             * @param file
+             * @param file : json file to load
              */
             void InitSounds(json file)
             {

@@ -12,6 +12,14 @@
 
 namespace User {
 
+    /**
+     * @brief init the game
+     *
+     * @param r reference to the registry
+     * @param sm reference to the sprite manager
+     * @param am reference to the audio manager
+     * @param scene reference to the scene manager
+     */
     void init_game(Registry_ref r, SpriteManager_ref<std::string> sm, AudioManager_ref<std::string> am, SceneManager_ref<std::string> scene)
     {
 

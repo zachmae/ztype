@@ -27,6 +27,15 @@
 
 namespace User {
 
+    /**
+     * @brief Create a New Client object
+     * 
+     * @tparam Key 
+     * @param reg reference to the registry
+     * @param scenes reference to the scenes manager
+     * @param _sm reference to the sprite manager
+     * @param client reference to the client
+     */
     template <typename Key>
     void createNewClient(Registry_ref reg, SceneManager_ref<Key> scenes, SpriteManager_ref<Key> _sm, Client &client);
 

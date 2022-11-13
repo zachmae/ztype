@@ -59,8 +59,8 @@ static void handle_flags(int ac, char const * const av[])
 /**
  * @brief Main function of the client
  *
- * @param ac
- * @param av
+ * @param ac : arguments of the main (number of arguments)
+ * @param av : arguments of the main (arguments)
  * @return int
  */
 int main(int ac, char const * const av[])

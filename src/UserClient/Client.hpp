@@ -119,10 +119,10 @@ namespace User {
      * @brief
      *
      * @tparam Key
-     * @param reg
-     * @param scenes
-     * @param window
-     * @param event
+     * @param reg : reference to the registry
+     * @param scenes : reference to the scene manager
+     * @param window : reference to the window
+     * @param event : reference to the event
      */
     template <typename Key>
     void ClientManager::UpdateScene(Registry_ref reg, SceneManager<Key> &scene, sf::RenderWindow &window, sf::Event &event, AudioManager_ref<std::string> am, MusicManager_ref<std::string> mm)

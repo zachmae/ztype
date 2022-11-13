@@ -64,10 +64,10 @@ namespace User {
              * @brief init scene
              *
              * @deprecated may be replace by a json file automation
-             * @param r
-             * @param sm
-             * @param am
-             * @param scene
+             * @param r : reference to the registry
+             * @param sm : reference to the sprite manager
+             * @param am : reference to the audio manager
+             * @param scene : reference to the scene manager
              */
 //            [[deprecated]]
             void InitScene(Registry_ref r, SpriteManager_ref<std::string> sm, AudioManager_ref<std::string> am, MusicManager_ref<std::string> mm, SceneManager_ref<std::string> scene);
@@ -76,9 +76,9 @@ namespace User {
              * @brief Update the User Manager object
              *
              * @tparam Key
-             * @param reg
-             * @param window
-             * @param event
+             * @param reg : reference to the registry
+             * @param window : reference to the window
+             * @param event : reference to the event
              */
             template <typename Key>
             void UpdateScene(Registry_ref reg, SceneManager<Key> &, sf::RenderWindow &window, sf::Event &event, AudioManager_ref<std::string> am, MusicManager_ref<std::string> mm);
@@ -106,10 +106,10 @@ namespace User {
              * @brief Update Client
              *
              * @tparam Key
-             * @param reg
-             * @param scenes
-             * @param _sm
-             * @param am
+             * @param reg : reference to the registry
+             * @param scenes : reference to the scenes manager
+             * @param _sm : reference to the sprite manager
+             * @param am : reference to the audio manager
              */
             template<typename Key>
             void UpdateClient(Registry_ref reg, SceneManager_ref<std::string> scenes, SpriteManager_ref<Key> _sm, AudioManager_ref<Key> am);
@@ -118,10 +118,10 @@ namespace User {
              * @brief Update Window System
              *
              * @tparam Key
-             * @param reg
-             * @param scene
-             * @param window
-             * @param sm
+             * @param reg : reference to the registry
+             * @param scene : reference to the scene manager
+             * @param window : reference to the window
+             * @param sm : reference to the sprite manager
              */
             template<typename Key>
             void UpdateWindowSystem(Registry_ref reg, SceneManager_ref<Key> scene, Window_ref window, SpriteManager_ref<Key> sm);
@@ -143,7 +143,7 @@ namespace User {
             /**
              * @brief Get the Network info from json file
              *
-             * @param path
+             * @param path : path to the json file
              * @return std::pair<std::string, int>
              */
             std::pair<std::string, int> getNetwork(std::string path)

@@ -38,8 +38,8 @@ class MusicManager {
         /**
          * @brief Add
          *
-         * @param t
-         * @param v
+         * @param k : Key
+         * @param v : Value
          */
         void Add(Key k, modules::SFMLMusicModule &v)
         {
@@ -49,9 +49,8 @@ class MusicManager {
         /**
          * @brief Add
          *
-         * @param t
-         * @param texture
-         * @param f
+         * @param k : Key
+         * @param path : Path
          */
         void Add(Key k, std::string path)
         {
@@ -61,7 +60,7 @@ class MusicManager {
         /**
          * @brief Get
          *
-         * @param t
+         * @param k : Key
          * @return modules::SFMLMusicModule&
          */
         modules::SFMLMusicModule &Get(Key k)
@@ -72,7 +71,7 @@ class MusicManager {
         /**
          * @brief play the sound at the given key
          *
-         * @param key
+         * @param k : Key
          */
         void play(Key k)
         {
@@ -83,7 +82,7 @@ class MusicManager {
         /**
          * @brief stop the sound at the given key
          *
-         * @param key
+         * @param k : Key
          */
         void stop(Key k)
         {
@@ -93,7 +92,7 @@ class MusicManager {
         /**
          * @brief pause the sound at the given key
          *
-         * @param key
+         * @param k : Key
          */
         void pause(Key k)
         {
@@ -113,8 +112,7 @@ class MusicManager {
         /**
          * @brief Loop the sound at the given buffer
          *
-         * @param key
-         * @param path
+         * @param k : Key
          */
         void setLoop(Key k)
         {
@@ -124,7 +122,7 @@ class MusicManager {
         /**
          * @brief Stop the audio loop at the given key
          *
-         * @param key
+         * @param k : Key
          */
         void stopLoop(Key k)
         {
@@ -134,6 +132,7 @@ class MusicManager {
         /**
          * @brief set volume
          *
+         * @param volume :volume to be set
          */
         void setVolume(float volume) {
             _volume = volume;
@@ -160,7 +159,7 @@ class MusicManager {
         /**
          * @brief get loop of the sound at the given key
          *
-         * @param key
+         * @param k : Key
          *
          * @return bool
          */
@@ -172,7 +171,7 @@ class MusicManager {
         /**
          * @brief Get the Status object
          *
-         * @param key
+         * @param k : Key
          * @return sf::Sound::Status
          */
         modules::MusicStatus getStatus(Key k)

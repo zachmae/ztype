@@ -213,6 +213,10 @@ struct text {
 struct is_score {
 };
 
+/**
+ * @brief uuid not used yet
+ *
+ */
 struct uuid {
     char uuid[32];
 };
