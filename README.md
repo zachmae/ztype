@@ -60,7 +60,17 @@ Client
 
 Client with the specified language located in the assets/langassets/lang directory
 ```
-    ./rtype [ip] [port] -l[language_short_name]
+    ./rtype [ip] [port] -l [language_short_name]
+```
+
+Client with the specified difficulty 0 to 4 (peacefull to hardcore)
+```
+    ./rtype [ip] [port] -d [difficulty]
+```
+
+Client with specified language and difficulty
+```
+    ./rtype [ip] [port] -l [language_short_name] -d [difficulty]
 ```
 
 ## Documentation ##
