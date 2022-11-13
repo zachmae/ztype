@@ -45,7 +45,6 @@ void Client::sendBlaster(float x, float y)
     sf::Packet packet;
 
     packet << "blaster shot" << _id << x << y;
-    std::cout << packet.getData() << std::endl;
     if (_socket.send(packet) != sf::Socket::Status::Done) {
         std::cerr << "Error : Sending failed (maybe server down)" << std::endl;
         exit(84);
