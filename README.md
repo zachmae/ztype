@@ -57,12 +57,16 @@ Server
 
 Client
 ```
-    ./rtype [ip] [port] -l [language_short_name] -d [difficulty]
+    ./rtype [ip] [port] (-l [language_short_name] -d [difficulty] --debug)
 
+    MANDATORY
         [ip]                    ip address
         [port]                  port number
-        [language_short_name]   specify language located in the assets/langassets/lang directory
-        [difficulty]            specify difficulty 0 to 4 (peacefull to hardcore)
+
+    OPTIONAL
+        [language_short_name]   specify language located in the assets/lang directory
+        [difficulty]            specify difficulty 0 to 4 (peaceful to hardcore)
+        --debug                 debug mode
 ```
 
 
