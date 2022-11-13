@@ -58,6 +58,11 @@ Client
     ./rtype [ip] [port]
 ```
 
+Client with the specified language located in the assets/langassets/lang directory
+```
+    ./rtype [ip] [port] -l[language_short_name]
+```
+
 ## Documentation ##
 
 Use convensional commit to add upgrades
