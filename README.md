@@ -51,12 +51,24 @@ Execute CMake
 Server
 ```
     ./rtype [port]
+
+        [port]  port number
 ```
 
 Client
 ```
-    ./rtype [ip] [port]
+    ./rtype [ip] [port] (-l [language_short_name] -d [difficulty] --debug)
+
+    MANDATORY
+        [ip]                    ip address
+        [port]                  port number
+
+    OPTIONAL
+        [language_short_name]   specify language located in the assets/lang directory
+        [difficulty]            specify difficulty 0 to 4 (peaceful to hardcore)
+        --debug                 debug mode
 ```
+
 
 ## Documentation ##
 
