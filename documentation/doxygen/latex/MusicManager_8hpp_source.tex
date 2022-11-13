@@ -33,79 +33,79 @@
 \DoxyCodeLine{46             \_storage.insert(std::pair<Key, modules::SFMLAudioModule>(k, v));}
 \DoxyCodeLine{47         \};}
 \DoxyCodeLine{48 }
-\DoxyCodeLine{56         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__StorageManager_ga10e68ea42b23d5fd689046b1f6ae23b7}{Add}}(Key k, std::string path)}
-\DoxyCodeLine{57         \{}
-\DoxyCodeLine{58             \_storage[k].setSource(path);}
-\DoxyCodeLine{59         \};}
-\DoxyCodeLine{60 }
-\DoxyCodeLine{67         \mbox{\hyperlink{classmodules_1_1SFMLMusicModule}{modules::SFMLMusicModule}} \&\mbox{\hyperlink{group__StorageManager_ga0c1165af6a0ce103820c25c96bc3479d}{Get}}(Key k)}
-\DoxyCodeLine{68         \{}
-\DoxyCodeLine{69             \textcolor{keywordflow}{return} \_storage[k];}
-\DoxyCodeLine{70         \};}
-\DoxyCodeLine{71 }
-\DoxyCodeLine{77         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__StorageManager_ga733c1d5ec0cf6f8af31637a6967561a1}{play}}(Key k)}
-\DoxyCodeLine{78         \{}
-\DoxyCodeLine{79             \_storage[k].play();}
-\DoxyCodeLine{80             \mbox{\hyperlink{group__StorageManager_ga4b99f36c1d2a50473c6895207cc957c7}{setLoop}}(k);}
-\DoxyCodeLine{81         \};}
-\DoxyCodeLine{82 }
-\DoxyCodeLine{88         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__StorageManager_ga7b2779453772c4fa79448b2046dff2c8}{stop}}(Key k)}
-\DoxyCodeLine{89         \{}
-\DoxyCodeLine{90             \_storage[k].stop();}
-\DoxyCodeLine{91         \};}
-\DoxyCodeLine{92 }
-\DoxyCodeLine{98         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__StorageManager_ga794a88705b7217fe7566d81284a5acba}{pause}}(Key k)}
-\DoxyCodeLine{99         \{}
-\DoxyCodeLine{100             \_storage[k].pause();}
-\DoxyCodeLine{101         \};}
-\DoxyCodeLine{102 }
-\DoxyCodeLine{107         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__StorageManager_gaa4c849e97210a2a939baa6e29918a75b}{stopAll}}()}
-\DoxyCodeLine{108         \{}
-\DoxyCodeLine{109             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&it : \_storage)}
-\DoxyCodeLine{110                 it.second.stop();}
-\DoxyCodeLine{111         \};}
-\DoxyCodeLine{112 }
-\DoxyCodeLine{119         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__StorageManager_ga4b99f36c1d2a50473c6895207cc957c7}{setLoop}}(Key k)}
-\DoxyCodeLine{120         \{}
-\DoxyCodeLine{121             \_storage[k].setLoop(\textcolor{keyword}{true});}
-\DoxyCodeLine{122         \};}
-\DoxyCodeLine{123 }
-\DoxyCodeLine{129         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__StorageManager_gad7ebaba611bc196900c1325d619058fe}{stopLoop}}(Key k)}
-\DoxyCodeLine{130         \{}
-\DoxyCodeLine{131             \_storage[k].setLoop(\textcolor{keyword}{false});}
-\DoxyCodeLine{132         \};}
-\DoxyCodeLine{133 }
-\DoxyCodeLine{138         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__StorageManager_ga395bdb88d182721e3a43f5c4e5657902}{setVolume}}(\textcolor{keywordtype}{float} volume) \{}
-\DoxyCodeLine{139             \_volume = volume;}
-\DoxyCodeLine{140             \mbox{\hyperlink{group__StorageManager_gac5156d9648925013b249d4e48360f719}{updateVolume}}();}
-\DoxyCodeLine{141         \};}
-\DoxyCodeLine{142 }
-\DoxyCodeLine{147         \textcolor{keywordtype}{float} \mbox{\hyperlink{group__StorageManager_gabf8ce816be9302092eac354ca82cc0c2}{getVolume}}() \{}
-\DoxyCodeLine{148             \textcolor{keywordflow}{return} \_volume;}
-\DoxyCodeLine{149         \}}
-\DoxyCodeLine{150 }
-\DoxyCodeLine{155         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__StorageManager_gac5156d9648925013b249d4e48360f719}{updateVolume}}() \{}
-\DoxyCodeLine{156             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&it : \_storage)}
-\DoxyCodeLine{157                 it.second.setVolume(\_volume);}
-\DoxyCodeLine{158             \}}
-\DoxyCodeLine{159 }
-\DoxyCodeLine{167         \textcolor{keywordtype}{bool} \mbox{\hyperlink{group__StorageManager_ga23fe305a5ccc2a503aca20c70ed167dc}{getLoop}}(Key k)}
-\DoxyCodeLine{168         \{}
-\DoxyCodeLine{169             \textcolor{keywordflow}{return} \_storage[k].getLoop();}
-\DoxyCodeLine{170         \};}
-\DoxyCodeLine{171 }
-\DoxyCodeLine{178         \mbox{\hyperlink{group__Modules_ga8787896c32aed13fc78443a5191cdb0b}{modules::MusicStatus}} \mbox{\hyperlink{group__StorageManager_ga8e168085d2c4082fe42d48c3565a1509}{getStatus}}(Key k)}
-\DoxyCodeLine{179         \{}
-\DoxyCodeLine{180             \textcolor{keywordflow}{return} \_storage[k].getStatus();}
-\DoxyCodeLine{181         \};}
-\DoxyCodeLine{182 }
-\DoxyCodeLine{183     \textcolor{keyword}{private}:}
-\DoxyCodeLine{184         \textcolor{keywordtype}{float} \_volume = 50;}
-\DoxyCodeLine{185         AStorage \_storage;}
-\DoxyCodeLine{186 \};}
+\DoxyCodeLine{55         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__StorageManager_ga10e68ea42b23d5fd689046b1f6ae23b7}{Add}}(Key k, std::string path)}
+\DoxyCodeLine{56         \{}
+\DoxyCodeLine{57             \_storage[k].setSource(path);}
+\DoxyCodeLine{58         \};}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{66         \mbox{\hyperlink{classmodules_1_1SFMLMusicModule}{modules::SFMLMusicModule}} \&\mbox{\hyperlink{group__StorageManager_ga0c1165af6a0ce103820c25c96bc3479d}{Get}}(Key k)}
+\DoxyCodeLine{67         \{}
+\DoxyCodeLine{68             \textcolor{keywordflow}{return} \_storage[k];}
+\DoxyCodeLine{69         \};}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{76         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__StorageManager_ga733c1d5ec0cf6f8af31637a6967561a1}{play}}(Key k)}
+\DoxyCodeLine{77         \{}
+\DoxyCodeLine{78             \_storage[k].play();}
+\DoxyCodeLine{79             \mbox{\hyperlink{group__StorageManager_ga4b99f36c1d2a50473c6895207cc957c7}{setLoop}}(k);}
+\DoxyCodeLine{80         \};}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{87         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__StorageManager_ga7b2779453772c4fa79448b2046dff2c8}{stop}}(Key k)}
+\DoxyCodeLine{88         \{}
+\DoxyCodeLine{89             \_storage[k].stop();}
+\DoxyCodeLine{90         \};}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{97         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__StorageManager_ga794a88705b7217fe7566d81284a5acba}{pause}}(Key k)}
+\DoxyCodeLine{98         \{}
+\DoxyCodeLine{99             \_storage[k].pause();}
+\DoxyCodeLine{100         \};}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{106         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__StorageManager_gaa4c849e97210a2a939baa6e29918a75b}{stopAll}}()}
+\DoxyCodeLine{107         \{}
+\DoxyCodeLine{108             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&it : \_storage)}
+\DoxyCodeLine{109                 it.second.stop();}
+\DoxyCodeLine{110         \};}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{117         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__StorageManager_ga4b99f36c1d2a50473c6895207cc957c7}{setLoop}}(Key k)}
+\DoxyCodeLine{118         \{}
+\DoxyCodeLine{119             \_storage[k].setLoop(\textcolor{keyword}{true});}
+\DoxyCodeLine{120         \};}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{127         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__StorageManager_gad7ebaba611bc196900c1325d619058fe}{stopLoop}}(Key k)}
+\DoxyCodeLine{128         \{}
+\DoxyCodeLine{129             \_storage[k].setLoop(\textcolor{keyword}{false});}
+\DoxyCodeLine{130         \};}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{137         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__StorageManager_ga395bdb88d182721e3a43f5c4e5657902}{setVolume}}(\textcolor{keywordtype}{float} volume) \{}
+\DoxyCodeLine{138             \_volume = volume;}
+\DoxyCodeLine{139             \mbox{\hyperlink{group__StorageManager_gac5156d9648925013b249d4e48360f719}{updateVolume}}();}
+\DoxyCodeLine{140         \};}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{146         \textcolor{keywordtype}{float} \mbox{\hyperlink{group__StorageManager_gabf8ce816be9302092eac354ca82cc0c2}{getVolume}}() \{}
+\DoxyCodeLine{147             \textcolor{keywordflow}{return} \_volume;}
+\DoxyCodeLine{148         \}}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{154         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__StorageManager_gac5156d9648925013b249d4e48360f719}{updateVolume}}() \{}
+\DoxyCodeLine{155             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&it : \_storage)}
+\DoxyCodeLine{156                 it.second.setVolume(\_volume);}
+\DoxyCodeLine{157             \}}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{166         \textcolor{keywordtype}{bool} \mbox{\hyperlink{group__StorageManager_ga23fe305a5ccc2a503aca20c70ed167dc}{getLoop}}(Key k)}
+\DoxyCodeLine{167         \{}
+\DoxyCodeLine{168             \textcolor{keywordflow}{return} \_storage[k].getLoop();}
+\DoxyCodeLine{169         \};}
+\DoxyCodeLine{170 }
+\DoxyCodeLine{177         \mbox{\hyperlink{group__Modules_ga8787896c32aed13fc78443a5191cdb0b}{modules::MusicStatus}} \mbox{\hyperlink{group__StorageManager_ga8e168085d2c4082fe42d48c3565a1509}{getStatus}}(Key k)}
+\DoxyCodeLine{178         \{}
+\DoxyCodeLine{179             \textcolor{keywordflow}{return} \_storage[k].getStatus();}
+\DoxyCodeLine{180         \};}
+\DoxyCodeLine{181 }
+\DoxyCodeLine{182     \textcolor{keyword}{private}:}
+\DoxyCodeLine{183         \textcolor{keywordtype}{float} \_volume = 50;}
+\DoxyCodeLine{184         AStorage \_storage;}
+\DoxyCodeLine{185 \};}
+\DoxyCodeLine{186 }
 \DoxyCodeLine{187 }
 \DoxyCodeLine{188 }
-\DoxyCodeLine{189 }
-\DoxyCodeLine{190 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* !SPRITEMANAGER\_HPP\_ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{189 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* !SPRITEMANAGER\_HPP\_ */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

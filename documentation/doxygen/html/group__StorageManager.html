@@ -301,8 +301,8 @@ template&lt;typename Key &gt; </div>
 <p>Add. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">t</td><td></td></tr>
-    <tr><td class="paramname">v</td><td></td></tr>
+    <tr><td class="paramname">k</td><td>: Key </td></tr>
+    <tr><td class="paramname">v</td><td>: Value </td></tr>
   </table>
   </dd>
 </dl>
@@ -348,8 +348,8 @@ template&lt;typename Key &gt; </div>
 <p>Add. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">t</td><td></td></tr>
-    <tr><td class="paramname">v</td><td></td></tr>
+    <tr><td class="paramname">k</td><td>: Key </td></tr>
+    <tr><td class="paramname">v</td><td>: Value </td></tr>
   </table>
   </dd>
 </dl>
@@ -395,9 +395,8 @@ template&lt;typename Key &gt; </div>
 <p>Add. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">t</td><td></td></tr>
-    <tr><td class="paramname">texture</td><td></td></tr>
-    <tr><td class="paramname">f</td><td></td></tr>
+    <tr><td class="paramname">k</td><td>: Key </td></tr>
+    <tr><td class="paramname">path</td><td>: Path </td></tr>
   </table>
   </dd>
 </dl>
@@ -443,9 +442,8 @@ template&lt;typename Key &gt; </div>
 <p>Add. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">t</td><td></td></tr>
-    <tr><td class="paramname">texture</td><td></td></tr>
-    <tr><td class="paramname">f</td><td></td></tr>
+    <tr><td class="paramname">k</td><td>: Key </td></tr>
+    <tr><td class="paramname">path</td><td>: Path </td></tr>
   </table>
   </dd>
 </dl>
@@ -529,7 +527,7 @@ template&lt;typename Key &gt; </div>
 <p>Get. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">t</td><td></td></tr>
+    <tr><td class="paramname">k</td><td>: key </td></tr>
   </table>
   </dd>
 </dl>
@@ -566,7 +564,7 @@ template&lt;typename Key &gt; </div>
 <p>Get. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">t</td><td></td></tr>
+    <tr><td class="paramname">k</td><td>: Key </td></tr>
   </table>
   </dd>
 </dl>
@@ -640,7 +638,7 @@ template&lt;typename Key &gt; </div>
 <p>get loop of the sound at the given key </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">key</td><td></td></tr>
+    <tr><td class="paramname">k</td><td>: Key</td></tr>
   </table>
   </dd>
 </dl>
@@ -677,7 +675,7 @@ template&lt;typename Key &gt; </div>
 <p>Get the Status object. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">key</td><td></td></tr>
+    <tr><td class="paramname">key</td><td>: the key of the sound </td></tr>
   </table>
   </dd>
 </dl>
@@ -714,7 +712,7 @@ template&lt;typename Key &gt; </div>
 <p>Get the Status object. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">key</td><td></td></tr>
+    <tr><td class="paramname">k</td><td>: Key </td></tr>
   </table>
   </dd>
 </dl>
@@ -809,7 +807,7 @@ template&lt;typename Key &gt; </div>
 <p>pause the sound at the given key </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">key</td><td></td></tr>
+    <tr><td class="paramname">k</td><td>: key </td></tr>
   </table>
   </dd>
 </dl>
@@ -845,7 +843,7 @@ template&lt;typename Key &gt; </div>
 <p>pause the sound at the given key </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">key</td><td></td></tr>
+    <tr><td class="paramname">k</td><td>: Key </td></tr>
   </table>
   </dd>
 </dl>
@@ -881,7 +879,7 @@ template&lt;typename Key &gt; </div>
 <p>play the sound at the given key </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">key</td><td></td></tr>
+    <tr><td class="paramname">k</td><td>: key </td></tr>
   </table>
   </dd>
 </dl>
@@ -917,7 +915,7 @@ template&lt;typename Key &gt; </div>
 <p>play the sound at the given key </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">key</td><td></td></tr>
+    <tr><td class="paramname">k</td><td>: Key </td></tr>
   </table>
   </dd>
 </dl>
@@ -953,8 +951,7 @@ template&lt;typename Key &gt; </div>
 <p>Loop the sound at the given buffer. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">key</td><td></td></tr>
-    <tr><td class="paramname">path</td><td></td></tr>
+    <tr><td class="paramname">k</td><td>: Key </td></tr>
   </table>
   </dd>
 </dl>
@@ -988,6 +985,12 @@ template&lt;typename Key &gt; </div>
 </div><div class="memdoc">
 
 <p>set volume </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">volume</td><td>: volume to be set </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -1018,6 +1021,12 @@ template&lt;typename Key &gt; </div>
 </div><div class="memdoc">
 
 <p>set volume </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">volume</td><td>:volume to be set </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -1050,7 +1059,7 @@ template&lt;typename Key &gt; </div>
 <p>stop the sound at the given key </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">key</td><td></td></tr>
+    <tr><td class="paramname">k</td><td>: key </td></tr>
   </table>
   </dd>
 </dl>
@@ -1086,7 +1095,7 @@ template&lt;typename Key &gt; </div>
 <p>stop the sound at the given key </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">key</td><td></td></tr>
+    <tr><td class="paramname">k</td><td>: Key </td></tr>
   </table>
   </dd>
 </dl>
@@ -1180,7 +1189,7 @@ template&lt;typename Key &gt; </div>
 <p>Stop the audio loop at the given key. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">key</td><td></td></tr>
+    <tr><td class="paramname">k</td><td>: Key </td></tr>
   </table>
   </dd>
 </dl>

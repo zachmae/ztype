@@ -12,10 +12,15 @@
 \DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef GLOBALS\_HPP\_}}
 \DoxyCodeLine{9 \textcolor{preprocessor}{\#define GLOBALS\_HPP\_}}
 \DoxyCodeLine{10 }
-\DoxyCodeLine{11 \textcolor{keyword}{namespace }Globals \{}
-\DoxyCodeLine{12     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} debug\_mode = \textcolor{keyword}{false};}
-\DoxyCodeLine{13 \}}
-\DoxyCodeLine{14 }
-\DoxyCodeLine{15 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* !GLOBALS\_HPP\_ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <SFML/Graphics.hpp>}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{namespace }Globals \{}
+\DoxyCodeLine{14     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} debug\_mode = \textcolor{keyword}{false};}
+\DoxyCodeLine{15     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} score = 0;}
+\DoxyCodeLine{16     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} difficulty = 0;}
+\DoxyCodeLine{17     \textcolor{keyword}{inline} sf::Font font;}
+\DoxyCodeLine{18 \}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* !GLOBALS\_HPP\_ */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

@@ -1,5 +1,5 @@
 \hypertarget{Menu_2Init_8hpp_source}{}\doxysection{Init.\+hpp}
-\label{Menu_2Init_8hpp_source}\index{/home/Teyi/Epitech/Semestre5/CPP/rtype/src/User/Scenes/Menu/Init.hpp@{/home/Teyi/Epitech/Semestre5/CPP/rtype/src/User/Scenes/Menu/Init.hpp}}
+\label{Menu_2Init_8hpp_source}\index{/home/Teyi/Epitech/Semestre5/CPP/rtype/src/UserClient/Scenes/Menu/Init.hpp@{/home/Teyi/Epitech/Semestre5/CPP/rtype/src/UserClient/Scenes/Menu/Init.hpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{comment}{/*}}
@@ -11,7 +11,7 @@
 \DoxyCodeLine{7 }
 \DoxyCodeLine{8 \textcolor{preprocessor}{\#include <string>}}
 \DoxyCodeLine{9 }
-\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}../../UserComponent.hpp"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}../../ClientComponent.hpp"{}}}
 \DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}../../../ProjectManager/Ecs.hpp"{}}}
 \DoxyCodeLine{12 }
 \DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}../../../SceneManager/SceneManager.hpp"{}}}
@@ -21,9 +21,9 @@
 \DoxyCodeLine{17 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceUser}{User}} \{}
 \DoxyCodeLine{18     \textcolor{keyword}{namespace }Menu \{}
 \DoxyCodeLine{19 }
-\DoxyCodeLine{29         \textcolor{keywordtype}{void} background\_generation(\mbox{\hyperlink{classregistry}{Registry\_ref}} reg, \mbox{\hyperlink{classSpriteManager}{SpriteManager\_ref<std::string>}} sprite\_manager, \mbox{\hyperlink{classSceneManager}{SceneManager\_ref<std::string>}} scene, std::string name, \textcolor{keywordtype}{float} parallax\_speed);}
+\DoxyCodeLine{29         \textcolor{keywordtype}{void} background\_generation(\mbox{\hyperlink{classregistry}{Registry\_ref}} reg, \mbox{\hyperlink{classSpriteManager}{SpriteManager\_ref<std::string>}} sprite\_manager, \mbox{\hyperlink{classSceneManager}{SceneManager\_ref<std::string>}} scene, std::string name);}
 \DoxyCodeLine{30 }
-\DoxyCodeLine{40         \textcolor{keywordtype}{void} button\_generation(\mbox{\hyperlink{classregistry}{Registry\_ref}} reg, \mbox{\hyperlink{classSpriteManager}{SpriteManager\_ref<std::string>}} sprite\_manager, \mbox{\hyperlink{classSceneManager}{SceneManager\_ref<std::string>}} scene, \mbox{\hyperlink{classAudioManager}{AudioManager\_ref<std::string>}} audioManager, std::string name);}
+\DoxyCodeLine{40         \textcolor{keywordtype}{void} button\_generation(\mbox{\hyperlink{classregistry}{Registry\_ref}} reg, \mbox{\hyperlink{classSpriteManager}{SpriteManager\_ref<std::string>}} sprite\_manager, \mbox{\hyperlink{classSceneManager}{SceneManager\_ref<std::string>}} scene, \mbox{\hyperlink{classAudioManager}{AudioManager\_ref<std::string>}} audioManager, std::string name, std::pair<float, float> pos, \mbox{\hyperlink{structclickable}{clickable}} callback, std::string str);}
 \DoxyCodeLine{41 }
 \DoxyCodeLine{42     \}}
 \DoxyCodeLine{43 \}}

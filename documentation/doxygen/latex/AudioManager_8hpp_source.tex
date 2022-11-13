@@ -32,37 +32,37 @@
 \DoxyCodeLine{45             \_storage.insert(std::pair<Key, modules::SFMLAudioModule>(k, v));}
 \DoxyCodeLine{46         \};}
 \DoxyCodeLine{47 }
-\DoxyCodeLine{55         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__StorageManager_ga0422da90752546c1fb5420742897939f}{Add}}(Key k, std::string path)}
-\DoxyCodeLine{56         \{}
-\DoxyCodeLine{57             \_storage[k].setSource(path);}
-\DoxyCodeLine{58         \};}
-\DoxyCodeLine{59 }
-\DoxyCodeLine{66         \mbox{\hyperlink{classmodules_1_1SFMLAudioModule}{modules::SFMLAudioModule}} \&\mbox{\hyperlink{group__StorageManager_ga5fce742d16eeb8afb9efec00c71c406b}{Get}}(Key k)}
-\DoxyCodeLine{67         \{}
-\DoxyCodeLine{68             \textcolor{keywordflow}{return} \_storage[k];}
-\DoxyCodeLine{69         \};}
-\DoxyCodeLine{70 }
-\DoxyCodeLine{76         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__StorageManager_gaaf5bfab3ca4417d12c7524f1066d8275}{play}}(Key k)}
-\DoxyCodeLine{77         \{}
-\DoxyCodeLine{78             \_storage[k].play();}
-\DoxyCodeLine{79         \};}
-\DoxyCodeLine{80 }
-\DoxyCodeLine{86         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__StorageManager_gaa9377e2862272aaa17f99e4a173a0018}{stop}}(Key k)}
-\DoxyCodeLine{87         \{}
-\DoxyCodeLine{88             \_storage[k].stop();}
-\DoxyCodeLine{89         \};}
-\DoxyCodeLine{90 }
-\DoxyCodeLine{96         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__StorageManager_ga985a4b153ee456e272f2ebd9123ca45b}{pause}}(Key k)}
-\DoxyCodeLine{97         \{}
-\DoxyCodeLine{98             \_storage[k].pause();}
-\DoxyCodeLine{99         \};}
-\DoxyCodeLine{100 }
-\DoxyCodeLine{105         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__StorageManager_gaba91cdd3c43ae3a5d0df7420eef36bda}{stopAll}}()}
-\DoxyCodeLine{106         \{}
-\DoxyCodeLine{107             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&it : \_storage)}
-\DoxyCodeLine{108                 it.second.stop();}
-\DoxyCodeLine{109         \};}
-\DoxyCodeLine{110 }
+\DoxyCodeLine{54         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__StorageManager_ga0422da90752546c1fb5420742897939f}{Add}}(Key k, std::string path)}
+\DoxyCodeLine{55         \{}
+\DoxyCodeLine{56             \_storage[k].setSource(path);}
+\DoxyCodeLine{57         \};}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{65         \mbox{\hyperlink{classmodules_1_1SFMLAudioModule}{modules::SFMLAudioModule}} \&\mbox{\hyperlink{group__StorageManager_ga5fce742d16eeb8afb9efec00c71c406b}{Get}}(Key k)}
+\DoxyCodeLine{66         \{}
+\DoxyCodeLine{67             \textcolor{keywordflow}{return} \_storage[k];}
+\DoxyCodeLine{68         \};}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{75         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__StorageManager_gaaf5bfab3ca4417d12c7524f1066d8275}{play}}(Key k)}
+\DoxyCodeLine{76         \{}
+\DoxyCodeLine{77             \_storage[k].play();}
+\DoxyCodeLine{78         \};}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{85         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__StorageManager_gaa9377e2862272aaa17f99e4a173a0018}{stop}}(Key k)}
+\DoxyCodeLine{86         \{}
+\DoxyCodeLine{87             \_storage[k].stop();}
+\DoxyCodeLine{88         \};}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{95         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__StorageManager_ga985a4b153ee456e272f2ebd9123ca45b}{pause}}(Key k)}
+\DoxyCodeLine{96         \{}
+\DoxyCodeLine{97             \_storage[k].pause();}
+\DoxyCodeLine{98         \};}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{104         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__StorageManager_gaba91cdd3c43ae3a5d0df7420eef36bda}{stopAll}}()}
+\DoxyCodeLine{105         \{}
+\DoxyCodeLine{106             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&it : \_storage)}
+\DoxyCodeLine{107                 it.second.stop();}
+\DoxyCodeLine{108         \};}
+\DoxyCodeLine{109 }
 \DoxyCodeLine{115         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__StorageManager_gaa561a48fc1ad1e5a45ca0e2b94fba4dd}{setVolume}}(\textcolor{keywordtype}{float} volume) \{}
 \DoxyCodeLine{116             \_volume = volume;}
 \DoxyCodeLine{117             \mbox{\hyperlink{group__StorageManager_gab0fac95baff4d19e9c3a549d4b6548a6}{updateVolume}}();}

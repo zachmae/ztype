@@ -25,20 +25,26 @@
 \DoxyCodeLine{38 }
 \DoxyCodeLine{45         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__Network_ga3c364c67fa310228c2c507ec91051ea0}{sendPos}}(\textcolor{keywordtype}{float} x, \textcolor{keywordtype}{float} y);}
 \DoxyCodeLine{46 }
-\DoxyCodeLine{52         \textcolor{keyword}{inline} sf::Packet \mbox{\hyperlink{group__Network_ga09e51b02bf201079adddc4a641a1b394}{receive}}(); \textcolor{comment}{// not used}}
-\DoxyCodeLine{53 }
-\DoxyCodeLine{59         sf::Packet \mbox{\hyperlink{group__Network_gad320512816103b19b9650fabcf3bd175}{WaitReceive}}();}
-\DoxyCodeLine{60 }
-\DoxyCodeLine{64         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__Network_ga97e144b48409c0a9873eee09f04ce724}{disconnect}}();}
+\DoxyCodeLine{53         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__Network_gaf0ffa9769038d7de1dbf40d51303f11c}{sendBlaster}}(\textcolor{keywordtype}{float} x, \textcolor{keywordtype}{float} y);}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{62         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__Network_gab2bc0268e77be80b037b4cec8ccd1cc2}{sendEnnemy}}(\textcolor{keywordtype}{int} type, \textcolor{keywordtype}{float} x, \textcolor{keywordtype}{float} y);}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 }
 \DoxyCodeLine{65 }
-\DoxyCodeLine{71         \textcolor{keywordtype}{int} \mbox{\hyperlink{group__Network_ga9fd9e7b0c3818d61dc106c8903e21575}{GetId}}() \{ \textcolor{keywordflow}{return} \_id; \}}
-\DoxyCodeLine{72         [[nodiscard]] \textcolor{keyword}{inline} sf::TcpSocket \&getSocket() \{ \textcolor{keywordflow}{return} \_socket; \}}
-\DoxyCodeLine{73 }
-\DoxyCodeLine{74     \textcolor{keyword}{private}:}
-\DoxyCodeLine{75         sf::TcpSocket \_socket;}
-\DoxyCodeLine{76         \textcolor{keywordtype}{int} \_id = 0;}
-\DoxyCodeLine{77 \};}
-\DoxyCodeLine{78 }
-\DoxyCodeLine{79 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* CLIENT\_HPP\_ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{71         \textcolor{keyword}{inline} sf::Packet \mbox{\hyperlink{group__Network_ga09e51b02bf201079adddc4a641a1b394}{receive}}(); \textcolor{comment}{// not used}}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{78         sf::Packet \mbox{\hyperlink{group__Network_gad320512816103b19b9650fabcf3bd175}{WaitReceive}}();}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{83         \textcolor{keywordtype}{void} \mbox{\hyperlink{group__Network_ga97e144b48409c0a9873eee09f04ce724}{disconnect}}();}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{90         \textcolor{keywordtype}{int} \mbox{\hyperlink{group__Network_ga9fd9e7b0c3818d61dc106c8903e21575}{GetId}}() \{ \textcolor{keywordflow}{return} \_id; \}}
+\DoxyCodeLine{91         [[nodiscard]] \textcolor{keyword}{inline} sf::TcpSocket \&getSocket() \{ \textcolor{keywordflow}{return} \_socket; \}}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93     \textcolor{keyword}{private}:}
+\DoxyCodeLine{94         sf::TcpSocket \_socket;}
+\DoxyCodeLine{95         \textcolor{keywordtype}{int} \_id = 0;}
+\DoxyCodeLine{96 \};}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* CLIENT\_HPP\_ */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

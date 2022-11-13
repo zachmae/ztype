@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['vector2_0',['Vector2',['../classpaml__sfml_1_1Vector2.html',1,'paml_sfml']]],
-  ['vector3_1',['Vector3',['../classpaml__sfml_1_1Vector3.html',1,'paml_sfml']]],
-  ['velocity_2',['velocity',['../structvelocity.html',1,'']]],
-  ['visible_3',['visible',['../structvisible.html',1,'']]]
+  ['value_5fscore_0',['value_score',['../structvalue__score.html',1,'']]],
+  ['velocity_1',['velocity',['../structvelocity.html',1,'']]],
+  ['visible_2',['visible',['../structvisible.html',1,'']]]
 ];
