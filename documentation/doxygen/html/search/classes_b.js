@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['position_0',['position',['../structposition.html',1,'']]],
-  ['project_5fconfig_1',['project_config',['../structproject__config.html',1,'']]],
-  ['projectmanager_2',['ProjectManager',['../classProject_1_1ProjectManager.html',1,'Project']]]
+  ['user_5fconfig_0',['user_config',['../structuser__config.html',1,'']]],
+  ['usermanager_1',['UserManager',['../classUserManager.html',1,'']]],
+  ['uuid_2',['uuid',['../structuuid.html',1,'']]]
 ];

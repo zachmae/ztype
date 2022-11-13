@@ -137,9 +137,9 @@ Add.
 
 
 \begin{DoxyParams}{Parameters}
-{\em t} & \\
+{\em k} & \+: Key \\
 \hline
-{\em v} & \\
+{\em v} & \+: Value \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{group__StorageManager_ga54b3aa54a92b36216249fe3c204624b8}\label{group__StorageManager_ga54b3aa54a92b36216249fe3c204624b8}} 
@@ -155,9 +155,9 @@ Add.
 
 
 \begin{DoxyParams}{Parameters}
-{\em t} & \\
+{\em k} & \+: Key \\
 \hline
-{\em v} & \\
+{\em v} & \+: Value \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{group__StorageManager_ga0422da90752546c1fb5420742897939f}\label{group__StorageManager_ga0422da90752546c1fb5420742897939f}} 
@@ -173,11 +173,9 @@ Add.
 
 
 \begin{DoxyParams}{Parameters}
-{\em t} & \\
+{\em k} & \+: Key \\
 \hline
-{\em texture} & \\
-\hline
-{\em f} & \\
+{\em path} & \+: Path \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{group__StorageManager_ga10e68ea42b23d5fd689046b1f6ae23b7}\label{group__StorageManager_ga10e68ea42b23d5fd689046b1f6ae23b7}} 
@@ -193,11 +191,9 @@ Add.
 
 
 \begin{DoxyParams}{Parameters}
-{\em t} & \\
+{\em k} & \+: Key \\
 \hline
-{\em texture} & \\
-\hline
-{\em f} & \\
+{\em path} & \+: Path \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{group__StorageManager_gae258909ad45c83a610a45d25c5b5dabe}\label{group__StorageManager_gae258909ad45c83a610a45d25c5b5dabe}} 
@@ -233,7 +229,7 @@ Get.
 
 
 \begin{DoxyParams}{Parameters}
-{\em t} & \\
+{\em k} & \+: key \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -252,7 +248,7 @@ Get.
 
 
 \begin{DoxyParams}{Parameters}
-{\em t} & \\
+{\em k} & \+: Key \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -290,7 +286,7 @@ get loop of the sound at the given key
 
 
 \begin{DoxyParams}{Parameters}
-{\em key} & \\
+{\em k} & \+: Key\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -309,7 +305,7 @@ Get the Status object.
 
 
 \begin{DoxyParams}{Parameters}
-{\em key} & \\
+{\em key} & \+: the key of the sound \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -328,7 +324,7 @@ Get the Status object.
 
 
 \begin{DoxyParams}{Parameters}
-{\em key} & \\
+{\em k} & \+: Key \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -369,7 +365,7 @@ pause the sound at the given key
 
 
 \begin{DoxyParams}{Parameters}
-{\em key} & \\
+{\em k} & \+: key \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{group__StorageManager_ga794a88705b7217fe7566d81284a5acba}\label{group__StorageManager_ga794a88705b7217fe7566d81284a5acba}} 
@@ -385,7 +381,7 @@ pause the sound at the given key
 
 
 \begin{DoxyParams}{Parameters}
-{\em key} & \\
+{\em k} & \+: Key \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{group__StorageManager_gaaf5bfab3ca4417d12c7524f1066d8275}\label{group__StorageManager_gaaf5bfab3ca4417d12c7524f1066d8275}} 
@@ -401,7 +397,7 @@ play the sound at the given key
 
 
 \begin{DoxyParams}{Parameters}
-{\em key} & \\
+{\em k} & \+: key \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{group__StorageManager_ga733c1d5ec0cf6f8af31637a6967561a1}\label{group__StorageManager_ga733c1d5ec0cf6f8af31637a6967561a1}} 
@@ -417,7 +413,7 @@ play the sound at the given key
 
 
 \begin{DoxyParams}{Parameters}
-{\em key} & \\
+{\em k} & \+: Key \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{group__StorageManager_ga4b99f36c1d2a50473c6895207cc957c7}\label{group__StorageManager_ga4b99f36c1d2a50473c6895207cc957c7}} 
@@ -433,9 +429,7 @@ Loop the sound at the given buffer.
 
 
 \begin{DoxyParams}{Parameters}
-{\em key} & \\
-\hline
-{\em path} & \\
+{\em k} & \+: Key \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{group__StorageManager_gaa561a48fc1ad1e5a45ca0e2b94fba4dd}\label{group__StorageManager_gaa561a48fc1ad1e5a45ca0e2b94fba4dd}} 
@@ -449,6 +443,11 @@ void \mbox{\hyperlink{classAudioManager}{Audio\+Manager}}$<$ Key $>$\+::set\+Vol
 
 set volume 
 
+
+\begin{DoxyParams}{Parameters}
+{\em volume} & \+: volume to be set \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{group__StorageManager_ga395bdb88d182721e3a43f5c4e5657902}\label{group__StorageManager_ga395bdb88d182721e3a43f5c4e5657902}} 
 \index{StorageManager@{StorageManager}!setVolume@{setVolume}}
 \index{setVolume@{setVolume}!StorageManager@{StorageManager}}
@@ -460,6 +459,11 @@ void \mbox{\hyperlink{classMusicManager}{Music\+Manager}}$<$ Key $>$\+::set\+Vol
 
 set volume 
 
+
+\begin{DoxyParams}{Parameters}
+{\em volume} & \+:volume to be set \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{group__StorageManager_gaa9377e2862272aaa17f99e4a173a0018}\label{group__StorageManager_gaa9377e2862272aaa17f99e4a173a0018}} 
 \index{StorageManager@{StorageManager}!stop@{stop}}
 \index{stop@{stop}!StorageManager@{StorageManager}}
@@ -473,7 +477,7 @@ stop the sound at the given key
 
 
 \begin{DoxyParams}{Parameters}
-{\em key} & \\
+{\em k} & \+: key \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{group__StorageManager_ga7b2779453772c4fa79448b2046dff2c8}\label{group__StorageManager_ga7b2779453772c4fa79448b2046dff2c8}} 
@@ -489,7 +493,7 @@ stop the sound at the given key
 
 
 \begin{DoxyParams}{Parameters}
-{\em key} & \\
+{\em k} & \+: Key \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{group__StorageManager_gaba91cdd3c43ae3a5d0df7420eef36bda}\label{group__StorageManager_gaba91cdd3c43ae3a5d0df7420eef36bda}} 
@@ -527,7 +531,7 @@ Stop the audio loop at the given key.
 
 
 \begin{DoxyParams}{Parameters}
-{\em key} & \\
+{\em k} & \+: Key \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{group__StorageManager_gab0fac95baff4d19e9c3a549d4b6548a6}\label{group__StorageManager_gab0fac95baff4d19e9c3a549d4b6548a6}} 

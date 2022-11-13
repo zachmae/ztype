@@ -108,6 +108,12 @@ Functions</h2></td></tr>
 <tr class="memitem:ga3c364c67fa310228c2c507ec91051ea0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Network.html#ga3c364c67fa310228c2c507ec91051ea0">Client::sendPos</a> (float x, float y)</td></tr>
 <tr class="memdesc:ga3c364c67fa310228c2c507ec91051ea0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a position to the server.  <a href="group__Network.html#ga3c364c67fa310228c2c507ec91051ea0">More...</a><br /></td></tr>
 <tr class="separator:ga3c364c67fa310228c2c507ec91051ea0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf0ffa9769038d7de1dbf40d51303f11c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Network.html#gaf0ffa9769038d7de1dbf40d51303f11c">Client::sendBlaster</a> (float x, float y)</td></tr>
+<tr class="memdesc:gaf0ffa9769038d7de1dbf40d51303f11c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send the position of a blaster spawn to the server.  <a href="group__Network.html#gaf0ffa9769038d7de1dbf40d51303f11c">More...</a><br /></td></tr>
+<tr class="separator:gaf0ffa9769038d7de1dbf40d51303f11c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab2bc0268e77be80b037b4cec8ccd1cc2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Network.html#gab2bc0268e77be80b037b4cec8ccd1cc2">Client::sendEnnemy</a> (int type, float x, float y)</td></tr>
+<tr class="memdesc:gab2bc0268e77be80b037b4cec8ccd1cc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send the spawn of an ennemy to the server.  <a href="group__Network.html#gab2bc0268e77be80b037b4cec8ccd1cc2">More...</a><br /></td></tr>
+<tr class="separator:gab2bc0268e77be80b037b4cec8ccd1cc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga09e51b02bf201079adddc4a641a1b394"><td class="memItemLeft" align="right" valign="top">sf::Packet&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Network.html#ga09e51b02bf201079adddc4a641a1b394">Client::receive</a> ()</td></tr>
 <tr class="memdesc:ga09e51b02bf201079adddc4a641a1b394"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive a packet from the server.  <a href="group__Network.html#ga09e51b02bf201079adddc4a641a1b394">More...</a><br /></td></tr>
 <tr class="separator:ga09e51b02bf201079adddc4a641a1b394"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -456,6 +462,87 @@ false : the selector failed to wait for a new message </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">message</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaf0ffa9769038d7de1dbf40d51303f11c" name="gaf0ffa9769038d7de1dbf40d51303f11c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf0ffa9769038d7de1dbf40d51303f11c">&#9670;&#160;</a></span>sendBlaster()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Client::sendBlaster </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send the position of a blaster spawn to the server. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>position x of the blaster </td></tr>
+    <tr><td class="paramname">y</td><td>position y of the blaster </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gab2bc0268e77be80b037b4cec8ccd1cc2" name="gab2bc0268e77be80b037b4cec8ccd1cc2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab2bc0268e77be80b037b4cec8ccd1cc2">&#9670;&#160;</a></span>sendEnnemy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Client::sendEnnemy </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send the spawn of an ennemy to the server. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>type of the ennemy </td></tr>
+    <tr><td class="paramname">x</td><td>position x of the blaster </td></tr>
+    <tr><td class="paramname">y</td><td>position y of the blaster </td></tr>
   </table>
   </dd>
 </dl>

@@ -24,6 +24,10 @@ void \mbox{\hyperlink{group__Network_gaddd2a71501a35ae902e5faa99ee9c351}{Client\
 \begin{DoxyCompactList}\small\item\em Send a packet to the server. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{group__Network_ga3c364c67fa310228c2c507ec91051ea0}{Client\+::send\+Pos}} (float x, float y)
 \begin{DoxyCompactList}\small\item\em Send a position to the server. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Network_gaf0ffa9769038d7de1dbf40d51303f11c}{Client\+::send\+Blaster}} (float x, float y)
+\begin{DoxyCompactList}\small\item\em Send the position of a blaster spawn to the server. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Network_gab2bc0268e77be80b037b4cec8ccd1cc2}{Client\+::send\+Ennemy}} (int type, float x, float y)
+\begin{DoxyCompactList}\small\item\em Send the spawn of an ennemy to the server. \end{DoxyCompactList}\item 
 sf\+::\+Packet \mbox{\hyperlink{group__Network_ga09e51b02bf201079adddc4a641a1b394}{Client\+::receive}} ()
 \begin{DoxyCompactList}\small\item\em Receive a packet from the server. \end{DoxyCompactList}\item 
 sf\+::\+Packet \mbox{\hyperlink{group__Network_gad320512816103b19b9650fabcf3bd175}{Client\+::\+Wait\+Receive}} ()
@@ -224,6 +228,42 @@ Send a message to all clients.
 
 \begin{DoxyParams}{Parameters}
 {\em message} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Network_gaf0ffa9769038d7de1dbf40d51303f11c}\label{group__Network_gaf0ffa9769038d7de1dbf40d51303f11c}} 
+\index{Network@{Network}!sendBlaster@{sendBlaster}}
+\index{sendBlaster@{sendBlaster}!Network@{Network}}
+\doxysubsubsection{\texorpdfstring{sendBlaster()}{sendBlaster()}}
+{\footnotesize\ttfamily void Client\+::send\+Blaster (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})}
+
+
+
+Send the position of a blaster spawn to the server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & position x of the blaster \\
+\hline
+{\em y} & position y of the blaster \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Network_gab2bc0268e77be80b037b4cec8ccd1cc2}\label{group__Network_gab2bc0268e77be80b037b4cec8ccd1cc2}} 
+\index{Network@{Network}!sendEnnemy@{sendEnnemy}}
+\index{sendEnnemy@{sendEnnemy}!Network@{Network}}
+\doxysubsubsection{\texorpdfstring{sendEnnemy()}{sendEnnemy()}}
+{\footnotesize\ttfamily void Client\+::send\+Ennemy (\begin{DoxyParamCaption}\item[{int}]{type,  }\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})}
+
+
+
+Send the spawn of an ennemy to the server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & type of the ennemy \\
+\hline
+{\em x} & position x of the blaster \\
+\hline
+{\em y} & position y of the blaster \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{group__Network_ga3c364c67fa310228c2c507ec91051ea0}\label{group__Network_ga3c364c67fa310228c2c507ec91051ea0}} 

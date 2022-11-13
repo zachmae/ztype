@@ -4,6 +4,8 @@
 \begin{DoxyCompactItemize}
 \item 
 namespace \mbox{\hyperlink{namespaceUser}{User}}
+\begin{DoxyCompactList}\small\item\em namespace \mbox{\hyperlink{namespaceUser}{User}} \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespaceServer}{Server}}
 \begin{DoxyCompactList}\small\item\em Namespace for all game related content, here systems. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
@@ -14,22 +16,34 @@ void \mbox{\hyperlink{group__System_ga4e946176ee9363d8e808852962e3a18a}{User\+::
 \begin{DoxyCompactList}\small\item\em \+: handle position of all of the entities \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{group__System_gaff16b4e1b44b32293eabfad5ecbf65d0}{User\+::animation\+\_\+basic\+\_\+system}} (\mbox{\hyperlink{classregistry}{registry}} \&r)
 \begin{DoxyCompactList}\small\item\em handle basic animations in a sprite sheet \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__System_ga3f1dadb97d6c3754f905554bbcdc4ea6}{User\+::update\+\_\+score}} (\mbox{\hyperlink{classregistry}{registry}} \&r)
+\begin{DoxyCompactList}\small\item\em update the score object \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__System_ga63de1d6f3f628fc265f1e3324164013c}{User\+::update\+\_\+button\+\_\+language}} (\mbox{\hyperlink{classregistry}{registry}} \&r)
+\begin{DoxyCompactList}\small\item\em update button text language \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__System_gac6154d33f4b7fc233c1eb3ec7088a5d1}{User\+::update\+\_\+music\+\_\+volume\+\_\+text}} (\mbox{\hyperlink{classregistry}{registry}} \&r, \mbox{\hyperlink{classMusicManager}{Music\+Manager\+\_\+ref}}$<$ std\+::string $>$ mm)
+\begin{DoxyCompactList}\small\item\em update music text volume \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__System_gac0c7dd9ad8be06612303e4fc3a91a3fb}{User\+::update\+\_\+audio\+\_\+volume\+\_\+text}} (\mbox{\hyperlink{classregistry}{registry}} \&r, \mbox{\hyperlink{classAudioManager}{Audio\+Manager\+\_\+ref}}$<$ std\+::string $>$ am)
+\begin{DoxyCompactList}\small\item\em update music text volume \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{group__System_ga3f6ca00526da76fc3dc4005d01649543}{User\+::animate\+\_\+ship\+\_\+system}} (\mbox{\hyperlink{classregistry}{registry}} \&r, size\+\_\+t entity\+\_\+index, int key\+\_\+code)
 \begin{DoxyCompactList}\small\item\em system that can animate ships \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{group__System_ga7abcffd89b8d3fa49ca90426bcdc2d3a}{User\+::bullet\+\_\+creation\+\_\+system}} (\mbox{\hyperlink{classregistry}{registry}} \&r, float src\+\_\+x, float src\+\_\+y, \mbox{\hyperlink{classSpriteManager}{Sprite\+Manager}}$<$ std\+::string $>$ \+\_\+sprite\+Manager, \mbox{\hyperlink{classAudioManager}{Audio\+Manager}}$<$ std\+::string $>$ \&\+\_\+audio\+Manager)
+void \mbox{\hyperlink{group__System_ga6fe80d68b41512af17a0da1f2b8bb291}{User\+::bullet\+\_\+creation\+\_\+system}} (\mbox{\hyperlink{classregistry}{registry}} \&r, float src\+\_\+x, float src\+\_\+y, \mbox{\hyperlink{classSpriteManager}{Sprite\+Manager}}$<$ std\+::string $>$ \+\_\+sprite\+Manager, \mbox{\hyperlink{classAudioManager}{Audio\+Manager}}$<$ std\+::string $>$ \&\+\_\+audio\+Manager, \mbox{\hyperlink{classSceneManager}{Scene\+Manager\+\_\+ref}}$<$ std\+::string $>$ scene, \mbox{\hyperlink{classClient}{Client}} \&client)
 \begin{DoxyCompactList}\small\item\em system that can create a bullet from the position of the ship \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{group__System_ga101714180c81496b536faf2a52f86181}{User\+::enemy\+\_\+system}} (\mbox{\hyperlink{classregistry}{registry}} \&r, \mbox{\hyperlink{classSpriteManager}{Sprite\+Manager}}$<$ std\+::string $>$ \&\+\_\+sprite\+Manager, Window\+\_\+ref w)
+void \mbox{\hyperlink{group__System_ga2dbef1bf151f11bb33a3adf2d25a9a80}{User\+::enemy\+\_\+system}} (\mbox{\hyperlink{classregistry}{registry}} \&r, \mbox{\hyperlink{classSpriteManager}{Sprite\+Manager}}$<$ std\+::string $>$ \&\+\_\+sprite\+Manager, Window\+\_\+ref w, \mbox{\hyperlink{classSceneManager}{Scene\+Manager\+\_\+ref}}$<$ std\+::string $>$ scene, \mbox{\hyperlink{classClient}{Client}} \&client)
 \begin{DoxyCompactList}\small\item\em system that can create random enemy when i need to \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{group__System_ga2b763e76fbfbfa822f32ec3b63c1bf9a}{User\+::boss\+\_\+magic\+\_\+system}} (\mbox{\hyperlink{classregistry}{registry}} \&r, \mbox{\hyperlink{classSpriteManager}{Sprite\+Manager}}$<$ std\+::string $>$ \&\+\_\+sprite\+Manager, Window\+\_\+ref w)
+void \mbox{\hyperlink{group__System_ga9c3316111de62f857f5230a5f320e875}{User\+::boss\+\_\+magic\+\_\+system}} (\mbox{\hyperlink{classregistry}{registry}} \&r, \mbox{\hyperlink{classSpriteManager}{Sprite\+Manager}}$<$ std\+::string $>$ \&\+\_\+sprite\+Manager, Window\+\_\+ref w, \mbox{\hyperlink{classSceneManager}{Scene\+Manager\+\_\+ref}}$<$ std\+::string $>$ scene)
 \begin{DoxyCompactList}\small\item\em system that allow the generation of magic attack if the boss is alive \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__System_gab9df6cbf0e8211975132dc64c27441db}{User\+::check\+\_\+lose\+\_\+system}} (\mbox{\hyperlink{classregistry}{Registry\+\_\+ref}} reg, \mbox{\hyperlink{classSceneManager}{Scene\+Manager\+\_\+ref}}$<$ std\+::string $>$ scene)
+\begin{DoxyCompactList}\small\item\em system that check if there is player left alive \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{group__System_gaf9344443fbeada23fad678aaa174c375}{User\+::collision\+\_\+system}} (\mbox{\hyperlink{classregistry}{registry}} \&r, \mbox{\hyperlink{classAudioManager}{Audio\+Manager}}$<$ std\+::string $>$ \&\+\_\+audio\+Manager)
 \begin{DoxyCompactList}\small\item\em system that handle collision between entities \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{group__System_ga1d240024a1b1ac267b1cb977b13176ce}{User\+::control\+\_\+system}} (\mbox{\hyperlink{classregistry}{registry}} \&r, Event\+\_\+ref e, const \mbox{\hyperlink{classSpriteManager}{Sprite\+Manager}}$<$ std\+::string $>$ \&\+\_\+sprite\+Manager, \mbox{\hyperlink{classAudioManager}{Audio\+Manager}}$<$ std\+::string $>$ \&\+\_\+audio\+Manager)
-\begin{DoxyCompactList}\small\item\em system that can handle controls of the entities that i am able to move \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__System_gaefa741409a336c09f23e5cac9e9efae4}{User\+::control\+\_\+system}} (\mbox{\hyperlink{classregistry}{registry}} \&r, Event\+\_\+ref e, const \mbox{\hyperlink{classSpriteManager}{Sprite\+Manager}}$<$ std\+::string $>$ \&\+\_\+sprite\+Manager, \mbox{\hyperlink{classAudioManager}{Audio\+Manager}}$<$ std\+::string $>$ \&\+\_\+audio\+Manager, \mbox{\hyperlink{classSceneManager}{Scene\+Manager\+\_\+ref}}$<$ std\+::string $>$ scene, \mbox{\hyperlink{classClient}{Client}} \&client)
+\begin{DoxyCompactList}\small\item\em control the user input \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{group__System_gab999ebb5f6f381c9099404c587475006}{User\+::remove\+\_\+out\+\_\+of\+\_\+screen\+\_\+system}} (\mbox{\hyperlink{classregistry}{registry}} \&r, Window\+\_\+ref w)
 \begin{DoxyCompactList}\small\item\em system that can remove every entities that are out of the window in order to free memory \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{group__System_gad5a598e85df32a0c56bee190f25ba289}{User\+::draw\+\_\+system}} (\mbox{\hyperlink{classregistry}{registry}} \&r, Window\+\_\+ref w)
-\begin{DoxyCompactList}\small\item\em system that draw every drawable entity \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em system that draw every drawable entity \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Key $>$ }\\void \mbox{\hyperlink{group__System_ga3586b3d1b76106db5441cdb9a70a919b}{User\+::click\+\_\+system}} (\mbox{\hyperlink{classregistry}{Registry\+\_\+ref}} reg, \mbox{\hyperlink{classSceneManager}{Scene\+Manager\+\_\+ref}}$<$ Key $>$ scene, Event\+\_\+ref event, Window\+\_\+ref window, \mbox{\hyperlink{classAudioManager}{Audio\+Manager\+\_\+ref}}$<$ std\+::string $>$ am, \mbox{\hyperlink{classMusicManager}{Music\+Manager\+\_\+ref}}$<$ std\+::string $>$ mm)
+\begin{DoxyCompactList}\small\item\em click system \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -70,11 +84,11 @@ handle basic animations in a sprite sheet
 {\em r} & \+: registry, contain all of the entities and the related components \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{group__System_ga2b763e76fbfbfa822f32ec3b63c1bf9a}\label{group__System_ga2b763e76fbfbfa822f32ec3b63c1bf9a}} 
+\mbox{\Hypertarget{group__System_ga9c3316111de62f857f5230a5f320e875}\label{group__System_ga9c3316111de62f857f5230a5f320e875}} 
 \index{System@{System}!boss\_magic\_system@{boss\_magic\_system}}
 \index{boss\_magic\_system@{boss\_magic\_system}!System@{System}}
 \doxysubsubsection{\texorpdfstring{boss\_magic\_system()}{boss\_magic\_system()}}
-{\footnotesize\ttfamily void User\+::boss\+\_\+magic\+\_\+system (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classregistry}{registry}} \&}]{r,  }\item[{\mbox{\hyperlink{classSpriteManager}{Sprite\+Manager}}$<$ std\+::string $>$ \&}]{\+\_\+sprite\+Manager,  }\item[{Window\+\_\+ref}]{w }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void User\+::boss\+\_\+magic\+\_\+system (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classregistry}{registry}} \&}]{r,  }\item[{\mbox{\hyperlink{classSpriteManager}{Sprite\+Manager}}$<$ std\+::string $>$ \&}]{\+\_\+sprite\+Manager,  }\item[{Window\+\_\+ref}]{w,  }\item[{\mbox{\hyperlink{classSceneManager}{Scene\+Manager\+\_\+ref}}$<$ std\+::string $>$}]{scene }\end{DoxyParamCaption})}
 
 
 
@@ -89,11 +103,11 @@ system that allow the generation of magic attack if the boss is alive
 {\em w} & \+: window reference \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{group__System_ga7abcffd89b8d3fa49ca90426bcdc2d3a}\label{group__System_ga7abcffd89b8d3fa49ca90426bcdc2d3a}} 
+\mbox{\Hypertarget{group__System_ga6fe80d68b41512af17a0da1f2b8bb291}\label{group__System_ga6fe80d68b41512af17a0da1f2b8bb291}} 
 \index{System@{System}!bullet\_creation\_system@{bullet\_creation\_system}}
 \index{bullet\_creation\_system@{bullet\_creation\_system}!System@{System}}
 \doxysubsubsection{\texorpdfstring{bullet\_creation\_system()}{bullet\_creation\_system()}}
-{\footnotesize\ttfamily void User\+::bullet\+\_\+creation\+\_\+system (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classregistry}{registry}} \&}]{r,  }\item[{float}]{src\+\_\+x,  }\item[{float}]{src\+\_\+y,  }\item[{\mbox{\hyperlink{classSpriteManager}{Sprite\+Manager}}$<$ std\+::string $>$}]{\+\_\+sprite\+Manager,  }\item[{\mbox{\hyperlink{classAudioManager}{Audio\+Manager}}$<$ std\+::string $>$ \&}]{\+\_\+audio\+Manager }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void User\+::bullet\+\_\+creation\+\_\+system (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classregistry}{registry}} \&}]{r,  }\item[{float}]{src\+\_\+x,  }\item[{float}]{src\+\_\+y,  }\item[{\mbox{\hyperlink{classSpriteManager}{Sprite\+Manager}}$<$ std\+::string $>$}]{\+\_\+sprite\+Manager,  }\item[{\mbox{\hyperlink{classAudioManager}{Audio\+Manager}}$<$ std\+::string $>$ \&}]{\+\_\+audio\+Manager,  }\item[{\mbox{\hyperlink{classSceneManager}{Scene\+Manager\+\_\+ref}}$<$ std\+::string $>$}]{scene,  }\item[{\mbox{\hyperlink{classClient}{Client}} \&}]{client }\end{DoxyParamCaption})}
 
 
 
@@ -108,6 +122,82 @@ system that can create a bullet from the position of the ship
 {\em src\+\_\+y} & \+: y position of the ship \\
 \hline
 {\em \+\_\+sprite\+Manager} & \+: sprite manager reference of all sprites \\
+\hline
+{\em scene} & \+: scene manager reference \\
+\hline
+{\em client} & \+: client reference \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__System_gab9df6cbf0e8211975132dc64c27441db}\label{group__System_gab9df6cbf0e8211975132dc64c27441db}} 
+\index{System@{System}!check\_lose\_system@{check\_lose\_system}}
+\index{check\_lose\_system@{check\_lose\_system}!System@{System}}
+\doxysubsubsection{\texorpdfstring{check\_lose\_system()}{check\_lose\_system()}}
+{\footnotesize\ttfamily bool User\+::check\+\_\+lose\+\_\+system (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classregistry}{Registry\+\_\+ref}}}]{reg,  }\item[{\mbox{\hyperlink{classSceneManager}{Scene\+Manager\+\_\+ref}}$<$ std\+::string $>$}]{scene }\end{DoxyParamCaption})}
+
+
+
+system that check if there is player left alive 
+
+
+\begin{DoxyParams}{Parameters}
+{\em reg} & \+: registry, contain all of the entities and the related components \\
+\hline
+{\em scene} & \+: scene manager reference \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true \+: if there is no player left alive 
+
+false \+: if there is still player left alive 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__System_ga3586b3d1b76106db5441cdb9a70a919b}\label{group__System_ga3586b3d1b76106db5441cdb9a70a919b}} 
+\index{System@{System}!click\_system@{click\_system}}
+\index{click\_system@{click\_system}!System@{System}}
+\doxysubsubsection{\texorpdfstring{click\_system()}{click\_system()}}
+{\footnotesize\ttfamily template$<$typename Key $>$ \\
+void User\+::\+User\+::click\+\_\+system (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classregistry}{Registry\+\_\+ref}}}]{reg,  }\item[{\mbox{\hyperlink{classSceneManager}{Scene\+Manager\+\_\+ref}}$<$ Key $>$}]{scene,  }\item[{Event\+\_\+ref}]{event,  }\item[{Window\+\_\+ref}]{window,  }\item[{\mbox{\hyperlink{classAudioManager}{Audio\+Manager\+\_\+ref}}$<$ std\+::string $>$}]{am,  }\item[{\mbox{\hyperlink{classMusicManager}{Music\+Manager\+\_\+ref}}$<$ std\+::string $>$}]{mm }\end{DoxyParamCaption})}
+
+
+
+click system 
+
+click system that handle the click on the buttons
+
+
+\begin{DoxyParams}{Parameters}
+{\em reg} & \+: the reference to the registry \\
+\hline
+{\em scene} & \+: the reference to the scene manager \\
+\hline
+{\em event} & \\
+\hline
+{\em window} & \\
+\hline
+{\em am} & \+: the reference to the audio manager \\
+\hline
+{\em mm} & \+: the reference to the music manager\\
+\hline
+\end{DoxyParams}
+
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Key} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em reg} & \+: the reference to the registry \\
+\hline
+{\em scene} & \+: the reference to the scene manager \\
+\hline
+{\em event} & \+: the reference to the event manager \\
+\hline
+{\em window} & \+: the reference to the window \\
+\hline
+{\em am} & \+: the reference to the audio manager \\
+\hline
+{\em mm} & \+: the reference to the music manager \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{group__System_gaf9344443fbeada23fad678aaa174c375}\label{group__System_gaf9344443fbeada23fad678aaa174c375}} 
@@ -127,28 +217,17 @@ system that handle collision between entities
 {\em \+\_\+audio\+Manager} & \+: audio manager reference of all sounds \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{group__System_ga1d240024a1b1ac267b1cb977b13176ce}\label{group__System_ga1d240024a1b1ac267b1cb977b13176ce}} 
+\mbox{\Hypertarget{group__System_gaefa741409a336c09f23e5cac9e9efae4}\label{group__System_gaefa741409a336c09f23e5cac9e9efae4}} 
 \index{System@{System}!control\_system@{control\_system}}
 \index{control\_system@{control\_system}!System@{System}}
 \doxysubsubsection{\texorpdfstring{control\_system()}{control\_system()}}
-{\footnotesize\ttfamily void User\+::control\+\_\+system (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classregistry}{registry}} \&}]{r,  }\item[{Event\+\_\+ref}]{e,  }\item[{const \mbox{\hyperlink{classSpriteManager}{Sprite\+Manager}}$<$ std\+::string $>$ \&}]{\+\_\+sprite\+Manager,  }\item[{\mbox{\hyperlink{classAudioManager}{Audio\+Manager}}$<$ std\+::string $>$ \&}]{\+\_\+audio\+Manager }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void User\+::control\+\_\+system (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classregistry}{registry}} \&}]{r,  }\item[{Event\+\_\+ref}]{e,  }\item[{const \mbox{\hyperlink{classSpriteManager}{Sprite\+Manager}}$<$ std\+::string $>$ \&}]{\+\_\+sprite\+Manager,  }\item[{\mbox{\hyperlink{classAudioManager}{Audio\+Manager}}$<$ std\+::string $>$ \&}]{\+\_\+audio\+Manager,  }\item[{\mbox{\hyperlink{classSceneManager}{Scene\+Manager\+\_\+ref}}$<$ std\+::string $>$}]{scene,  }\item[{\mbox{\hyperlink{classClient}{Client}} \&}]{client }\end{DoxyParamCaption})}
 
 
 
-system that can handle controls of the entities that i am able to move 
+control the user input 
 
-control the user input
-
-
-\begin{DoxyParams}{Parameters}
-{\em r} & \+: registry, contain all of the entities and the related components \\
-\hline
-{\em e} & \+: event that i want to handle \\
-\hline
-{\em \+\_\+sprite\+Manager} & \+: sprite manager reference of all sprites\\
-\hline
-\end{DoxyParams}
-
+system that can handle controls of the entities that i am able to move
 
 
 \begin{DoxyParams}{Parameters}
@@ -159,6 +238,23 @@ control the user input
 {\em \+\_\+sprite\+Manager} & \+: the reference to the sprite manager \\
 \hline
 {\em \+\_\+audio\+Manager} & \+: the reference to the audio manager \\
+\hline
+{\em client} & \+: the reference to the client\\
+\hline
+\end{DoxyParams}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & \+: registry, contain all of the entities and the related components \\
+\hline
+{\em e} & \+: event that i want to handle \\
+\hline
+{\em \+\_\+sprite\+Manager} & \+: sprite manager reference of all sprites \\
+\hline
+{\em scene} & \+: scene manager reference \\
+\hline
+{\em client} & \+: client reference \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{group__System_gad5a598e85df32a0c56bee190f25ba289}\label{group__System_gad5a598e85df32a0c56bee190f25ba289}} 
@@ -178,11 +274,11 @@ system that draw every drawable entity
 {\em w} & \+: window reference \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{group__System_ga101714180c81496b536faf2a52f86181}\label{group__System_ga101714180c81496b536faf2a52f86181}} 
+\mbox{\Hypertarget{group__System_ga2dbef1bf151f11bb33a3adf2d25a9a80}\label{group__System_ga2dbef1bf151f11bb33a3adf2d25a9a80}} 
 \index{System@{System}!enemy\_system@{enemy\_system}}
 \index{enemy\_system@{enemy\_system}!System@{System}}
 \doxysubsubsection{\texorpdfstring{enemy\_system()}{enemy\_system()}}
-{\footnotesize\ttfamily void User\+::enemy\+\_\+system (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classregistry}{registry}} \&}]{r,  }\item[{\mbox{\hyperlink{classSpriteManager}{Sprite\+Manager}}$<$ std\+::string $>$ \&}]{\+\_\+sprite\+Manager,  }\item[{Window\+\_\+ref}]{w }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void User\+::enemy\+\_\+system (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classregistry}{registry}} \&}]{r,  }\item[{\mbox{\hyperlink{classSpriteManager}{Sprite\+Manager}}$<$ std\+::string $>$ \&}]{\+\_\+sprite\+Manager,  }\item[{Window\+\_\+ref}]{w,  }\item[{\mbox{\hyperlink{classSceneManager}{Scene\+Manager\+\_\+ref}}$<$ std\+::string $>$}]{scene,  }\item[{\mbox{\hyperlink{classClient}{Client}} \&}]{client }\end{DoxyParamCaption})}
 
 
 
@@ -195,6 +291,10 @@ system that can create random enemy when i need to
 {\em \+\_\+sprite\+Manager} & \+: sprite manager reference of all sprites \\
 \hline
 {\em w} & \+: window reference \\
+\hline
+{\em scene} & \+: scene manager reference \\
+\hline
+{\em client} & \+: client reference \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{group__System_ga67dc1b0691869904da7879bf857c332a}\label{group__System_ga67dc1b0691869904da7879bf857c332a}} 
@@ -255,5 +355,69 @@ system that can remove every entities that are out of the window in order to fre
 {\em r} & \+: registry, contain all of the entities and the related components \\
 \hline
 {\em w} & \+: window reference \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__System_gac0c7dd9ad8be06612303e4fc3a91a3fb}\label{group__System_gac0c7dd9ad8be06612303e4fc3a91a3fb}} 
+\index{System@{System}!update\_audio\_volume\_text@{update\_audio\_volume\_text}}
+\index{update\_audio\_volume\_text@{update\_audio\_volume\_text}!System@{System}}
+\doxysubsubsection{\texorpdfstring{update\_audio\_volume\_text()}{update\_audio\_volume\_text()}}
+{\footnotesize\ttfamily void User\+::update\+\_\+audio\+\_\+volume\+\_\+text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classregistry}{registry}} \&}]{r,  }\item[{\mbox{\hyperlink{classAudioManager}{Audio\+Manager\+\_\+ref}}$<$ std\+::string $>$}]{am }\end{DoxyParamCaption})}
+
+
+
+update music text volume 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & \+: registry, contain all of the entities and the related components \\
+\hline
+{\em mm} & \+: the reference to the music manager \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__System_ga63de1d6f3f628fc265f1e3324164013c}\label{group__System_ga63de1d6f3f628fc265f1e3324164013c}} 
+\index{System@{System}!update\_button\_language@{update\_button\_language}}
+\index{update\_button\_language@{update\_button\_language}!System@{System}}
+\doxysubsubsection{\texorpdfstring{update\_button\_language()}{update\_button\_language()}}
+{\footnotesize\ttfamily void User\+::update\+\_\+button\+\_\+language (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classregistry}{registry}} \&}]{r }\end{DoxyParamCaption})}
+
+
+
+update button text language 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & \+: registry, contain all of the entities and the related components \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__System_gac6154d33f4b7fc233c1eb3ec7088a5d1}\label{group__System_gac6154d33f4b7fc233c1eb3ec7088a5d1}} 
+\index{System@{System}!update\_music\_volume\_text@{update\_music\_volume\_text}}
+\index{update\_music\_volume\_text@{update\_music\_volume\_text}!System@{System}}
+\doxysubsubsection{\texorpdfstring{update\_music\_volume\_text()}{update\_music\_volume\_text()}}
+{\footnotesize\ttfamily void User\+::update\+\_\+music\+\_\+volume\+\_\+text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classregistry}{registry}} \&}]{r,  }\item[{\mbox{\hyperlink{classMusicManager}{Music\+Manager\+\_\+ref}}$<$ std\+::string $>$}]{mm }\end{DoxyParamCaption})}
+
+
+
+update music text volume 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & \+: registry, contain all of the entities and the related components \\
+\hline
+{\em mm} & \+: the reference to the music manager \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__System_ga3f1dadb97d6c3754f905554bbcdc4ea6}\label{group__System_ga3f1dadb97d6c3754f905554bbcdc4ea6}} 
+\index{System@{System}!update\_score@{update\_score}}
+\index{update\_score@{update\_score}!System@{System}}
+\doxysubsubsection{\texorpdfstring{update\_score()}{update\_score()}}
+{\footnotesize\ttfamily void User\+::update\+\_\+score (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classregistry}{registry}} \&}]{r }\end{DoxyParamCaption})}
+
+
+
+update the score object 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & \+: registry, contain all of the entities and the related components \\
 \hline
 \end{DoxyParams}
