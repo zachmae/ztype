@@ -51,27 +51,20 @@ Execute CMake
 Server
 ```
     ./rtype [port]
+
+        [port]  port number
 ```
 
 Client
 ```
-    ./rtype [ip] [port]
-```
-
-Client with the specified language located in the assets/langassets/lang directory
-```
-    ./rtype [ip] [port] -l [language_short_name]
-```
-
-Client with the specified difficulty 0 to 4 (peacefull to hardcore)
-```
-    ./rtype [ip] [port] -d [difficulty]
-```
-
-Client with specified language and difficulty
-```
     ./rtype [ip] [port] -l [language_short_name] -d [difficulty]
+
+        [ip]                    ip address
+        [port]                  port number
+        [language_short_name]   specify language located in the assets/langassets/lang directory
+        [difficulty]            specify difficulty 0 to 4 (peacefull to hardcore)
 ```
+
 
 ## Documentation ##
 
